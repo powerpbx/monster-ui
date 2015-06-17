@@ -12,8 +12,11 @@ define(function(require){
 
 		i18n: { 
 			'en-US': { customCss: false },
-			'fr-FR': { customCss: false },
-			'ru-RU': { customCss: false }
+                        'de-DE': { customCss: false },
+                        'it-IT': { customCss: false },
+                        'fr-FR': { customCss: false },
+                        'ro-RO': { customCss: false },
+                        'ru-RU': { customCss: false }
 		},
 
 		appFlags: {
@@ -337,7 +340,7 @@ define(function(require){
 					// 	callback();
 					// }
 					if(monster.config.whitelabel.custom_welcome_message) {
-						template.find('.left-div .hello').empty().html(monster.config.whitelabel.custom_welcome_message.replace(/\r?\n/g, '<br />'));
+						template.find('.hello-subtitle').empty().html(monster.config.whitelabel.custom_welcome_message.replace(/\r?\n/g, '<br />'));
 					}
 					callback();
 				},

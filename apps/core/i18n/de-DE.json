@@ -1,0 +1,511 @@
+{
+	"poweredBy": "Programmiert durch ",
+	"welcome": "Hosted Telecom Services",
+	"hello": "Willkommen!",
+	"error": "Fehler",
+	"olderVersion": "Es scheint, dass die Daten für die Aktualisierung, außerhalb dieses Programms erstellt wurde, möchten Sie trotzdem fortfahren?",
+	"errors": {
+		"generic": "Ein unerwarteter Fehler ist aufgetreten, bitte versuchen Sie es nocheinmal!",
+		"genericLabel": "API-Antwort",
+		"401": "Anmeldungsfehler, bitte überprüfen Sie den Benutzernamen und das Konto, ob es korrekt ist.",
+		"403": "Zugriff verweigert.",
+		"500": "Interner Serverfehler, bitte kontaktieren Sie Ihren Administrator.",
+		"invalidData": {
+			"errorLabel": "Fehlereingabe:",
+			"required": "Das Feld \"{{field}}\" muss ausgefüllt werden.",
+			"minimum": "Der Wert für dieses Feld \"{{field}}\" muss mindestens {{value}} sein.",
+			"maximum": "Der Wert für dieses Feld \"{{field}}\" darf maximal {{value}} sein.",
+			"minLength": "Die Länge für dieses Feld \"{{field}}\" muss mindestens {{value}} Zeichen sein.",
+			"maxLength": "Die Länge für dieses Feld \"{{field}}\" darf maximal {{value}} Zeichen sein.",
+			"enum:": "Der Wert für dieses Feld \"{{field}}\" wurde nicht in der Liste der zulässigen Werte gefunden.",
+			"minItems": "Die Liste für dieses Feld \"{{field}}\" muss mindestens {{value}} Einträge enthalten.",
+			"maxItems": "Die Liste für dieses Feld \"{{field}}\" darf maximal {{value}} Einträge enthalten.",
+			"minProperties": "Das Objekt für dieses Feld \"{{field}}\" verfügt nicht über genügend Einträge.",
+			"uniqueItems": "Die Einträge für dieses Feld \"{{field}}\" müssen eindeutig sein.",
+			"pattern": "Der Wert für dieses Feld \"{{field}}\" ist nicht in Übereinstimmung mit \"{{value}}\".",
+			"divisibleBy": "Der Wert für dieses Feld \"{{field}}\" ist nicht teilbar mit {{value}}.",
+			"disallow": "Der Wert für dieses Feld \"{{field}}\" ist nicht erlaubt.",
+			"type": "Der Wert für dieses Feldes \"{{field}}\" muss vom Typ \"{{value}}\" sein.",
+			"unique": "Der Wert für dieses Feldes \"{{field}}\" muss eindeutig sein.",
+			"forbidden": "Der Wert für dieses Feld \"{{field}}\" kann nicht geändert werden."
+		}
+	},
+	"apps": "APPS",
+	"add": "Zufügen",
+	"alertLogout": "Ihre Sitzung ist Aufgrund längerer Inaktivität abgelaufen. Bitte mdelden Sie sich erneut an.",
+	"cancel": "Abbrechen",
+	"change": "Ändern",
+	"chargeReminder": {
+		"line1": "Wenn Sie wiederkehrende Leistungen geändert haben, werden die Gebühren Anteilig für Ihren Rechnungszyklus verrechnet. Der Betrag wird jetzt von Ihrem Konto beglichen.",
+                "line2": "Bitte bestägigen, dass Sie dies durchführen wollen?"
+	},
+	"close" : "Schliessen",
+	"conferencingLogo": "Konferenzschaltung",
+	"csv": "CSV",
+	"currencyUsed": "CHF",
+	"delete": "Löschen",
+	"dialog" : {
+		"showError": "Zeige Fehler",
+		"confirmOk": "OK",
+		"confirm": "Betätigen",
+		"confirmCancel" : "Abbrechen",
+		"confirmTitle" : "Bestätigung"
+	},
+	"disabled": "Ausgeschaltet",
+	"download": "Download",
+	"enabled": "Eingeschaltet",
+	"endDate": "Enddatum",
+	"examplePhoneNumber": "+41 52 508 19 22",
+	"filter": "Filter",
+	"info": "Info",
+	"next": "Weiter",
+	"on": "An",
+	"off": "Aus",
+	"show": "Zeige",
+	"hide": "Verstecken",
+	"paging": {
+		"first": "Erste",
+		"previous": "Vorherige",
+		"next": "Nächste",
+		"last": "Letzte"
+	},
+	"pdf": "PDF",
+	"previous": "Vorherige",
+	"remove": "Löschen",
+	"save": "Spreichern",
+	"saveChanges": "Änderungen speichern",
+	"search": "Suchen",
+	"select": "Auswählen",
+	"startDate": "Startdatum",
+	"submit": "Übermitteln",
+	"table" : {
+		"search": "Suchen...",
+		"empty" : "Keine Einträge in dieser Tabelle",
+		"processing" : "Bitte warten...",
+		"showEntries": "Zeige _MENU_ Einträge",
+		"startEndTotal": "Zeige _START_ bis _END_ von _TOTAL_ Einträgen",
+		"zeroRecords": "Keine Einträge gefunden",
+		"loading": "Bin am laden...",
+		"filtered": "(Gefiltert von _MAX_ Einträge Total)",
+		"infoEmpty": "Leer"
+	},
+	"unexpectedError": "Ein Fehler ist aufgetreten, bitte wiederholen!",
+	"update": "Aktualisieren",
+	"upload": "Upload",
+	"validation": {
+		"defaultRules": {
+			"required": "Dieses Feld muss ausgefüllt werden.",
+			"remote": "Bitte diese Feld ausfüllen.",
+			"email": "Bitte eine korrekte Mail Adresse eingeben.",
+			"url": "Geben Sie bitte eine korrekte URL ein.",
+			"date": "Geben Sie bitte eine korrektes Datum ein.",
+			"dateISO": "Geben Sie bitte ein korrektes Datum (ISO).",
+			"number": "Geben Sie bitte eine gültige Nummer ein.",
+			"digits": "Geben Sie bitte nur Zahlen ein.",
+			"creditcard": "Geben Sie bitte eine gültige Kreditkartennummern ein.",
+			"equalTo": "Bitte wiederholen sie Ihr Eingabe.",
+			"maxlength": "Geben Sie nicht mehr als {0} Zeichen ein.",
+			"minlength": "Geben Sie bitte ministens {0} Zeichen ein.",
+			"rangelength": "Ihre Eingabe muss mindestens {0} und maximal {1} Zeichen lang sein.",
+			"range": "Geben Sie bitte eine Zahl zwischen {0} und {1} ein.",
+			"max": "Geben Sie bitte eine Zahl weniger als {0} ein.",
+			"min": "Geben Sie bitte eine Zahl grösser als {0} ein."
+		},
+		"customRules": {
+			"checkList": "Ist belegt",
+			"mac": "Geben Sie bitte eine gültige MAC-Adresse ein.",
+			"ipv4": "Geben Sie bitte eine gültige IP v4 Adresse ein.",
+			"time12h": "Geben Sie bitte eine gültige Zeit im 12-Stunden Format AM/PM ein.",
+			"greaterDate": "Die Startzeit darf nicht grösser als die Endzeit sein.",
+			"realm": "Sie dürfen nur Buchstaben, Zahlen, Punkte und Bindestriche verwenden."
+		},
+		"required": "benötigt."
+	},
+	"warning": "Warnung!",
+	"confirmCharges": {
+		"title": "Kosten bestätigen",
+		"withChargesPartOne": "Der Preis dafür ist ${{variable}}",
+		"withChargesPartTwo": " Einmalig {{variable}}. ",
+		"withoutCharges": "Ist kein {{variable}}.",
+		"detail": "Hier sind die Details der montlichen Kosten für Ihr Konto hinterlegt:",
+		"service": "Service",
+		"rate": "Preis",
+		"quantity": "Anzahl",
+		"discount": "Rabbat",
+		"monthlyCharges": "Monatliche Kosten",
+		"amount": "${{variable}}",
+		"actions": "Drücken Sie OK zum Bestätigen oder Abbrechen."
+	},
+	"languages": {
+		"auto": "Automatisch (en-US)",
+		"germanGermany": "Deutsch (de-DE)",
+		"frenchFrench": "French (fr-FR)",
+		"italianItalian": "Italian (it-IT)",
+		"americanEnglish": "English (en-US)",
+                "russianRussian": "Russian (ru-RU)"
+	},
+	"services": {
+		"cnam": "CNAM",
+		"did_us": "US DID",
+		"did_eu": "Europa DID",
+		"did_af": "Arika DID",
+		"e911": "Notrufnummern",
+		"inbound_cnam": "Eingehende CNAM",
+		"inbound_trunk": "Eingehender Trunk",
+		"inbound_trunks": "Eingehende Trunks",
+		"port": "Portierung",
+		"sip_devices": "SIP Geräte",
+		"sip_device": "SIP Gerät",
+		"tollfree_us": "US Tollfree",
+		"tollfree_ch": "CH Gratisnummern",
+		"twoway_trunk": "Verbindungs-Trunk",
+		"twoway_trunks": "Verbindungs-Trunks",
+		"user": "Benutzer"
+	},
+	"wysiwyg": {
+		"toastr": {
+			"error": {
+				"format": " ist ein nicht unterstützes Format",
+				"upload": "Fehler beim hinaufladen der Datei"
+			}
+		},
+		"title": {
+			"fontSize": "Schriftgrösse",
+
+			"bold": "Bold (Ctrl/Cmd+B)",
+			"italic": "Italic (Ctrl/Cmd+I)",
+			"underline": "Unterstrichen (Ctrl/Cmd+U)",
+			"strikethrough" : "Durchgestrichen",
+
+			"fontColor": "Schriftfarbe",
+
+			"alignment": "Ausrichtung",
+			"alignLeft": "Links (Ctrl/Cmd+L)",
+			"center": "Zentriert (Ctrl/Cmd+E)",
+			"alignRight": "Rechts (Ctrl/Cmd+R)",
+			"justify": "Ausrichten (Ctrl/Cmd+J)",
+
+			"list": "Liste",
+
+			"bulletList": "Auswahlliste",
+			"numberList": "Nummernliste",
+
+			"reduceIndent": "Reduzieren indent (Shift+Tab)",
+			"indent": "Indent (Tab)",
+
+			"createLink": "Hyperlink",
+			"removeLink": "Hyperlink löschen",
+
+			"upload": "Bild einfügen (oder mit Drag & Drop)",
+
+			"undo": "Rückgänging (Ctrl/Cmd+Z)",
+			"redo": "Wiederholen (Ctrl/Cmd+Y)",
+
+			"horizontalRule": "Horizontale Ausrichtung",
+
+			"macro": "Macro"
+		},
+		"text": {
+			"big": "Gross",
+			"normal": "Normal",
+			"small" : "Klein"
+		},
+		"placeholder": {
+			"createLink": "URL"
+		}
+	},
+	"calendar": {
+		"suffix": {
+			"am": "Vormittags",
+			"pm": "Nachmittags"
+		},
+		"day": {
+			"0": "Sonntag",
+			"1": "Montag",
+			"2": "Dienstag",
+			"3": "Mittwoch",
+			"4": "Donnerstag",
+			"5": "Freitag",
+			"6": "Samstag"
+		},
+		"month": {
+			"0": "Januar",
+			"1": "Februar",
+			"2": "März",
+			"3": "April",
+			"4": "Mai",
+			"5": "Juni",
+			"6": "Juli",
+			"7": "August",
+			"8": "September",
+			"9": "Oktober",
+			"10": "November",
+			"11": "Dezember"
+		}
+	},
+	"description": "Beschreibung",
+	"featuresTitle": "Eigenschaft:",
+	"undefinedFeatures": "Liste der Eigenschaften kommt bald...",
+	"author": "Autor",
+	"version": "Version",
+	"license": "Lizenz",
+	"price": "Preis",
+	"free": "Gratis",
+	"save": "Speichern",
+	"filters": {
+		"all": "Alle Apps",
+		"installed": "Meine Apps",
+		"resellers": "Wiederverkauf Apps",
+		"carriers": "Distributor Apps",
+		"developers": "Entwickler Apps"
+	},
+	"permissions": {
+		"title": "Wer kann das App benutzten?",
+		"all": "Alle Benutzer",
+		"admins": "Nur Admin",
+		"specific": "Spezial Benutzer"
+	},
+	"selectedUsers": "Ausgewählte Benutzer",
+	"selectAll": "alle Anwählen",
+	"unselectAll": "alle Abwählen",
+	"noselected": "Kein Benutzer ausgewählt",
+	"selectUsersLink": "Benutzer auswählen ({{selectedUsers}})",
+	"alerts": {
+		"noUserSelected": "Sie müssen ein Benutzer für dies App auswählen.<br><br>Oder Sie können alle Benutzer abwählen, um es nicht zuzulassen."
+	},
+        "refresh": "Erneuern",
+        "unassign": "Ablegen",
+        "advancedErrorDialog": {
+                "title": "Ein Fehler...",
+                "viewDetails": "Mehr Informationen",
+                "requestId": "Request ID",
+                "apiUrl": "API URL",
+                "verb": "API Typ"
+        },
+        "javascriptErrorDialog": {
+                "title": "Ein Javascript Fehler ist aufgetreten...",
+                "message": "Nachricht",
+                "line": "Linie",
+                "column": "Klonne",
+                "stackTrace": "Stack Trace",
+                "file": "Dateiname"
+        },
+        "linkedColumns": {
+                "available": "Mögliche Auswahl",
+                "selected": "Ausgewählt"
+        },
+        "codecs": {
+                "audio": {
+                        "OPUS": "OPUS",
+                        "CELT@32000h": "Siren @ 32Khz",
+                        "G7221@32000h": "G722.1 @ 32khz",
+                        "G7221@16000h": "G722.1 @ 16khz",
+                        "G722": "G722 (HD)",
+                        "speex@32000h": "Speex @ 32khz",
+                        "speex@16000h": "Speex @ 16khz",
+                        "PCMU": "G711u / PCMU - 64kbps (ISDN)",
+                        "PCMA": "G711a / PCMA - 64kbps (ISDN)",
+                        "G729":"G729 - 8kbps (Benötigt Lizenz)",
+                        "GSM":"GSM (Analog)",
+                        "CELT@48000h": "Siren (HD) @ 48kHz",
+                        "CELT@64000h": "Siren (HD) @ 64kHz"
+                },
+                "video": {
+                        "VP8": "VP8",
+                        "H264": "H264",
+                        "H263": "H263",
+                        "H261": "H261"
+                }
+        },
+	"hangupCauses": {
+		"SUCCESS": {
+			"inbound": "Die Verbindung wurde Umgeleitet"
+		},
+		"NO_RESPONSE": {
+			"inbound": "Call forwarding was attempted, but failed because the forwarded user did not respond or there was a routing error during forwarding."
+		},
+		"UNSPECIFIED": {
+			
+			},
+		"UNALLOCATED_NUMBER": {
+			"outbound": "The number dialed is not a valid number and/or can not be reached via the requested carrier",
+			"inbound": "Usually for PBX Connector, but indicates the device on the customer’s side is misconfigured, or the number is not currently in use."
+		},
+		"NO_ROUTE_TRANSIT_NET": {
+		},
+		"NO_ROUTE_DESTINATION": {
+			"outbound": "The number dialed is not a valid number and/or can not be reached via the requested carrier",
+			"inbound": "Usually for PBX Connector, but indicates the device on the customer’s side is misconfigured."
+		},
+		"CHANNEL_UNACCEPTABLE": {
+		},
+		"CALL_AWARDED_DELIVERED": {
+		},
+		"NORMAL_CLEARING": {
+			"inbound": "Alles ist OK. Die Verbindung wurde normal beendet",
+			"outbound": "Alles ist OK. Die Verbindung wurde normal beendet"
+		},
+		"USER_BUSY": {
+			"inbound": "Could be 2 things: Under 1 second, The phone was busy or unavailable; over 1 second: The end-user rejected the inbound call while it was ringing."
+		},
+		"NO_USER_RESPONSE": {
+		},
+		"NO_ANSWER": {
+		},
+		"SUBSCRIBER_ABSENT": {
+		},
+		"CALL_REJECTED": {
+			"outbound": "Dier Anruf zum Carrier wird nicht unterstützt, oder hat keine Kapazität. Es wird zum nächstmöglichen Carrier geschaltet. Dies ist nicht kein Allgmmeiner Fehler und ist normal.",
+			"inbound": "At under 1 second: The phone is in Do-Not-Disturb locally, on the phone, or all the lines available on the phone are in use, At over 1 second: The user of the phone pushed the “reject” button to reject the call"
+		},
+		"NUMBER_CHANGED": {
+		},
+		"REDIRECTION_TO_NEW_DESTINATION": {
+			"inbound": "Could be 2 things: Under 1 second, The phone is configured with call-forwarding locally. This should be disabled; Over 1 second: The phone is configured with “call-forwarding no answer” locally. This should be disabled."
+		},
+		"EXCHANGE_ROUTING_ERROR": {
+			"outbound": "The carrier which was attempted doesn’t service the area the call was being placed to, or didn’t have enough capacity to complete the call (or some other non-fatal issue). The next carrier in the available carrier list should be tried. This error is NOT indicative of a failure or problem as not every carrier services every area of the world.",
+			"inbound": "Usually for PBX Connector, but indicates the device on the customer’s side is misconfigured."
+		},
+		"DESTINATION_OUT_OF_ORDER": {
+		},
+		"INVALID_NUMBER_FORMAT": {
+		},
+		"FACILITY_REJECTED": {
+		},
+		"RESPONSE_TO_STATUS_ENQUIRY": {
+		},
+		"NORMAL_UNSPECIFIED": {
+		},
+		"NORMAL_CIRCUIT_CONGESTION": {
+		},
+		"NETWORK_OUT_OF_ORDER": {
+			"outbound": "The carrier which was attempted doesn’t service the area the call was being placed to, or didn’t have enough capacity to complete the call (or some other non-fatal issue). The next carrier in the available carrier list should be tried. This error is NOT indicative of a failure or problem as not every carrier services every area of the world.",
+			"inbound": "Usually for PBX Connector, but indicates the device on the customer’s side is misconfigured."
+		},
+		"NORMAL_TEMPORARY_FAILURE": {
+			"outbound": "The carrier which was attempted doesn’t service the area the call was being placed to, or didn’t have enough capacity to complete the call (or some other temporary issue). The next carrier in the available carrier list should be tried. This error is NOT indicative of a failure or problem as not every carrier services every area of the world.",
+			"inbound": "This should not happen. This is an error condition."
+		},
+		"SWITCH_CONGESTION": {
+		},
+		"ACCESS_INFO_DISCARDED": {
+		},
+		"REQUESTED_CHAN_UNAVAIL": {
+		},
+		"FACILITY_NOT_SUBSCRIBED": {
+		},
+		"OUTGOING_CALL_BARRED": {
+		},
+		"INCOMING_CALL_BARRED": {
+		},
+		"BEARERCAPABILITY_NOTAUTH": {
+		},
+		"BEARERCAPABILITY_NOTAVAIL": {
+		},
+		"SERVICE_UNAVAILABLE": {
+		},
+		"BEARERCAPABILITY_NOTIMPL": {
+		},
+		"CHAN_NOT_IMPLEMENTED": {
+		},
+		"FACILITY_NOT_IMPLEMENTED": {
+		},
+		"SERVICE_NOT_IMPLEMENTED": {
+		},
+		"INVALID_CALL_REFERENCE": {
+		},
+		"INCOMPATIBLE_DESTINATION": {
+			"outbound": "The carrier requested or required a certain codec or encryption, but we did not offer that method of communication. Thus, the call could not be completed. This can also happen when fax connectivity is requested but T38 is not available.",
+			"inbound": "The carrier requested or required a certain codec or encryption, but we did not offer that method of communication. Thus, the call could not be completed. This can also happen when fax connectivity is requested but T38 is not available."
+		},
+		"INVALID_MSG_UNSPECIFIED": {
+		},
+		"MANDATORY_IE_MISSING": {
+		},
+		"MESSAGE_TYPE_NONEXIST": {
+		},
+		"WRONG_MESSAGE": {
+		},
+		"IE_NONEXIST": {
+		},
+		"INVALID_IE_CONTENTS": {
+		},
+		"WRONG_CALL_STATE": {
+			"outbound": "Die Weiterverbindung zum Carrier hat einen Fehler und muss behoben werden.",
+			"inbound": "Der Anruf wurde beendet bovor die Endstelle antwortete, oder das System hat Prolbem mit diesem Benutzer."
+		},
+		"RECOVERY_ON_TIMER_EXPIRE": {
+			"outbound": "Die Weiterverbindung zum Carrier hat einen Fehler und muss behoben werden.",
+			"inbound": "The remote user’s internet or firewall blocked our request to ring the phone"
+		},
+		"MANDATORY_IE_LENGTH_ERROR": {
+		},
+		"PROTOCOL_ERROR": {
+		},
+		"INTERWORKING": {
+		},
+		"ORIGINATOR_CANCEL": {
+			"outbound": "Der Anruf wurde beendet bevor die Endstelle antwortete.",
+			"inbound": "Der Anruf wurde beendet bevor die Endstelle antwortete."
+		},
+		"CRASH": {
+		},
+		"SYSTEM_SHUTDOWN": {
+		},
+		"LOSE_RACE": {
+			"inbound": "Multiple phones were being rung at the same time, and a different phone was answered before this one was."
+		},
+		"MANAGER_REQUEST": {
+		},
+		"BLIND_TRANSFER": {
+		},
+		"ATTENDED_TRANSFER": {
+			"inbound": "This leg was the “consult” portion of an attended transfer, meaning this part of the call indicates the transferer was asking the final recipient if they wanted the call or not (I.e. “Hi Frank, I have Mr. Adams on the line, would you like to take his call now?”)"
+		},
+		"ALLOTTED_TIMEOUT": {
+		},
+		"USER_CHALLENGE": {
+		},
+		"MEDIA_TIMEOUT": {
+			"inbound": "Netzwerk oder Firewall Problem, ohne Mediaübertragung wurde abgebrochen."
+		},
+		"PICKED_OFF": {
+		},
+		"USER_NOT_REGISTERED": {
+		},
+		"PROGRESS_TIMEOUT": {
+			"outbound": "We waited up many seconds for the carrier to connect the requested call, and it didn’t respond. This usually means the carrier was trying to find an available circuit to process the call on but took too long. This is something that should result in a support ticket if it happens frequently. Occasionally is not unexpected.",
+			"inbound": "The remote user’s internet or firewall blocked our request to ring the phone"
+		},
+		"GATEWAY_DOWN": {
+		}
+	},
+
+	"passwordStrength": {
+		"strong": "Stark",
+		"good": "Gut",
+		"medium": "Mittel",
+		"weak": "Schwach",
+		"bad": "Schlecht",
+		"empty": "Ein Passowrt eingeben"
+	},
+
+	"invalidCredentialsMessage": "Ihre Sitzung ist abgelaufen. Schliessen Sie das Fenster für einen Neuanmeldung.",
+
+	"monsterResults": {
+		"titles": {
+			"success": "Erfolgreich",
+			"error": "Fehler"
+		}
+	},
+        "controlCenter": "Konto Einstellungen",
+        "uploadProgressTitle": "Dateien hochladen...",
+        "defaultTimezone": "- Konto/Benutzer (System) -",
+        "stepByStep": {
+                "nextLabel": "Nächste",
+                "prevLabel": "Zurück",
+                "skipLabel": "Überspringen",
+                "doneLabel": "Fertig"
+        }
+}

@@ -10,8 +10,11 @@ define(function(require){
 
 		i18n: {
 			'en-US': { customCss: false },
-			'fr-FR': { customCss: false },
-			'ru-RU': { customCss: false }
+                        'de-DE': { customCss: false },
+                        'it-IT': { customCss: false },
+                        'fr-FR': { customCss: false },
+                        'ro-RO': { customCss: false },
+                        'ru-RU': { customCss: false }
 		},
 
 		requests: {},
@@ -91,7 +94,7 @@ define(function(require){
 			if (appName === 'myaccount') {
 				var myaccount = {
 						name: appName,
-						label: 'Control Center'
+						label: self.i18n.active().controlCenter
 					};
 
 				if (currentApp.is(':empty')) {

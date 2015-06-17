@@ -14,7 +14,7 @@ define(function(require){
 		},
 
 		searchLimit: 15,
-		selectedCountryCode: "US",
+		selectedCountryCode: "CH",
 
 		buyNumbersRender: function(params) {
 			var self = this,
@@ -49,15 +49,10 @@ define(function(require){
 				"US": {
 					"local": true,
 					"toll_free": [
-						800,
-						888,
-						877,
-						866,
-						855
 					],
 					"vanity": true,
-					"prefix": 1,
-					"name": "United States"
+					"prefix": 41,
+					"name": "Schweiz"
 				}
 			});
 		},

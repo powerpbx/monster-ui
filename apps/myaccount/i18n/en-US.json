@@ -1,4 +1,6 @@
 {
+        "defaultTimezone": "Europe/London",
+        "defaultLanguaage": "en-US",
 	"hello": "Hello",
 	"signout": "Sign Out",
 	"myaccount": "Account",

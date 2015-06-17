@@ -1,0 +1,98 @@
+{
+	"welcome": "platforma de comunicații unificate",
+	"password": "parolă",
+	"rememberMe": "amintește-ți de mine",
+	"forgotPassword": "ați uitat informatii ?",
+	"username": "numele de utilizator",
+	"registerMessage": "utilizați un cont pentru toate serviciile 2600hz",
+	"registerLink": "registru",
+	"or": "sau",
+	"errorLoadingAccount": "A apărut o eroare la încărcarea contului dvs.",
+
+	"confirmLogout": "sunt sigur că doriți să vă deconectați ?",
+
+	"account": {
+		"name": "numele contului",
+		"namePlaceholder": "numele companiei",
+		"realm": "contul domeniu",
+		"realmPlaceholder": "contul domeniu"
+	},
+
+	"login":{
+		"buttonText": "conectare"
+	},
+
+	"conferenceLogin": {
+		"userTab": "utilizator",
+		"adminTab": "administrator",
+		"headerLabel": "autentificare conferință",
+		"pinLabel": "numarul pin",
+		"nameLabel": "nume",
+		"callInLabel": "numărul de telefon, apel în",
+		"optionalSplitter": "facultativ",
+		"buttonLabel": "log-in la conferință"
+	},
+
+	"passwordRecovery": {
+		"title": "recuperare parola",
+		"label": {
+			"phoneNumber": "numar de telefon"
+		},
+		"placeholder": {
+			"username": "john@doe.com",
+			"account": {
+				"name": "2600hz",
+				"realm": "sip.2600hz.com"
+			},
+			"phoneNumber": "+14151234567"
+		},
+		"help": {
+			"text": "vă rugăm introduceți un nume de utilizator și fie un nume de cont, un tărâm cont sau un număr de telefon conectat la contul dumneavoastră."
+		},
+		"button": {
+			"recover": "recuperare parola"
+		},
+		"toastr": {
+			"success": {
+				"reset": "parola a fost cu succes resetat"
+			},
+			"error": {
+				"reset": {
+					"account_name": "numele contului furnizat nu a putut fi găsită",
+					"account_realm": "domeniul considerare, cu condiția nu a putut fi găsit",
+					"phone_number": "numărul de telefon furnizat nu a putut fi găsită",
+					"username": "numele de utilizator furnizat nu a putut fi găsită"
+				},
+				"missing": "Va rugam sa introduceti fie un nume de cont, un tărâm cont sau un număr de telefon conectat la contul dvs."
+			}
+		}
+	},
+
+	"passwordUpdate": {
+		"title": "modificare parolă",
+		"label": {
+			"password": {
+				"new": "parolă nouă",
+				"confirmation": "confirma noua parola"
+			}
+		},
+		"help": {
+			"text": "ați reseta parola și sunt acum, folosind o parolă temporară. s-ar putea schimba sau de a continua utilizarea acestuia."
+		},
+		"button": {
+			"update": "modificare parolă"
+		},
+		"toastr": {
+			"success": {
+				"update": "parola a fost actualizat cu succes"
+			},
+			"error": {
+				"password": "Ați introdus Dont partida. Scrieți noua parolă"
+			}
+		}
+	},
+
+	"toastrMessages": {
+		"appListError": "o problemă a apărut la încărcarea lista de aplicații."
+	}
+}

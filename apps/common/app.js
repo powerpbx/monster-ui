@@ -8,12 +8,16 @@ define(function(require){
 
 		subModules: ['accountBrowser', 'buyNumbers', 'callerId', 'e911', 'failover', 'numbers',
 					 'port', 'chooseModel', 'servicePlanDetails', 'ringingDurationControl',
-					 'carrierSelector', 'numberPrepend', 'numberSelector', 'monsterListing'],
+					 'carrierSelector', 'numberRegextern', 'numberPrepend', 'numberSelector', 'monsterListing' ],
 
 		css: [ 'app' ],
 
 		i18n: { 
 			'en-US': { customCss: false },
+			'de-DE': { customCss: false },
+			'it-IT': { customCss: false },
+			'nl-NL': { customCss: false },
+			'ro-RO': { customCss: false },
 			'fr-FR': { customCss: false },
 			'ru-RU': { customCss: false }
 		},

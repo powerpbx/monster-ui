@@ -305,7 +305,37 @@
 			'updateNotificationHtml': { verb: 'POST', url: 'accounts/{accountId}/notifications/{notificationId}', type: 'text/html', dataType: 'html' },
 			'previewNotification': { verb: 'POST', url: 'accounts/{accountId}/notifications/{notificationId}/preview' },
 			'deleteNotification': { verb: 'DELETE', url: 'accounts/{accountId}/notifications/{notificationId}' }
-		}
+		},
+                rates: {
+                        'get':    { 'verb': 'GET', 'url': 'accounts/{accountId}/rates/{rateId}' },
+                        'create': { 'verb': 'PUT', 'url': 'accounts/{accountId}/rates' },
+                        'update': { 'verb': 'POST', 'url': 'accounts/{accountId}/rates/{rateId}' },
+                        'delete': { 'verb': 'DELETE', 'url': 'accounts/{accountId}/rates/{rateId}' },
+                        'list':   { 'verb': 'GET', 'url': 'accounts/{accountId}/rates' },
+                        'accountSummary': { 'verb': 'GET', 'url': 'accounts/{accountId}/rates/summary' },
+                        'summary':        { 'verb': 'GET', 'url': 'accounts/{accountId}/rates/{rateId}/summary' },
+                        'upload': { verb: 'POST', url: 'accounts/{accountId}/rates', type: 'text/csv', dataType: 'text' }
+                },
+                gateways: {
+                        'get':    { 'verb': 'GET', 'url': 'accounts/{accountId}/gateways/{gatewayId}' },
+                        'create': { 'verb': 'PUT', 'url': 'accounts/{accountId}/gateways' },
+                        'update': { 'verb': 'POST', 'url': 'accounts/{accountId}/gateways/{gatewayId}' },
+                        'delete': { 'verb': 'DELETE', 'url': 'accounts/{accountId}/gateways/{gatewayId}' },
+                        'list':   { 'verb': 'GET', 'url': 'accounts/{accountId}/gateways' },
+                        'accountSummary': { 'verb': 'GET', 'url': 'accounts/{accountId}/gateways/summary' },
+                        'summary':        { 'verb': 'GET', 'url': 'accounts/{accountId}/gateways/{gatewayId}/summary' },
+                        'upload': { verb: 'POST', url: 'accounts/{accountId}/gateways', type: 'text/csv', dataType: 'text' }
+                },
+                provisioner: {
+                        'get':    { 'verb': 'GET', 'url': 'accounts/{accountId}/provisioner/{gatewayId}' },
+                        'create': { 'verb': 'PUT', 'url': 'accounts/{accountId}/provisioner' },
+                        'update': { 'verb': 'POST', 'url': 'accounts/{accountId}/provisioner/{gatewayId}' },
+                        'delete': { 'verb': 'DELETE', 'url': 'accounts/{accountId}/provisioner/{gatewayId}' },
+                        'list':   { 'verb': 'GET', 'url': 'accounts/{accountId}/provisioner' },
+                        'accountSummary': { 'verb': 'GET', 'url': 'accounts/{accountId}/provisioner/summary' },
+                        'summary':        { 'verb': 'GET', 'url': 'accounts/{accountId}/provisioner/{gatewayId}/summary' },
+                        'upload': { verb: 'POST', url: 'accounts/{accountId}/provisioner', type: 'text/json', dataType: 'text' }
+                }
 	},
 	authTokens = {};
 

@@ -2,6 +2,7 @@ define(function(require){
 	var $ = require('jquery'),
 		_ = require('underscore'),
 		monster = require('monster'),
+		language = require('monster-language'),
 		timezone = require('monster-timezone');
 
 	var account = {
@@ -29,6 +30,9 @@ define(function(require){
 
 			timezone.populateDropdown(template.find('#account_timezone'), data.account.timezone);
 			template.find('#account_timezone').chosen({ search_contains: true, width: '220px' });
+
+			language.populateDropdown(template.find('#account_language'), data.account.language);
+			template.find('#account_language').chosen({ search_contains: true, width: '220px' });
 
 			//Temporary button design fix until we redesign the Accounts Manager
 			template.find('#accountsmanager_carrier_save')

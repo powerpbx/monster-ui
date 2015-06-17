@@ -1,0 +1,304 @@
+{
+        "defaultTimezone": "Europe/Zurich",
+        "defaultLanguaage": "de-DE",
+        "hello": "Hallo",
+        "signout": "Abmelden",
+        "myaccount": "Konto",
+        "closeSlide": "Schliessen",
+        "store": "Store",
+
+        "settingsCategory": "Einstellungen",
+        "billingCategory": "Rechnung",
+        "trunkingCategory": "Limiten",
+
+	"editSettings": "Ändern",
+	"changesSaved": "Änderungen gespeichert!",
+	"placeholderEmail": "benutzer@bluewin.ch",
+	"phoneNumber": "Telefonnummer",
+	"placeholderNumber": "+41525081922",
+        "filter": "Filter",
+
+       "walkthrough": {
+                "greetingsDialog": {
+                        "go": "Anleitung beginnen...",
+                        "content": "Die Schrit für Schritt Anleitung wird Ihnen helfen sich mit den Einstellungen vertraut zu machen, um schnellstmöglich das Kommunikationssystem für Ihre Firma einzurichten.",
+                        "title": "Willkommen zu AllIP"
+                },
+                "steps": {
+                        "1": "Die Kontoeinstellungen können Sie durch ein Klick auf Ihren Namen erreichen.",
+                        "2": "Ihre Benutzereinstellungen finden Sie hier. Zeitzone, Sprache und Datum können Sie ensprechend Ihren Bedürfnissen anpassen.",
+                        "3": "In den Kontoeinstellungen können Sie den Technischen Kontakt, Zeitzone und Sprache und den Konto-Kostenschutz für dieses Konto einstellen. Die Einstellungen Konto Name und Konto-Realm sollten Sie so belassen, da es Ihre Geräte mit dieser Domain verbindet. (Durch den Konto-Kostenschutz ist es möglich die Nutzung der Gebühren einzudämmen, um die Kostenüberschreitung in Grenzen zu halten.) Wir empfehlen auf die maximal täglichen Kosten zu stellen (z.B 20.00 pro Tag und 0.26 pro Anrufminute)",
+                        "4": "Hier können Sie Ihre Zahlungseinstellungen anpassen. Bitte beachten Sie dass, die Kreditkarteninformationen bei der Registrierung hier abgelegt wurden.",
+                        "5": "Hier werden die kostenprichtigen Anrufe gelistet. Wenn Sie kostenpflichtige Anrufe tätigen, wird die Verrechnung \"Per Minute\" erfolgen. Nicht kostenpflichte Anrufe werden nicht gelistet.",
+                        "6": "Hier können Sie Ihre aktuelle Abonnemente einsehen",
+                        "7": "Hier werden alle Überweisungen die für Ihr Konto abgewickelt wurden aufgelistet, inklusive einmalige und wiederkehrende Überweisungen."
+                },
+                "endDialog": {
+                        "roger": "Abschluss der Anleitung",
+                        "content": "Sie haben sich bereits mit der Umbegung vertraut gemacht, Sie können nun selbst Ihr Umgebung Ihren Bedüfnissen anpassen. Sollten Sie keine Erklärung benötigen, kontktieren Sie uns doch per eMail.",
+                        "title": "Haben Sie noch weitere Fragen.."
+                }
+        },
+	"user": {
+		"title": "Benutzer",
+		"passwordsNotMatching": "Die Passwörter stimmen nicht überein",
+
+		"email": "Email",
+		"password": "Passwort",
+		"newPassword": "Neues Password",
+		"confirmPassword": "bestätige neues Passwort",
+
+		"timezoneTitle": "Zeitzone & Sprache",
+		"userTimezone": "Zeitzone",
+		"userLanguage": "Sprache",
+
+		"colorblindTitle": "Farbenblind Modus",
+		"colorblindEnabled": "Ein",
+		"colorblindDisabled": "Aus",
+		"enableColorblind": "Farbenblind Modus Ein",
+                "dateTimeTitle": "Datum und Zeit Anzeige",
+                "twelveHoursModeEnabled": "12 Stunden Format (AM/PM)",
+                "twelveHoursModeDisabled": "24 Stunden Format",
+                "enableTwelveHoursMode": "Zeit im 12 Stunden Format (AM/PM)",
+                "dateFormatTitle": "Format Datum",
+                "dateFormats": {
+                        "dmy": "Tag / Monat / Jahr",
+                        "mdy": "Monat / Tag / Jahr",
+                        "ymd": "Jahr / Monat / Tag"
+                }
+	},
+
+	"account": {
+		"froud": {
+			"title": "Konto-Kostenschutz",
+			"perdaydefault": "20.00",
+			"permindefault": "0.26",
+			"perday": "Kontoschutz pro Tag",
+			"perday_descript": "Maximalkosten pro Tag",
+			"permin": "Kontoschutz pro Anruf",
+			"permin_descript": "Maximalkosten pro Minute"
+		},
+		"title": "Konto",
+
+		"accountName": "Konto Name",
+		"accountId": "Konto ID",
+
+		"accountRealm": "Konto Realm",
+
+		"technicalContact": "Technischer Kontaktname",
+		"technicalContactEmail": "Technischerkontakt Email",
+		"technicalContactNumber": "Telefonnummer",
+
+		"timezoneTitle": "Zeitzone & Sprache",
+		"userTimezone": "Zeitzone",
+		"userLanguage": "Sprache",
+		"carrierTitle": "Carrier Einstellungen"
+	},
+
+	"billing": {
+		"title": "Kreditkarte",
+		"missingCard": "Ihre Kreditkarte ist nicht gültig, Abgelaufen oder Fehler - bitte erneuern um die Änderungen zu speichern.",
+
+		"cardOnFile": "Kreditkarte",
+		"billingName": "Name",
+		"firstName": "Vorname",
+		"lastName": "Nachname",
+		"creditCardNumber": "Nummer",
+		"expirationDate": "Ablaufdatum",
+		"year": "JJJJ",
+		"month": "MM",
+		"securityCode": "Sicherheitscode / CVV",
+		"changeCard": "Änderung der Karteninfo",
+		"accountAdministrator": "Rechnungskontakt",
+		"accountAdministratorEmail": "Rechnungskontakt Email",
+		"accountAdministratorNumber": "Telefonnummer"
+	},
+
+	"trunks": {
+		"title": "Anschlüsse",
+		"outbound": "Ausgehend",
+		"inbound": "Eingehend",
+		"outboundTitle": "Maximale Ausgehende Limite",
+		"inboundTitle": "Maximale Eingehende Limite",
+		"inboundCalling": "Maximale Eingehnde Limite",
+		"simultaneousTwoway": "$_Variable__/Monat",
+		"simultaneousInbound": "$_Variable__/Monat",
+		"perMonth": "/Monat",
+		"quantity": "Anzahl",
+		"trunks": "Maximale Ausgehende Verbindungen",
+		"twoWayCalling": "Maximale Limite Gleichzeitige Verbindungen",
+		"updateLimits": "Aktualisiere Limite",
+		"helpTwoway": "Die Anzahl der gleichzeitigen Verbindungen, die das System in beiden Richtungen machen kann.",
+		"helpInbound": "Die Anzahl der gleichzeitigen Verbindungen, die das System bei eingehenden Anrufen machen kann.",
+		"monthlyCharges": "Monatliche Kosten",
+                "twowayTitle": "Maximale Limite Gleichzeitige Verbindungen",
+                "twoway": "Verbindungen",
+                "outboundCalling": "Maximale Limite Augehende Verbindungen",
+                "helpOutbound": "Die Anzahl der gleichzeitigen Verbindungen, die das System bei ausgehenden Anrufen machen kann.",
+                "Users": "Benutzer",
+                "currentLimit": "Gesetzte Limite",
+                "exampleTwoway": "Beispiel: 10 Verbindungen bedeutet, dass Sie z.B 6 Eingehende und 4 Ausgehende gleichzeitige Verbindungen machen können.",
+                "exampleInbound": "Beispiel: 5 Eingehende bedeutet dass Sie maximal 5 gleichzeitige Eingehende Anrufe empfangen können.",
+                "exampleOutbound": "Beispiel: 10 Ausgehende bedeutet dass Sie maximal 10 gleichzeitige Ausgehende Anrufe machen können."
+	},
+
+	"balance" : {
+		"availableCredits": "Kontostand",
+		"minutesUsed": "Minuten verbraucht",
+		"callCharges": "Verbindungskosten",
+		"activeCall": "Aktiv",
+
+		"title": "Aktuelle Kosten",
+		"creditBalance": "Kontostand",
+		"addCreditOne": "Zahlung zufügen zum Konto",
+		"helpAddCreditOne": "Durch die Aufladung Ihres Kontos, können Sie die Notrufdienste, Anruferanzeige und Normale Telefonanrufe tätigen",
+		"autoRecharge": "Automatische Aufladung",
+		"whenBalanceFalls": "bei Unterschreitung",
+		"recharge": "Aufladen des Kontos mit",
+		"helpAutoRecharge": "Durch die Aktivierung des automatischen Aufladens, müssen Sie nicht mehr Ihren Kontostand prüfen, und werden mittels Email über die Aufladung Informiert.",
+		"helpWhenBalanceFalls": "Geben Sie den Betrag ein, wann die automatische Aufladung aktiv werden soll.",
+		"helpRecharge": "Geben Sie den Betrag ein, wieviel Sie bei der automatischen Aufladung zufügen möchten.",
+		"payPerMinute": "Der Minutentarif erlaubt es Ihnen zu zahlen für das was Sie verbrauchen. Überweisen Sie einen Betrag auf Ihr Konto, um zu starten.",
+		"currentBalance": "Ihre Kontostand beträgt: ",
+		"turnoffRechargeConfirm": "Durch die Abschaltung des automatischen Aufladens, müssen Sie Ihren Kontostand selbst prüfen, um ausgehende Anrufe, Servicenummern und Notrufe zu tätigen Möchten Sie weiterfahren?",
+		"amount": "Betrag",
+		"confirm": "bestätigen",
+		"placeholderThresholdRecharge": "5.00",
+		"placeholderRecharge": "50.00",
+		"placeholderAmount": "10.00",
+		"addCredit": "Kontostand erhöhen",
+		"invalidAmount": "Fehler bei der Eingabe des Betrages! Bitte nur Zahlen mit '.' order ',' eingeben!",
+		"autoRechargeEnabled": "Die automatische Aufladung Ihres Kontos ist aktiv!",
+		"autoRechargeCancelled": "Die automatische Aufladung Ihres Kontos wurde gestoppt und ist nicht mehr aktiv!",
+		"creditsAdded": "Die Aufladung von {{amount}} zu Ihrem Konto wurde verbucht!",
+		"addCreditDialogTitle": "Überweisung zufügen",
+
+		"dateColumn": "Datum",
+		"durationColumn": "Minuten",
+		"amountColumn": "Konto",
+		"fromColumn": "Von",
+		"toColumn": "zu",
+		"directionColumn": " ",
+		"accountColumn": "Konto"
+	},
+
+	"servicePlan": {
+		"discount": "Rabatt",
+		"dueOn": "Startet am",
+		"empty": "Ihre Tarifplan ist leer!",
+		"monthlyChargesTitle": "Monatliche Kosten",
+		"quantityTitle": "Anzahl",
+		"rateTitle": "Tarif",
+		"serviceTitle": "Service",
+		"title": "Abonnemente",
+		"titleHeader": "Abonnement",
+		"titles": {
+			"cnam": "CNAM",
+			"did_us": "Durchwahlnummer",
+			"e911": "Notruf Standort",
+			"inbound_cnam": "Telefonbuchabfrage Eingehend",
+			"inbound_trunk": "Eingehender Anschluss",
+			"inbound_trunks": "Eingehende Anschlüsse",
+			"outbound_cnam": "Telefonbuchabfrage Ausgehend",
+			"outbound_trunk": "Ausgehender Anschluss",
+			"outbound_trunks": "Ausgehende Anschlüsse",
+			"port": "Portieren",
+			"sip_devices": "SIP Geräte",
+			"sip_device": "SIP Gerät",
+			"tollfree_us": "Gratisnummer",
+			"twoway_trunk": "Gleichzeitge Verbindung",
+			"twoway_trunks": "Gleichzeitge Verbindungen",
+			"user": "Benutzer",
+			"users": "Benutzer",
+                        "noServicePlan": "Kein Tarifplan ausgewählt.",
+                        "CH_Numbers": "CH Nummer",
+                        "CH_Tollfree": "CH Gratisnummer",
+                        "Two-Way_Trunk": "Gleichzeitige Verbindungen",
+                        "Inbound_Trunk": "Eingehende Verbindungen",
+                        "Outbound_Trunk": "Ausgehende Verbindungen",
+                        "Outbound_CNAM": "Ausgehendes Telefonbuch",
+                        "Inbound_CNAM": "Eingehendes Telefonbuch",
+                        "Port_Request_Single": "Portierung Auftrag",
+                        "Port_Request_DID": "Portierung Auftrag (DID Blöcke)",
+                        "Emergency_Service": "Notfall Nummern",
+                        "SIP_Device": "SIP Geräte Anschluss",
+                        "User": "System Benutzer",
+                        "cellphone": "Mobile",
+                        "landline":  "Festnetz",
+                        "sip_phone": "SIP-Anschlüsse"
+		}
+	},
+	"transactions": {
+		"title": "Überweisungen",
+		"titleHeader": "Ablauf der Überweiungen",
+		"billingCycle": "Rechnungeszyklus",
+		"to": "zu",
+		"oneTimeCharge": "Einmal Kosten",
+		"monthlyCharge": "Monatliche Kosten",
+		"serviceCharge": "Abonnementskosten - Aufgeteilt",
+
+		"noData": "Es sind keine Überweisungen zwischen den beiden Daten gefunden worden!",
+
+		"serviceTitle": "Dienstleistungen",
+		"discount": "Rabatt",
+		"rateTitle": "Tarif",
+		"quantityTitle": "Anzahl",
+		"monthlyChargesTitle": "Monatliche Kosten",
+		"declined": "Rückgang",
+
+		"database_rollup": "Datenbank Erneuerung",
+		"per_minute_call": "Anruf im Minutentarif",
+		"sub_account_per_minute_call": " Anruf im Minutentarif (Unterkonto)",
+		"feature_activation": "Aktivierung der Funktion",
+		"sub_account_feature_activation": "Aktivierung der Funktion (Unterkonto)",
+		"number_activation": "Aktivierung der Nummern",
+		"sub_account_number_activation": "Aktivierung der Nummern (Unterkonto)",
+		"manual_addition": " Manuell zugefügt",
+		"sub_account_manual_addition": "Manuell zugefügt (Unterkonto)",
+		"admin_discretion": "Diskrete Administration",
+		"startDate": "Startdatum",
+		"endDate": "Enddatum",
+		"total": "Total",
+
+		"refundText": "(Vorgeschaltet)",
+		"codes": {
+			"1001": "Minutentarif Anruf",
+			"1002": "Unterkonto Minutentarif Anruf",
+			"2001": "Option Aktivierung",
+			"2002": "Unterkonto Option Aktivierung",
+			"2003": "Number Aktivierung",
+			"2004": "Unterkonto Nummer Aktivierung",
+			"3001": "Manuall zugefügt",
+			"3002": "Unterkonto Manuall zugefügt",
+			"3003": "Automatisch zugefügt",
+			"3004": "Unterkonto Automatisch zugefügt",
+			"3005": "Diskrete Administration",
+			"3006": "Obendrauf",
+			"4000": "Balance Carry-over",
+			"5000": "Wiederkehrend",
+			"5001": "Monatlich",
+			"5002": "Montatlich (Teilbetrag)",
+			"9999": "Unbekannt vorgeschaltet",
+			"0": "Unbekannt"
+		},
+		"errorStatuses": {
+			"voided": "Aufgehoben",
+			"declined": "Abgelehnt",
+			"processor_declined": "Abgelehnt"
+		}
+	},
+
+	"miscCategory": "Verschiedenes",
+	"errorTracker": {
+		"title": "UI Fehler Aufzeichnung",
+		"errorTotal": "Anzahl Fehler:",
+		"apiTotal": "Erlang",
+		"jsTotal": "Javascript",
+		"viewDetails": "Detail"
+	},
+        "isMasquerading": {
+                "switchBackTo": "Zurückschalten zu",
+                "myAccount": "meinem Konto",
+                "currentlyViewing": "Sichtbares Konto"
+        }
+}

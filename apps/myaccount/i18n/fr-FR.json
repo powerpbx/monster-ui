@@ -1,4 +1,6 @@
 {
+        "defaultTimezone": "Europe/Zurich",
+        "defaultLanguaage": "fr-FR",
 	"hello": "Bonjour",
 	"signout": "Deconnexion",
 	"myaccount": "Compte",

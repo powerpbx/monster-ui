@@ -156,14 +156,31 @@ define(function(require){
 		formatPhoneNumber: function(phoneNumber){
 			if(phoneNumber) {
 				phoneNumber = phoneNumber.toString();
-
-				if(phoneNumber.substr(0,2) === "+1" && phoneNumber.length === 12) {
-					phoneNumber = phoneNumber.replace(/(\+1)(\d{3})(\d{3})(\d{4})/, '$1 ($2) $3-$4');
-				}
-				else if(phoneNumber.length === 10) {
-					phoneNumber = phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, '+1 ($1) $2-$3');
-				}
-			}
+                                if(phoneNumber.length >= 4 && phoneNumber.length <= 6) {
+                                        phoneNumber = phoneNumber.replace(/(\w{3})(\d{3})/, '$1 $2');
+                                }       
+                                else if(phoneNumber.length >= 7 && phoneNumber.length <= 9) {
+                                        phoneNumber = phoneNumber.replace(/(\w{3})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4');
+                                }       
+                                else if(phoneNumber.length === 10) {
+                                        phoneNumber = phoneNumber.replace(/(\w{3})(\d{3})(\d{2})(\d{2})/, '$1 $2 $3 $4');
+                                }
+                                else if(phoneNumber.length === 11) {
+                                        phoneNumber = phoneNumber.replace(/(\w{2})(\d{2})(\d{3})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5');
+                                }
+                                else if(phoneNumber.length === 12) {
+                                        phoneNumber = phoneNumber.replace(/(\w{2})(\d{2})(\d{3})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5 $6');
+                                }
+                                else if(phoneNumber.length === 13) {
+                                        phoneNumber = phoneNumber.replace(/(\w{2})(\d{2})(\d{3})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5 $6');
+                                }
+                                else if(phoneNumber.length < 16) {
+                                        phoneNumber = phoneNumber.replace(/(\w{2})(\d{2})(\d{3})(\d{2})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5 $6 $7');
+                                }
+                                else if(phoneNumber.length < 18) {
+                                        phoneNumber = phoneNumber.replace(/(\w{2})(\d{2})(\d{3})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5 $6 $7 $8');
+                                }
+                        }
 
 			return phoneNumber;
 		},

@@ -85,7 +85,8 @@ define(function(require){
 					dash_e911: { icon: 'monster-red fa fa-ambulance feature-dash_e911', help: self.i18n.active().numbers.e911IconHelp },
 					local: { icon: 'monster-purple fa fa-rocket feature-local', help: self.i18n.active().numbers.localIconHelp },
 					port: { icon: 'fa fa-phone monster-yellow feature-port' },
-					prepend: { icon: 'monster-orange fa fa-file-text-o feature-prepend', help: self.i18n.active().numbers.prependIconHelp }
+					prepend: { icon: 'monster-orange fa fa-file-text-o feature-prepend', help: self.i18n.active().numbers.prependIconHelp },
+					regextern: { icon: 'monster-lightgrey fa fa-file-text-o feature-regextern', help: self.i18n.active().numbers.regexternIconHelp }
 				};
 
 			if(callback) {
@@ -817,6 +818,33 @@ define(function(require){
 					monster.pub('common.numberPrepend.renderPopup', args);
 				}
 			});
+
+			parent.on('click', '.regextern-number', function() {
+				var row = $(this).parents('.number-box'),
+					regexternCell = row.first(),
+					phoneNumber = regexternCell.data('phonenumber');
+
+				if(phoneNumber) {
+					var args = {
+						phoneNumber: phoneNumber,
+						callbacks: {
+							success: function(data) {
+								monster.ui.highlight(row);
+
+								if('regextern' in data.data && data.data.regextern.enabled) {
+									regexternCell.find('.features i.feature-regextern').addClass('active');
+								} 
+								else {
+									regexternCell.find('.features i.feature-regextern').removeClass('active');
+								}
+							}
+						}
+					};
+
+					monster.pub('common.numberRegextern.renderPopup', args);
+				}
+			});
+
 
 			var searchListNumbers = function(searchString, parent) {
 				var viewList = parent;
