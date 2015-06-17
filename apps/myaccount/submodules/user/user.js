@@ -41,6 +41,7 @@ define(function(require) {
 
 			timezone.populateDropdown(template.find('#user_timezone'), data.user.timezone||'inherit', {inherit: self.i18n.active().defaultTimezone});
 			template.find('#user_timezone').chosen({ search_contains: true, width: '220px' });
+			monster.ui.showPasswordStrength(template.find('#password'));
 
 			language.populateDropdown(template.find('#user_language'), data.user.language||'inherit', {inherit: self.i18n.active().defaultLanguage});
 			template.find('#user_language').chosen({ search_contains: true, width: '220px' });

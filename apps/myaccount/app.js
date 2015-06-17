@@ -234,12 +234,25 @@ define(function(require){
 
 				self.bindEvents(myaccountHtml);
 
-				if(monster.apps['auth'].resellerId === monster.config.resellerId && uiRestrictions.billing.show_tab) {
-					self.checkCreditCard();
-				}
-
-				self.checkIfDisplayWalkthrough(myaccountHtml);
+				self.afterRender(myaccountHtml, uiRestrictions);
 			});
+		},
+
+		// Once myaccount is rendered, we need to check some things:
+		// First we check if we need to display the first time walkthrough
+		// If yes, we display it and update that user to not display it again once it's completed
+		// If no, we check if we need to remind them to fill their credit card info
+		afterRender: function(template, uiRestrictions) {
+			var self = this;
+
+			if(self.hasToShowWalkthrough()) {
+				self.showWalkthrough(template, function() {
+					self.updateWalkthroughFlagUser();
+				});
+			}
+			else {
+				self.checkCreditCard(uiRestrictions);
+			}
 		},
 
 		// Also used by masquerading, account app
@@ -482,52 +495,40 @@ define(function(require){
 			params.callback && params.callback();
 		},
 
-		checkCreditCard: function() {
+		checkCreditCard: function(uiRestrictions) {
 			var self = this;
 
-			self.getBraintree(function(data) {
-				if(data.credit_cards.length === 0) {
-					self.renderDropdown(true, function() {
-						var module = 'billing';
+			// If this is a sub-account of the super duper admin, has the billing tab, and is not the super duper admin itself.
+			if(monster.apps['auth'].resellerId === monster.config.resellerId && uiRestrictions.billing.show_tab && !monster.util.isSuperDuper()) {
+				self.getBraintree(function(data) {
+					if(data.credit_cards.length === 0) {
+						self.renderDropdown(true, function() {
+							var module = 'billing';
 
-						self.activateSubmodule({
-							title: self.i18n.active()[module].title,
-							module: module,
-							callback: function() {
-								var billingContent = $('#myaccount .myaccount-content .billing-content-wrapper');
+							self.activateSubmodule({
+								title: self.i18n.active()[module].title,
+								module: module,
+								callback: function() {
+									var billingContent = $('#myaccount .myaccount-content .billing-content-wrapper');
 
-								self._openAccordionGroup({
-									link: billingContent.find('.settings-item[data-name="credit_card"] .settings-link')
-								});
+									self._openAccordionGroup({
+										link: billingContent.find('.settings-item[data-name="credit_card"] .settings-link')
+									});
 
-								toastr.error(self.i18n.active().billing.missingCard);
-							}
+									toastr.error(self.i18n.active().billing.missingCard);
+								}
+							});
 						});
-					});
-				}
-			});
+					}
+				});
+			}
 		},
 
-		// First we check if the user hasn't seen the walkthrough already
-		// if he hasn't we show the walkthrough, and once they're done with it, we update their user doc so they won't see the walkthrough again
-		checkIfDisplayWalkthrough: function(template) {
+		// if flag "showfirstUseWalkthrough" is not set to false, we need to show the walkthrough
+		hasToShowWalkthrough: function(callback) {
 			var self = this;
 
-			self.hasWalkthrough(function() {
-				self.showWalkthrough(template, function() {
-					self.updateWalkthroughFlagUser();
-				});
-			});
-		},
-
-		// if flag "showfirstUseWalkthrough" is not set to false, we trigger a callback
-		hasWalkthrough: function(callback) {
-			var self = this,
-				flag = self.helpSettings.user.get('showfirstUseWalkthrough');
-
-			if(flag !== false) {
-				callback && callback();
-			}
+			return self.helpSettings.user.get('showfirstUseWalkthrough') !== false;
 		},
 
 		// function to set the flag "showfirstUseWalkthrough" to false and update the user in the database.
@@ -661,6 +662,25 @@ define(function(require){
 			});
 		},
 
+		validatePasswordForm: function(formPassword, callback) {
+			var self = this;
+
+			monster.ui.validate(formPassword, {
+				rules: {
+					'password': {
+						minlength: 6
+					},
+					'confirm_password': {
+						equalTo: 'input[name="password"]'
+					}
+				}
+			});
+
+			if(monster.ui.valid(formPassword)) {
+				callback && callback();
+			}
+		},
+
 		_myaccountEvents: function(args) {
 			var self = this,
 				data = args.data,
@@ -677,21 +697,17 @@ define(function(require){
 						liSettings.find('.edition').hide();
 					});
 				},
-				settingsValidate = function(fieldName, dataForm, callbackSuccess, callbackError) {
-					var validate = true,
-						error = false;
+				settingsValidate = function(fieldName, dataForm, callback) {
+					var formPassword = template.find('#form_password');
 
-					if(fieldName === 'password') {
-						if(!(dataForm.password === dataForm.confirm_password)) {
-							error = self.i18n.active().user.passwordsNotMatching;
-						}
+					// This is still ghetto, I didn't want to re-factor the whole code to tweak the validation
+					// If the field is password, we start custom validation
+					if(formPassword.length) {
+						self.validatePasswordForm(formPassword, callback);
 					}
-
-					if(error && typeof callbackError === 'function') {
-						callbackError(error);
-					}
-					else if(validate === true && error === false && typeof callbackSuccess === 'function') {
-						callbackSuccess();
+					// otherwise we don't have any validation for this field, we execute the callback
+					else {
+						callback && callback();
 					}
 				};
 
@@ -764,9 +780,6 @@ define(function(require){
 								monster.ui.friendlyError(dataError);
 							}
 						);
-					},
-					function(error) {
-						monster.ui.alert(error);
 					}
 				);
 			});
