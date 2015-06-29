@@ -107,10 +107,10 @@
 			</div>
 		</li>
 
-               <li class="settings-item clearfix" data-name="froud_settings">
+               <li class="settings-item clearfix" data-name="fraud_settings">
                         <a class="settings-link clearfix">
-                                <span class="title">{{ i18n.account.froud.title }}</span>
-                                <span class="description">{{ i18n.account.froud.perday_descript }}: {{account.limit.froud.perday}}{{#if account.limit.froud.perday}}&nbsp; / &nbsp;{{ i18n.account.froud.permin_descript }}: {{ account.limit.froud.permin }}{{/if}}</span>
+                                <span class="title">{{ i18n.account.fraud.title }}</span>
+                                <span class="description">{{ i18n.account.fraud.perday_descript_short }}: {{account.limit.fraud.perday}}{{#if account.limit.fraud.perday}} {{/if}}</span>
                                 <span class="update">
                                         <i class="fa fa-cog icon-small"></i>
                                         <span class="text">{{ i18n.editSettings }}</span>
@@ -120,23 +120,73 @@
                         <div class="settings-item-content">
                                 <div class="row-fluid">
                                         <div class="span12">
-                                                <form id="form_froud_contact" class="form-horizontal">
+                                                <form id="form_fraud_settings" class="form-horizontal">
                                                         <div class="control-group">
-                                                                <label class="control-label" for="froud_limit_perday">{{ i18n.account.froud.perday }}</label>
+                                                                <label class="control-label" for="fraud_limit_perday">{{ i18n.account.fraud.perday }}</label>
                                                                 <div class="controls">
-                                                                        <input type="text" id="froud_limit_perday" name="limit.froud.perday" value="{{account.limit.froud.perday}}" placeholder="{{ i18n.account.froud.perdaydefault }}" data-original_value="{{account.limit.froud.perday}}"/>
-                                                                {{ i18n.account.froud.perday_descript }}</div>
-                                                        </div>
-                                                        <div class="control-group">
-                                                                <label class="control-label" for="froud_limit_permin">{{ i18n.account.froud.permin }}</label>
-                                                                <div class="controls">
-                                                                        <input type="text" id="froud_limit_permin" name="limit.froud.permin" value="{{account.limit.froud.permin}}" placeholder="{{ i18n.account.froud.permindefault }}" data-original_value="{{account.limit.froud.permin}}"/>
-                                                                {{ i18n.account.froud.permin_descript }}</div>
+                                                                        <input type="text" id="fraud_limit_perday" name="limit.fraud.perday" value="{{account.limit.fraud.perday}}" placeholder="{{ i18n.account.fraud.perdaydefault }}" data-original_value="{{account.limit.fraud.perday}}"/>
+                                                                {{ i18n.account.fraud.perday_descript }}</div>
                                                         </div>
                                                         <div class="action-group clearfix">
                                                                 <div class="action-bar">
                                                                         <button type="button" class="monster-button cancel">{{ i18n.cancel }}</button>
-                                                                        <button type="submit" class="monster-button-success change" data-module="account" data-field="froud_contact">{{ i18n.saveChanges }}</button>
+                                                                        <button type="submit" class="monster-button-success change" data-module="account" data-field="fraud_settings">{{ i18n.saveChanges }}</button>
+                                                                </div>
+                                                        </div>
+                                                </form>
+                                        </div>
+                                </div>
+                        </div>
+                </li>
+
+               <li class="settings-item clearfix" data-name="provision_settings">
+                        <a class="settings-link clearfix">
+                                <span class="title">{{ i18n.account.provision.title }}</span>
+                               <span class="description">
+                                        {{#if account.provision.provision_enabled}}
+                                                {{ i18n.account.provision.provisionEnabled }}
+                                        {{else}}
+                                                {{ i18n.account.provision.provisionDisabled }}
+                                        {{/if}}
+                                </span>
+                                <span class="update">
+                                        <i class="fa fa-cog icon-small"></i>
+                                        <span class="text">{{ i18n.editSettings }}</span>
+                                </span>
+                                <span class="changes-saved">{{ i18n.changesSaved }}</span>
+                        </a>
+                        <div class="settings-item-content">
+                                <div class="row-fluid">
+                                        <div class="span12">
+                                                <form id="form_provision_settings" class="form-horizontal">
+                                                        <div class="control-group">
+                                                                <label class="control-label" for="provision_urlpass">{{ i18n.account.provision.urlPass }}</label>
+                                                                <div class="controls">
+                                                                        <input type="text" id="provision_urlpass" name="provision.urlpass" value="{{account.provision.urlpass}}" placeholder="FDreGe64Fd564tggdff" data-original_value="{{account.provision.urlpass}}"/></div>
+                                                        </div>
+                                                        <div class="control-group">
+                                                                <label class="control-label" for="provision_provisiondomain">{{ i18n.account.provision.provisionDomain }}</label>
+                                                                <div class="controls">
+                                                                        <input type="text" id="provision_provisiondomain" name="provision.provisiondomain" value="{{account.provision.provisiondomain}}" placeholder="you-home.allip.ovh" data-original_value="{{account.provision.provisiondomain}}"/></div>
+                                                        </div>
+                                                        <div class="control-group">
+                                                                <label class="control-label" for="provision_provisionpass">{{ i18n.account.provision.provisionPass }}</label>
+                                                                <div class="controls">
+                                                                        <input type="text" id="provision_provisionpass" name="provision.provisionpass" value="{{account.provision.provisionpass}}" placeholder="" data-original_value="{{account.provision.provisionpass}}"/></div>
+                                                        </div>
+
+                                                       <div class="control-group">
+                                                                <label class="control-label" for="provision_enabled">{{ i18n.account.provision.supportProvision }}</label>
+                                                                <div class="controls checkbox-container">
+                                                                        {{#monsterCheckbox}}
+                                                                                <input type="checkbox" id="account_provision_enabled" name="provision.provision_enabled" {{#if account.provision.provision_enabled}}checked{{/if}} />
+                                                                        {{/monsterCheckbox}}
+                                                                </div>
+                                                        </div>
+                                                        <div class="action-group clearfix">
+                                                                <div class="action-bar">
+                                                                        <button type="button" class="monster-button cancel">{{ i18n.cancel }}</button>
+                                                                        <button type="submit" class="monster-button-success change" data-module="account" data-field="provision_settings">{{ i18n.saveChanges }}</button>
                                                                 </div>
                                                         </div>
                                                 </form>

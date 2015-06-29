@@ -3,7 +3,9 @@
 		<li class="settings-item clearfix" data-name="credit_card">
 			<a class="settings-link clearfix">
 				<span class="title">{{ i18n.billing.cardOnFile }}</span>
-				<span class="description"><span class="card-type {{billing.credit_card.type}}"/>{{billing.credit_card.fake_number}}</span>
+				<span class="description">{{#if billing.credit_card.fake_number }} {{ i18n.billing.useCreditEnabled }} {{else}} {{ i18n.billing.useCreditDisabled }} {{/if}} &nbsp;&nbsp; 
+				<span class="card-type {{billing.credit_card.type}}"/>{{billing.credit_card.fake_number}}
+				</span>
 				<span class="update">
 					<i class="fa fa-cog icon-small"></i>
 					<span class="text">{{ i18n.editSettings }}</span>
@@ -78,8 +80,11 @@
 		</li>
 		<li class="settings-item clearfix" data-name="account_administrator">
 			<a class="settings-link clearfix">
+
 				<span class="title">{{ i18n.billing.accountAdministrator }}</span>
-				<span class="description">{{account.contact.billing.email}}{{#if account.contact.billing.number}}&nbsp;&nbsp;(<span class="number">{{formatPhoneNumber account.contact.billing.number}}</span>){{/if}}</span>
+				<span class="description">{{#if account.contact.billing.usepostbilling_enabled }} {{ i18n.billing.usepostbillingEnabled }} {{else}} {{ i18n.billing.usepostbillingDisabled }} {{/if}} 
+                                        {{#if account.contact.billing.number}} ({{formatPhoneNumber account.contact.billing.number}} ){{/if}} 
+				</span>
 				<span class="update">
 					<i class="fa fa-cog icon-small"></i>
 					<span class="text">{{ i18n.editSettings }}</span>
@@ -96,6 +101,37 @@
 									<input type="email" id="account_administrator_email" name="contact.billing.email" value="{{account.contact.billing.email}}" placeholder="{{ i18n.placeholderEmail }}" data-original_value="{{account.contact.billing.email}}"/>
 								</div>
 							</div>
+
+                                                        <div class="control-group">
+                                                            <label class="control-label" for="accountsmanager_billing_contact_name">{{ i18n.billing.name }}</label>
+                                                            <div class="controls">
+                                                                    <input type="text" id="accountsmanager_billing_contact_name" name="contact.billing.name" value="{{account.contact.billing.name}}" placeholder="{{ i18n.billing.name }}" data-original_value="{{account.contact.billing.name}}" maxlength="32" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="control-group">
+                                                            <label class="control-label" for="accountsmanager_billing_contact_address">{{ i18n.billing.address }}</label>
+                                                            <div class="controls">
+                                                                    <input type="text" id="accountsmanager_billing_contact_address" name="contact.billing.address" value="{{account.contact.billing.address}}" placeholder="{{ i18n.billing.address }}" data-original_value="{{account.contact.billing.address}}" maxlength="32" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="control-group">
+                                                            <label class="control-label" for="accountsmanager_billing_contact_zip">{{ i18n.billing.zip }}</label>
+                                                            <div class="controls">
+                                                                    <input type="text" id="accountsmanager_billing_contact_zip" name="contact.billing.zip" value="{{account.contact.billing.zip}}" placeholder="{{ i18n.billing.zip }}" data-original_value="{{account.contact.billing.zip}}" maxlength="15" />
+                                                                    <input type="text" id="accountsmanager_billing_contact_city" name="contact.billing.city" value="{{account.contact.billing.city}}" placeholder="{{ i18n.billing.city }}" data-original_value="{{account.contact.billing.city}}" maxlength="45" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="control-group">
+                                                                <label class="control-label" for="accountsmanager_billing_usepostbilling_enabled">{{ i18n.billing.usepostBilling }}</label>
+                                                                <div class="controls checkbox-container">
+                                                                        {{#monsterCheckbox}}
+                                                                                <input type="checkbox" id="accountsmanager_billing_usepostbilling_enabled" name="contact.billing.usepostbilling_enabled" {{#if account.contact.billing.usepostbilling_enabled}}checked{{/if}} />
+                                                                        {{/monsterCheckbox}}
+                                                                                <span> {{ i18n.billing.payExtra }} {{ whitelabelcost }} </span>
+                                                                </div>
+                                                        </div>
+
 							<div class="control-group">
 								<label class="control-label" for="account_administrator_number">{{ i18n.phoneNumber }}</label>
 								<div class="controls">

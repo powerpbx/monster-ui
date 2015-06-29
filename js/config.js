@@ -6,10 +6,11 @@ define(function(require){
 			default: 'https://kazoo.allip.ovh:8443/v2/',
 
 			// If you have provisioner turned on in your install and can use the one provided by 2600hz, add the URL in the 'provisioner' key below
+			provisioner: 'https://prov.allip.ovh/prov/',
 			//provisioner: 'https://p3.zswitch.net/',
 
 			// If you want to use WebSockets you need to turn blackhole on in the back-end and then put the URL in the 'socket' key below
-			socket: 'https://kazoo.allip.ovh',
+			socket: 'https://www.allip.ovh',
 		},
 
 		// The resellerId key is the accountId of your master account, and is needed for some reseller features

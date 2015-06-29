@@ -321,24 +321,24 @@ define(function(require){
 					self.appFlags.mainContainer.removeClass('monster-content');
 				}
 				loadWelcome = function() {
-					// if(monster.config.whitelabel.custom_welcome) {
-					// 	self.callApi({
-					// 		resource: 'whitelabel.getWelcomeByDomain',
-					// 		data: {
-					// 			domain: window.location.hostname,
-					// 			generateError: false
-					// 		},
-					// 		success: function(data, status) {
-					// 			template.find('.left-div').empty().html(data);
-					// 			callback();
-					// 		},
-					// 		error: function(data, status) {
-					// 			callback();
-					// 		}
-					// 	});
-					// } else {
-					// 	callback();
-					// }
+					if(monster.config.whitelabel.custom_welcome) {
+						self.callApi({
+							resource: 'whitelabel.getWelcomeByDomain',
+							data: {
+								domain: window.location.hostname,
+								generateError: false
+							},
+							success: function(data, status) {
+								template.find('.hello-subtitle').empty().html(data);
+								callback();
+							},
+							error: function(data, status) {
+								callback();
+							}
+						});
+					} else {
+						callback();
+					}
 					if(monster.config.whitelabel.custom_welcome_message) {
 						template.find('.hello-subtitle').empty().html(monster.config.whitelabel.custom_welcome_message.replace(/\r?\n/g, '<br />'));
 					}
@@ -358,7 +358,7 @@ define(function(require){
 					loadWelcome();
 				},
 				error: function(error) {
-					template.find('.logo-block').css('background-image', 'url("apps/auth/style/static/images/logo.svg")');
+					template.find('.logo-block').css('background-image', 'url("apps/auth/style/static/images/logo.jpg")');
 					loadWelcome();
 				}
 			});

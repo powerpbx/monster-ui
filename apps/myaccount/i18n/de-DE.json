@@ -69,14 +69,25 @@
 	},
 
 	"account": {
-		"froud": {
+		"fraud": {
 			"title": "Konto-Kostenschutz",
 			"perdaydefault": "20.00",
 			"permindefault": "0.26",
 			"perday": "Kontoschutz pro Tag",
 			"perday_descript": "Maximalkosten pro Tag",
+			"perday_descript_short": "pro Tag",
 			"permin": "Kontoschutz pro Anruf",
-			"permin_descript": "Maximalkosten pro Minute"
+			"permin_descript": "Maximalkosten pro Minute",
+			"permin_descript_short": "pro Minute"
+		},
+		"provision": {
+			"title": "Automatische Gerätekonfiguration",
+			"urlPass": "URL-Passwort",
+			"provisionDomain": "Domainschutz",
+			"provisionPass": "Telefon Passwort",
+			"supportProvision": "Automatische Gerätekonfiguration ein",
+			"provisionEnabled": "Ist Eingeschaltet",
+			"provisionDisabled": "Ist Ausgeschaltet"
 		},
 		"title": "Konto",
 
@@ -100,7 +111,16 @@
 		"missingCard": "Ihre Kreditkarte ist nicht gültig, Abgelaufen oder Fehler - bitte erneuern um die Änderungen zu speichern.",
 
 		"cardOnFile": "Kreditkarte",
-		"billingName": "Name",
+		"name": "Rechnungsname",
+                "address": "Rechnungsadresse",
+                "zip": "Postleitzahl",
+                "city": "Ortschaft",
+                "usepostBilling": "Postrechnung",
+                "payExtra": "Rechnung per Post zusätzlich",
+                "usepostbillingDisabled": "Postrechnung Aus",
+                "usepostbillingEnabled": "Postrechnung Ein",
+                "useCreditDisabled": "Kreditkarte Aus",
+                "useCreditEnabled": "Kreditkarte Ein",
 		"firstName": "Vorname",
 		"lastName": "Nachname",
 		"creditCardNumber": "Nummer",
