@@ -778,6 +778,7 @@ define(function(require){
 
 			return (previousIterationNumber) ? previousIterationNumber + increment : lowestNumber;
 
+		}
 	};
 
 	return util;
