@@ -459,7 +459,12 @@
 		"missingBrand": "The brand of my device is not listed here",
 		"missingDevice": "My device is not listed here",
 		"title": "Selection of the device",
-		"create": "Create Device"
+		"create": "Create Device",
+		"deviceInformation": "Device Info",
+		"deviceLink": "More Productinfo from Vendor",
+                "macAddress": "MAC-Address",
+                "deviceName": "Devicename",
+                "deviceNameplaceholder": "John Doo"
 	},
 
 	"servicePlanDetails": {

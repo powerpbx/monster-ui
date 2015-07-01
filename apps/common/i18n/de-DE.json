@@ -413,8 +413,10 @@
                 "title": "Auswahl des Gerätes",
                 "create": "Geräteeinstellungen Abschliessen",
 		"macAddress": "MAC-Adresse",
-		"deviceName": "Eigene Gerätebezeichnung",
-		"deviceInfo": "Geräte Information"
+		"deviceName": "Gerätebezeichnung",
+                "deviceInformation": "Geräte Info",
+                "deviceLink": "Dokumentation direkt Hersteller",
+		"deviceNameplaceholder": "Peter Meier"
 	},
 	"servicePlanDetails": {
                 "rate": "Monatlich:",

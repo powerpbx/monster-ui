@@ -128,6 +128,7 @@ define(function(require){
 
 				$this.addClass('selected');
 
+				document.getElementById('getLinkfromBrand').href = 'http://www.' + selectedBrand + '.com';
 				templateDevice.find('.actions .selection').text(monster.template(self, '!' + self.i18n.active().chooseModel.deviceSelected, { brand: selectedBrand, model: selectedModel }));
 				templateDevice.find('.block-footer').slideDown(function() {
 					$('html, body').animate({ scrollTop: templateDevice.find('div.block-device-info div.title-bar').offset().top }, function() {

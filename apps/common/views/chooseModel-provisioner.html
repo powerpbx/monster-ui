@@ -41,19 +41,20 @@
 	<div class="block-footer">
 		<div class="block-device-info">
 			<div class="title-bar clearfix">
-				<div class="title pull-left">Device information :</div>
+				<div class="title pull-left">{{i18n.chooseModel.deviceInformation}}:</div>
+				<div class="title pull-right"><p><a target="_blank" href="#" id="getLinkfromBrand">{{i18n.chooseModel.deviceLink}}</a></p></div>
 			</div>
 
 			<div class="device-info">
 				<form action="" class="form form-horizontal" id="device_form">
 					<div class="control-group">
-						<label for="name" class="control-label" name="name">Device Name</label>
+						<label for="name" class="control-label" name="name">{{i18n.chooseModel.deviceName}}</label>
 						<div class="controls">
-							<input type="text" id="name" name="name">
+							<input type="text" id="name" name="name" placeholder="{{i18n.chooseModel.deviceNameplaceholder}}">
 						</div>
 					</div>
 					<div class="control-group">
-						<label for="mac_address" class="control-label">MAC Address</label>
+						<label for="mac_address" class="control-label">{{i18n.chooseModel.macAddress}}</label>
 						<div class="controls">
 							<input type="text" id="mac_address" name="mac_address" placeholder="19:33:1A:B2:12:58">
 						</div>
