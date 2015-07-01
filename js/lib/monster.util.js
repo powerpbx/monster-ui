@@ -5,14 +5,14 @@ define(function(require){
 		monster = require("monster");
 
 	var util = {
-		toFriendlyDate: function(date, format, user){
+		toFriendlyDate: function(pDate, format, pUser){
 			// If Date is undefined, then we return an empty string.
 			// Useful for form which use toFriendlyDate for some fields with an undefined value (for example the carriers app, contract expiration date)
 			// Otherwise it would display NaN/NaN/NaN in Firefox for example
 			if(typeof date !== 'undefined') {
-				var self = this
+				var self = this,
 					i18n = monster.apps.core.i18n.active(),
-					user = user || monster.apps.auth.currentUser,
+					user = pUser || monster.apps.auth.currentUser,
 					user12hMode = user && user.ui_flags && user.ui_flags.twelve_hours_mode ? true : false,
 					userDateFormat = user && user.ui_flags && user.ui_flags.date_format ? user.ui_flags.date_format : 'mdy',
 					format2Digits = function(number) {
@@ -23,7 +23,7 @@ define(function(require){
 					todayMonth = format2Digits(today.getMonth() + 1),
 					todayDay = format2Digits(today.getDate()),
 					// date can be either a JS Date or a gregorian timestamp
-					date = typeof date === 'object' ? date : self.gregorianToDate(date),
+					date = typeof pDate === 'object' ? pDate : self.gregorianToDate(pDate),
 					year = date.getFullYear().toString().substr(2, 2),
 					fullYear = date.getFullYear(),
 					month = format2Digits(date.getMonth() + 1),
@@ -37,7 +37,7 @@ define(function(require){
 						'dmy': 'DD/MM/year',
 						'mdy': 'MM/DD/year',
 						'ymd': 'year/MM/DD'
-					}
+					},
 					patterns = {
 						'year': fullYear,
 						'YY': year,
@@ -78,7 +78,7 @@ define(function(require){
 					format = shortDateFormats[userDateFormat] + ' - hh:mm:ss';
 				}
 
-				if(format.indexOf('hh') > -1 && format.indexOf('12h') == -1 && user12hMode) {
+				if(format.indexOf('hh') > -1 && format.indexOf('12h') === -1 && user12hMode) {
 					format += ' 12h'
 				}
 
@@ -116,7 +116,7 @@ define(function(require){
 		},
 
 		gregorianToDate: function(timestamp) {
-			var formattedResponse = undefined;
+			var formattedResponse;
 
 			if(typeof timestamp === 'string') {
 				timestamp = parseInt(timestamp);
@@ -130,7 +130,7 @@ define(function(require){
 		},
 
 		dateToGregorian: function(date) {
-			var formattedResponse = undefined;
+			var formattedResponse;
 
 			// This checks that the parameter is an object and not null
 			if(typeof date === 'object' && date) {
@@ -140,9 +140,9 @@ define(function(require){
 			return formattedResponse
 		},
 
-		unformatPhoneNumber: function(formattedNumber, specialRule) {
+		unformatPhoneNumber: function(formattedNumber, pSpecialRule) {
 			var regex = /[^0-9]/g,
-				specialRule = specialRule || 'none';
+				specialRule = pSpecialRule || 'none';
 
 			if(specialRule === 'keepPlus') {
 				regex = /[^0-9\+]/g;
@@ -205,7 +205,8 @@ define(function(require){
 						result = (aString > bString) ? 1 : (aString < bString) ? -1 : 0;
 
 					return result;
-				};
+				},
+				result;
 
 			if(typeof secondArg === 'function') {
 				sortFunction = secondArg;
@@ -224,9 +225,9 @@ define(function(require){
 		 * @param numberOfDays - mandatory integer representing the number of business days to add
 		 * @param from - optional JavaScript Date Object
 		 */
-		getBusinessDate: function(numberOfDays, from) {
+		getBusinessDate: function(numberOfDays, pFrom) {
 			var self = this,
-				from = from && from instanceof Date ? from : new Date(),
+				from = pFrom && pFrom instanceof Date ? pFrom : new Date(),
 				weeks = Math.floor(numberOfDays / 5),
 				days = ((numberOfDays % 5) + 5) % 5,
 				dayOfTheWeek = from.getDay();
@@ -262,12 +263,12 @@ define(function(require){
 			return new Date(from.setDate(from.getDate() + weeks * 7 + days));
 		},
 
-		formatPrice: function(value, decimals) {
-			var decimals = parseInt(decimals),
+		formatPrice: function(value, pDecimals) {
+			var decimals = parseInt(pDecimals),
 				decimalCount = decimals >= 0 ? decimals : 2,
 				roundedValue = Math.round(Number(value)*Math.pow(10,decimalCount))/Math.pow(10,decimalCount);
 			
-			return roundedValue.toFixed( ((parseInt(value) == value) && (isNaN(decimals) || decimals < 0)) ? 0 : decimalCount );
+			return roundedValue.toFixed( ((parseInt(value) === value) && (isNaN(decimals) || decimals < 0)) ? 0 : decimalCount );
 		},
 
 		// Takes a string and replace all the "_" from it with a " ". Also capitalizes every word. 
@@ -281,10 +282,10 @@ define(function(require){
 		},
 
 		// Function returning if an account is a superduper admin, uses original account by default, but can take an account document in parameter
-		isSuperDuper: function(account) {
+		isSuperDuper: function(pAccount) {
 			var self = this,
 				isSuperDuper = false,
-				account = account || (monster.apps.hasOwnProperty('auth') && monster.apps.auth.hasOwnProperty('originalAccount') ? monster.apps.auth.originalAccount : {});
+				account = pAccount || (monster.apps.hasOwnProperty('auth') && monster.apps.auth.hasOwnProperty('originalAccount') ? monster.apps.auth.originalAccount : {});
 
 			if(account.hasOwnProperty('superduper_admin')) {
 				isSuperDuper = account.superduper_admin;
@@ -307,7 +308,7 @@ define(function(require){
 				isMasquerading = false;
 
 			if(monster.hasOwnProperty('apps') && monster.apps.hasOwnProperty('auth') && monster.apps.auth.hasOwnProperty('originalAccount') && monster.apps.auth.hasOwnProperty('currentAccount')) {
-				isMasquerading = !(monster.apps.auth.originalAccount.id === monster.apps.auth.currentAccount.id);
+				isMasquerading = monster.apps.auth.originalAccount.id !== monster.apps.auth.currentAccount.id;
 			}
 
 			return isMasquerading;
@@ -316,11 +317,11 @@ define(function(require){
 		// Function returning map of URL parameters
 		// Optional key, returns value of specific GET parameter
 		// keepHashes was added because having hashes sometimes crashed some requests
-		getUrlVars: function(key, keepHashes) {
+		getUrlVars: function(key, pKeepHashes) {
 			var vars = {},
 				hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&'),
 				hash,
-				keepHashes = keepHashes || false;
+				keepHashes = pKeepHashes || false;
 
 			for(var i = 0; i < hashes.length; i++) {
 				hash = hashes[i].split('=');
@@ -334,8 +335,8 @@ define(function(require){
 		/****************** Helpers not documented because people shoudln't need to use them *******************/
 
 		// Helper only used in conference app, takes seconds and transforms it into a timer
-		friendlyTimer: function(seconds) {
-			var seconds = Math.floor(seconds),
+		friendlyTimer: function(pSeconds) {
+			var seconds = Math.floor(pSeconds),
 				hours = Math.floor(seconds / 3600),
 				minutes = Math.floor(seconds / 60) % 60,
 				remainingSeconds = seconds % 60,
@@ -350,7 +351,7 @@ define(function(require){
 		*/
 		autoLogout: function() {
 			if(!monster.config.whitelabel.hasOwnProperty('logoutTimer') || monster.config.whitelabel.logoutTimer > 0) {
-				var i18n = monster.apps['core'].i18n.active(),
+				var i18n = monster.apps.core.i18n.active(),
 					timerAlert,
 					timerLogout,
 					wait = monster.config.whitelabel.logoutTimer || 30,
@@ -408,7 +409,7 @@ define(function(require){
 
 		checkVersion: function(obj, callback) {
 			var self = this,
-				i18n = monster.apps['core'].i18n.active();
+				i18n = monster.apps.core.i18n.active();
 
 			if(obj.hasOwnProperty('ui_metadata') && obj.ui_metadata.hasOwnProperty('ui')) {
 				if(obj.ui_metadata.ui !== 'monster-ui') {
@@ -429,8 +430,7 @@ define(function(require){
 			transaction.hasAddOns = false;
 
 			// If transaction has accounts/discounts and if at least one of these properties is not empty, run this code
-			if(transaction.hasOwnProperty('metadata') && transaction.metadata.hasOwnProperty('add_ons') && transaction.metadata.hasOwnProperty('discounts') 
-				&& !(transaction.metadata.add_ons.length === 0 && transaction.metadata.discounts.length === 0)) {
+			if(transaction.hasOwnProperty('metadata') && transaction.metadata.hasOwnProperty('add_ons') && transaction.metadata.hasOwnProperty('discounts') && !(transaction.metadata.add_ons.length === 0 && transaction.metadata.discounts.length === 0)) {
 
 				var mapDiscounts = {};
 				_.each(transaction.metadata.discounts, function(discount) {
@@ -531,9 +531,9 @@ define(function(require){
 			return result;
 		},
 
-		formatMacAddress: function(macAddress) {
+		formatMacAddress: function(pMacAddress) {
 			var regex = /[^0-9a-fA-F]/g,
-				macAddress = macAddress.replace(regex, ''),
+				macAddress = pMacAddress.replace(regex, ''),
 				formattedMac = '';
 
 			if(macAddress.length === 12) {
@@ -553,9 +553,9 @@ define(function(require){
 			return formattedMac;
 		},
 
-		getDefaultRangeDates: function(range) {
+		getDefaultRangeDates: function(pRange) {
 			var self = this,
-				range = range || 7,
+				range = pRange || 7,
 				dates = {
 					from: '',
 					to: ''
@@ -620,9 +620,9 @@ define(function(require){
 		// internal function used by different apps to set their own help flags.
 		helpFlags: {
 			user: {
-				get: function(appName, flagName, user) {
-					var user = user || monster.apps.auth.currentUser,
-						value = undefined;
+				get: function(appName, flagName, pUser) {
+					var user = pUser || monster.apps.auth.currentUser,
+						value;
 
 					if(user.hasOwnProperty('ui_help') && user.ui_help.hasOwnProperty(appName) && user.ui_help[appName].hasOwnProperty(flagName)) {
 						value = user.ui_help[appName][flagName];
@@ -630,8 +630,8 @@ define(function(require){
 
 					return value;
 				},
-				set: function(appName, flagName, value, user) {
-					var user = user || monster.apps.auth.currentUser;
+				set: function(appName, flagName, value, pUser) {
+					var user = pUser || monster.apps.auth.currentUser;
 
 					user.ui_help = user.ui_help || {};
 					user.ui_help[appName] = user.ui_help[appName] || {};
@@ -660,15 +660,16 @@ define(function(require){
 
 					listImg[i].src = newPath;
 				}
-			};
+			}
 
-			for(var i = 0; i < $markup.length; i++) {
-				result += $markup[i].outerHTML;
-			};
+			for(var j = 0; j < $markup.length; j++) {
+				result += $markup[j].outerHTML;
+			}
 
 			return result;
 		},
 
+		/* Helper function that non ascii to ascii */
 		convertUtf8ToAscii: function (str) {
 
                     var conversions = new Object();
@@ -727,7 +728,55 @@ define(function(require){
                         str = str.replace(re,i);
                     }
 			return str;
-		}
+		},
+
+		/* Helper function that takes an array of number in parameter, sorts it, and returns the first number not in the array, greater than the minVal */
+		getNextExtension: function(listNumbers) {
+			var orderedArray = listNumbers,
+				previousIterationNumber,
+				minNumber = 1000,
+				lowestNumber = minNumber,
+				increment = 1;
+
+			orderedArray.sort(function(a,b) {
+				var parsedA = parseInt(a),
+					parsedB = parseInt(b);
+
+				if(isNaN(parsedA)) {
+					return -1;
+				}
+				else if(isNaN(parsedB)) {
+					return 1;
+				}
+				else {
+					return parsedA > parsedB ? 1 : -1;
+				}
+			});
+			console.log(orderedArray);
+			_.each(orderedArray, function(number) {
+				var currentNumber = parseInt(number);
+
+				// First we make sure it's a valid number, if not we move on to the next number
+				if(!isNaN(currentNumber)) {
+					// If we went through this loop already, previousIterationNumber will be set to the number of the previous iteration
+					if(typeof previousIterationNumber !== 'undefined') {
+						// If there's a gap for a number between the last number and the current number, we check if it's a valid possible number (ie, greater than minNumber)
+						// And If yes, we return it, if not we just continue
+						if(currentNumber - previousIterationNumber !== increment && previousIterationNumber >= minNumber) {
+							return previousIterationNumber + increment;
+						}
+					}
+					// else, it's the first iteration, we initialize the minValue to the first number in the ordered array
+					// only if it's greater than 1000, because we don't want to recommend lower numbers
+					else if(currentNumber > minNumber) {
+						lowestNumber = currentNumber;
+					}
+					// We store current as the previous number for the next iteration
+					previousIterationNumber = currentNumber;
+				}
+			});
+
+			return (previousIterationNumber) ? previousIterationNumber + increment : lowestNumber;
 
 	};
 

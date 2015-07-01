@@ -250,7 +250,7 @@
 			'getSubscriptions': { verb: 'GET', url: 'accounts/{accountId}/transactions/subscriptions' },
 			'filtered': { verb: 'GET', url: 'accounts/{accountId}/transactions?created_from={from}&created_to={to}&reason={reason}' },
 			'add': { verb: 'PUT', url: 'accounts/{accountId}/braintree/credits' },
-                        'remove': { verb: 'DELETE', url: 'accounts/{accountId}/transactions/debit'}
+			'remove': { verb: 'DELETE', url: 'accounts/{accountId}/transactions/debit'}
 		},
 		billing: {
 			'get': { verb: 'GET', url: 'accounts/{accountId}/braintree/customer' },
