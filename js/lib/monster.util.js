@@ -752,7 +752,7 @@ define(function(require){
 					return parsedA > parsedB ? 1 : -1;
 				}
 			});
-			console.log(orderedArray);
+			
 			_.each(orderedArray, function(number) {
 				var currentNumber = parseInt(number);
 
