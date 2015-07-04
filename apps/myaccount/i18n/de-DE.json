@@ -96,9 +96,15 @@
 
 		"accountRealm": "Konto Realm",
 
-		"technicalContact": "Technischer Kontaktname",
-		"technicalContactEmail": "Technischerkontakt Email",
+		"technicalContact": "Lieferung und Technik",
+		"technicalContactEmail": "Email Technik",
 		"technicalContactNumber": "Telefonnummer",
+		"technicalContactMobile": "Mobilenummer",
+		"technicalAddress": "Adresse",
+		"technicalZIP": "Postleitzahl",
+		"technicalCity": "Ortschaft",
+		"technicalConnect": "Anschlussnummer",
+		"technicalLine": "Adernummer",
 
 		"timezoneTitle": "Zeitzone & Sprache",
 		"userTimezone": "Zeitzone",
@@ -152,7 +158,7 @@
 		"helpInbound": "Die Anzahl der gleichzeitigen Verbindungen, die das System bei eingehenden Anrufen machen kann.",
 		"monthlyCharges": "Monatliche Kosten",
                 "twowayTitle": "Maximale Limite Gleichzeitige Verbindungen",
-                "twoway": "Verbindungen",
+                "twoway": "Gleichzeitig",
                 "outboundCalling": "Maximale Limite Augehende Verbindungen",
                 "helpOutbound": "Die Anzahl der gleichzeitigen Verbindungen, die das System bei ausgehenden Anrufen machen kann.",
                 "Users": "Benutzer",

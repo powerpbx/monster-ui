@@ -58,6 +58,13 @@
 		"technicalContactEmail": "Email",
 		"technicalContactNumber": "Numéro de téléphone",
 
+                "technicalContactMobile": "Mobilenumber",
+                "technicalAddress": "Address",
+                "technicalZIP": "ZIP",
+                "technicalCity": "City",
+                "technicalConnect": "Connectnumber",
+                "technicalLine": "Line-No",
+
 		"timezoneTitle": "Fuseau horaire & langage",
 		"userTimezone": "Fuseau horaire",
 		"userLanguage": "Langage",

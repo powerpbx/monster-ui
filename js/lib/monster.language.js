@@ -5,14 +5,14 @@ define(function(require) {
 		monster = require("monster");
 
 	var language = {
-	list: {
-		"de-DE": {iso: "de-DE", long: "Deutsch (Deutschland)", shortformat: 'DD.MM.year', longformat: 'DD.MM.year - hh:mm:ss', longtimeformat: 'hh:mm:ss', timeformat: '24h' },
-		"en-US": {iso: "en-US", long: "English (American)", shortformat: 'MM/DD/year', longformat: 'MM/DD/year - hh:mm:ss12h', longtimeformat: 'hh:mm:ss12h', timeformat: '12h' },
-		"it-IT": {iso: "it-IT", long: "Italian (Italy)", shortformat: 'DD/MM/year', longformat: 'DD/MM/year - hh:mm', longtimeformat: 'hh:mm:ss', timeformat: '24h' },
-		"fr-FR": {iso: "fr-FR", long: "French (French)", shortformat: 'DD/MM/year', longformat: 'DD/MM/year - hh:mm', longtimeformat: 'hh:mm:ss', timeformat: '24h' },
-		"ro-RO": {iso: "ro-RO", long: "Romania (Romania)", shortformat: 'DD/MM/year', longformat: 'DD/MM/year - hh:mm', longtimeformat: 'hh:mm:ss', timeformat: '24h' },
-		"ru-RU": {iso: "ru-RU", long: "Russian (Russian)", shortformat: 'DD/MM/year', longformat: 'DD/MM/year - hh:mm', longtimeformat: 'hh:mm:ss', timeformat: '24h' }
-        },
+		list: {
+			"de-DE": {iso: "de-DE", long: "Deutsch (Deutschland)", shortformat: 'DD.MM.year', longformat: 'DD.MM.year - hh:mm:ss', longtimeformat: 'hh:mm:ss', timeformat: '24h' },
+			"en-US": {iso: "en-US", long: "English (American)", shortformat: 'MM/DD/year', longformat: 'MM/DD/year - hh:mm:ss12h', longtimeformat: 'hh:mm:ss12h', timeformat: '12h' },
+			"it-IT": {iso: "it-IT", long: "Italian (Italy)", shortformat: 'DD/MM/year', longformat: 'DD/MM/year - hh:mm', longtimeformat: 'hh:mm:ss', timeformat: '24h' },
+			"fr-FR": {iso: "fr-FR", long: "French (French)", shortformat: 'DD/MM/year', longformat: 'DD/MM/year - hh:mm', longtimeformat: 'hh:mm:ss', timeformat: '24h' },
+			"ro-RO": {iso: "ro-RO", long: "Romania (Romania)", shortformat: 'DD/MM/year', longformat: 'DD/MM/year - hh:mm', longtimeformat: 'hh:mm:ss', timeformat: '24h' },
+			"ru-RU": {iso: "ru-RU", long: "Russian (Russian)", shortformat: 'DD/MM/year', longformat: 'DD/MM/year - hh:mm', longtimeformat: 'hh:mm:ss', timeformat: '24h' }
+		},
 
 		populateDropdown: function(dropdown, _selected) {
 			var self = this, selected = _selected;

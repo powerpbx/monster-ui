@@ -1,4 +1,5 @@
 {
+  "defaultttsvoice": "female/nl-NL",
   "_comment": "I have not translated a lot of this as it is used by developers mostly, or people that have the skills to see these replyS, Englis error messages are better, even for debugging and googling",
   "poweredBy": "Powered by ",
   "error": "Error",

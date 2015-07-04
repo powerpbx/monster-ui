@@ -47,6 +47,13 @@
 		"technicalContactEmail": "Адрес email специалиста по техническим вопросам",
 		"technicalContactNumber": "Телефон",
 
+                "technicalContactMobile": "Mobilenumber",
+                "technicalAddress": "Address",
+                "technicalZIP": "ZIP",
+                "technicalCity": "City",
+                "technicalConnect": "Connectnumber",
+                "technicalLine": "Line-No",
+
 		"timezoneTitle": "Язык и часовой пояс",
 		"userTimezone": "Часовой пояс",
 		"userLanguage": "Язык"

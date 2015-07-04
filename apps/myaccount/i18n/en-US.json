@@ -101,9 +101,16 @@
 
 		"accountRealm": "Account Realm",
 
-		"technicalContact": "Technical Contact",
+		"technicalContact": "Delivery and Technicals",
 		"technicalContactEmail": "Technical Contact Email",
 		"technicalContactNumber": "Phone Number",
+
+                "technicalContactMobile": "Mobilenumber",
+                "technicalAddress": "Address",
+                "technicalZIP": "ZIP",
+                "technicalCity": "City",
+                "technicalConnect": "Connectnumber",
+                "technicalLine": "Line-No",
 
 		"timezoneTitle": "Timezone & Language",
 		"userTimezone": "Timezone",

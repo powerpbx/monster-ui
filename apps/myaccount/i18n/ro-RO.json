@@ -56,6 +56,13 @@
 		"technicalContactEmail": "e-mail technischerkontakt",
 		"technicalContactNumber": "număr de telefon",
 
+                "technicalContactMobile": "Mobilenumber",
+                "technicalAddress": "Address",
+                "technicalZIP": "ZIP",
+                "technicalCity": "City",
+                "technicalConnect": "Connectnumber",
+                "technicalLine": "Line-No",
+
 		"timezoneTitle": "fus orar și limbă",
 		"userTimezone": "fus orar",
 		"userLanguage": "limbă",

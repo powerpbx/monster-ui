@@ -47,6 +47,13 @@
 		"technicalContactEmail": "Technisch Contact Email",
 		"technicalContactNumber": "Telefonnummer",
 
+                "technicalContactMobile": "Mobilenumber",
+                "technicalAddress": "Address",
+                "technicalZIP": "ZIP",
+                "technicalCity": "City",
+                "technicalConnect": "Connectnumber",
+                "technicalLine": "Line-No",
+
 		"timezoneTitle": "Tijdzone & Taal",
 		"userTimezone": "Tijdzone",
 		"userLanguage": "Taal",

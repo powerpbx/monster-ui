@@ -30,6 +30,7 @@ require.config({
 		'monster-ui': 'js/lib/monster.ui',
 		'monster-timezone': 'js/lib/monster.timezone',
 		'monster-language': 'js/lib/monster.language',
+		'monster-ttsvoice': 'js/lib/monster.ttsvoice',
 		'monster-util': 'js/lib/monster.util',
 		'nicescroll': 'js/lib/jquery.nicescroll.min',
 		'monster-apps': 'js/lib/monster.apps',
