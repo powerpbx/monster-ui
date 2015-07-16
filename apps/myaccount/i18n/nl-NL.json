@@ -43,7 +43,8 @@
 
 		"accountRealm": "Account Realm",
 
-		"technicalContact": "Technisch Contact",
+		"technicalContact": "Technical Contact",
+		"technicalContactname": "Name technicals",
 		"technicalContactEmail": "Technisch Contact Email",
 		"technicalContactNumber": "Telefonnummer",
 

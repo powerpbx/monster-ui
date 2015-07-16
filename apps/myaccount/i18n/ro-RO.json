@@ -52,7 +52,8 @@
 
 		"accountRealm": "konto domeniu",
 
-		"technicalContact": "Numele de contact tehnic",
+		"technicalContact": "Contact tehnic",
+		"technicalContactname": "Numele de contact tehnic",
 		"technicalContactEmail": "e-mail technischerkontakt",
 		"technicalContactNumber": "număr de telefon",
 

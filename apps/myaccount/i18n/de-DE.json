@@ -27,15 +27,15 @@
                 "steps": {
                         "1": "Die Kontoeinstellungen können Sie durch ein Klick auf Ihren Namen erreichen.",
                         "2": "Ihre Benutzereinstellungen finden Sie hier. Zeitzone, Sprache und Datum können Sie ensprechend Ihren Bedürfnissen anpassen.",
-                        "3": "In den Kontoeinstellungen können Sie den Technischen Kontakt, Zeitzone und Sprache und den Konto-Kostenschutz für dieses Konto einstellen. Die Einstellungen Konto Name und Konto-Realm sollten Sie so belassen, da es Ihre Geräte mit dieser Domain verbindet. (Durch den Konto-Kostenschutz ist es möglich die Nutzung der Gebühren einzudämmen, um die Kostenüberschreitung in Grenzen zu halten.) Wir empfehlen auf die maximal täglichen Kosten zu stellen (z.B 20.00 pro Tag und 0.26 pro Anrufminute)",
-                        "4": "Hier können Sie Ihre Zahlungseinstellungen anpassen. Bitte beachten Sie dass, die Kreditkarteninformationen bei der Registrierung hier abgelegt wurden.",
+                        "3": "In den Kontoeinstellungen können Sie die Technischen Details, Zeitzone und Sprache und den Konto-Kostenschutz für dieses Konto einstellen. Die Einstellungen Konto Name und Konto-Realm sollten Sie so belassen, da es Ihre Geräte mit dieser Domain verbindet. Der Konto-Kostenschutz schützt Sie vor Passwortdiebstahl, um die Kostenüberschreitung in Grenzen zu halten. Wir empfehlen auf die maximal täglichen Kosten zu stellen (z.B 20.00 pro Tag.) Nach der dem Speichern kann nur Ihr Wiederverkäufer diesen wieder freischalten.",
+                        "4": "Die Rechnungstellung per eMail erfolgt bei uns automatisch. Sie können aber die Zustellung per Postsendung nach Ihren Gewohnheiten manuell anpassen. Bitte beachten Sie dass, die Kreditkarteninformationen bei der Registrierung hier abgelegt wurden.",
                         "5": "Hier werden die kostenprichtigen Anrufe gelistet. Wenn Sie kostenpflichtige Anrufe tätigen, wird die Verrechnung \"Per Minute\" erfolgen. Nicht kostenpflichte Anrufe werden nicht gelistet.",
-                        "6": "Hier können Sie Ihre aktuelle Abonnemente einsehen",
+                        "6": "Hier können Sie Ihre aktuelle Abonnemente einsehen. Details zu den jeweiligen Abonnementen werden auf unserer Webseite gelistet.",
                         "7": "Hier werden alle Überweisungen die für Ihr Konto abgewickelt wurden aufgelistet, inklusive einmalige und wiederkehrende Überweisungen."
                 },
                 "endDialog": {
                         "roger": "Abschluss der Anleitung",
-                        "content": "Sie haben sich bereits mit der Umbegung vertraut gemacht, Sie können nun selbst Ihr Umgebung Ihren Bedüfnissen anpassen. Sollten Sie keine Erklärung benötigen, kontktieren Sie uns doch per eMail.",
+                        "content": "Nun können Sie sich mit der Umbegung vertraut machen, und selbst Ihr Umgebung Ihren Bedüfnissen anpassen. Sollten Sie eine Erklärung benötigen, kontktieren Sie uns einfach per eMail. Wir melden uns dann für einen Termin.",
                         "title": "Haben Sie noch weitere Fragen.."
                 }
         },
@@ -97,6 +97,7 @@
 		"accountRealm": "Konto Realm",
 
 		"technicalContact": "Lieferung und Technik",
+		"technicalContactname": "Name Technik",
 		"technicalContactEmail": "Email Technik",
 		"technicalContactNumber": "Telefonnummer",
 		"technicalContactMobile": "Mobilenummer",

@@ -52,7 +52,8 @@
 
 		"accountRealm": "konto regno",
 
-		"technicalContact": "nome del contatto tecnico",
+		"technicalContact": "Contatto tecnico",
+		"technicalContactname": "nome del contatto tecnico",
 		"technicalContactEmail": "email technischerkontakt",
 		"technicalContactNumber": "numero di telefono",
 

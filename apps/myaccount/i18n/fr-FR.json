@@ -59,6 +59,7 @@
 		"technicalContactNumber": "Numéro de téléphone",
 
                 "technicalContactMobile": "Mobilenumber",
+		"technicalContactname": "Name technicals",
                 "technicalAddress": "Address",
                 "technicalZIP": "ZIP",
                 "technicalCity": "City",

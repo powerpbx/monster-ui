@@ -84,11 +84,19 @@
 					<div class="span12">
 						<form id="form_technical_contact" class="form-horizontal">
 							<div class="control-group">
+								<label class="control-label" for="technical_contact_name">{{ i18n.account.technicalContactname }}</label>
+								<div class="controls">
+									<input type="text" id="technical_contact_name" name="contact.technical.name" value="{{account.contact.technical.name}}" placeholder="{{ i18n.placeholderName }}" data-original_value="{{account.contact.technical.name}}"/>
+								</div>
+							</div>
+
+							<div class="control-group">
 								<label class="control-label" for="technical_contact_email">{{ i18n.account.technicalContactEmail }}</label>
 								<div class="controls">
 									<input type="email" id="technical_contact_email" name="contact.technical.email" value="{{account.contact.technical.email}}" placeholder="{{ i18n.placeholderEmail }}" data-original_value="{{account.contact.technical.email}}"/>
 								</div>
 							</div>
+
 							<div class="control-group">
 								<label class="control-label" for="technical_contact_number">{{ i18n.phoneNumber }}</label>
 								<div class="controls">

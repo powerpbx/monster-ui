@@ -43,7 +43,8 @@
 
 		"accountRealm": "SIP-домен (realm)",
 
-		"technicalContact": "Связь по техническим вопросам",
+		"technicalContact": "техническим вопросам",
+		"technicalContactname": "Связь по техническим вопросам",
 		"technicalContactEmail": "Адрес email специалиста по техническим вопросам",
 		"technicalContactNumber": "Телефон",
 

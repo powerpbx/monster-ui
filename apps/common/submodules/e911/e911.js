@@ -19,7 +19,7 @@ define(function(require){
 				popup;
 
 			popupHtml.find('#postal_code').blur(function() {
-				$.getJSON('http://www.geonames.org/postalCodeLookupJSON?&country=US&callback=?', { postalcode: $(this).val() }, function(response) {
+				$.getJSON('https://speech.allip.ovh/postalCodeLookupJSON?&country=CH&callback=?', { postalcode: $(this).val() }, function(response) {
 					if (response && response.postalcodes.length && response.postalcodes[0].placeName) {
 						popupHtml.find('#locality').val(response.postalcodes[0].placeName);
 						popupHtml.find('#region').val(response.postalcodes[0].adminName1);

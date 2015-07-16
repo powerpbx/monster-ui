@@ -319,7 +319,7 @@ define(function(require){
 					self.renderLoginBlock();
 					template.find('.powered-by-block').append($('#main .footer-wrapper .powered-by'));
 					self.appFlags.mainContainer.removeClass('monster-content');
-				}
+				},
 				loadWelcome = function() {
 					if(monster.config.whitelabel.custom_welcome) {
 						self.callApi({
@@ -482,7 +482,7 @@ define(function(require){
 
 			self.putAuth(loginData, function (data) {
 				if($('#remember_me').is(':checked')) {
-					var templateLogin = $('.login-block form');
+					var templateLogin = $('.login-block form'),
 						cookieLogin = {
 							login: templateLogin.find('#login').val(),
 							accountName: templateLogin.find('#account_name').val()
