@@ -90,6 +90,7 @@
                         "urlPass": "URL-Password",
                         "provisionDomain": "Domainrestriction",
                         "provisionPass": "Phone Admin Password",
+                        "zoiperToken": "Zoiper Token",
                         "supportProvision": "Automatic Devicesetting on",
                         "provisionEnabled": "Is Enabled",
                         "provisionDisabled": "Is Disabled"

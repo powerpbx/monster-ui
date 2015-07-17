@@ -22,15 +22,14 @@ define(function(require){
 				container = args.container,
 				servicePlan = args.servicePlan || null,
 				useOwnPlans = args.useOwnPlans || false,
-				callback = args.callback,
-				accountId = args.accountId || self.accountId;
+				callback = args.callback;
 
 			if(container) {
 				if(typeof servicePlan === 'string') {
 					self.callApi({
 						resource: useOwnPlans ? 'servicePlan.get' : 'servicePlan.getAvailable',
 						data: {
-							accountId: accountId,
+							accountId: self.accountId,
 							planId: servicePlan
 						},
 						success: function(data, status) {
@@ -46,12 +45,37 @@ define(function(require){
 		},
 
 		renderServicePlanDetails: function(container, servicePlanData, callback) {
-			var self = this,
+
+			var self = this;
+
+				// for i18n create new object with translated names
+				var  foo = { a: 1 }; var servicePlani18n = Object.create(foo);
+				for (var property in servicePlanData.plan){
+					if(self.i18n.active().servicePlanDetails.planLines[property]) {
+						servicePlani18n[self.i18n.active().servicePlanDetails.planLines[property]] = servicePlanData.plan[property];
+						for (var property_in in servicePlanData.plan[property]) {
+							if(self.i18n.active().servicePlanDetails[servicePlanData.plan[property][property_in].name]) {
+								servicePlani18n[self.i18n.active().servicePlanDetails.planLines[property]][property_in].name = self.i18n.active().servicePlanDetails[servicePlanData.plan[property][property_in].name];
+								if(typeof servicePlanData.plan[property][property_in].expections === Array) {
+
+									for (var i = 0 ;i > servicePlanData.plan[property][property_in].expections.length; i++) {
+										if(self.i18n.active().servicePlanDetails[servicePlanData.plan[property][property_in].expections[i]]) {
+											servicePlani18n[self.i18n.active().servicePlanDetails.planLines[property]][property_in].expections[i] = self.i18n.active().servicePlanDetails[servicePlanData.plan[property][property_in].expections[i]];
+										}
+									}
+								}
+							}
+						};
+
+					}
+				};
+
 				template = $(monster.template(self, 'servicePlanDetails-layout', {
-					servicePlan: servicePlanData
+					servicePlan: servicePlanData,
+					servicePlani18n: servicePlani18n
 				}));
 
-			monster.ui.tooltips(template);
+			template.find('[data-toggle="tooltip"]').tooltip();
 
 			container.empty().append(template);
 

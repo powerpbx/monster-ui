@@ -1,21 +1,9 @@
 <div class="service-plan-details">
 {{#if servicePlan}}
-	{{#each servicePlan.plan}}
+	{{#each servicePlani18n}}
 		<div class="line header">
 			<div>
-			{{#compare @key "===" "phone_numbers"}}
-				{{../../i18n.servicePlanDetails.planLines.phone_numbers}}
-			{{else}} {{#compare @key "===" "number_services"}}
-				{{../../../i18n.servicePlanDetails.planLines.number_services}}
-			{{else}} {{#compare @key "===" "limits"}}
-				{{../../../../i18n.servicePlanDetails.planLines.limits}}
-			{{else}} {{#compare @key "===" "devices"}}
-				{{../../../../../i18n.servicePlanDetails.planLines.devices}}
-			{{else}} {{#compare @key "===" "users"}}
-				{{../../../../../../i18n.servicePlanDetails.planLines.users}}
-			{{else}}
-				{{@key}}
-			{{/compare}} {{/compare}} {{/compare}} {{/compare}} {{/compare}}
+			{{ @key }}
 			</div>
 			<div></div>
 			<div></div>
@@ -25,7 +13,7 @@
 			<div class="name">
 			<span {{#if this.description}}data-toggle="tooltip" data-placement="top" data-original-title="{{this.description}}"{{/if}}>
 				{{#if this.name}}
-					{{this.name}}
+					{{ this.name }}
 				{{else}}
 					{{@key}}
 				{{/if}}
@@ -33,10 +21,10 @@
 			</div>
 			<div class="charges">
 				{{#if this.rate}}
-				<div>{{../../../i18n.servicePlanDetails.rate}} {{../../../i18n.currencyUsed}}{{formatPrice this.rate}}</div>
+				<div>{{../../../i18n.servicePlanDetails.rate}} {{../../../i18n.currencyUsed}} {{formatPrice this.rate}}</div>
 				{{/if}}
 				{{#if this.activation_charge}}
-				<div>{{../../../i18n.servicePlanDetails.activationCharge}} {{../../../i18n.currencyUsed}}{{formatPrice this.activation_charge}}</div>
+				<div>{{../../../i18n.servicePlanDetails.activationCharge}} {{../../../i18n.currencyUsed}} {{formatPrice this.activation_charge}}</div>
 				{{/if}}
 			</div>
 			<div class="exceptions">

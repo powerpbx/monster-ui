@@ -85,6 +85,7 @@
 			"urlPass": "URL-Passwort",
 			"provisionDomain": "Domainschutz",
 			"provisionPass": "Telefon Passwort",
+			"zoiperToken": "Zoiper Token",
 			"supportProvision": "Automatische Gerätekonfiguration ein",
 			"provisionEnabled": "Ist Eingeschaltet",
 			"provisionDisabled": "Ist Ausgeschaltet"
