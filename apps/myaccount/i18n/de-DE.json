@@ -178,7 +178,7 @@
 
 		"title": "Aktuelle Kosten",
 		"creditBalance": "Kontostand",
-		"addCreditOne": "Zahlung zufügen zum Konto",
+		"addCreditOne": "Konto-Einzahlung",
 		"helpAddCreditOne": "Durch die Aufladung Ihres Kontos, können Sie die Notrufdienste, Anruferanzeige und Normale Telefonanrufe tätigen",
 		"autoRecharge": "Automatische Aufladung",
 		"whenBalanceFalls": "bei Unterschreitung",
@@ -203,17 +203,17 @@
 
 		"dateColumn": "Datum",
 		"durationColumn": "Minuten",
-		"amountColumn": "Konto",
-		"fromColumn": "Von",
-		"toColumn": "zu",
+		"amountColumn": "Preis",
+		"fromColumn": "Herkunft",
+		"toColumn": "Ziel",
 		"directionColumn": " ",
-		"accountColumn": "Konto"
+		"accountColumn": "Konto Name"
 	},
 
 	"servicePlan": {
 		"discount": "Rabatt",
 		"dueOn": "Startet am",
-		"empty": "Ihre Tarifplan ist leer!",
+		"empty": "Ihr Tarifplan ist leer (Es wird nach Aufwand verrechnet)!",
 		"monthlyChargesTitle": "Monatliche Kosten",
 		"quantityTitle": "Anzahl",
 		"rateTitle": "Tarif",
@@ -284,8 +284,8 @@
 		"manual_addition": " Manuell zugefügt",
 		"sub_account_manual_addition": "Manuell zugefügt (Unterkonto)",
 		"admin_discretion": "Diskrete Administration",
-		"startDate": "Startdatum",
-		"endDate": "Enddatum",
+		"startDate": "Start",
+		"endDate": "Ende",
 		"total": "Total",
 
 		"refundText": "(Vorgeschaltet)",

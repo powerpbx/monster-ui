@@ -24,6 +24,7 @@
 	"selectedUsers": "Geselecteerde gebruikers",
 	"selectAll": "Selecteer Alle",
 	"unselectAll": "Deselecteer Alle",
+        "noselected": "No selected user",
 	"selectUsersLink": "Geslecteerde Gebruikers ({{selectedUsers}})",
 	"alerts": {
 		"noUserSelected": "U moet minimaal 1 gebruiker selecteren voor deze app.<br><br>Als u niet wilt dat iemand deze gebruikt, zet hem dan uit."

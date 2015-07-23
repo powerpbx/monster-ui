@@ -25,7 +25,7 @@ define(function(require){
 				self.balanceGet(function(data) {
 					var argsBadge = {
 						module: 'balance',
-						data: self.i18n.active().currencyUsed + parseFloat(data.data.balance).toFixed(2),
+						data: self.i18n.active().currencyUsed + " " + parseFloat(data.data.balance).toFixed(2),
 						callback: args.callback
 					};
 
@@ -81,7 +81,7 @@ define(function(require){
 							var balance = $(monster.template(self, 'balance-layout', renderData)),
 								args = {
 									module: 'balance',
-									data: self.i18n.active().currencyUsed + renderData.amount
+									data: self.i18n.active().currencyUsed + " " + renderData.amount
 								};
 
 							self.balanceBindEvents(balance);
@@ -258,7 +258,7 @@ define(function(require){
 					var duration = self.i18n.active().balance.active_call,
 						friendlyDate = monster.util.toFriendlyDate(v.created),
 						accountName = '-',
-						friendlyAmount = self.i18n.active().currencyUsed + parseFloat(v.amount).toFixed(3),
+						friendlyAmount = self.i18n.active().currencyUsed + " " + parseFloat(v.amount).toFixed(3),
 						fromField = monster.util.formatPhoneNumber(v.metadata.from || '').replace(/@.*/, ''),
 						toField = monster.util.formatPhoneNumber(v.metadata.to || '').replace(/@.*/, '');
 
@@ -467,7 +467,7 @@ define(function(require){
 				var args = {
 					callback: function(amount) {
 						var formattedAmount =  parseFloat(amount).toFixed(2),
-						    newAmount = self.i18n.active().currencyUsed + formattedAmount,
+						    newAmount = self.i18n.active().currencyUsed + " " + formattedAmount,
 							argsEvent = {
 								module: 'balance',
 								data: newAmount

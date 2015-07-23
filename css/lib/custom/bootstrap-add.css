@@ -248,6 +248,7 @@ button,
 select,
 textarea {
 	font-family: 'Source Sans Pro', Helvetica, sans-serif;
+	margin-bottom: auto;
 }
 
 a {
