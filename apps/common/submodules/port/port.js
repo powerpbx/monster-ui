@@ -10,8 +10,8 @@ define(function(require){
 
 		requests: {
 			'common.numbers.metadata': {
-				apiRoot: 'http://69.164.206.244/number_manager/api/index.php/',
-				url: 'numbers/{country}/meta',
+				apiRoot: monster.config.api.phonebooks,
+				url: '/locality/metadata?lerg_lookup=true',
 				verb: 'POST'
 			}
 		},
@@ -51,29 +51,35 @@ define(function(require){
 			self.portRenderPendingOrder(parent, accountId);
 		},
 
+		portFormatPendingOrderData: function(accounts) {
+			// Remove accounts without any port requests
+			accounts = accounts.filter(function(v) { return v.port_requests.length > 0; });
+
+			// Sort requests by updated date
+			accounts.forEach(function(account, i) {
+				account.port_requests.sort(function(a, b) {
+					return a.updated < b.updated ? 1 : -1;
+				});
+			});
+
+			return accounts;
+		},
+
 		portRenderPendingOrder: function(parent, accountId) {
-			var self = this;
+			var self = this,
+				template = $(monster.template(self, 'port-pendingOrders')),
+				defaultDisplayedState = 'submitted';
 
 			parent.empty();
 
-			self.portListRequests(accountId, function(data) {
-				var formatDataToTempalte = function formatDataToTempalte(accounts) {
-						// Remove accounts without any port requests
-						accounts = accounts.filter(function(v) { return v.port_requests.length > 0; });
-
-						// Sort requests by updated date
-						accounts.forEach(function(account, i) {
-							account.port_requests.sort(function(a, b) {
-								return a.updated < b.updated ? 1 : -1;
-							});
-						});
-
-						return accounts;
-					},
-					template = monster.template(self, 'port-pendingOrders', {
-						data: formatDataToTempalte(data),
-						isAdmin: monster.apps.auth.originalAccount.superduper_admin,
+			self.portListRequests(accountId, defaultDisplayedState, function(data) {
+				var listTemplate = monster.template(self, 'port-pendingOrdersList', {
+						data: self.portFormatPendingOrderData(data)
 					});
+
+				template.find('.accounts-list')
+						.empty()
+						.append(listTemplate)
 
 				parent.append(template);
 
@@ -90,7 +96,64 @@ define(function(require){
 
 		portBindPendingOrderEvents: function(parent, accountId, data) {
 			var self = this,
-				container = parent.find('#orders_list');
+				container = parent.find('#orders_list'),
+				toggleRequestsDisplay = function(displayType, noFade) {
+					var requestWrapper = container.find('.accounts-list > .requests-wrapper'),
+						requestWrapperIsEmpty = requestWrapper.hasClass('empty'),
+						accountSection = container.find('.account-section');
+
+					if (displayType === 'accounts') {
+						if (!requestWrapperIsEmpty) {
+							var accountsList = {};
+
+							requestWrapper.addClass('empty');
+							requestWrapper.find('.request-box').each(function(idx, el) {
+								var $el = $(el),
+									accountId = $el.data('account_id');
+
+								if (accountsList.hasOwnProperty(accountId)) {
+									accountsList[accountId].push($el);
+								}
+								else {
+									accountsList[accountId] = [ $el ];
+								}
+
+								container.find('.account-section[data-id="' + accountId + '"] .requests-wrapper').append($el);
+							});
+
+							for (var accountId in accountsList) {
+								container
+									.find('.account-section[data-id="' + accountId + '"] .requests-wrapper')
+									.append(accountsList[accountId].sort(function(a, b) {
+										return $(a).data('updated_date') < b.data('updated_date') ? 1 : -1;
+									}));
+							}
+						}
+
+						if(noFade) {
+							accountSection.show();
+						} else {
+							accountSection.fadeIn(400);
+						}
+					}
+					else if (displayType === 'requests') {
+						if (requestWrapperIsEmpty) {
+							var showRequests = function() {
+								requestWrapper.append(container.find('.request-box').sort(function(a, b) {
+									return $(a).data('updated_date') < $(b).data('updated_date') ? 1 : -1;
+								}));
+
+								requestWrapper.removeClass('empty');
+							};
+							if(noFade) {
+								accountSection.hide();
+								showRequests();
+							} else {
+								accountSection.fadeOut(400, showRequests);
+							}
+						}
+					}
+				};
 
 			self.portPositionDialogBox();
 
@@ -123,7 +186,7 @@ define(function(require){
 				}
 			});
 
-			container.find('.request-box .request-state').on('change', '.switch-state', function(event) {
+			container.on('change', '.request-box .request-state .switch-state', function(event) {
 				var el = $(this),
 					box = el.parents('.request-box'),
 					accountId = box.data('account_id'),
@@ -216,7 +279,7 @@ define(function(require){
 				}
 			});
 
-			container.find('.request-box .scheduled-date').on('click', '.edit', function() {
+			container.on('click', '.request-box .scheduled-date .edit', function() {
 				var $this = $(this),
 					accountId = $this.parents('.request-box').data('account_id'),
 					requestId = $this.parents('.request-box').data('id'),
@@ -257,7 +320,7 @@ define(function(require){
 				});
 			});
 
-			container.find('.request-box .actions li').on('click', function() {
+			container.on('click', '.request-box .actions li', function() {
 				var li = $(this),
 					portRequestId = li.parents('.request-box').data('id');
 
@@ -297,123 +360,35 @@ define(function(require){
 				})
 			});
 
-			container.find('.filter-options .btn-group .btn:first-child').addClass('active');
-
 			container.find('.filter-options .btn-group:first-child .btn').on('click', function() {
-				var $this = $(this),
-					requestWrapper = container.find('.accounts-list > .requests-wrapper'),
-					requestWrapperIsEmpty = requestWrapper.hasClass('empty'),
-					accountSection = container.find('.account-section'),
-					filterBy = $this.data('value');
-
-				if (filterBy === 'accounts') {
-					if (!$this.hasClass('active') && !requestWrapperIsEmpty) {
-						var accountsList = {};
-
-						$this.siblings().removeClass('active');
-						$this.addClass('active');
-						requestWrapper.addClass('empty');
-						requestWrapper.find('.request-box').each(function(idx, el) {
-							var el = $(el),
-								accountId = el.data('account_id');
-
-							if (accountsList.hasOwnProperty(accountId)) {
-								accountsList[accountId].push(el);
-							}
-							else {
-								accountsList[accountId] = [ el ];
-							}
-
-							container.find('.account-section[data-id="' + accountId + '"] .requests-wrapper').append(el);
-						});
-
-						for (var accountId in accountsList) {
-							container
-								.find('.account-section[data-id="' + accountId + '"] .requests-wrapper')
-								.append(accountsList[accountId].sort(function(a, b) {
-									return $(a).data('updated_date') < b.data('updated_date') ? 1 : -1;
-								}));
-						}
-					}
-
-					accountSection.fadeIn(400);
-				}
-				else if (filterBy === 'requests') {
-					if (!$this.hasClass('active') && requestWrapperIsEmpty) {
-						$this.siblings().removeClass('active');
-						$this.addClass('active');
-						accountSection.fadeOut(400, function() {
-							requestWrapper.append(container.find('.request-box').sort(function(a, b) {
-								return $(a).data('updated_date') < $(b).data('updated_date') ? 1 : -1;
-							}));
-
-							requestWrapper.removeClass('empty');
-						});
-					}
+				var $this = $(this);
+				if (!$this.hasClass('active')) {
+					$this.siblings().removeClass('active');
+					$this.addClass('active');
+					toggleRequestsDisplay($this.data('value'));
 				}
 			});
 
-			container.find('.filter-options .btn-group:last-child .btn').on('click', function() {
+			container.find('.filter-options .btn-group:last-child .filter-select').on('change', function() {
 				var $this = $(this),
 					btnGroup = $this.parent(),
-					btnAll = btnGroup.find('.btn:first-child'),
-					filterBy = [];
+					filterBy = $this.val();
 
-				if ($this.data('value') === 'all') {
-					if (!$this.hasClass('active')) {
-						btnGroup.find('.btn.active').removeClass('active');
-						$this.addClass('active');
-					}
-				}
-				else {
-					var allButtonsToggled = true;
+				self.portListRequests(accountId, filterBy, function(data) {
+					var listTemplate = monster.template(self, 'port-pendingOrdersList', {
+							data: self.portFormatPendingOrderData(data)
+						});
 
-					if (btnAll.hasClass('active')) {
-						btnAll.removeClass('active');
-					}
+					parent.find('.accounts-list')
+						.empty()
+						.append(listTemplate)
 
-					$this.toggleClass('active');
-
-					if (!btnGroup.find('.btn').hasClass('active')) {
-						btnAll.addClass('active');
-					}
-
-					btnGroup.find('.btn:not(:first-child)').each(function(idx, el) {
-						if (!$(el).hasClass('active')) {
-							allButtonsToggled = false;
-							return false;
-						}
+					self.portRenderDynamicCells(parent, {
+						data: data
 					});
 
-					if (allButtonsToggled) {
-						btnGroup.find('.btn.active').removeClass('active');
-						btnAll.addClass('active');
-					}
-				}
-
-				btnGroup.find('.btn.active').each(function(idx, el) {
-					filterBy.push($(el).data('value'));
+					toggleRequestsDisplay(container.find('.filter-options .btn-group:first-child .btn.active').data('value'), true);
 				});
-
-				if (filterBy.indexOf('all') > -1) {
-					container.find('.request-box')
-						.removeClass('hide')
-						.fadeIn();
-				}
-				else {
-					container.find('.request-box').each(function(idx, el) {
-						var el = $(el);
-
-						if (filterBy.indexOf(el.data('state')) > -1) {
-							el.removeClass('hide').fadeIn();
-						}
-						else {
-							el.fadeOut(400, function() {
-								el.addClass('hide');
-							});
-						}
-					});
-				}
 			});
 		},
 
@@ -589,7 +564,9 @@ define(function(require){
 			self.portPositionDialogBox();
 			self.portComingSoon(container, ['.help-links li:not(.separator) a']);
 
-			container.find('#add_numbers_link').on('click', function() {
+			container.find('#add_numbers_link').on('click', function(e) {
+				//e.stopPropagation();
+
 				var numbersArray = container.find('input').val().split(' ');
 
 				numbersArray = numbersArray.filter(function(el, idx) {
@@ -646,7 +623,7 @@ define(function(require){
 			self.portCancelOrder(parent, accountId, container);
 			self.portComingSoon(container, ['#footer .help-links li:not(.separator) a']);
 
-			container.on('click', '#add_numbers_link', function() {
+			container.find('#add_numbers_link').on('click', function() {
 				var numbersArray = container.find('div#add_numbers').find('input').val().split(' ');
 
 				numbersArray = numbersArray.filter(function(el, idx) {
@@ -675,7 +652,7 @@ define(function(require){
 							container.find('#manage_orders').find('div.order').each(function(index, el) {
 								var carrier = $(el).data('carrier');
 
-								if (carrier == formattedData.orders[order].carrier) {
+								if (carrier === formattedData.orders[order].carrier) {
 									for (var number in formattedData.orders[order].numbers) {
 										$(this).find('ul').append('<li data-value="' + formattedData.orders[order].numbers[number] + '" data-carrier="' + carrier + '"><i class="fa fa-exclamation-triangle"></i>' + formattedData.orders[order].numbers[number] + '<i class="fa fa-times-circle pull-right"></i></li>');
 									}
@@ -1160,18 +1137,18 @@ define(function(require){
 		},
 
 		/* Methods */
-		portListRequests: function(accountId, callback) {
+		portListRequests: function(accountId, state, callback) {
 			var self = this;
 
 			monster.parallel({
 					requests: function(callback) {
-						self.portRequestList(accountId, function(data) {
+						self.portRequestList(accountId, state, function(data) {
 							callback(null, data);
 						});
 					},
 					descendants: function(callback) {
 						if (self.isLaunchedInAppMode) {
-							self.portRequestListByDescendants(accountId, function(data) {
+							self.portRequestListByDescendants(accountId, state, function(data) {
 								callback(null, data);
 							});
 						}
@@ -1387,50 +1364,71 @@ define(function(require){
 			})
 		},
 
-		portFormatNumbers: function(numbersArray, callback) {
-			var self = this;
+		portFormatNumbers: function(numbersArray, globalCallback) {
+			var self = this,
+				formattedData = { orders: [] },
+				callbackError = function() {
+					var order = {
+						carrier: self.i18n.active().port.unknownCarrier,
+						numbers: numbersArray
+					};
 
-			monster.request({
-				resource: 'common.numbers.metadata',
-				data: {
-					data: numbersArray,
-					country: 'US'
-				},
-				success: function(data) {
-					data = data.data;
+					formattedData.orders.push(order);
 
-					var carriersList = [],
-						formattedData = { orders: [] };
+					globalCallback && globalCallback(formattedData);
+				};
 
-					for (var number in data) {
-						if (data[number].company == null || data[number].company == 'undefined' || data[number].company == "") {
-							data[number].company = self.i18n.active().port.unknownCarrier;
-						}
+			if(monster.config.api.hasOwnProperty('phonebooks')) {
+				monster.request({
+					resource: 'common.numbers.metadata',
+					data: {
+						data: numbersArray,
+						country: 'US'
+					},
+					success: function(data) {
+						var formattedData = { orders: [] },
+							carriersMap = {},
+							addNumberToCarrier = function(carrierName, number) {
+								var found = -1;
+								
+								if(carriersMap.hasOwnProperty(carrierName)) {
+									formattedData.orders[carriersMap[carrierName]].numbers.push(number);
+								}
+								else {
+									var newIndex = formattedData.orders.length;
 
-						if (carriersList.indexOf(data[number].company) === -1) {
-							carriersList.push(data[number].company);
-						}
-					}
+									formattedData.orders.push({
+										carrier: carrierName,
+										numbers: [ number ]
+									});
 
-					for (var carrier in carriersList) {
-						var numbersArray = [],
-							order = {};
+									carriersMap[carrierName] = newIndex;
+								}
+							};
 
-						for (var number in data) {
-							if (data[number].company == carriersList[carrier]) {
-								numbersArray.push(number);
+						_.each(data.data, function(numberData, did) {
+							if(numberData.hasOwnProperty('lrn') && numberData.lrn.hasOwnProperty('lerg') && numberData.lrn.lerg.hasOwnProperty('company') && numberData.lrn.lerg.company) {
+								addNumberToCarrier(numberData.lrn.lerg.company, did);
 							}
-						}
+							else if(numberData.hasOwnProperty('lrn') && numberData.lrn.hasOwnProperty('carrier') && numberData.lrn.carrier.hasOwnProperty('dba') && numberData.lrn.carrier.dba) {
+								addNumberToCarrier(numberData.lrn.carrier.dba, did);
+							}
+							else if(numberData.hasOwnProperty('carrier') && numberData.carrier.hasOwnProperty('dba') && numberData.carrier.dba) {
+								addNumberToCarrier(numberData.carrier.dba, did);
+							}
+							else {
+								addNumberToCarrier(self.i18n.active().port.unknownCarrier, did);
+							}
+						});
 
-						order.carrier = carriersList[carrier];
-						order.numbers = numbersArray;
-
-						formattedData.orders[carrier] = order;
-					}
-
-					callback(formattedData);
-				}
-			});
+						globalCallback(formattedData);
+					},
+					error: callbackError
+				});
+			}
+			else {
+				callbackError();
+			}
 		},
 
 		portSaveOrder: function(parent, accountId, data, index) {
@@ -1589,17 +1587,19 @@ define(function(require){
 			});
 		},
 
-		portRequestList: function(accountId, callbackSuccess, callbackError) {
+		portRequestList: function(accountId, state, callbackSuccess, callbackError) {
 			var self = this;
 
 			self.callApi({
-				resource: 'port.list',
+				resource: 'port.listByState',
 				data: {
 					accountId: accountId,
+					state: state || 'submitted',
 					data: {}
 				},
 				success: function(data, status) {
-					callbackSuccess && callbackSuccess(self.portObjectsToArray(data.data));
+					var requests = data.data.length === 1 ? data.data[0].port_requests : data.data;
+					callbackSuccess && callbackSuccess(self.portObjectsToArray(requests));
 				},
 				error: function(data, status){
 					callbackError && callbackError();
@@ -1607,13 +1607,14 @@ define(function(require){
 			});
 		},
 
-		portRequestListByDescendants: function(accountId, callbackSuccess, callbackError) {
+		portRequestListByDescendants: function(accountId, state, callbackSuccess, callbackError) {
 			var self = this;
 
 			self.callApi({
-				resource: 'port.listDescendants',
+				resource: 'port.listDescendantsByState',
 				data: {
 					accountId: accountId,
+					state: state || 'submitted',
 					filters: {
 						paginate: false
 					}
