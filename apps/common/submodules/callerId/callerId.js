@@ -38,6 +38,8 @@ define(function(require){
 
 					if(cnamFormData.display_name === '') {
 						delete dataNumber.cnam.display_name;
+					} else {
+						cnamFormData.display_name = monster.util.convertUtf8ToAscii(cnamFormData.display_name);
 					}
 
 					self.callerIdUpdateNumber(dataNumber.id, dataNumber,
