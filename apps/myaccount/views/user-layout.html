@@ -93,12 +93,27 @@
 									<select id="user_timezone" name="timezone" data-original_value="{{user.timezone}}"></select>
 								</div>
 							</div>
+<<<<<<< HEAD
                                                         <div class="control-group">
                                                                 <label class="control-label" for="user_language">{{ i18n.account.userLanguage }}</label>
                                                                 <div class="controls">
                                                                         <select id="user_language" name="language" data-original_value="{{account.language}}"></select>
                                                                 </div>
                                                         </div>
+=======
+							<div class="control-group">
+								<label class="control-label" for="user_language">{{ i18n.user.userLanguage }}</label>
+								<div class="controls">
+									<select id="user_language" name="language">
+										<option value="auto">{{i18n.languages.auto}}</option>
+										<option value="en-US"{{#compare user.language '===' 'en-US'}} selected{{/compare}}>{{i18n.languages.americanEnglish}}</option>
+										<option value="fr-FR"{{#compare user.language '===' 'fr-FR'}} selected{{/compare}}>{{i18n.languages.frenchFrench}}</option>
+										<option value="ru-RU"{{#compare user.language '===' 'ru-RU'}} selected{{/compare}}>{{i18n.languages.russianRussian}}</option>
+										<option value="es-ES"{{#compare user.language '===' 'es-ES'}} selected {{/compare}}>{{i18n.languages.spainSpanish}}</option>
+									</select>
+								</div>
+							</div>
+>>>>>>> upstream/master
 							<div class="action-group clearfix">
 								<div class="action-bar">
 									<button type="button" class="monster-button cancel">{{ i18n.cancel }}</button>

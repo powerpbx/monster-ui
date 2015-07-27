@@ -1,24 +1,21 @@
 #appstore_container {
 	padding: 15px;
-	max-width: 1136px;
+	max-width: 2400px;
 	margin: auto;
 }
 
 @media (min-width: 1176px) {
 	#appstore_container {
-		width: 1136px;
 	}
 }
 
 @media (min-width: 864px) and (max-width: 1175px) {
 	#appstore_container {
-		width: 824px;
 	}
 }
 
 @media (max-width: 863px) {
 	#appstore_container {
-		width: 512px;
 	}
 }
 

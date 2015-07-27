@@ -93,7 +93,8 @@
                         "zoiperToken": "Zoiper Token",
                         "supportProvision": "Automatic Devicesetting on",
                         "provisionEnabled": "Is Enabled",
-                        "provisionDisabled": "Is Disabled"
+                        "provisionDisabled": "Is Disabled",
+                        "supportCreatenew": "User devicesetting on"
                 },
 		"title": "Account",
 
