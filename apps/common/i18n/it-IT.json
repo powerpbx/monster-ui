@@ -1,4 +1,60 @@
 {
+        "regextern": {
+                "dialogTitle": "External Number-Registration",
+                "title": "External Registration",
+                "label": "External Registration",
+                "help": "This Number will be external registered for incomming calls.",
+                "successUpdate": "You successfully updated the external registration of the number {{phoneNumber}}",
+               "type": "Type",
+               "proxy": "Proxy",
+               "username": "Username",
+               "extension": "Extension-return",
+               "password": "Passwort",
+               "active": "Aktiv",
+               "didtype": "DID-Typ",
+               "didprovider": "Provider-Name",
+               "diddebug": "DID-Debug",
+               "didusec2c": "DID-C2C",
+               "didblockanonym": "DID-Blockanonym",
+               "didblacklist": "DID-Blockliste",
+               "didblocknonpublic": "DID-Block without entry",
+               "didinfo": "Informations",
+               "providerurl": "Provider-URL-Portal",
+               "providerurltype": "API-Typ",
+               "providerusr": "Regname",
+               "providerpass": "Reg-Passwort",
+               "reged_email": "Reg-Email",
+               "pvt_activestart": "Date Activ",
+               "pvt_activestartHelp": "At this date will automatic assigent this number to use",
+               "pvt_activestop": "Date Inactiv",
+               "pvt_activestopHelp": "At this Time it will automatic unassigent this number to use",
+               "pvt_created": "Date created",
+               "pvt_changed": "System actived",
+               "pvt_modified": "Date modified",
+               "placeholder_type": "gateway",
+               "placeholder_proxy": "sip.voip.com",
+               "placeholder_username": "0525081922",
+               "placeholder_extension": "+41525081922",
+               "placeholder_password": "********",
+               "placeholder_active": "false",
+               "placeholder_didtype": "sip",
+               "placeholder_didprovider": "NETSTREAM",
+               "placeholder_diddebug": "false",
+               "placeholder_didusec2c": "false",
+               "placeholder_didblockanonym": "false",
+               "placeholder_didblacklist": "false",
+               "placeholder_didblocknonpublic": "false",
+               "placeholder_didinfo": "host=sip.voip.com",
+               "placeholder_providerurl": "www.voip.com",
+               "placeholder_providerurltype": "json",
+               "placeholder_providerusr": "",
+               "placeholder_providerpass": "",
+               "placeholder_reged_email": "",
+               "placeholder_pvt_activestart": "1431282897",
+               "placeholder_pvt_activestop": "1431282897",
+               "placeholder_pvt_created": "1431282897",
+               "placeholder_pvt_modified": "1431282897"
+        },
 	"accountBrowser": {
 		"missingAccount": "account non trovato",
 		"addAccount": "Aggiungi account",
@@ -94,14 +150,14 @@
                         "outbound": "Questo nome viene visualizzato come l'ID del chiamante, se fanno le chiamate in uscita. (15 caratteri max.) Una conversione può richiedere fino a 72 ore in più esigenti.",
                         "inbound": "Se si attiva questa funzione, il nome del chiamante viene visualizzato nel loro id chiamante quando chiamano in entrata ricevuto."
                 },
-"label": "caller id",
+                "label": "caller id",
                 "successCnam": "hanno aggiornato con successo il numero di call- id di {{ numero di telefono }}",
                 "successRemoveCnam": "hanno rimosso con successo il call- id di {{ numero di telefono }}",
                 "noCallerId": "non vi è alcun call- id per il numero {{numero di telefono }}",
                 "inboundTitle": "incoming caller-id- nome",
                 "outboundTitle": "call- id -name in uscita"
         },
-"e911": {
+        "e911": {
                 "addressLine1": "indirizzo linea 1",
                 "addressLine2": "indirizzo 2",
                 "city": "città",
@@ -202,18 +258,19 @@
                 "progressBarRight": "per ordinare",
                 "state": {
                         "completed": "completato",
+                        "pending": "Pending",
                         "rejected": "respinto",
                         "scheduled": "previsto",
                         "submited": "consegnato",
                         "unconfirmed": "non confermato"
                 },
-"commentsPopup": {
+                "commentsPopup": {
                         "title": "commenti",
                         "Privat": "privato",
                         "comment": "commento",
                         "timestamp": "ha un commento"
                 },
-"infoPopup": {
+                "infoPopup": {
                                 "title": "Richiesta informazioni",
                                 "transfer": {
                                         "legende": "informazioni porting",
@@ -236,7 +293,7 @@
                         "title": "Vorremmo ringraziarli per quella porta che il loro numero a noi e esprimerci così fido.",
                         "labelAddNumbers": "quali numeri vogliono porto. invia uno o più numeri nel prossimo telaio piedi."
                 },
-"confirmOrder": {
+                "confirmOrder": {
                         "titlePartOne": "fantastico!",
                         "titlePartTwo": "numero è pronto a trasferire!",
                         "titlePartTwoBis": "pay're pronti a trasferire!",
@@ -259,7 +316,7 @@
                         "orderTotalInfoPartTwo": "5/numero sarà addebitato sul conto.",
                         "submitButton": "inserire"
                 },
-"manageOrders": {
+                "manageOrders": {
                         "orderListInfo": "a causa della natura della retribuzione o del vettore, possiamo dividerli loro richiesta nella posizione di tutti gli ordini, per elaborare una alla volta",
                         "eulaInfo": "Nella fase successiva dobbiamo raccogliere il disegno di legge, per dimostrare che stanno pagando i legittimi proprietari di questi lo fanno per legge, siamo in grado di dividere il loro ord ulteriormente se non pagare il conto sono menzionati carico.",
                         "eulaWarningPartOne": "importante!",
@@ -269,7 +326,7 @@
                         "labelChangeFee": "Capisco il mio vecchio vettore può addebitare una tassa di risoluzione anticipata,",
                         "labelStandardNumbers": "sono i numeri di telefono standard, non previsti (ad esempio [ stella anello ])."
                 },
-"pendingOrders": {
+                "pendingOrders": {
                         "title": "ordini aperti",
                         "newPortLink": "porting richiesta (porting)",
                         "tableOrderName": "nome",
@@ -287,13 +344,13 @@
                                 "waiting": "aspettare",
                                 "unconfirmed": "non confermato"
                         }
-},
-"resumeOrder": {
+                },
+                "resumeOrder": {
                         "title": "condurli i seguenti comandi, uno alla volta",
                         "labelOrder": "ordine di acquisto",
                         "completeOrderButton": "conducono questa missione"
                 },
-"submitDocuments": {
+                "submitDocuments": {
                         "labelOrderName": "nome memorabile per questo porting",
                         "labelOrderNameHelper": "z.b. società con numeri locali -office, Zurigo",
                         "billInfoPartOne": "caricare la loro bolletta telefonica attuale e compilare i dati dell'account, come il calcolo del loro fornitore di corrente.",
@@ -395,20 +452,20 @@
                         "friendlyName": "utilizzare qualsiasi vettore",
                         "help": "che usano per le loro chiamate in uscita, il vettore preinstallato dei loro fornitori."
                 },
-"useReseller": {
+                "useReseller": {
                         "friendlyName": "utilizzare {{ variabile }} carrier",
                         "help": "lo usano con {{ variabile }} vettori.",
                         "defaultFriendlyName": "utilizzare il vettore del rivenditore acquistato.",
                         "defaultHelp": "che usano per le loro chiamate in uscita, il vettore dei loro rivenditori."
                 },
-"byoc": {
+                "byoc": {
                         "friendlyName": "essi hanno anche un vettore (personalizzato)",
                         "help": "che usano per le loro chiamate in uscita, il vettore che possono essere regolati con l'applicazione vettore stesso."
                 },
-"saveSuccess": "hanno salvato con successo il vettore per l'account!",
+                "saveSuccess": "hanno salvato con successo il vettore per l'account!",
                 "huntError": "le impostazioni per la rotta (sconosciuto) non è integrato. Si prega di apportare modifiche, se vogliono mantenere queste impostazioni. In caso contrario, selezionare un'opzione dalla lista!"
         },
-"numberPrepend": {
+        "numberPrepend": {
                 "dialogTitle": "impostazione numero lettera il testo del prefisso",
                 "title": "testo vorgestellter",
                 "label": "presentato",

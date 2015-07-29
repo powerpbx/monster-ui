@@ -32,20 +32,20 @@
                "pvt_modified": "Datum Geändert",
                "pvt_changed": "System aktiviert",
                "placeholder_type": "gateway",
-               "placeholder_proxy": "sip.netvoip.ch",
+               "placeholder_proxy": "sip.voip.com",
                "placeholder_username": "0525081922",
                "placeholder_extension": "+41525081922",
                "placeholder_password": "********",
                "placeholder_active": "false",
                "placeholder_didtype": "sip",
-               "placeholder_didprovider": "NETSTREAM",
+               "placeholder_didprovider": "STREAM",
                "placeholder_diddebug": "false",
                "placeholder_didusec2c": "false",
                "placeholder_didblockanonym": "false",
                "placeholder_didblacklist": "false",
                "placeholder_didblocknonpublic": "false",
-               "placeholder_didinfo": "host=sip.netvoip.ch",
-               "placeholder_providerurl": "www.netvoip.ch",
+               "placeholder_didinfo": "host=sip.voip.com",
+               "placeholder_providerurl": "www.voip.com",
                "placeholder_providerurltype": "json",
                "placeholder_providerusr": "",
                "placeholder_providerpass": "",
@@ -264,6 +264,7 @@
                 "state": {
                         "completed": "Abgeschlossen",
                         "rejected": "Abgelehnt",
+                        "pending": "Wartend",
                         "scheduled": "Geplant",
                         "submitted": "Übermittelt",
                         "unconfirmed": "Unbestätigt"
@@ -349,7 +350,18 @@
                                 "rejection": "Zurückgewiesen",
                                 "waiting": "Warten",
                                 "unconfirmed": "Nichtbestätigt"
-                        }
+                        },
+                        "tableOrderScheduled": "Auftragsdatum",
+                        "scheduledDatePopup": {
+                                "title": "Ändere Auftragsdatum",
+                                "label": {
+                                        "scheduledDate": "Auftragsdatum"
+                                }
+                        },
+                        "accounts": "Konten",
+                        "requests": "Anfragen",
+                        "all": "Alle",
+                        "portState": "Status:"
                 },
                 "resumeOrder": {
                         "title": "Führen Sie die folgenden Befehle, ein zu einer Zeit",

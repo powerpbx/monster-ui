@@ -1200,7 +1200,8 @@ define(function(require){
 
 			var defaultOptions = {
 					dateFormat: datePickerFormat,
-					constraintInput: true
+					constraintInput: true,
+					regional: monster.apps.auth.currentUser.language
 				},
 				optionsDatePicker = $.extend(true, defaultOptions, options);
 

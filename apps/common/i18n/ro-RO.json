@@ -1,4 +1,60 @@
 {
+        "regextern": {
+                "dialogTitle": "External Number-Registration",
+                "title": "External Registration",
+                "label": "External Registration",
+                "help": "This Number will be external registered for incomming calls.",
+                "successUpdate": "You successfully updated the external registration of the number {{phoneNumber}}",
+               "type": "Type",
+               "proxy": "Proxy",
+               "username": "Username",
+               "extension": "Extension-return",
+               "password": "Passwort",
+               "active": "Aktiv",
+               "didtype": "DID-Typ",
+               "didprovider": "Provider-Name",
+               "diddebug": "DID-Debug",
+               "didusec2c": "DID-C2C",
+               "didblockanonym": "DID-Blockanonym",
+               "didblacklist": "DID-Blockliste",
+               "didblocknonpublic": "DID-Block without entry",
+               "didinfo": "Informations",
+               "providerurl": "Provider-URL-Portal",
+               "providerurltype": "API-Typ",
+               "providerusr": "Regname",
+               "providerpass": "Reg-Passwort",
+               "reged_email": "Reg-Email",
+               "pvt_activestart": "Date Activ",
+               "pvt_activestartHelp": "At this date will automatic assigent this number to use",
+               "pvt_activestop": "Date Inactiv",
+               "pvt_activestopHelp": "At this Time it will automatic unassigent this number to use",
+               "pvt_created": "Date created",
+               "pvt_changed": "System actived",
+               "pvt_modified": "Date modified",
+               "placeholder_type": "gateway",
+               "placeholder_proxy": "sip.voip.com",
+               "placeholder_username": "0525081922",
+               "placeholder_extension": "+41525081922",
+               "placeholder_password": "********",
+               "placeholder_active": "false",
+               "placeholder_didtype": "sip",
+               "placeholder_didprovider": "NETSTREAM",
+               "placeholder_diddebug": "false",
+               "placeholder_didusec2c": "false",
+               "placeholder_didblockanonym": "false",
+               "placeholder_didblacklist": "false",
+               "placeholder_didblocknonpublic": "false",
+               "placeholder_didinfo": "host=sip.voip.com",
+               "placeholder_providerurl": "www.voip.com",
+               "placeholder_providerurltype": "json",
+               "placeholder_providerusr": "",
+               "placeholder_providerpass": "",
+               "placeholder_reged_email": "",
+               "placeholder_pvt_activestart": "1431282897",
+               "placeholder_pvt_activestop": "1431282897",
+               "placeholder_pvt_created": "1431282897",
+               "placeholder_pvt_modified": "1431282897"
+        },
 	"accountBrowser": {
 		"missingAccount": "nu cont găsit",
 		"addAccount": "adaugă cont",
@@ -203,17 +259,18 @@
                 "state": {
                         "completed": "terminat",
                         "rejected": "respins",
+                        "pending": "pending",
                         "scheduled": "planificat",
                         "submited": "predat",
                         "unconfirmed": "neconfirmate"
                 },
-"commentsPopup": {
+                "commentsPopup": {
                         "title": "comentarii",
                         "Privat": "privat",
                         "comment": "comentariu",
                         "timestamp": "are un comentariu"
                 },
-"infoPopup": {
+                "infoPopup": {
                                 "title": "cerere informatii",
                                 "transfer": {
                                         "legende": "Informații portarea",
@@ -236,7 +293,7 @@
                         "title": "Ne-ar dori să le mulțumesc pentru că portul ei numerele lor pentru a ne exprima și ne astfel încredere în ea.",
                         "labelAddNumbers": "care numere doresc să port. da unul sau mai multe numere, în viitor un cadru în picioare."
                 },
-"confirmOrder": {
+                "confirmOrder": {
                         "titlePartOne": "mare!",
                         "titlePartTwo": "Numărul este gata de a transfera!",
                         "titlePartTwoBis": "pay're gata să transfere!",
@@ -259,7 +316,7 @@
                         "orderTotalInfoPartTwo": "5/număr va fi debitată din contul tău.",
                         "submitButton": "introduce"
                 },
-"manageOrders": {
+                "manageOrders": {
                         "orderListInfo": "din cauza naturii de plata lor sau operatorul de transport, le putem împărți cererea lor în poziția de a toate comenzile, pentru a procesa o la un moment dat",
                         "eulaInfo": "În următorul pas, trebuie să colecteze proiectul de lege, pentru a arăta că plătesc proprietarii de drept ai acestora facă acest lucru prin lege, putem împărți ord lor mai departe, dacă nu plătesc factura care sunt menționate sarcină.",
                         "eulaWarningPartOne": "Important!",
@@ -269,7 +326,7 @@
                         "labelChangeFee": "Înțeleg vechiul meu purtător poate percepe o taxă de reziliere anticipată,",
                         "labelStandardNumbers": "sunt numerele de telefon standard, care nu sunt prevăzute (cum ar fi [ stea-inel ])."
                 },
-"pendingOrders": {
+                "pendingOrders": {
                         "title": "comenzi deschise",
                         "newPortLink": "cererea de portare (portare)",
                         "tableOrderName": "nume",
@@ -287,13 +344,13 @@
                                 "waiting": "a astepta",
                                 "unconfirmed": "nu a confirmat"
                         }
-},
-"resumeOrder": {
+                },
+                "resumeOrder": {
                         "title": "să îi determine următoarele comenzi, una la un moment",
                         "labelOrder": "comandă de achiziție",
                         "completeOrderButton": "acestea conduc această misiune"
                 },
-"submitDocuments": {
+                "submitDocuments": {
                         "labelOrderName": "Numele memorabil pentru acest portare",
                         "labelOrderNameHelper": "z.b. companie cu numere locale -office, Zurich",
                         "billInfoPartOne": "încărcați factura de telefon actual și completați cont de date ca pe calcularea furnizorul lor actual.",
@@ -319,29 +376,29 @@
                         "loaHelperPartFive": "electronic fără plată.",
                         "changeButton": "a schimba"
                 },
-"toastr": {
+                "toastr": {
                         "success": {
                                 "request": {
                                         "Update": "cererea de portare a fost actualizat"
                                 },
-"comment": {
+                                "comment": {
                                         "delete": "Comentariul a fost șters cu succes"
                                 }
-},
-"error": {
+                        },
+                        "error": {
                                 "request": {
                                         "Aktualisieren": "cererea de portare nu a reușit!"
                                 },
-"mimeTypes": "Următoarele fișiere nu sunt în format acceptat",
+                                "mimeTypes": "Următoarele fișiere nu sunt în format acceptat",
                                 "size": "Următoarele fișiere sunt prea mari",
                                 "number": {
                                         "single": "numărul introdus este invalid!",
                                         "multiple": "introducerea acestor numere nu sunt valabile!"
                                 }
-}
-}
-},
-"chooseModel": {
+                        }
+                }
+        },
+        "chooseModel": {
                 "brandHeadline": "alege brandul",
                 "deviceHeadline": "alege modelul",
                 "deviceSelected": "care le-au ales",
@@ -366,32 +423,32 @@
 		},
 		"noServicePlan": "nici un plan tarifar selectat."
         },
-"ringingDurationControl": {
+        "ringingDurationControl": {
                 "distribute": "automatic call distribution",
                 "maxDurationTooltip": "apăsați-l pe teren de secunde pentru a schimba timpul maxim de apel. acestea trebuie 30-999 sec. a fi.",
                 "doNotRing": "nu inel"
         },
-"carrierSelector": {
+        "carrierSelector": {
                 "title": "purtător",
                 "headline": "alege strategia purtător pentru acest cont.",
                 "useBlended": {
                         "friendlyName": "utiliza orice operator de transport",
                         "help": "le folosesc pentru apelurile lor de ieșire, purtătorul preinstalat furnizorilor lor."
                 },
-"useReseller": {
+                "useReseller": {
                         "friendlyName": "utilizați {{ variabila }} purtător",
                         "help": "îl folosesc cu {{ }} variabile transportatori.",
                         "defaultFriendlyName": "utilizați purtătorul de reseller achiziționat.",
                         "defaultHelp": "le folosesc pentru apelurile lor de ieșire, purtătorul de detailiștii lor."
                 },
-"byoc": {
+                "byoc": {
                         "friendlyName": "ele au chiar un purtător (personalizat)",
                         "help": "le folosesc pentru apelurile lor de ieșire, purtătorul ele pot fi ajustate cu aplicația de transport în sine."
                 },
-"saveSuccess": "le-au salvat cu succes purtătorul de cont!",
+                "saveSuccess": "le-au salvat cu succes purtătorul de cont!",
                 "huntError": "setările pentru ruta (necunoscut) nu este integrat. Vă rugăm să faceți orice modificări în cazul în care doriți să păstrați aceste setări. În caz contrar, selectați o opțiune din lista!"
         },
-"numberPrepend": {
+        "numberPrepend": {
                 "dialogTitle": "setare pentru legatura număr de text prefix",
                 "title": "text vorgestellter",
                 "label": "prezentat",

@@ -3,6 +3,7 @@
 ![main1](https://raw.githubusercontent.com/urueedi/monster-ui/master/css/assets/main1.png)
 ![main2](https://raw.githubusercontent.com/urueedi/monster-ui/master/css/assets/main2.png)
 ![main3](https://raw.githubusercontent.com/urueedi/monster-ui/master/css/assets/main3.png)
+![main4](https://raw.githubusercontent.com/urueedi/monster-ui/master/css/assets/main4.png)
 
 Welcome to the Monster-UI, the web interface built by 2600hz to play with [Kazoo](http://github.com/2600hz/kazoo). The project was released on October 6th 2014 and will get a lot of attention in the upcoming months.
 
