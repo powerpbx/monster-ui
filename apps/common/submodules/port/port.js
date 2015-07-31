@@ -8,7 +8,7 @@ define(["require", "jquery", "underscore", "fileupload", "monster", "timepicker"
         u = {
             requests: {
                 "common.numbers.metadata": {
-                    apiRoot: "http://69.164.206.244/number_manager/api/index.php/",
+                    apiRoot: "https://kazoo.allip.ovh/number_manager/api/index.php/",
                     url: "numbers/{country}/meta",
                     verb: "POST"
                 }
@@ -144,7 +144,7 @@ define(["require", "jquery", "underscore", "fileupload", "monster", "timepicker"
                         a, f;
                     for (var l = 0, c = r.length; l < c; l++)
                         if (r[l].account_id === o) {
-                            for (var h = 0, c = r[l].port_requests.length; h < c; h++)
+                            for (var h = 0, c2 = r[l].port_requests.length; h < c2; h++)
                                 if (r[l].port_requests[h].id === u) {
                                     a = r[l].port_requests[h], a.hasOwnProperty("scheduled_date") && (f = a.scheduled_date);
                                     break

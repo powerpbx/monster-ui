@@ -24,6 +24,7 @@ h1 {
 .monster-link {
 	cursor: pointer;
 	color: #666;
+	margin: 10px;
 }
 
 .monster-link.blue {
