@@ -13,13 +13,16 @@
 					<button type="button" class="btn" data-value="requests">{{i18n.port.pendingOrders.requests}}</button>
 				</div>
 				<div class="btn-group pull-right">
-					<button type="button" class="btn" data-value="all">{{i18n.port.pendingOrders.all}}</button>
-					<button type="button" class="btn" data-value="unconfirmed">{{i18n.port.state.unconfirmed}}</button>
-					<button type="button" class="btn" data-value="submitted">{{i18n.port.state.submitted}}</button>
-					<button type="button" class="btn" data-value="pending">{{i18n.port.state.pending}}</button>
-					<button type="button" class="btn" data-value="scheduled">{{i18n.port.state.scheduled}}</button>
-					<button type="button" class="btn" data-value="rejected">{{i18n.port.state.rejected}}</button>
-					<button type="button" class="btn" data-value="completed">{{i18n.port.state.completed}}</button>
+					<span class="filter-select-label">{{i18n.port.pendingOrders.portState}}</span>
+					<select class="filter-select">
+						<option value="unconfirmed">{{i18n.port.state.unconfirmed}}</option>
+						<option value="submitted" selected>{{i18n.port.state.submitted}}</option>
+						<option value="pending">{{i18n.port.state.pending}}</option>
+						<option value="scheduled">{{i18n.port.state.scheduled}}</option>
+						<option value="rejected">{{i18n.port.state.rejected}}</option>
+						<option value="completed">{{i18n.port.state.completed}}</option>
+						<option value="canceled">{{i18n.port.state.canceled}}</option>
+					</select>
 				</div>
 			</div>
 		</div>
