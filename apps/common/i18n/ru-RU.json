@@ -398,11 +398,16 @@
 		"activationCharge": "Платёж за активацию:",
 		"exceptions": "Исключения:",
 		"planLines": {
-			"phone_numbers": "Телефонные номера",
-			"number_services": "Услуги номеров",
-			"limits": "Ограничения",
-			"devices": "Устройства",
-			"users": "Пользователи"
+			"phone_numbers": "Abo Телефонные номера",
+			"number_services": "Abo Услуги номеров",
+			"limits": "Abo Ограничения",
+			"devices": "Abo Устройства",
+			"users": "Abo Пользователи",
+                        "supports": "Abo Support",
+                        "connects": "Abo Internet",
+                        "branding": "Abo Branding",
+                        "ips": "Abo Carrier-IPs",
+                        "ui_apps": "Abo UI-Apps"
 		},
 		"noServicePlan": "Тариф не выбран."
 	},

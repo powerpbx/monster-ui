@@ -443,7 +443,12 @@
 			"number_services": "Services liés aux numéros",
 			"limits": "Limites",
 			"devices": "Appareils",
-			"users": "Utilisateurs"
+			"users": "Utilisateurs",
+                        "supports": "Abo Support",
+                        "connects": "Abo Internet",
+                        "branding": "Branding",
+                        "ips": "IPs",
+                        "ui_apps": "UI Apps"
 		},
 		"noServicePlan": "Aucun abonnement sélectionné."
 	},

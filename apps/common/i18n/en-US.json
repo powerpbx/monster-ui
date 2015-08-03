@@ -476,16 +476,16 @@
 		"activationCharge": "Activation charge:",
 		"exceptions": "Exceptions:",
 		"planLines": {
-			"phone_numbers": "Phone Numbers",
-			"number_services": "Number Services",
-			"limits": "Limits",
-			"devices": "Devices",
-			"users": "Users",
-			"__comment": "UI-1737: Adding i18n for new service plans",
-			"__version": "3.21",
-			"branding": "Branding",
-			"ips": "IPs",
-			"ui_apps": "UI Apps"
+			"phone_numbers": "Abo Phone Numbers",
+			"number_services": "Abo Number Services",
+			"limits": "Abo Limits",
+			"devices": "Abo Devices",
+			"users": "Abo Users",
+                        "supports": "Abo Support",
+                        "connects": "Abo Internet",
+			"branding": "Abo Branding",
+			"ips": "Abo Carrier-IPs",
+			"ui_apps": "Abo UI Apps"
 		},
 		"noServicePlan": "No Service Plan selected."
 	},

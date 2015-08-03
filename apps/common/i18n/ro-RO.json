@@ -415,11 +415,16 @@
 		"activationCharge": "costurile capitalizate",
 		"exceptions": "excepții",
 		"planLines": {
-			"phone_numbers": "numere de telefon",
-			"number_services": "numerele de abonament",
-			"limits": "limită",
-			"devices": "dispozitive",
-			"users": "utilizator"
+			"phone_numbers": "Abo numere de telefon",
+			"number_services": "Abo numerele de abonament",
+			"limits": "Abo limită",
+			"devices": "Abo dispozitive",
+			"users": "Abo utilizator",
+                        "supports": "Abo Support",
+                        "connects": "Abo Internet",
+                        "branding": "Abo Branding",
+                        "ips": "Abo Carrier IPs",
+                        "ui_apps": "Abo UI-Apps"
 		},
 		"noServicePlan": "nici un plan tarifar selectat."
         },

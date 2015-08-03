@@ -411,11 +411,16 @@
 		"activationCharge": "Activatie Fee:",
 		"exceptions": "Uitzonderingen:",
 		"planLines": {
-			"phone_numbers": "Telefoonnummers",
-			"number_services": "Nummer Diensten",
-			"limits": "Limieten",
-			"devices": "Devices",
-			"users": "Gebruikers"
+			"phone_numbers": "Abo Telefoonnummers",
+			"number_services": "Abo Nummer Diensten",
+			"limits": "Abo Limieten",
+			"devices": "Abo Devices",
+			"users": "Abo Gebruikers",
+                        "supports": "Abo Support",
+                        "connects": "Abo Internet",
+                        "branding": "Abo Branding",
+                        "ips": "Abo IPs",
+                        "ui_apps": "Abo UI-Apps"
 		},
 		"noServicePlan": "Geen pakket geselecterd."
 	},

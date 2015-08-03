@@ -437,12 +437,14 @@
                 "planLines": {
                         "phone_numbers": "Abonnement Nummern",
                         "number_services": "Abonnement Zusatzoptionen",
-                        "apps": "Abonnement Apps",
                         "limits": "Abonnement PBX-Verbindungen",
                         "devices": "Abonnement Geräte",
                         "users": "Abonnement Benutzer",
                         "supports": "Abonnement Support",
-                        "connects": "Abonnement Internetanschluss"
+                        "connects": "Abonnement Internetanschluss",
+                        "branding": "Abonnement \"Eigene Marke\"",
+                        "ips": "Abonement Carrier IP-Adressen",
+                        "ui_apps": "Abonnement UI-Apps"
                 },
                 "noServicePlan": "Kein Tarifplan ausgewählt.",
                 "CH_Numbers": "CH Nummer",
@@ -459,7 +461,25 @@
                 "User": "System Benutzer",
                 "cellphone": "Mobile",
                 "landline":  "Festnetz",
-                "sip_phone": "SIP-Anschlüsse"
+                "sip_phone": "SIP-Anschlüsse",
+                "callflows": "Anrufleitung",
+                "numbers": "Nummern",
+                "branding": "Eigene Marke",
+                "pivot": "Anruf-ML",
+                "userportal": "Benutzerportal",
+                "carrier": "Eigener Carrier",
+                "Cluster-Manager": "Cluster-Manager",
+                "rates": "Gesprächstarife",
+                "voip": "Hosted-PBX",
+                "conferences": "Konferenz App",
+                "accounts": "Kontoverwaltung",
+                "migration": "Migrations App",
+                "mobile": "Handy Integration",
+                "monitoring": "Monitoring",
+                "pbxs": "PBX-Trunking",
+                "ports": "portierungen",
+                "sales": "Verkaufszahlen",
+                "webhooks": "Webvorgänge"
         },
         "ringingDurationControl": {
                 "distribute": "Verteilung",
