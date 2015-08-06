@@ -64,8 +64,8 @@
                 "backButton": "Zurück"
 	},
 	"numbers": {
-		"mainNumber": "Büro Nummer",
-		"conferenceNumber": "Hauptkonferenz Nummer",
+		"mainNumber": "Hosted-PBX Nummer",
+		"conferenceNumber": "Konferenz Nummer",
 		"dialogSpare": {
 			"title": "Liste der verfügbaren Nummern",
 			"headline": "Verfügbare Nummern von",

@@ -68,7 +68,11 @@
 			"dmy": "День/Месяц/Год",
 			"mdy": "Месяц/День/Год",
 			"ymd": "Год/Месяц/День"
-		}
+		},
+                "contactSync": "Contact Sync",
+                "contactsyncUser": "Contactsync User",
+                "contactsyncPassword": "Contactsync Password",
+                "contactsyncURL": "Contactsync URL"
 	},
 
 	"account": {

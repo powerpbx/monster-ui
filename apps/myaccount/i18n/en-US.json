@@ -25,12 +25,12 @@
 		},
 		"steps": {
 			"1": "Access your Account Settings by clicking on your name.",
-			"2": "Your Admin User settings can be viewed in the User tab. Individual settings such as Timezone, Language and Date & Time can be changed based on your preferences.",
-			"3": "Your Admin Account settings can be viewed in the Account tab. Here you can add a Technical Contact if you wish, and set Timezone & Language for the entire account.",
-			"4": "If you would like to update or change your credit card, please do so here. Please note that the credit card that you used during registration is currently on file in this tab.",
-			"5": "If you need/plan to make international calls, you will need to set up per-minute credits here.",
-			"6": "Review your current service plan and associated charges",
-			"7": "View all transactions made under your account, including all one-time fees and charges"
+			"2": "Your Admin User settings can be viewed in the User tab. Individual settings such as Timezone, Language and Date & Time can be changed based on your preferences. Additional you can integration your conatcts to sync this e.g. with your mobile, to have phonenumbers with your in realtime.",
+			"3": "Your Admin Account settings can be viewed in the Account tab. Here you can add a Technical Contact if you wish, and set Timezone & Language for the entire account. The accountname and realm should not reseted, because your device need this domains to connect with it  The account fraudsecurity protects you from password theft, and the cost overrun only to limit. We recommend to put on the maximum daily costs (eg 20.00 per day. ) After saving only your resellers can unlock this again.",
+			"4": "The invoicing is done via e-mail from us automatically. But you can adjust the delivery by mailing to your habits manually. Please note that the credit card that you used during registration is currently on file in this tab.",
+			"5": "Chargeable calls are here listed. When making chargeable calls will be made \"per minute\". Not cost endorse calls are not listed.",
+			"6": "Here you can view your current subscriptions. Details of the respective subscriptions are listed on our website, and explains details. For further questions please contact us.",
+			"7": "Here is view all transactions made under your account, including all one-time fees and charges"
 
 		},
 		"endDialog": {
@@ -70,9 +70,14 @@
 			"dmy": "Day/Month/Year",
 			"mdy": "Month/Day/Year",
 			"ymd": "Year/Month/Day"
-		}
+		},
+                "contactSync": "Contact synchronization",
+                "contactsyncUser": "Contactsync User",
+                "contactsyncPassword": "Contactsync Password",
+                "contactsyncURL": "Contactsync URL",
+                "placeholdercontactsyncUser": "user@gamil.com",
+                "placeholdercontactsyncPassword": "password"
 	},
-
         "account": {
                 "fraud": {
                         "title": "Fraud Accountsecurity",

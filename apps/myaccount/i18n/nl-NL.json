@@ -32,7 +32,21 @@
 		"colorblindTitle": "Kleurenblind-modus",
 		"colorblindEnabled": "Ingeschakeld",
 		"colorblindDisabled": "Uitgeschakeld",
-		"enableColorblind": "Kleurenblind-modus Inschakelen"
+		"enableColorblind": "Kleurenblind-modus Inschakelen",
+                "dateTimeTitle": "Affichage des heures",
+                "twelveHoursModeEnabled": "Mode 12 heures (AM/PM)",
+                "twelveHoursModeDisabled": "Mode 24 heures",
+                "enableTwelveHoursMode": "Activer le mode 12 heures (AM/PM)",
+                "dateFormatTitle": "Format des dates",
+                "dateFormats": {
+                        "dmy": "Jour/Mois/Année",
+                        "mdy": "Mois/Jour/Année",
+                        "ymd": "Année/Mois/Jour"
+                },
+                "contactSync": "Contact Sync",
+                "contactsyncUser": "Contactsync User",
+                "contactsyncPassword": "Contactsync Password",
+                "contactsyncURL": "Contactsync URL"
 	},
 
 	"account": {

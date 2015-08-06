@@ -223,5 +223,54 @@
 				</div>
 			</div>
 		</li>
+
+		<li class="settings-item clearfix" data-name="contactsync">
+			<a class="settings-link clearfix">
+				<span class="title">{{ i18n.user.contactSync }}</span>
+				<span class="description">{{ user.contactsync.URL }}</span>
+				<span class="update">
+					<i class="fa fa-cog icon-small"></i>
+					<span class="text">{{ i18n.editSettings }}</span>
+				</span>
+				<span class="changes-saved">{{ i18n.changesSaved }}</span>
+			</a>
+			<div class="settings-item-content">
+				<div class="row-fluid">
+					<div class="span12">
+						<form class="form-horizontal" id="form_contactsync">
+							<div class="control-group">
+								<label class="control-label" for="contactsync">{{ i18n.user.contactsyncUser }}</label>
+								<div class="controls">
+									<input type="contactsync" placeholder="{{ i18n.placeholdercontactsync }}" id="contactsync.user" name="contactsync.user" value="{{user.contactsync.user}}" data-original_value="{{user.contactsync.user}}"/>
+								</div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label" for="contactsync">{{ i18n.user.contactsyncPassword }}</label>
+								<div class="controls">
+									<input type="contactsync" placeholder="{{ i18n.placeholdercontactsyncPassword }}" id="contactsync.password" name="contactsync.password" value="{{user.contactsync.password}}" data-original_value="{{user.contactsync.password}}"/>
+								</div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label" for="contactsync">{{ i18n.user.contactsyncURL }}</label>
+								<div class="controls">
+									<input type="contactsync" placeholder="{{ i18n.placeholdercontactsyncURL }}" id="contactsync.URL" name="contactsync.URL" value="{{user.contactsync.URL}}" data-original_value="{{user.contactsync.URL}}"/>
+								</div>
+							</div>
+
+							<div class="action-group clearfix">
+								<div class="action-bar">
+									<button type="button" class="monster-button cancel">{{ i18n.cancel }}</button>
+									<button type="submit" class="monster-button-success change" data-module="user" data-field="contactsync">{{ i18n.saveChanges }}</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</li>
+
+
 	</ul>
 </div>

@@ -323,20 +323,20 @@
 			"inbound": "Die Verbindung wurde Umgeleitet"
 		},
 		"NO_RESPONSE": {
-			"inbound": "Call forwarding was attempted, but failed because the forwarded user did not respond or there was a routing error during forwarding."
+			"inbound": "Anrufweiterleitung war eingeschaltet, scheiterte, weil der Benutzer weitergeleitet wurde oder nicht reagierte."
 		},
 		"UNSPECIFIED": {
 			
 			},
 		"UNALLOCATED_NUMBER": {
-			"outbound": "The number dialed is not a valid number and/or can not be reached via the requested carrier",
-			"inbound": "Usually for PBX Connector, but indicates the device on the customer’s side is misconfigured, or the number is not currently in use."
+			"outbound": "Die Nummer die gewählt wurde ist kein gültiges Anrufziel oder konnte nicht über die gewählten Carrier erreicht werden.",
+			"inbound": "Normalerweise für PBX-Trunks, kann aber auch anzeigen, dass auf Kundenseite ein Gerät nicht richtig funktioniert, oder die Nummer nicht programmiert ist."
 		},
 		"NO_ROUTE_TRANSIT_NET": {
 		},
 		"NO_ROUTE_DESTINATION": {
-			"outbound": "The number dialed is not a valid number and/or can not be reached via the requested carrier",
-			"inbound": "Usually for PBX Connector, but indicates the device on the customer’s side is misconfigured."
+			"outbound": "Die Nummer die gewählt wurde ist kein gültiges Anrufziel oder konnte nicht über die gewählten Carrier erreicht werden.",
+			"inbound": "Normalerweise für PBX-Trunks, kann aber auch anzeigen, dass auf Kundenseite ein Gerät nicht richtig funktioniert, oder die Nummer nicht programmiert ist."
 		},
 		"CHANNEL_UNACCEPTABLE": {
 		},
@@ -347,7 +347,7 @@
 			"outbound": "Alles ist OK. Die Verbindung wurde normal beendet"
 		},
 		"USER_BUSY": {
-			"inbound": "Could be 2 things: Under 1 second, The phone was busy or unavailable; over 1 second: The end-user rejected the inbound call while it was ringing."
+			"inbound": "Unter 1 Sek.: Das Telefon war besetzt oder nicht erreichbar; über 1 Sek.: Der Benutzer hat den Anruf abgelehnt."
 		},
 		"NO_USER_RESPONSE": {
 		},
@@ -357,16 +357,16 @@
 		},
 		"CALL_REJECTED": {
 			"outbound": "Dier Anruf zum Carrier wird nicht unterstützt, oder hat keine Kapazität. Es wird zum nächstmöglichen Carrier geschaltet. Dies ist nicht kein Allgmmeiner Fehler und ist normal.",
-			"inbound": "At under 1 second: The phone is in Do-Not-Disturb locally, on the phone, or all the lines available on the phone are in use, At over 1 second: The user of the phone pushed the “reject” button to reject the call"
+			"inbound": "Unter 1 Sek.: Das Telefon hat \"nicht Stören aktiviert\" oder alle Leitungen auf dem Telefon sind belegt. Über 1 Sek.: Der Bentuzer hat den Anruf abgelehnt."
 		},
 		"NUMBER_CHANGED": {
 		},
 		"REDIRECTION_TO_NEW_DESTINATION": {
-			"inbound": "Could be 2 things: Under 1 second, The phone is configured with call-forwarding locally. This should be disabled; Over 1 second: The phone is configured with “call-forwarding no answer” locally. This should be disabled."
+			"inbound": "Unter 1 Sek.: Das Telefon hat \"Umleitung aktiviert\". Über 1 Sek.: Der Bentuzer hat Umleitung bei \"nicht erreichbar aktiviert\"."
 		},
 		"EXCHANGE_ROUTING_ERROR": {
-			"outbound": "The carrier which was attempted doesn’t service the area the call was being placed to, or didn’t have enough capacity to complete the call (or some other non-fatal issue). The next carrier in the available carrier list should be tried. This error is NOT indicative of a failure or problem as not every carrier services every area of the world.",
-			"inbound": "Usually for PBX Connector, but indicates the device on the customer’s side is misconfigured."
+			"outbound": "Der Carrier für die Verbindung, wurde für diese Verbindung nicht eingestellt, oder hat nicht genügend Kapazität für die Verbindung. Der nächste Carrier in der Liste wird kontaktiert. Die zeigt nicht unbedingt einen Fehler.",
+			"inbound": "Normalerweise für PBX-Trunks, kann aber auch anzeigen, dass auf Kundenseite ein Gerät nicht richtig funktioniert, oder die Nummer nicht programmiert ist."
 		},
 		"DESTINATION_OUT_OF_ORDER": {
 		},
@@ -382,7 +382,7 @@
 		},
 		"NETWORK_OUT_OF_ORDER": {
 			"outbound": "The carrier which was attempted doesn’t service the area the call was being placed to, or didn’t have enough capacity to complete the call (or some other non-fatal issue). The next carrier in the available carrier list should be tried. This error is NOT indicative of a failure or problem as not every carrier services every area of the world.",
-			"inbound": "Usually for PBX Connector, but indicates the device on the customer’s side is misconfigured."
+			"inbound": "Normalerweise für PBX-Trunks, kann aber auch anzeigen, dass auf Kundenseite ein Gerät nicht richtig funktioniert, oder die Nummer nicht programmiert ist."
 		},
 		"NORMAL_TEMPORARY_FAILURE": {
 			"outbound": "The carrier which was attempted doesn’t service the area the call was being placed to, or didn’t have enough capacity to complete the call (or some other temporary issue). The next carrier in the available carrier list should be tried. This error is NOT indicative of a failure or problem as not every carrier services every area of the world.",
@@ -417,8 +417,8 @@
 		"INVALID_CALL_REFERENCE": {
 		},
 		"INCOMPATIBLE_DESTINATION": {
-			"outbound": "The carrier requested or required a certain codec or encryption, but we did not offer that method of communication. Thus, the call could not be completed. This can also happen when fax connectivity is requested but T38 is not available.",
-			"inbound": "The carrier requested or required a certain codec or encryption, but we did not offer that method of communication. Thus, the call could not be completed. This can also happen when fax connectivity is requested but T38 is not available."
+			"outbound": "Die Verbindung zum Carrier benötigt eine Verschlüsselung, haber die Methode wird nicht unterstützt. Ebenso kann eine Faxübertragung abbrechen wenn die geforderte T38 Unterstützung fehlt.",
+			"inbound": "Die Verbindung zum Carrier benötigt eine Verschlüsselung, haber die Methode wird nicht unterstützt. Ebenso kann eine Faxübertragung abbrechen wenn die geforderte T38 Unterstützung fehlt."
 		},
 		"INVALID_MSG_UNSPECIFIED": {
 		},
@@ -455,29 +455,29 @@
 		"SYSTEM_SHUTDOWN": {
 		},
 		"LOSE_RACE": {
-			"inbound": "Multiple phones were being rung at the same time, and a different phone was answered before this one was."
+			"inbound": "Mehrere Telefone klingelten gemeinsam, und mit einem anderen wurde der Anruf beantwortet."
 		},
 		"MANAGER_REQUEST": {
 		},
 		"BLIND_TRANSFER": {
 		},
 		"ATTENDED_TRANSFER": {
-			"inbound": "This leg was the “consult” portion of an attended transfer, meaning this part of the call indicates the transferer was asking the final recipient if they wanted the call or not (I.e. “Hi Frank, I have Mr. Adams on the line, would you like to take his call now?”)"
+			"inbound": "Dies ist der erste Teil bei Übergabe der Verbindung (Mit Rückfrage) an einen andern Teilnehmer."
 		},
 		"ALLOTTED_TIMEOUT": {
 		},
 		"USER_CHALLENGE": {
 		},
 		"MEDIA_TIMEOUT": {
-			"inbound": "Netzwerk oder Firewall Problem, ohne Mediaübertragung wurde abgebrochen."
+			"inbound": "Netzwerk oder Firewall Problem. Die Verbindung ohne Medienübertragung (Audiodaten) wurde abgebrochen."
 		},
 		"PICKED_OFF": {
 		},
 		"USER_NOT_REGISTERED": {
 		},
 		"PROGRESS_TIMEOUT": {
-			"outbound": "We waited up many seconds for the carrier to connect the requested call, and it didn’t respond. This usually means the carrier was trying to find an available circuit to process the call on but took too long. This is something that should result in a support ticket if it happens frequently. Occasionally is not unexpected.",
-			"inbound": "The remote user’s internet or firewall blocked our request to ring the phone"
+			"outbound": "Der Anrufe über diesen Carrier wurde nicht in eingestellter Zeit beantworted. Dies bedeutet meistens, das versucht wurde eine Verbindung aufzubauen, jedoch die Rückmeldung zu lange dauerte. Tritt dies mehrmals auf sollte die Zeit für die Rückmeldung angepasst werden. (Gelegentlich kann dies vorkommen).",
+			"inbound": "Die Anfrage für den Anruf auf das Gerät wurde blockiert. (Verbindungsunterbruch oder Firewall problem)"
 		},
 		"GATEWAY_DOWN": {
 		}

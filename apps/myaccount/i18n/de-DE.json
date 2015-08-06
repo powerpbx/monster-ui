@@ -25,12 +25,12 @@
                         "title": "Willkommen zu AllIP"
                 },
                 "steps": {
-                        "1": "Die Kontoeinstellungen können Sie durch ein Klick auf Ihren Namen erreichen.",
-                        "2": "Ihre Benutzereinstellungen finden Sie hier. Zeitzone, Sprache und Datum können Sie ensprechend Ihren Bedürfnissen anpassen.",
-                        "3": "In den Kontoeinstellungen können Sie die Technischen Details, Zeitzone und Sprache und den Konto-Kostenschutz für dieses Konto einstellen. Die Einstellungen Konto Name und Konto-Realm sollten Sie so belassen, da es Ihre Geräte mit dieser Domain verbindet. Der Konto-Kostenschutz schützt Sie vor Passwortdiebstahl, um die Kostenüberschreitung in Grenzen zu halten. Wir empfehlen auf die maximal täglichen Kosten zu stellen (z.B 20.00 pro Tag.) Nach der dem Speichern kann nur Ihr Wiederverkäufer diesen wieder freischalten.",
+                        "1": "Die Konten- und Benutzereinstellungen, können Sie durch ein Klick auf Ihren Namen erreichen.",
+                        "2": "Ihre Benutzereinstellungen finden Sie hier. Zeitzone, Sprache und Datum können Sie ensprechend Ihren Bedürfnissen anpassen. Mit der integration von Kontakten können Sie Ihre Kontakte mit angenommenen und getätigten Anrufen, mit Ihren Kontakten z.B. auf dem Handy synchron halten. Vorteil: Sie haben die Daten auf sich, falls Sie diese benötigen.",
+                        "3": "In den Kontoeinstellungen können Sie die Technischen Details, Zeitzone und Sprache und den Konto-Kostenschutz für dieses Konto einstellen. Die Einstellungen Konto Name und Konto-Realm sollten Sie so belassen, da es Ihre Geräte mit dieser Domain verbindet. Der Konto-Kostenschutz schützt Sie vor Passwortdiebstahl, um die Kostenüberschreitung in Grenzen zu halten. Wir empfehlen auf die maximal täglichen Kosten zu stellen (z.B 20.00 pro Tag.) Nach dem Speichern kann nur Ihr Wiederverkäufer diesen wieder freischalten.",
                         "4": "Die Rechnungstellung per eMail erfolgt bei uns automatisch. Sie können aber die Zustellung per Postsendung nach Ihren Gewohnheiten manuell anpassen. Bitte beachten Sie dass, die Kreditkarteninformationen bei der Registrierung hier abgelegt wurden.",
-                        "5": "Hier werden die kostenprichtigen Anrufe gelistet. Wenn Sie kostenpflichtige Anrufe tätigen, wird die Verrechnung \"Per Minute\" erfolgen. Nicht kostenpflichte Anrufe werden nicht gelistet.",
-                        "6": "Hier können Sie Ihre aktuelle Abonnemente einsehen. Details zu den jeweiligen Abonnementen werden auf unserer Webseite gelistet.",
+                        "5": "Hier werden die kostenprichtigen Anrufe gelistet. Wenn Sie kostenpflichtige Anrufe tätigen, wird die Verrechnung \"per Minute\" erfolgen. Nicht kostenpflichte Anrufe werden nicht gelistet.",
+                        "6": "Hier können Sie Ihre aktuelle Abonnemente einsehen. Details zu den jeweiligen Abonnements werden auf unserer Webseite gelistet, und Details erklärt. Für weitere Fragen kontaktieren Sie uns.",
                         "7": "Hier werden alle Überweisungen die für Ihr Konto abgewickelt wurden aufgelistet, inklusive einmalige und wiederkehrende Überweisungen."
                 },
                 "endDialog": {
@@ -65,7 +65,11 @@
                         "dmy": "Tag / Monat / Jahr",
                         "mdy": "Monat / Tag / Jahr",
                         "ymd": "Jahr / Monat / Tag"
-                }
+                },
+		"contactSync": "Kontakt Synchronisation",
+		"contactsyncUser": "Benutzer Kontaktsync ",
+		"contactsyncPassword": "Kontaktsync Passwort",
+		"contactsyncURL": "Kontaktsync URL"
 	},
 
 	"account": {
