@@ -2,9 +2,7 @@
 {{#if servicePlan}}
 	{{#each servicePlani18n}}
 		<div class="line header">
-			<div>
-			{{ @key }}
-			</div>
+			<div>{{ tryI18n ../i18n.servicePlanDetails.keys @key }}</div>
 			<div></div>
 			<div></div>
 		</div>
@@ -20,16 +18,19 @@
 			</span>
 			</div>
 			<div class="charges">
-				{{#if this.rate}}
-				<div>{{../../../i18n.servicePlanDetails.rate}} {{../../../i18n.currencyUsed}} {{formatPrice this.rate}}</div>
-				{{/if}}
-				{{#if this.activation_charge}}
-				<div>{{../../../i18n.servicePlanDetails.activationCharge}} {{../../../i18n.currencyUsed}} {{formatPrice this.activation_charge}}</div>
-				{{/if}}
+				{{#compare this.rate ">" 0}}
+				<div>{{../../../i18n.servicePlanDetails.keys.rate}}: {{../../../i18n.currencyUsed}}{{formatPrice this.rate}}</div>
+				{{/compare}}
+				{{#compare this.activation_charge ">" 0}}
+				<div>{{../../../i18n.servicePlanDetails.keys.activation_charge}}: {{../../../i18n.currencyUsed}}{{formatPrice this.activation_charge}}</div>
+				{{/compare}}
+				{{#compare this.minimum ">" 0}}
+				<div>{{../../../i18n.servicePlanDetails.keys.minimum}}: {{formatPrice this.minimum}}</div>
+				{{/compare}}
 			</div>
 			<div class="exceptions">
 			{{#if this.exceptions.length}}
-				{{../../../i18n.servicePlanDetails.exceptions}} 
+				{{../../../i18n.servicePlanDetails.keys.exceptions}}: 
 				{{#each this.exceptions}}
 					{{#if @index}}, {{/if}}{{this}}
 				{{/each}}

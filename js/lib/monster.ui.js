@@ -6,6 +6,7 @@ define(function(require){
 		toastr = require('toastr'),
 		validate = require('validate'),
 		wysiwyg = require('wysiwyg'),
+		timepicker = require('timepicker'),
 		introJs = require('introJs');
 
 	Handlebars.registerHelper('times', function(n, options) {
@@ -21,6 +22,10 @@ define(function(require){
 		if (optionalValue) {
 			console.log('Value: ', optionalValue);
 		}
+	});
+
+	Handlebars.registerHelper('tryI18n', function(mapI18n, key) {
+		return mapI18n.hasOwnProperty(key) ? mapI18n[key] : key;
 	});
 
 	Handlebars.registerHelper('formatPhoneNumber', function(phoneNumber) {
@@ -1210,6 +1215,28 @@ define(function(require){
 				optionsDatePicker = $.extend(true, defaultOptions, options);
 
 			return target.datepicker(optionsDatePicker);
+		},
+
+		/**
+		 * Wrapper for the jQuery timepicker init function that automatically sets the time format
+		 * to the currently logged-in user's preferences if it exists and defaults to the 24 hours
+		 * format if it does not.
+		 * @param  {jQuery Object} target   <input> or <select> element where the dropdown is appended
+		 * @param  {Object} pOptions        optional listing of parameters used to build the dropdown
+		 * @return {jQuery Object}          the instance of the timepicker is linked to this element
+		 */
+		timepicker: function(target, pOptions) {
+			var self = this,
+				is12hMode = monster.hasOwnProperty('apps') && monster.apps.hasOwnProperty('auth') && monster.apps.auth.hasOwnProperty('currentUser') && 
+						    monster.apps.auth.currentUser.hasOwnProperty('ui_flags') && monster.apps.auth.currentUser.ui_flags.hasOwnProperty('twelve_hours_mode') ?
+						    monster.apps.auth.currentUser.ui_flags.twelve_hours_mode : false,
+				defaultOptions = {
+					timeFormat: is12hMode ? 'g:ia' : 'G:i',
+					lang: monster.apps.core.i18n.active().timepicker
+				},
+				options = $.extend(true, {}, defaultOptions, pOptions);
+
+			return target.timepicker(options);
 		},
 
 		/**

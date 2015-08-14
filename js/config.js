@@ -47,5 +47,5 @@ define(function(require){
 			// Setting this flag to true will show the SmartPBX Callflows in the Callflows app
 			showSmartPBXCallflows: true
 		}
-    };
+	};
 });

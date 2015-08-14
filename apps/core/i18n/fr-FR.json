@@ -352,5 +352,15 @@
               "femalecsCZ": "female Tschechisch",
               "femaletrTR": "female Türkisch",
               "maletrTR": "male Türkisch"
-    }
+	},
+	"timepicker": {
+		"am": "am",
+		"pm": "pm",
+		"AM": "AM",
+		"PM": "PM",
+		"decimal": ".",
+		"min": "min",
+		"hr": "h",
+		"hrs": "h"
+	}
 }

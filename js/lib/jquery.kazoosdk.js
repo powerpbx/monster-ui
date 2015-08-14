@@ -231,7 +231,11 @@
 		servicePlan: {
 			'get': { verb: 'GET', url: 'accounts/{accountId}/service_plans/{planId}' },
 			'add': { verb: 'POST', url: 'accounts/{accountId}/service_plans/{planId}' },
+			'addMany': { verb: 'POST', url: 'accounts/{accountId}/service_plans/' },
 			'remove': { verb: 'DELETE', url: 'accounts/{accountId}/service_plans/{planId}' },
+			'removeMany': { verb: 'DELETE', url: 'accounts/{accountId}/service_plans/' },
+			'update': { verb: 'POST', url: 'accounts/{accountId}/service_plans/' },
+			'addManyOverrides': { verb: 'POST', url: 'accounts/{accountId}/service_plans/override' },
 			'list': { verb: 'GET', url: 'accounts/{accountId}/service_plans' },
 			'listCurrent': { verb: 'GET', url: 'accounts/{accountId}/service_plans/current' },
 			'getCsv': { verb: 'GET', url: 'accounts/{accountId}/service_plans/current?depth=4&identifier=items&accept=csv' },
