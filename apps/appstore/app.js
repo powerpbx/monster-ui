@@ -163,19 +163,19 @@ define(function(require){
 					}
 
 					results.apps.forEach(function(val, idx) {
-						if(val.id in results.account.apps) {
+						if((val.id) in results.account.apps) {
 							/* Temporary code to allow retro-compatibility with old app structure (changed in v3.07) */
 							if('all' in results.account.apps[val.id]) {
 								results.account.apps[val.id].allowed_users = results.account.apps[val.id].all ? 'all' : 'specific';
 								delete results.account.apps[val.id].all;
 							}
+
 							/*****************************************************************************************/
 							if(results.account.apps[val.id].allowed_users !== 'specific' || results.account.apps[val.id].users.length > 0) {
 								val.tags ? val.tags.push("installed") : val.tags = ["installed"];
 							}
 						}
 						var i18n = val.i18n[monster.config.whitelabel.language] || val.i18n['en-US'];
-
 						val.label = i18n.label;
 						val.description = i18n.description;
 						parallelIconRequests.push(function(parallelCallback) {
@@ -197,6 +197,13 @@ define(function(require){
 		renderApps: function(parent, appstoreData) {
 			var self = this,
 				appList = appstoreData.apps
+				if(monster.apps.auth.currentAccount.superduper_admin != true)
+					appList = monster.ui.change_appList(appList,'carrier', 'delete');
+				if(monster.apps.auth.currentAccount.is_reseller != true && monster.apps.auth.currentAccount.superduper_admin != true)
+					appList = monster.ui.change_appList(appList,'reseller', 'delete');
+				if(monster.apps.auth.currentAccount.is_reseller != true && monster.apps.auth.currentAccount.superduper_admin != true && monster.apps.auth.currentAccount.is_business_customer != true)
+					appList = monster.ui.change_appList(appList,'business', 'delete');
+
 				template = $(monster.template(self, 'appList', {
 				apps: appList
 			}));

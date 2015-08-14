@@ -199,7 +199,7 @@
 		"placeholderThresholdRecharge": "5.00",
 		"placeholderRecharge": "50.00",
 		"placeholderAmount": "10.00",
-		"addCredit": "Kontostand erhöhen",
+		"addCredit": "Aufladen",
 		"invalidAmount": "Fehler bei der Eingabe des Betrages! Bitte nur Zahlen mit '.' order ',' eingeben!",
 		"autoRechargeEnabled": "Die automatische Aufladung Ihres Kontos ist aktiv!",
 		"autoRechargeCancelled": "Die automatische Aufladung Ihres Kontos wurde gestoppt und ist nicht mehr aktiv!",

@@ -308,165 +308,230 @@
 	"__version": "v3.20_s3",
 	"hangupCauses": {
 		"SUCCESS": {
-			"inbound": "The call was forwarded to a different number successfully"
+			"inbound": "The call was forwarded to a different number successfully",
+			"friendlyName": "SUCCESS"
 		},
 		"NO_RESPONSE": {
-			"inbound": "Call forwarding was attempted, but failed because the forwarded user did not respond or there was a routing error during forwarding."
+			"inbound": "Call forwarding was attempted, but failed because the forwarded user did not respond or there was a routing error during forwarding.",
+			"friendlyName": ""
+
 		},
 		"UNSPECIFIED": {
-			
+			"friendlyName": "UNSPECIFIED"
 			},
 		"UNALLOCATED_NUMBER": {
 			"outbound": "The number dialed is not a valid number and/or can not be reached via the requested carrier",
-			"inbound": "Usually for PBX Connector, but indicates the device on the customer’s side is misconfigured, or the number is not currently in use."
+			"inbound": "Usually for PBX Connector, but indicates the device on the customer’s side is misconfigured, or the number is not currently in use.",
+			"friendlyName": "UNALLOCATED NUMBER"
 		},
 		"NO_ROUTE_TRANSIT_NET": {
+			"friendlyName": "NO ROUTE TRANSIT NET"
 		},
 		"NO_ROUTE_DESTINATION": {
 			"outbound": "The number dialed is not a valid number and/or can not be reached via the requested carrier",
-			"inbound": "Usually for PBX Connector, but indicates the device on the customer’s side is misconfigured."
+			"inbound": "Usually for PBX Connector, but indicates the device on the customer’s side is misconfigured.",
+			"friendlyName": "NO ROUTE DESTINATION"
 		},
 		"CHANNEL_UNACCEPTABLE": {
+			"friendlyName": "CHANNEL UNACCEPTABLE"
 		},
 		"CALL_AWARDED_DELIVERED": {
+			"friendlyName": "CALL AWARDED DELIVERED"
 		},
 		"NORMAL_CLEARING": {
 			"inbound": "Everything is OK. The call ended normally",
-			"outbound": "Everything is OK. The call ended normally"
+			"outbound": "Everything is OK. The call ended normally",
+			"friendlyName": "NORMAL CLEARING"
 		},
 		"USER_BUSY": {
-			"inbound": "Could be 2 things: Under 1 second, The phone was busy or unavailable; over 1 second: The end-user rejected the inbound call while it was ringing."
+			"inbound": "Could be 2 things: Under 1 second, The phone was busy or unavailable; over 1 second: The end-user rejected the inbound call while it was ringing.",
+			"friendlyName": "User Busy"
 		},
 		"NO_USER_RESPONSE": {
+			"friendlyName": "NO_USER_RESPONSE"
 		},
 		"NO_ANSWER": {
+			"friendlyName": "NO_ANSWER"
 		},
 		"SUBSCRIBER_ABSENT": {
+			"friendlyName": "SUBSCRIBER_ABSENT"
 		},
 		"CALL_REJECTED": {
 			"outbound": "The carrier which was attempted doesn’t service the area the call was being placed to, or didn’t have enough capacity to complete the call (or some other non-fatal issue). The next carrier in the available carrier list should be tried. This error is NOT indicative of a failure or problem as not every carrier services every area of the world.",
-			"inbound": "At under 1 second: The phone is in Do-Not-Disturb locally, on the phone, or all the lines available on the phone are in use, At over 1 second: The user of the phone pushed the “reject” button to reject the call"
+			"inbound": "At under 1 second: The phone is in Do-Not-Disturb locally, on the phone, or all the lines available on the phone are in use, At over 1 second: The user of the phone pushed the “reject” button to reject the call",
+			"friendlyName": "CALL_REJECTED"
 		},
 		"NUMBER_CHANGED": {
+			"friendlyName": "NUMBER_CHANGED"
 		},
 		"REDIRECTION_TO_NEW_DESTINATION": {
-			"inbound": "Could be 2 things: Under 1 second, The phone is configured with call-forwarding locally. This should be disabled; Over 1 second: The phone is configured with “call-forwarding no answer” locally. This should be disabled."
+			"inbound": "Could be 2 things: Under 1 second, The phone is configured with call-forwarding locally. This should be disabled; Over 1 second: The phone is configured with “call-forwarding no answer” locally. This should be disabled.",
+			"friendlyName": ""
 		},
 		"EXCHANGE_ROUTING_ERROR": {
 			"outbound": "The carrier which was attempted doesn’t service the area the call was being placed to, or didn’t have enough capacity to complete the call (or some other non-fatal issue). The next carrier in the available carrier list should be tried. This error is NOT indicative of a failure or problem as not every carrier services every area of the world.",
-			"inbound": "Usually for PBX Connector, but indicates the device on the customer’s side is misconfigured."
+			"inbound": "Usually for PBX Connector, but indicates the device on the customer’s side is misconfigured.",
+			"friendlyName": "EXCHANGE_ROUTING_ERROR"
 		},
 		"DESTINATION_OUT_OF_ORDER": {
+			"friendlyName": "DESTINATION_OUT_OF_ORDER"
 		},
 		"INVALID_NUMBER_FORMAT": {
+			"friendlyName": "INVALID_NUMBER_FORMAT"
 		},
 		"FACILITY_REJECTED": {
+			"friendlyName": "FACILITY_REJECTED"
 		},
 		"RESPONSE_TO_STATUS_ENQUIRY": {
+			"friendlyName": "RESPONSE_TO_STATUS_ENQUIRY"
 		},
 		"NORMAL_UNSPECIFIED": {
+			"friendlyName": "NORMAL_UNSPECIFIED"
 		},
 		"NORMAL_CIRCUIT_CONGESTION": {
+			"friendlyName": "NORMAL_CIRCUIT_CONGESTION"
 		},
 		"NETWORK_OUT_OF_ORDER": {
 			"outbound": "The carrier which was attempted doesn’t service the area the call was being placed to, or didn’t have enough capacity to complete the call (or some other non-fatal issue). The next carrier in the available carrier list should be tried. This error is NOT indicative of a failure or problem as not every carrier services every area of the world.",
-			"inbound": "Usually for PBX Connector, but indicates the device on the customer’s side is misconfigured."
+			"inbound": "Usually for PBX Connector, but indicates the device on the customer’s side is misconfigured.",
+			"friendlyName": "NETWORK_OUT_OF_ORDER"
 		},
 		"NORMAL_TEMPORARY_FAILURE": {
 			"outbound": "The carrier which was attempted doesn’t service the area the call was being placed to, or didn’t have enough capacity to complete the call (or some other temporary issue). The next carrier in the available carrier list should be tried. This error is NOT indicative of a failure or problem as not every carrier services every area of the world.",
-			"inbound": "This should not happen. This is an error condition."
+			"inbound": "This should not happen. This is an error condition.",
+			"friendlyName": "NORMAL_TEMPORARY_FAILURE"
 		},
 		"SWITCH_CONGESTION": {
+			"friendlyName": "SWITCH_CONGESTION"
 		},
 		"ACCESS_INFO_DISCARDED": {
+			"friendlyName": "ACCESS_INFO_DISCARDED"
 		},
 		"REQUESTED_CHAN_UNAVAIL": {
+			"friendlyName": "REQUESTED_CHAN_UNAVAIL"
 		},
 		"FACILITY_NOT_SUBSCRIBED": {
+			"friendlyName": "FACILITY_NOT_SUBSCRIBED"
 		},
 		"OUTGOING_CALL_BARRED": {
+			"friendlyName": "OUTGOING_CALL_BARRED"
 		},
 		"INCOMING_CALL_BARRED": {
+			"friendlyName": "INCOMING_CALL_BARRED"
 		},
 		"BEARERCAPABILITY_NOTAUTH": {
+			"friendlyName": "BEARERCAPABILITY_NOTAUTH"
 		},
 		"BEARERCAPABILITY_NOTAVAIL": {
+			"friendlyName": "BEARERCAPABILITY_NOTAVAIL"
 		},
 		"SERVICE_UNAVAILABLE": {
+			"friendlyName": "SERVICE_UNAVAILABLE"
 		},
 		"BEARERCAPABILITY_NOTIMPL": {
+			"friendlyName": "BEARERCAPABILITY_NOTIMPL"
 		},
 		"CHAN_NOT_IMPLEMENTED": {
+			"friendlyName": "CHAN_NOT_IMPLEMENTED"
 		},
 		"FACILITY_NOT_IMPLEMENTED": {
+			"friendlyName": "FACILITY_NOT_IMPLEMENTED"
 		},
 		"SERVICE_NOT_IMPLEMENTED": {
+			"friendlyName": "SERVICE_NOT_IMPLEMENTED"
 		},
 		"INVALID_CALL_REFERENCE": {
+			"friendlyName": "INVALID_CALL_REFERENCE"
 		},
 		"INCOMPATIBLE_DESTINATION": {
 			"outbound": "The carrier requested or required a certain codec or encryption, but we did not offer that method of communication. Thus, the call could not be completed. This can also happen when fax connectivity is requested but T38 is not available.",
-			"inbound": "The carrier requested or required a certain codec or encryption, but we did not offer that method of communication. Thus, the call could not be completed. This can also happen when fax connectivity is requested but T38 is not available."
+			"inbound": "The carrier requested or required a certain codec or encryption, but we did not offer that method of communication. Thus, the call could not be completed. This can also happen when fax connectivity is requested but T38 is not available.",
+			"friendlyName": "INCOMPATIBLE_DESTINATION"
 		},
 		"INVALID_MSG_UNSPECIFIED": {
+			"friendlyName": "INVALID_MSG_UNSPECIFIED"
 		},
 		"MANDATORY_IE_MISSING": {
+			"friendlyName": "MANDATORY_IE_MISSING"
 		},
 		"MESSAGE_TYPE_NONEXIST": {
+			"friendlyName": "MESSAGE_TYPE_NONEXIST"
 		},
 		"WRONG_MESSAGE": {
+			"friendlyName": "WRONG_MESSAGE"
 		},
 		"IE_NONEXIST": {
+			"friendlyName": "IE_NONEXIST"
 		},
 		"INVALID_IE_CONTENTS": {
+			"friendlyName": "INVALID_IE_CONTENTS"
 		},
 		"WRONG_CALL_STATE": {
 			"outbound": "This is a carrier failure or a misconfiguration on the hosted service and should result in a support ticket.",
-			"inbound": "The user attempted to dial an extension but hung up before the call could be processed, OR, the system is having trouble processing the user’s calls."
+			"inbound": "The user attempted to dial an extension but hung up before the call could be processed, OR, the system is having trouble processing the user’s calls.",
+			"friendlyName": "WRONG_CALL_STATE"
 		},
 		"RECOVERY_ON_TIMER_EXPIRE": {
 			"outbound": "This is a carrier failure or a misconfiguration on the hosted service and should result in a support ticket.",
-			"inbound": "The remote user’s internet or firewall blocked our request to ring the phone"
+			"inbound": "The remote user’s internet or firewall blocked our request to ring the phone",
+			"friendlyName": "RECOVERY_ON_TIMER_EXPIRE"
 		},
 		"MANDATORY_IE_LENGTH_ERROR": {
+			"friendlyName": "MANDATORY_IE_LENGTH_ERROR"
 		},
 		"PROTOCOL_ERROR": {
+			"friendlyName": "PROTOCOL_ERROR"
 		},
 		"INTERWORKING": {
+			"friendlyName": "INTERWORKING"
 		},
 		"ORIGINATOR_CANCEL": {
-			"inbound": "The caller hung up before this party answered the phone (hang up while phone is still ringing)"
+			"inbound": "The caller hung up before this party answered the phone (hang up while phone is still ringing)",
+			"friendlyName": "ORIGINATOR_CANCEL"
 		},
 		"CRASH": {
+			"friendlyName": "CRASH"
 		},
 		"SYSTEM_SHUTDOWN": {
+			"friendlyName": "SYSTEM_SHUTDOWN"
 		},
 		"LOSE_RACE": {
-			"inbound": "Multiple phones were being rung at the same time, and a different phone was answered before this one was."
+			"inbound": "Multiple phones were being rung at the same time, and a different phone was answered before this one was.",
+			"friendlyName": "LOSE_RACE"
 		},
 		"MANAGER_REQUEST": {
+			"friendlyName": "MANAGER_REQUEST"
 		},
 		"BLIND_TRANSFER": {
+			"friendlyName": "BLIND_TRANSFER"
 		},
 		"ATTENDED_TRANSFER": {
-			"inbound": "This leg was the “consult” portion of an attended transfer, meaning this part of the call indicates the transferer was asking the final recipient if they wanted the call or not (I.e. “Hi Frank, I have Mr. Adams on the line, would you like to take his call now?”)"
+			"inbound": "This leg was the “consult” portion of an attended transfer, meaning this part of the call indicates the transferer was asking the final recipient if they wanted the call or not (I.e. “Hi Frank, I have Mr. Adams on the line, would you like to take his call now?”)",
+			"friendlyName": "ATTENDED_TRANSFER"
 		},
 		"ALLOTTED_TIMEOUT": {
+			"friendlyName": "ALLOTTED_TIMEOUT"
 		},
 		"USER_CHALLENGE": {
+			"friendlyName": "USER_CHALLENGE"
 		},
 		"MEDIA_TIMEOUT": {
-			"inbound": "A network or firewall issue caused the conversation to fail mid-stream."
+			"inbound": "A network or firewall issue caused the conversation to fail mid-stream.",
+			"friendlyName": "MEDIA_TIMEOUT"
 		},
 		"PICKED_OFF": {
+			"friendlyName": "PICKED_OFF"
 		},
 		"USER_NOT_REGISTERED": {
+			"friendlyName": "USER_NOT_REGISTERED"
 		},
 		"PROGRESS_TIMEOUT": {
 			"outbound": "We waited up many seconds for the carrier to connect the requested call, and it didn’t respond. This usually means the carrier was trying to find an available circuit to process the call on but took too long. This is something that should result in a support ticket if it happens frequently. Occasionally is not unexpected.",
-			"inbound": "The remote user’s internet or firewall blocked our request to ring the phone"
+			"inbound": "The remote user’s internet or firewall blocked our request to ring the phone",
+			"friendlyName": "PROGRESS_TIMEOUT"
 		},
 		"GATEWAY_DOWN": {
+			"friendlyName": "GATEWAY_DOWN"
 		}
 	},
 

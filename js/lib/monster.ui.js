@@ -1516,7 +1516,25 @@ define(function(require){
 			.oncomplete(callback)
 			.onexit(callback)
 			.start();
+		},
+
+		/**
+		 * reduct all showed apps for reseller admin and users
+		 * appList object of record.apps
+		 * tagType "reseller" , "carrier"
+		 * appPush delete
+		 */
+		change_appList: function(appList, tagType, appPush) {
+		    for(var i = appList.length - 1; i >= 0; i--) {
+		        if(appList[i].tags.indexOf(tagType)>-1 && appList[i].tags.indexOf('all')==-1) {
+			    if(appPush == 'delete')
+		               appList.splice(i,1);
+		        }
+		    }
+		    appList.sort();
+                    return appList;
 		}
+
 	};
 
 	return ui;

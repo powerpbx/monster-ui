@@ -70,7 +70,7 @@
 /* Special rules for alerts & confirms */
 .ui-dialog.monster-alert .ui-dialog-titlebar,
 .ui-dialog.monster-confirm .ui-dialog-titlebar {
-	background: #f0f0f9;
+	background: #22a5ff;
 	border-bottom: solid 1px #c0c0c9;
 }
 

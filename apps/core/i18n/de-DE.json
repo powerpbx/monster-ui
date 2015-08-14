@@ -320,166 +320,235 @@
         },
 	"hangupCauses": {
 		"SUCCESS": {
-			"inbound": "Die Verbindung wurde Umgeleitet"
+			"inbound": "Die Verbindung wurde Umgeleitet",
+                        "friendlyName": "Umgeleitet"
 		},
 		"NO_RESPONSE": {
-			"inbound": "Anrufweiterleitung war eingeschaltet, scheiterte, weil der Benutzer weitergeleitet wurde oder nicht reagierte."
+			"inbound": "Anrufweiterleitung war eingeschaltet, scheiterte, weil der Benutzer weitergeleitet wurde oder nicht reagiert war.",
+                        "friendlyName": "Nicht angemeldet"
 		},
 		"UNSPECIFIED": {
+                        "friendlyName": "Fehler nicht bekannt"
 			
 			},
 		"UNALLOCATED_NUMBER": {
 			"outbound": "Die Nummer die gewählt wurde ist kein gültiges Anrufziel oder konnte nicht über die gewählten Carrier erreicht werden.",
-			"inbound": "Normalerweise für PBX-Trunks, kann aber auch anzeigen, dass auf Kundenseite ein Gerät nicht richtig funktioniert, oder die Nummer nicht programmiert ist."
+			"inbound": "Normalerweise für PBX-Trunks, kann aber auch anzeigen, dass auf Kundenseite ein Gerät nicht richtig funktioniert, oder die Nummer nicht programmiert ist.",
+                        "friendlyName": "Nummer nicht in Betrieb"
 		},
 		"NO_ROUTE_TRANSIT_NET": {
+                        "friendlyName": "Kein Transitnetz"
 		},
 		"NO_ROUTE_DESTINATION": {
 			"outbound": "Die Nummer die gewählt wurde ist kein gültiges Anrufziel oder konnte nicht über die gewählten Carrier erreicht werden.",
-			"inbound": "Normalerweise für PBX-Trunks, kann aber auch anzeigen, dass auf Kundenseite ein Gerät nicht richtig funktioniert, oder die Nummer nicht programmiert ist."
+			"inbound": "Normalerweise für PBX-Trunks, kann aber auch anzeigen, dass auf Kundenseite ein Gerät nicht richtig funktioniert, oder die Nummer nicht programmiert ist.",
+                        "friendlyName": ""
 		},
 		"CHANNEL_UNACCEPTABLE": {
+                        "friendlyName": "Parameterfehler Kanal"
 		},
 		"CALL_AWARDED_DELIVERED": {
+                        "friendlyName": "Verbindungsfehler"
 		},
 		"NORMAL_CLEARING": {
 			"inbound": "Alles ist OK. Die Verbindung wurde normal beendet",
-			"outbound": "Alles ist OK. Die Verbindung wurde normal beendet"
+			"outbound": "Alles ist OK. Die Verbindung wurde normal beendet",
+                        "friendlyName": "Normal beendet"
 		},
 		"USER_BUSY": {
-			"inbound": "Unter 1 Sek.: Das Telefon war besetzt oder nicht erreichbar; über 1 Sek.: Der Benutzer hat den Anruf abgelehnt."
+			"inbound": "Unter 1 Sek.: Das Telefon war besetzt oder nicht erreichbar; über 1 Sek.: Der Benutzer hat den Anruf abgelehnt.",
+                        "friendlyName": "Besetzt"
 		},
 		"NO_USER_RESPONSE": {
+                        "friendlyName": "Endgerät antwortet nicht"
 		},
 		"NO_ANSWER": {
+                        "friendlyName": "Keine Antwort"
 		},
 		"SUBSCRIBER_ABSENT": {
+                        "friendlyName": "Endgerät antwortet nicht"
 		},
 		"CALL_REJECTED": {
 			"outbound": "Dier Anruf zum Carrier wird nicht unterstützt, oder hat keine Kapazität. Es wird zum nächstmöglichen Carrier geschaltet. Dies ist nicht kein Allgmmeiner Fehler und ist normal.",
-			"inbound": "Unter 1 Sek.: Das Telefon hat \"nicht Stören aktiviert\" oder alle Leitungen auf dem Telefon sind belegt. Über 1 Sek.: Der Bentuzer hat den Anruf abgelehnt."
+			"inbound": "Unter 1 Sek.: Das Telefon hat \"nicht Stören aktiviert\" oder alle Leitungen auf dem Telefon sind belegt. Über 1 Sek.: Der Bentuzer hat den Anruf abgelehnt.",
+                        "friendlyName": "Anruf abgelehnt"
 		},
 		"NUMBER_CHANGED": {
+                        "friendlyName": "Anruf weitergeleitet"
 		},
 		"REDIRECTION_TO_NEW_DESTINATION": {
-			"inbound": "Unter 1 Sek.: Das Telefon hat \"Umleitung aktiviert\". Über 1 Sek.: Der Bentuzer hat Umleitung bei \"nicht erreichbar aktiviert\"."
+			"inbound": "Unter 1 Sek.: Das Telefon hat \"Umleitung aktiviert\". Über 1 Sek.: Der Bentuzer hat Umleitung bei \"nicht erreichbar aktiviert\".",
+                        "friendlyName": "Umgeleitet neues Ziel"
 		},
 		"EXCHANGE_ROUTING_ERROR": {
-			"outbound": "Der Carrier für die Verbindung, wurde für diese Verbindung nicht eingestellt, oder hat nicht genügend Kapazität für die Verbindung. Der nächste Carrier in der Liste wird kontaktiert. Die zeigt nicht unbedingt einen Fehler.",
-			"inbound": "Normalerweise für PBX-Trunks, kann aber auch anzeigen, dass auf Kundenseite ein Gerät nicht richtig funktioniert, oder die Nummer nicht programmiert ist."
+			"outbound": "Der Carrier für die Verbindung, wurde für diese Verbindung nicht eingestellt, oder hat nicht genügend Kapazität für die Verbindung. Der nächste Carrier in der Liste wird kontaktiert. Dies zeigt nicht unbedingt einen Fehler.",
+			"inbound": "Normalerweise für PBX-Trunks, kann aber auch anzeigen, dass auf Kundenseite ein Gerät nicht richtig funktioniert, oder die Nummer nicht programmiert ist.",
+                        "friendlyName": "Verbindung abgelehnt"
 		},
 		"DESTINATION_OUT_OF_ORDER": {
+                        "friendlyName": "Ziel nicht erreichbar"
 		},
 		"INVALID_NUMBER_FORMAT": {
+                        "friendlyName": "Falsche Nummer"
 		},
 		"FACILITY_REJECTED": {
+                        "friendlyName": "Abgelehnt"
 		},
 		"RESPONSE_TO_STATUS_ENQUIRY": {
+                        "friendlyName": "Kein Status möglich"
 		},
 		"NORMAL_UNSPECIFIED": {
+                        "friendlyName": "Nicht bekannt"
 		},
 		"NORMAL_CIRCUIT_CONGESTION": {
+                        "friendlyName": "Besetzt"
 		},
 		"NETWORK_OUT_OF_ORDER": {
-			"outbound": "The carrier which was attempted doesn’t service the area the call was being placed to, or didn’t have enough capacity to complete the call (or some other non-fatal issue). The next carrier in the available carrier list should be tried. This error is NOT indicative of a failure or problem as not every carrier services every area of the world.",
-			"inbound": "Normalerweise für PBX-Trunks, kann aber auch anzeigen, dass auf Kundenseite ein Gerät nicht richtig funktioniert, oder die Nummer nicht programmiert ist."
+			"outbound": "Der Carrier für die Verbindung, wurde für diese Verbindung nicht eingestellt, oder hat nicht genügend Kapazität für die Verbindung. Der nächste Carrier in der Liste wird kontaktiert. Dies zeigt nicht unbedingt einen Fehler.",
+			"inbound": "Normalerweise für PBX-Trunks, kann aber auch anzeigen, dass auf Kundenseite ein Gerät nicht richtig funktioniert, oder die Nummer nicht programmiert ist.",
+                        "friendlyName": "Verbindungsfehler"
 		},
 		"NORMAL_TEMPORARY_FAILURE": {
-			"outbound": "The carrier which was attempted doesn’t service the area the call was being placed to, or didn’t have enough capacity to complete the call (or some other temporary issue). The next carrier in the available carrier list should be tried. This error is NOT indicative of a failure or problem as not every carrier services every area of the world.",
-			"inbound": "This should not happen. This is an error condition."
+			"outbound": "Der Carrier für die Verbindung, wurde für diese Verbindung nicht eingestellt, oder hat nicht genügend Kapazität für die Verbindung. Der nächste Carrier in der Liste wird kontaktiert. Dies zeigt nicht unbedingt einen Fehler.",
+			"inbound": "Dies sollte nicht vorkommen. Dies ist ein Verarbeitungsfehler.",
+                        "friendlyName": "Verbindungsfehler zeitlich"
 		},
 		"SWITCH_CONGESTION": {
+                        "friendlyName": "Verbindugsstau"
 		},
 		"ACCESS_INFO_DISCARDED": {
+                        "friendlyName": "Informationsfehler"
 		},
 		"REQUESTED_CHAN_UNAVAIL": {
+                        "friendlyName": "Kanalfehler"
 		},
 		"FACILITY_NOT_SUBSCRIBED": {
+                        "friendlyName": "Wartung Zielnetz"
 		},
 		"OUTGOING_CALL_BARRED": {
+			"outbound": "Ausgehende Anrufe sind nicht erlaubt",
+                        "friendlyName": "Ausgehend Verboten"
 		},
 		"INCOMING_CALL_BARRED": {
+			"inbound": "Eingehende Anrufe sind nicht erlaubt",
+                        "friendlyName": "Eingehend verboten"
 		},
 		"BEARERCAPABILITY_NOTAUTH": {
+                        "friendlyName": "Dienstnameldungsfehler"
 		},
 		"BEARERCAPABILITY_NOTAVAIL": {
+                        "friendlyName": "Keine Diensterkennung"
 		},
 		"SERVICE_UNAVAILABLE": {
+                        "friendlyName": "Dienstfehler"
 		},
 		"BEARERCAPABILITY_NOTIMPL": {
+                        "friendlyName": "Parameter Dienstfehler"
 		},
 		"CHAN_NOT_IMPLEMENTED": {
+                        "friendlyName": "Kanal fehlt"
 		},
 		"FACILITY_NOT_IMPLEMENTED": {
+                        "friendlyName": "Wartung nicht möglich"
 		},
 		"SERVICE_NOT_IMPLEMENTED": {
+                        "friendlyName": "Dienst nicht möglich"
 		},
 		"INVALID_CALL_REFERENCE": {
+                        "friendlyName": "Falscher Absender"
 		},
 		"INCOMPATIBLE_DESTINATION": {
 			"outbound": "Die Verbindung zum Carrier benötigt eine Verschlüsselung, haber die Methode wird nicht unterstützt. Ebenso kann eine Faxübertragung abbrechen wenn die geforderte T38 Unterstützung fehlt.",
-			"inbound": "Die Verbindung zum Carrier benötigt eine Verschlüsselung, haber die Methode wird nicht unterstützt. Ebenso kann eine Faxübertragung abbrechen wenn die geforderte T38 Unterstützung fehlt."
+			"inbound": "Die Verbindung zum Carrier benötigt eine Verschlüsselung, haber die Methode wird nicht unterstützt. Ebenso kann eine Faxübertragung abbrechen wenn die geforderte T38 Unterstützung fehlt.",
+                        "friendlyName": "Fehler Verschlüsselung"
 		},
 		"INVALID_MSG_UNSPECIFIED": {
+                        "friendlyName": "Nachrichtfehler"
 		},
 		"MANDATORY_IE_MISSING": {
+                        "friendlyName": "Dienst fehlt"
 		},
 		"MESSAGE_TYPE_NONEXIST": {
+                        "friendlyName": "Nachrichttyp fehlt"
 		},
 		"WRONG_MESSAGE": {
+                        "friendlyName": "Falsche Nachricht"
 		},
 		"IE_NONEXIST": {
+                        "friendlyName": "Existiert nicht"
 		},
 		"INVALID_IE_CONTENTS": {
+                        "friendlyName": "Inhaltfehler"
 		},
 		"WRONG_CALL_STATE": {
 			"outbound": "Die Weiterverbindung zum Carrier hat einen Fehler und muss behoben werden.",
-			"inbound": "Der Anruf wurde beendet bovor die Endstelle antwortete, oder das System hat Prolbem mit diesem Benutzer."
+			"inbound": "Der Anruf wurde beendet bovor die Endstelle antwortete, oder das System hat ein Prolbem mit diesem Benutzer.",
+                        "friendlyName": "Fehler des Benutzerstatus"
 		},
 		"RECOVERY_ON_TIMER_EXPIRE": {
 			"outbound": "Die Weiterverbindung zum Carrier hat einen Fehler und muss behoben werden.",
-			"inbound": "The remote user’s internet or firewall blocked our request to ring the phone"
+			"inbound": "Die Anfrage für den Anruf auf das Gerät wurde blockiert. (Verbindungsunterbruch oder Firewall problem)",
+                        "friendlyName": "Verbindungsabbruch"
 		},
 		"MANDATORY_IE_LENGTH_ERROR": {
+                        "friendlyName": "Fehler zu lang"
 		},
 		"PROTOCOL_ERROR": {
+                        "friendlyName": "Protokollfehler"
 		},
 		"INTERWORKING": {
+                        "friendlyName": "System beschäftigt"
 		},
 		"ORIGINATOR_CANCEL": {
 			"outbound": "Der Anruf wurde beendet bevor die Endstelle antwortete.",
-			"inbound": "Der Anruf wurde beendet bevor die Endstelle antwortete."
+			"inbound": "Der Anruf wurde beendet bevor die Endstelle antwortete.",
+                        "friendlyName": "Verpasst"
 		},
 		"CRASH": {
 		},
 		"SYSTEM_SHUTDOWN": {
+                        "friendlyName": "System anhalten"
 		},
 		"LOSE_RACE": {
-			"inbound": "Mehrere Telefone klingelten gemeinsam, und mit einem anderen wurde der Anruf beantwortet."
+			"outbound": "Mehrere Telefone klingelten gemeinsam, und mit einem anderen wurde der Anruf beantwortet.",
+			"inbound": "Mehrere Telefone klingelten gemeinsam, und mit einem anderen wurde der Anruf beantwortet.",
+                        "friendlyName": "Gruppenruf"
 		},
 		"MANAGER_REQUEST": {
+                        "friendlyName": "System anfrage"
 		},
 		"BLIND_TRANSFER": {
+			"inbound": "Dies ist der erste Teil bei Übergabe der Verbindung (Ohne Rückfrage) an einen andern Teilnehmer.",
+                        "friendlyName": "Weiterschaltung"
 		},
 		"ATTENDED_TRANSFER": {
-			"inbound": "Dies ist der erste Teil bei Übergabe der Verbindung (Mit Rückfrage) an einen andern Teilnehmer."
+			"outbound": "Dies ist der erste Teil bei Übergabe der Verbindung (Mit Rückfrage) an einen andern Teilnehmer.",
+			"inbound": "Dies ist der erste Teil bei Übergabe der Verbindung (Mit Rückfrage) an einen andern Teilnehmer.",
+                        "friendlyName": "Verbinden mit Nachfrage"
 		},
 		"ALLOTTED_TIMEOUT": {
+                        "friendlyName": "Zeitüberschreitung"
 		},
 		"USER_CHALLENGE": {
+                        "friendlyName": "Benutzerwechsel"
 		},
 		"MEDIA_TIMEOUT": {
-			"inbound": "Netzwerk oder Firewall Problem. Die Verbindung ohne Medienübertragung (Audiodaten) wurde abgebrochen."
+			"inbound": "Netzwerk oder Firewall Problem. Die Verbindung ohne Medienübertragung (Audiodaten) wurde abgebrochen.",
+                        "friendlyName": "Netzwerkproblem"
 		},
 		"PICKED_OFF": {
+                        "friendlyName": "Pickup beendet"
 		},
 		"USER_NOT_REGISTERED": {
+                        "friendlyName": "Bentuzer nicht angemeldet"
 		},
 		"PROGRESS_TIMEOUT": {
 			"outbound": "Der Anrufe über diesen Carrier wurde nicht in eingestellter Zeit beantworted. Dies bedeutet meistens, das versucht wurde eine Verbindung aufzubauen, jedoch die Rückmeldung zu lange dauerte. Tritt dies mehrmals auf sollte die Zeit für die Rückmeldung angepasst werden. (Gelegentlich kann dies vorkommen).",
-			"inbound": "Die Anfrage für den Anruf auf das Gerät wurde blockiert. (Verbindungsunterbruch oder Firewall problem)"
+			"inbound": "Die Anfrage für den Anruf auf das Gerät wurde blockiert. (Verbindungsunterbruch oder Firewall problem)",
+                        "friendlyName": "Fehler Timeout Carrier"
 		},
 		"GATEWAY_DOWN": {
+                        "friendlyName": "Fehler Gateway"
 		}
 	},
 

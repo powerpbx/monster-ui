@@ -68,7 +68,7 @@
 		"conferenceNumber": "Konferenz Nummer",
 		"dialogSpare": {
 			"title": "Liste der verfügbaren Nummern",
-			"headline": "Verfügbare Nummern von",
+			"headline": "verfügbare Nummern von",
 			"headlineNoAccount": "Auswahl Nummern",
 			"noMatchingNumbers": "Keine Nummer mit Ihren Angaben gefunden.",
 			"noNumberSelected": "Sie haben keine Nummer gewählt. Sie müssen mindestens eine Nummer von der Liste auswählen.",
@@ -140,7 +140,7 @@
                 },
                 "portIconHelp": "Diese Nummer ist wird gerade portiert und wird gelöscht, wenn die Portierung nicht erfolgt. Es wird nur zu Einstellungszwecken benötigt",
                 "deleteRecapDialog": {
-                        "headline": "Hier die Zusammenfassung der Nummern, die Erfolgreich oder mit Fehler gelöscht wurden. Drücken Sie auf 'Weiter' um zu den Verfügbaren Nummern zu gehen.",
+                        "headline": "Hier die Zusammenfassung der Nummern, die Erfolgreich oder mit Fehler gelöscht wurden. Drücken Sie auf 'Weiter' um zu den verfügbaren Nummern zu gehen.",
                         "title": "Bestätigung zur Löschung",
                         "continue": "Weiter"
                 }
