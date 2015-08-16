@@ -5,7 +5,7 @@
 				<div class="dropdown-container">
 					<label>{{friendlierName}}</label>
 					<select name="{{@key}}" class="service-plan-selector">
-						<option value="none">- None -</option>
+						<option value="none">- {{ i18n.none }} -</option>
 						{{#each plans}}
 							<option value="{{id}}"{{#if selected}} selected{{/if}}>{{name}}</option>
 						{{/each}}

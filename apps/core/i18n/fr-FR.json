@@ -1,5 +1,6 @@
 {
         "defaultttsvoice": "female/fr-FR",
+        "none": "None",
 	"hello": "Bienvenue!",
 	"welcome": "La VoIP facile!",
 	"olderVersion": "Le document que vous souhaitez modifier a été créé via une autre interface. Changer ce document pourrait impacter certaines fonctionnalités lié à la précédente interface. Continuer quand même?",

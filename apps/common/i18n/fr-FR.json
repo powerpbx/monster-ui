@@ -59,10 +59,7 @@
 		"missingInfo": "Information Manquante",
 		"addAccount": "Ajouter un compte",
 		"searchDatabase": "Rechercher dans tous les comptes:",
-		"__comment": "UI-786 (v3.19_s3): adding search-related labels",
 		"breadcrumbSearchResults": "résultats de la recherche pour \"{{searchValue}}\"",
-		"__comment": "UI-1271: Updating the search link",
-		"__version": "v3.20_s3",
 		"searchReset": "Cliquez pour effacer la recherche",
 		"backButton": "Retour au parent"
 	},
@@ -135,8 +132,6 @@
 			}
 		},
 
-		"__comment": "UI-1285: Adding the Sync Action to the Number Manager",
-		"__version": "3.19",
 		"sync": {
 			"label": "Sync",
 			"success": "Mise à jour des numéros réussie",
@@ -145,8 +140,6 @@
 
 		"portIconHelp": "Ce numéro est en cours de transfert et sera supprimé si celui-ci échoue. Il peut être configuré mais ne sera pas utilisable",
 
-		"__comment": "UI-901: Delete recap popup",
-		"__version": "3.20",
 		"deleteRecapDialog": {
 			"headline": "Vous pouvez consulter le récapitulatif de l'opération ci-dessous. Cliquez sur Continuez pour retourner à la liste des Numéros.",
 			"title": "Récapitulatif de l'opération",
@@ -500,8 +493,111 @@
                         "ips": "IPs",
                         "ui_apps": "UI Apps"
 		},
-		"noServicePlan": "Aucun abonnement sélectionné."
-	},
+		"noServicePlan": "Aucun abonnement sélectionné.",
+                "overrides": "Overrides",
+                "addOverrides": "Add",
+                "noOverrides": "No Overriden Values. Click on the Add link to customize this service plan!",
+                "planTitle": "Details Service Plan",
+                "keys": {
+                        "phone_numbers": "Phone Numbers",
+                        "number_services": "Number Services",
+                        "limits": "Limits",
+                        "devices": "Devices",
+                        "users": "Users",
+                        "branding": "Branding",
+                        "ips": "IPs",
+                        "ui_apps": "UI Apps",
+                        "port": "Port Request",
+                        "cnam": "CNAM Update",
+                        "e911": "e911 allow",
+                        "ata": "ATA",
+                        "cellphone": "Cell Phone",
+                        "fax": "Fax",
+                        "landline": "Landline",
+                        "mobile": "Mobile",
+                        "sip_device": "SIP Device",
+                        "sip_uri": "SIP URI",
+                        "smartphone": "Smartphone",
+                        "softphone": "Softphone",
+                        "outbound_trunks": "Outbound Trunks",
+                        "inbound_trunks": "Inbound Trunks",
+                        "twoway_trunks": "Twoway Trunks",
+                        "did_us": "US DID",
+                        "tollfree_us": "US Tollfree",
+                        "rate": "Rate",
+                        "activation_charge": "Activation charge",
+                        "minimum": "Minimum",
+                        "exceptions": "Exceptions",
+
+                        "supports": "Support",
+                        "service_pbxs": "PBX-Support",
+                        "security_pbxs": "PBX-Updates",
+                        "connects": "Internet",
+                        "dsl_ch_min": "DSL-Internet CH Minimal",
+                        "dsl_ch_standard": "DSL-Internet CH Standard",
+                        "dsl_ch_high": "DSL-Internet CH Premium",
+                        "dsl_modem": "DSL-Modem",
+                        "qos_router": "QoS-Router (without WLAN)",
+                        "qos_router_wlan": "QoS-Router (with WLAN)",
+                        "ui_apps": "UI Apps",
+                        "ata": "ATA-Gerät",
+                        "cellphone": "Handy",
+                        "Outbound_cnam": "Outgoing phonebook",
+                        "Inbound_cnam": "Incomming phonebook",
+                        "inbound_cnam": "Incomming phonebook",
+                        "outbound_cnam": "Outgoing phonebook",
+                        "prepend": "Prepend text",
+                        "emergency_ch": "Emergency Numbers",
+                        "service_ch": "Service Numbers Swiss",
+                        "service_pbx": "Service Numbers PBX",
+                        "internal": "PBX Internal",
+                        "names": "Names",
+                        "toll_ch": "Toll Numbers CH",
+                        "tollfree_ch": "0800-Numbers CH",
+                        "toll_de": "0900-Mehrwert Numbers DE",
+                        "tollfree_de": "0800-Numbers DE",
+                        "mobile_ch": "Mobile Numbers",
+                        "did_ch": "Landline Numbers Swiss",
+                        "did_de": "Landline Numbers Germany",
+                        "fixnet_ch": "Landline Numbers Swiss",
+                        "business_ch": "Business Numbers Swiss",
+                        "activation_charge": "activate",
+                        "minimum": "Minimal",
+                        "exceptions": "Exceptions",
+                        "rate": "monthly:",
+                        "CH_Numbers": "CH Numbers",
+                        "CH_Tollfree": "CH Tollfree",
+                        "Two-Way_Trunk": "Gleichzeitige Verbindungen",
+                        "Inbound_Trunk": "Eingehende Verbindungen",
+                        "Outbound_Trunk": "Ausgehende Verbindungen",
+                        "Outbound_CNAM": "Ausgehendes Telefonbuch",
+                        "Inbound_CNAM": "Eingehendes Telefonbuch",
+                        "Port_Request_Single": "Porting Single Request",
+                        "Port_Request_DID": "Porting Request (DDI)",
+                        "Emergency_Service": "Emergency Numbers",
+                        "user": "User",
+                        "admin": "Administrator",
+                        "callflows": "Callflow",
+                        "numbers": "Numbers",
+                        "branding": "Branding",
+                        "pivot": "Pivot",
+                        "userportal": "Userportal",
+                        "carrier": "Carrier",
+                        "Cluster-Manager": "Cluster-Manager",
+                        "rates": "Connection-Rates",
+                        "voip": "SmartPBX",
+                        "conferences": "Conference App",
+                        "accounts": "Accounts",
+                        "migration": "Migrations App",
+                        "mobile": "Handy Integration",
+                        "debug": "Monitoring",
+                        "pbxs": "PBX-Trunking",
+                        "ports": "Port Requests",
+                        "reporting": "Sales Reporting",
+                        "webhooks": "Webhooks",
+                        "alarms": "Pikett-Alarms"
+                }
+        },
 
 	"ringingDurationControl": {
 		"distribute": "Répartir",
@@ -509,8 +605,6 @@
 		"doNotRing": "Ne pas faire sonner"
 	},
 	
-	"__comment": "UI-966: We want to be able to customize the carrier choice in different plances, so we build a common control",
-	"__version": "v3.20_s0",
 	"carrierSelector": {
 		"title": "Opérateur téléphonique",
 		"headline": "Sélectionner comment configurer les opérateurs de ce compte",
@@ -521,8 +615,6 @@
 		"useReseller": {
 			"friendlyName": "Utiliser les opérateurs de {{variable}}",
 			"help": "En sélectionnant \"Utiliser les opérateurs de {{variable}}\", tous les appels de ce compte utiliseront les opérateurs configurés de {{variable}}",
-			"__comment": "UI-1041: Needed to add a default message for people who aren't white labeling",
-			"__version": "v3.19_s3",
 			"defaultFriendlyName": "Utiliser les opérateurs de votre revendeur",
 			"defaultHelp": "En sélectionnant \"Utiliser les opérateurs de votre revendeur\", tous les appels de ce compte utiliseront les opérateurs configurés de votre revendeur"
 		},
@@ -534,8 +626,6 @@
 		"huntError": "Vos réglages d'opérateur actuels ne fonctionnent pas dans cette interface, si vous souhaitez conserver ces réglages, ne changez rien dans ce menu. Sinon, vous pouvez sélectionner une option dans le menu et sauvegarder!"
 	},
 
-	"__comment": "UI-228: Adding the numberSelector common control",
-	"__version": "v3.20_s4",
 	"numberSelector": {
 		"emptyValue": "- Selectionnez un numéro -",
 		"removeLink": "Retirer",
@@ -543,8 +633,6 @@
 		"buyLink": "Acheter un nouveau numéro"
 	},
 
-	"__comment": "UI-1386: Adding the numberListing common control",
-	"__version": "v3.20_s4",
 	"monsterListing": {
 		"numbers": {
 			"title": "Liste des numéros disponibles",

@@ -24,14 +24,15 @@ define(function(require){
 				container = args.container,
 				servicePlan = args.servicePlan || null,
 				useOwnPlans = args.useOwnPlans || false,
-				callback = args.callback;
+				callback = args.callback,
+				accountId = args.accountId || self.accountId;
 
 			if(container) {
 				if(typeof servicePlan === 'string') {
 					self.callApi({
 						resource: useOwnPlans ? 'servicePlan.get' : 'servicePlan.getAvailable',
 						data: {
-							accountId: self.accountId,
+							accountId: accountId,
 							planId: servicePlan
 						},
 						success: function(data, status) {
@@ -63,41 +64,11 @@ define(function(require){
 		},
 
 		renderServicePlanDetails: function(container, servicePlanData, callback) {
-
-			var self = this;
-
-				// for i18n create new object with translated names
-				var  foo = { a: 1 }; var servicePlani18n = Object.create(foo);
-				for (var property in servicePlanData.plan){
-					if(self.i18n.active().servicePlanDetails.planLines[property]) {
-						servicePlani18n[self.i18n.active().servicePlanDetails.planLines[property]] = servicePlanData.plan[property];
-						for (var property_in in servicePlanData.plan[property]) {
-							if(self.i18n.active().servicePlanDetails[servicePlanData.plan[property][property_in].name]) {
-								servicePlani18n[self.i18n.active().servicePlanDetails.planLines[property]][property_in].name = self.i18n.active().servicePlanDetails[servicePlanData.plan[property][property_in].name];
-								if(typeof servicePlanData.plan[property][property_in].expections === Array) {
-
-									for (var i = 0 ;i > servicePlanData.plan[property][property_in].expections.length; i++) {
-										if(self.i18n.active().servicePlanDetails[servicePlanData.plan[property][property_in].expections[i]]) {
-											servicePlani18n[self.i18n.active().servicePlanDetails.planLines[property]][property_in].expections[i] = self.i18n.active().servicePlanDetails[servicePlanData.plan[property][property_in].expections[i]];
-										}
-									}
-								}
-							}
-						};
-
-					}
-				};
-
-				template = $(monster.template(self, 'servicePlanDetails-layout', {
-					servicePlan: servicePlanData,
-					servicePlani18n: servicePlani18n
-				}));
-
 			var self = this,
 				formattedData = self.servicePlanDetailsFormatData(servicePlanData),
 				template = $(monster.template(self, 'servicePlanDetails-layout', formattedData));
 
-			template.find('[data-toggle="tooltip"]').tooltip();
+			monster.ui.tooltips(template);
 
 			container.empty().append(template);
 
@@ -113,7 +84,9 @@ define(function(require){
 				 overrideOptions = {
 					number_services: {
 						port: { rate: {},activation_charge: {}, minimum: {} },
-						cnam: { rate: {},activation_charge: {}, minimum: {} },
+						inbound_cnam: { rate: {},activation_charge: {}, minimum: {} },
+						outbound_cnam: { rate: {},activation_charge: {}, minimum: {} },
+						prepend: { rate: {},activation_charge: {}, minimum: {} },
 						e911: { rate: {},activation_charge: {}, minimum: {} },
 					},
 					devices: {
@@ -132,9 +105,45 @@ define(function(require){
 						inbound_trunks: { rate: {},activation_charge: {}, minimum: {} },
 						twoway_trunks: { rate: {},activation_charge: {}, minimum: {} },
 					},
+					users: {
+						admin: { rate: {},activation_charge: {}, minimum: {} },
+						user: { rate: {},activation_charge: {}, minimum: {} },
+					},
 					phone_numbers: {
-						tollfree_us: { rate: {},activation_charge: {}, minimum: {} },
-						did_us: { rate: {},activation_charge: {}, minimum: {} },
+						tollfree_ch: { rate: {},activation_charge: {}, minimum: {} },
+						did_ch: { rate: {},activation_charge: {}, minimum: {} },
+						tollfree_de: { rate: {},activation_charge: {}, minimum: {} },
+						did_de: { rate: {},activation_charge: {}, minimum: {} },
+					},
+					connects: {
+						dsl_ch_min: { rate: {},activation_charge: {}, minimum: {} },
+						dsl_ch_standard: { rate: {},activation_charge: {}, minimum: {} },
+						dsl_ch_high: { rate: {},activation_charge: {}, minimum: {} },
+						dsl_modem: { rate: {},activation_charge: {}, minimum: {} },
+						qos_router: { rate: {},activation_charge: {}, minimum: {} },
+						qos_router_wlan: { rate: {},activation_charge: {}, minimum: {} },
+					},
+					supports: {
+						service_pbxs: { rate: {},activation_charge: {}, minimum: {} },
+						security_pbxs: { rate: {},activation_charge: {}, minimum: {} },
+					},
+					ui_apps: {
+						accounts: { rate: {},activation_charge: {}, minimum: {} },
+						branding: { rate: {},activation_charge: {}, minimum: {} },
+						pbxs: { rate: {},activation_charge: {}, minimum: {} },
+						voip: { rate: {},activation_charge: {}, minimum: {} },
+						conferences: { rate: {},activation_charge: {}, minimum: {} },
+						debug: { rate: {},activation_charge: {}, minimum: {} },
+						mobile: { rate: {},activation_charge: {}, minimum: {} },
+						numbers: { rate: {},activation_charge: {}, minimum: {} },
+						callflows: { rate: {},activation_charge: {}, minimum: {} },
+						pivot: { rate: {},activation_charge: {}, minimum: {} },
+						port: { rate: {},activation_charge: {}, minimum: {} },
+						rates: { rate: {},activation_charge: {}, minimum: {} },
+						reporting: { rate: {},activation_charge: {}, minimum: {} },
+						userportal: { rate: {},activation_charge: {}, minimum: {} },
+						webhooks: { rate: {},activation_charge: {}, minimum: {} },
+						alarms: { rate: {},activation_charge: {}, minimum: {} },
 					}
 				};
 

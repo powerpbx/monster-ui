@@ -1,5 +1,6 @@
 {
         "defaultttsvoice": "female/en-US",
+	"none": "None",
 	"poweredBy": "Powered by ",
 	"error": "Error",
 	"olderVersion": "It appears that the data you're updating was created outside of this UI, would you like to proceed anyway?",

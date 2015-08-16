@@ -1,6 +1,6 @@
 <div class="service-plan-details">
 {{#if servicePlan}}
-	{{#each servicePlani18n}}
+	{{#each servicePlan.plan}}
 		<div class="line header">
 			<div>{{ tryI18n ../i18n.servicePlanDetails.keys @key }}</div>
 			<div></div>
@@ -11,7 +11,7 @@
 			<div class="name">
 			<span {{#if this.description}}data-toggle="tooltip" data-placement="top" data-original-title="{{this.description}}"{{/if}}>
 				{{#if this.name}}
-					{{ this.name }}
+					{{this.name}}
 				{{else}}
 					{{@key}}
 				{{/if}}
@@ -19,10 +19,10 @@
 			</div>
 			<div class="charges">
 				{{#compare this.rate ">" 0}}
-				<div>{{../../../i18n.servicePlanDetails.keys.rate}}: {{../../../i18n.currencyUsed}}{{formatPrice this.rate}}</div>
+				<div>{{../../../i18n.servicePlanDetails.keys.rate}}: {{../../../i18n.currencyUsed}} {{formatPrice this.rate}}</div>
 				{{/compare}}
 				{{#compare this.activation_charge ">" 0}}
-				<div>{{../../../i18n.servicePlanDetails.keys.activation_charge}}: {{../../../i18n.currencyUsed}}{{formatPrice this.activation_charge}}</div>
+				<div>{{../../../i18n.servicePlanDetails.keys.activation_charge}}: {{../../../i18n.currencyUsed}} {{formatPrice this.activation_charge}}</div>
 				{{/compare}}
 				{{#compare this.minimum ">" 0}}
 				<div>{{../../../i18n.servicePlanDetails.keys.minimum}}: {{formatPrice this.minimum}}</div>

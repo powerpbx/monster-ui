@@ -1,5 +1,6 @@
 {
         "defaultttsvoice": "female/ru-RU",
+        "none": "None",
 	"poweredBy": "Работает на платформе ",
 	"error": "Ошибка",
 	"olderVersion": "Похоже что настройки, которые вы пытаетесь изменить, были созданы вне этого интерфейса. Это может привести к некорректному поведению системы. Хотите продолжить?",
@@ -238,7 +239,6 @@
                         "11": "Декабрь"
                 }
         },
-        "__comment": "UI-735: Added codec/linked column common control",
         "__version": "v3.20_s0",
         "linkedColumns": {
                 "available": "Доступен",
@@ -267,16 +267,8 @@
                         "H261": "H261"
                 }
         },
-        "__comment": "UI-1014: Redesign of MyAccount",
-        "__version": "v3.20_s0",
         "refresh": "Обновить",
-
-        "__comment": "UI-1177: Say Un-assign instead of remove in Main Number",
-        "__version": "v3.20_s2",
         "unassign": "Отвязать",
-
-        "__comment": "UI-1074: New Error Popup",
-        "__version": "v3.20_s2",
         "advancedErrorDialog": {
                 "title": "Упс...",
                 "viewDetails": "Больше информации",
@@ -294,8 +286,6 @@
                 "file": "Имя файла"
         },
 
-        "__comment": "UI-553: More help regarding the Hangup causes",
-        "__version": "v3.20_s3",
         "hangupCauses": {
                 "SUCCESS": {
                         "inbound": "Звонок был успешно переадресован на другой номер"
@@ -460,8 +450,6 @@
                 }
         },
 
-        "__comment": "UI-243: Adding a password strength control",
-        "__version": "v3.20_s4",
         "passwordStrength": {
                 "strong": "Стойкий",
                 "good": "Хороший",
@@ -471,26 +459,16 @@
                 "empty": "Введите пароль"
         },
 
-        "__comment": "UI-1388: Adding a message when 401 error",
-        "__version": "3.20",
         "invalidCredentialsMessage": "Ваша сессия завершена. Закройте это окно для перехода на страницу авторизации.",
 
-        "__comment": "UI-901: Show a recap of deleting numbers",
-        "__version": "3.20",
         "monsterResults": {
                 "titles": {
                         "success": "Успешно",
                         "error": "Ошибка"
                 }
         },
-        "__comment": "UI-1474: Show the name of myaccount app when the dropdown is open and update click event accordingly",
-        "__version": "v3.20_s5",
         "controlCenter": "Центр управления",
-        "__comment": "UI-343: Added an uploading progress bar",
-        "__version": "v3.20_s5",
         "uploadProgressTitle": "Загружаем файл(ы)...",
-        "__comment": "UI-1499: Added an account default option to timezones",
-        "__version": "v3.20_s5",
         "defaultTimezone": "- Пользовательский/клиентский -",
         "ttsvoice": {
               "femaleenUS": "female Englisch US",
