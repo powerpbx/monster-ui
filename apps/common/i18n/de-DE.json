@@ -53,7 +53,8 @@
                "placeholder_pvt_activestart": "1431282897",
                "placeholder_pvt_activestop": "1431282897",
                "placeholder_pvt_created": "1431282897",
-               "placeholder_pvt_modified": "1431282897"
+               "placeholder_pvt_modified": "1431282897",
+               "status": "Ameldestatus"
         },
 	"accountBrowser": {
 		"missingAccount": "Konto nicht gefunden",
@@ -250,7 +251,7 @@
                 "addButton": "Zufügen",
                 "saveButtonPartOne": "Speichern",
                 "saveButtonPartTwo": "später fortsetzen",
-                "labelSaveButton": "Wenn Sie alle erforderlichen Dokumente nocht nicht gespeichert haben, drücken sie speichern, und kehren zurück zu dieser Seite.",
+                "labelSaveButton": "Wenn Sie alle erforderlichen Dokumente nocht nicht haben, drücken sie speichern, und kehren später zu dieser Seite zurück.",
                 "cancelButton": "Abbrechen",
                 "cancelOrderButton": "Diese Bestellung stornieren",
                 "cancelOrderPopup": "Sind sie sicher, dass Sie diesen Transfer abbrechen möchten?",
@@ -261,6 +262,9 @@
                 "progressBarLeft": "Eingehende Nummern",
                 "progressBarMiddle": "Senden von Dokumenten",
                 "progressBarRight": "Bestellen",
+                "requiredConditions": "Please agree with all the conditions",
+                "comingSoon": "Ist noch nicht vorhanden! Bitte kontaktieren Sie uns über unsere Webseite!",
+                "unknownCarrier": "Unbekannter Anbieter",
                 "state": {
                         "completed": "Abgeschlossen",
                         "rejected": "Abgelehnt",
@@ -296,7 +300,7 @@
 		},
 		"addNumbers": {
                         "title": "Wir möchten Ihnen dafür danken, dass Sie Ihre Nummern zu uns portieren und uns so Ihr Vertrauen ausdrücken.",
-                        "labelAddNumbers": "Welche Nummern möchten Sie portieren. Geben Sie eine oder mehrere Nummern (mit Komma-Trennung) in das nebenstehend Feld ein."
+                        "labelAddNumbers": "Welche Nummern möchten Sie portieren. Geben Sie eine oder mehrere Nummern (mit Leerzeichen-Trennung) in das nebenstehend Feld ein."
                 },
                 "confirmOrder": {
                         "titlePartOne": "Glückwunsch!",
@@ -322,14 +326,14 @@
                         "submitButton": "Übermitteln"
                 },
                 "manageOrders": {
-                        "orderListInfo": "Aufgrund der Art Ihrer Nummern oder Ihres Providers, sollten wir Ihre Bestellung aufteilen, um mehrer Aufträge an einem andern Zeitpunkt zu verbinden.",
-                        "eulaInfo": "Im nächsten Schritt müssen wir die Vollmacht mit bisherigen Providers prüfen, um sicherzustellen, dass Sie der rechtmäßige Besitzer der Nummern sind. Dies ist gesetzlich vorgeschrieben.",
+                        "orderListInfo": "Aufgrund der Art Ihrer Nummern oder Ihres Anbieters, sollten wir Ihre Bestellung aufteilen, um mehrer Aufträge auszuführen.",
+                        "eulaInfo": "Im nächsten Schritt müssen wir die Vollmacht mit bisherigen Anbieters prüfen, um sicherzustellen, dass Sie der rechtmäßige Besitzer der Nummern sind. Dies ist gesetzlich vorgeschrieben.",
                         "eulaWarningPartOne": "Wichtig!",
                         "eulaWarningPartTwo": "Ich verstehe und und stimme mit dem folgenden überein:",
-                        "labelCancelService": "Der Auftrag zur Portierung vom bisherigen Provider werde ich nicht abbrechen.",
-                        "labelCancelNumbers": "Ich verstehe, alle anderen Nummern kann mein bisheriger Provider kündigen.",
-                        "labelChangeFee": "Ich verstehe, bei vorzeitiger Auflösung, kann mein bisheriger Providers in Rechnung stellen.",
-                        "labelStandardNumbers": "Das dies Standardtelefonnummern sind, und keine Mehrwertumleiung beinhaltet."
+                        "labelCancelService": "Der Auftrag zur Portierung vom bisherigen Anbieter werde ich nicht abbrechen.",
+                        "labelCancelNumbers": "Ich verstehe, dass alle (nicht aufgeführten) Nummern meines bisheriger Anbieters gekündigt werden.",
+                        "labelChangeFee": "Ich verstehe, dass bei vorzeitiger Auflösung, mein bisheriger Anbieters dies in Rechnung stellen kann.",
+                        "labelStandardNumbers": "Das dies Standardtelefonnummern sind, und keine Mehrwertnummern-Umleiung beinhaltet."
                 },
                 "pendingOrders": {
                         "title": "Offene Bestellungen",
@@ -371,8 +375,8 @@
                 "submitDocuments": {
                         "labelOrderName": "Erinnerungsname, für diese Portierung",
                         "labelOrderNameHelper": "z.B. Firma-Büro mit lokalen Nummern, Zürich",
-                        "billInfoPartOne": "Upload Ihrer aktuelle Telefonrechnung und füllen Sie die Kontodaten wie auf der der Rechnung Ihres jetzigen Anbieters.",
-                        "billInfoPartTwo": "Erfahren Sie mehr",
+                        "billInfoPartOne": "Eingabe und Upload Ihrer aktuelle Kundendaten Ihres jetzigen Anbieters.",
+                        "billInfoPartTwo": "Fragen in diesem Zusammenhang?",
                         "uploadBillButton": "Upload der Telefonrechnung",
                         "uploadBillHelper": "Unterstützung nur im PDF-Format",
                         "labelAccountName": "Name auf der Rechnung",
@@ -381,17 +385,17 @@
                         "labelState": "Region",
                         "labelZipCode": "Postleitzahl",
                         "orderListInfoPartOne": "Bitte stellen Sie sicher, dass die folgenden Nummern auf der Rechnung, die Sie hochladen ersichtlich sind.",
-                        "orderListInfoPartTwo": "Wenn die Nummern nicht auf der Rechnung sehen, entfernen Sie diese oder dieser Auftrag für alle Nummern wird behindert.",
+                        "orderListInfoPartTwo": "Wenn die Nummern nicht auf der Rechnung stehen, entfernen Sie diese vom Auftrag, und starten Sie eine zusätzliche Portierung.",
                         "loaTitlePartOne": "Bitte füllen Sie die Vollmachtserklärung (LoA) vollständig aus.",
-                        "loaTitlePartTwo": "Was ist das LOA?",
+                        "loaTitlePartTwo": "Was ist ein LOA-Formular?",
                         "loaDownloadStep": "Download",
                         "loaSignStep": "Nummern im Loa Format",
                         "loaUploadStep": "Hinaufladen",
                         "loaHelperPartOne": "Für diejenigen, die keinen Scanner haben, können es per Brief oder per Fax uns zustellen.",
-                        "loaHelperPartTwo": "einmalige Gebühr von 5.00",
-                        "loaHelperPartThree": "Digital LOA Form.",
-                        "loaHelperPartFour": "Wie man Dokumente zu unterzeichnen kann",
-                        "loaHelperPartFive": "elektronisch ohne zu bezahlen.",
+                        "loaHelperPartTwo": "Preis: einmalige Gebgühr von 5.00 ",
+                        "loaHelperPartThree": "HILFE: [Was ist ein LOA Formular].",
+                        "loaHelperPartFour": "HILFE: [Wie man Dokumente unterzeichnen kann]",
+                        "loaHelperPartFive": "elektronisch ohne zu scannen.",
                         "changeButton": "Wechseln"
                 },
                 "toastr": {
@@ -405,16 +409,75 @@
                         },
                         "error": {
                                 "request": {
-                                        "Aktualisieren": "Die Portierungsanfrage ist fehlgeschlagen!"
+                                        "update": "Die Portierungsanfrage ist fehlgeschlagen!"
                                 },
                                 "mimeTypes": "Die folgenden Dateien sind nicht in einem unterstützten Format:",
                                 "size": "Die folgenden Dateien sind zu groß",
-                                "number": {
+                                "submit": {
+                                        "document": "Bitte unterzeichnen Sie das LOA (Formular) inkl. der letzten Rechnung mit den zu portierenden Nummern."
+                                },
+                                "number": "Die von Ihnen eingegebene Nummer ist ungültig!",
+                                "numbers": {
                                         "single": "Die eingegebene Nummer ist ungültig!",
                                         "multiple": "Die von Ihnen eingegebenen Nummern sind ungültig!"
                                 }
                         }
-                }
+                },
+
+                "noScheduledDate": "Kein",
+                "addDate": "Datum zufügen",
+                "addMoreNumbers": "Mehr Nummern zufügen",
+                "faqdialogTitle": "Portierung FAQ-Hilfe",
+                "faqContent": [
+                        {
+                                "question": "Was ist der Unterschied zwischen LOA und einer RespOrg?",
+                                "answer": "Die LOA (Letter Of Authorization) wird für die Portierung von Standard Telefonnummer benutzt. Die RespOrg (Responsible Organization) wird für die Portierung von Gratisnummern benutzt."
+                        },
+                        {
+                                "question": "Wie lange dauert eine Portierung?",
+                                "answer": "Dies kann erst nach einer Portierungsanfrage genau gesagt werden. Es kann zwischen 2 bis 5 Wochen in Anspruch nehmen."
+                        },
+                        {
+                                "question": "Auf der letzten Rechnung meines Anbieters ist die zu portierende Nummer nicht aufgeführt, kann ich trotzdem die Portierung einreichen?",
+                                "answer": "Ja, auf jeden Fall. Die Rechnungskopie dient uns als sicherer Beweis dass die Nummern Ihnen zugeteilt sind, und wir nicht vergeblich einen Antrag stellen."
+                        },
+                        {
+                                "question": "Werde ich über den Stand der Portirung informiert, so dass mein Anschluss immer funktioniert?",
+                                "answer": "Ja, selbstverständlich, werden Sie informiert sobald die Anfrage beantwortet ist, oder ein Portierungdatum bekannt ist, Wir werden Sie aktuell 3 Tage vor, und nach der Portierung über den Stand genau informieren."
+                        },
+                        {
+                                "question": "Kann ich das Datum der Portierung festlegen?",
+                                "answer": "Sie können ein Datum angeben, wenn es beiden Anbietern passt wird an diesem Datum ausgeführt."
+                        },
+                        {
+                                "question": "Mein Kunde hat internationale Nummern, können Sie die auch portieren?",
+                                "answer": "Zur Zeit können wir nur lokale (Landesweite Nummern) portieren. Sie können wenn die Nummer bereits VoIP-Anschlüsse sind, diese direkt in  diese Anlage integrieren (Bitte kontakieren Sie uns dazu)."
+                        },
+                        {
+                                "question": "Wie schnell werde ich informiert ob meine Portierungsanfrage zurückgewiesen wird?",
+                                "answer": "Sie werden per eMail von unserem Dienst informiert, soblad die Anfrage beantwortet ist. In der Regel dauert dies 5 Arbeitstage."
+                        },
+                        {
+                                "question": "Wie kann ich eine laufende Portierung abbrechen?",
+                                "answer": "Sie können den Auftrag im Portierungsmanager im Nummernbereich selbst zurücksetzen. (Beachten Sie eventuelle Kosten)"
+                        },
+                        {
+                                "question": "Wie läuft es, wenn ich meine Nummern zu einem neuen Anbieter portieren will?",
+                                "answer": "Um eine Portierung zu einem andern Anbieter zu vollziehen, benötigen Sie das Formular des neuen Anbieters, wir werden dann informiert. (beachten Sie die Kündigungsfrist Ihres Vertrages)"
+                        },
+                        {
+                                "question": "Was ist eine DDI-Portierung?",
+                                "answer": "Die DDI-Portierung sind für Firmen mit DDI-Anschlüssen des jetzigen Telekom-Anbieters (meistens Anschlüsse mit 10 Nummern oder mehr)"
+                        },
+                        {
+                                "question": "Gibt es einen Rabatt für eine DDI-Portierung?",
+                                "answer": "Ja, die Hinweise dazu sind auf unseren Preisangaben enthalten."
+                        },
+                        {
+                                "question": "Kann ich eine DDI-Portierung auch hier beantragen?",
+                                "answer": "Nein, um diesen zu benatragen setzen Sie sich mit uns direkt in Verbindung."
+                        }
+                ]
         },
         "chooseModel": {
                 "brandHeadline": "Wählen Sie die Marke:",

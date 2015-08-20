@@ -69,7 +69,10 @@
 		"contactSync": "Kontakt Synchronisation",
 		"contactsyncUser": "Benutzer Kontaktsync ",
 		"contactsyncPassword": "Kontaktsync Passwort",
-		"contactsyncURL": "Kontaktsync URL"
+		"contactsyncURL": "Kontaktsync URL",
+		"quickcallDevice": "Schnellanruf Gerät",
+		"quickcalldeviceLabel": "Schnellanruf Gerät (Voreinstellung)",
+		"quickcalldeviceTitle": "Schnellanruf Gerät"
 	},
 
 	"account": {
@@ -93,7 +96,7 @@
 			"supportProvision": "Automatische Gerätekonfiguration ein",
 			"provisionEnabled": "Ist Eingeschaltet",
 			"provisionDisabled": "Ist Ausgeschaltet",
-			"supportCreatenew": "Benutzer Gerätekonfiguration ein"
+			"supportCreatenew": "Gerätekonfiguration im Benutzerportal"
 		},
 		"title": "Konto",
 

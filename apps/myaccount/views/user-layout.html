@@ -271,6 +271,41 @@
 			</div>
 		</li>
 
+		<li class="settings-item clearfix" data-name="quickcalldevice">
+			<a class="settings-link clearfix">
+				<span class="title">{{ i18n.user.quickcalldeviceTitle }}</span>
+				<div class="description">
+					<ul>
+						<li>{{user.quickcallDevice}}</li>
+					</ul>
+				</div>
+				<span class="update">
+					<i class="fa fa-cog icon-small"></i>
+					<span class="text">{{ i18n.editSettings }}</span>
+				</span>
+				<span class="changes-saved">{{ i18n.changesSaved }}</span>
+			</a>
+			<div class="settings-item-content">
+				<div class="row-fluid">
+					<div class="span12">
+						<form class="form-horizontal" id="form_quickcalldevice">
+							<div class="control-group">
+								<label class="control-label" for="user_quickcalldevice">{{ i18n.user.quickcalldeviceLabel }}</label>
+								<div class="controls">
+									<select id="user_quickcalldevice" name="quickcalldevice" data-original_value="{{user.quickcalldevice}}"></select>
+								</div>
+							</div>
+							<div class="action-group clearfix">
+								<div class="action-bar">
+									<button type="button" class="monster-button cancel">{{ i18n.cancel }}</button>
+									<button type="submit" class="monster-button-success change" data-module="user" data-field="quickcalldevice">{{ i18n.saveChanges }}</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</li>
 
 	</ul>
 </div>

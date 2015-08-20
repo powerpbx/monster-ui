@@ -14,39 +14,15 @@
                                     </div>
                         </div>
                         <div class="control-group clearfix regextern-line{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
-                                    <label class="control-label" for="didusec2c">{{ i18n.regextern.didusec2c }}</label>
-                                    <div class="didusec2c" data-on="true" data-off="false" data-on-label="{{i18n.on}}" data-off-label="{{i18n.off}}">
-                                        {{#monsterSwitch}}<input type="checkbox" id="didusec2c" name="didusec2c"{{#if didusec2c}} checked="checked"{{/if}}></input>{{/monsterSwitch}}
-                                    </div>
-                        </div>
-                        <div class="control-group clearfix regextern-line{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
-                                    <label class="control-label" for="didblockanonym">{{ i18n.regextern.didblockanonym }}</label>
-                                    <div class="didblockanonym" data-on="true" data-off="false" data-on-label="{{i18n.on}}" data-off-label="{{i18n.off}}">
-                                        {{#monsterSwitch}}<input type="checkbox" id="didblockanonym" name="didblockanonym"{{#if didblockanonym}} checked="checked"{{/if}}></input>{{/monsterSwitch}}
-                                    </div>
-                        </div>
-                        <div class="control-group clearfix regextern-line{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
-                                    <label class="control-label" for="didblacklist">{{ i18n.regextern.didblacklist }}</label>
-                                    <div class="didblacklist" data-on="true" data-off="false" data-on-label="{{i18n.on}}" data-off-label="{{i18n.off}}">
-                                        {{#monsterSwitch}}<input type="checkbox" id="didblacklist" name="didblacklist"{{#if didblacklist}} checked="checked"{{/if}}></input>{{/monsterSwitch}}
-                                    </div>
-                        </div>
-                        <div class="control-group clearfix regextern-line{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
-                                    <label class="control-label" for="didblocknonpublic">{{ i18n.regextern.didblocknonpublic }}</label>
-                                    <div class="didblocknonpublic" data-on="true" data-off="false" data-on-label="{{i18n.on}}" data-off-label="{{i18n.off}}">
-                                        {{#monsterSwitch}}<input type="checkbox" id="didblocknonpublic" name="didblocknonpublic"{{#if didblocknonpublic}} checked="checked"{{/if}}></input>{{/monsterSwitch}}
-                                    </div>
-                        </div>
-                        <div class="control-group clearfix regextern-line{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
                                     <label class="control-label" for="pvt_activestart">{{ i18n.regextern.pvt_activestart }}<i class="help-popover icon-question-sign" data-toggle="tooltip" data-placement="right" data-original-title="{{ i18n.regextern.pvt_activestartHelp }}"></i></label>
                                     <div class="controls">
-                                        <input type="text" id="datetimepicker_activestart" name="pvt_activestart" value="{{ pvt_activestart }}">
+                                        {{ pvt_activestart }}
                                     </div>
                         </div>
                         <div class="control-group clearfix regextern-line{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
                                     <label class="control-label" for="pvt_activestop">{{ i18n.regextern.pvt_activestop }}<i class="help-popover icon-question-sign" data-toggle="tooltip" data-placement="right" data-original-title="{{ i18n.regextern.pvt_activestopHelp }}"></i></label>
                                     <div class="controls">
-                                        <input type="text" id="datetimepicker_activestop" name="pvt_activestop" value="{{ pvt_activestop }}">
+                                        {{ pvt_activestop }}
                                     </div>
                         </div>
                         <div class="control-group clearfix regextern-line{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
@@ -61,12 +37,19 @@
                                         {{ toFriendlyDate pvt_modified "shortDate"}} {{ toFriendlyDate pvt_modified "time"}}
                                     </div>
                         </div>
-                        <div class="control-group clearfix regextern-linedouble{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
+                        <div class="control-group clearfix regextern-line{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
                                     <label class="control-label" for="pvt_changed">{{ i18n.regextern.pvt_changed }}</label>{{debug pvt_changed}}
                                     <div class="controls">
                                         {{ toFriendlyDate pvt_changed "shortDate" }} {{ toFriendlyDate pvt_changed "time" }}
                                     </div>
                         </div>
+                        <div class="control-group clearfix regextern-line{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
+                                    <label class="control-label" for="status">{{ i18n.regextern.status }}</label>{{debug reged_state}}
+                                    <div class="controls">
+                                        {{ reged_state }} {{ reged_status }}
+                                    </div>
+                        </div>
+
                     </div>
                 </div>
 </div>

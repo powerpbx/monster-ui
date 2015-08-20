@@ -45,6 +45,7 @@
 	width: 22%;
 	margin-right: 5px;
 	margin-bottom: 1px;
+	min-height: 70px;
 }
 
 .regextern-linedouble {
@@ -52,6 +53,7 @@
 	width: 44%;
 	margin-right: 5px;
 	margin-bottom: 1px;
+	min-height: 70px;
 }
 
 .regextern-line input {

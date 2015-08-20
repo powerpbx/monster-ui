@@ -53,7 +53,8 @@
                "placeholder_pvt_activestart": "1431282897",
                "placeholder_pvt_activestop": "1431282897",
                "placeholder_pvt_created": "1431282897",
-               "placeholder_pvt_modified": "1431282897"
+               "placeholder_pvt_modified": "1431282897",
+               "status": "Regedstate"
         },
 	"accountBrowser": {
 		"missingInfo": "Information Manquante",
@@ -411,12 +412,17 @@
 				"submit": {
 					"document": "Veuillez joindre la lettre d'autorisation signée ainsi que la facture correspondant aux numéros que vous souhaitez transférer"
 				},
-				"number": "Un ou plusieurs numéros saisis ne sont pas dans le bon format ou sont déjà listés !"
+				"number": "Un ou plusieurs numéros saisis ne sont pas dans le bon format ou sont déjà listés !",
+                                "numbers": {
+                                        "single": "One or more numbers you entered are not in the right format or are already listed!",
+                                        "multiple": "One or more numbers you entered are not in the right format or are already listed!"
+                                }
 			}
 		},
 		"noScheduledDate": "Aucune",
 		"addDate": "Ajouter",
 		"addMoreNumbers": "ajouter des numéros",
+                "faqdialogTitle": "Porting Manager FAQ",
 		"faqContent": [
 			{
 				"question": "Quelle est la différence entre LdA et RespOrg ?",

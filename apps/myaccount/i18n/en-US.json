@@ -76,7 +76,10 @@
                 "contactsyncPassword": "Contactsync Password",
                 "contactsyncURL": "Contactsync URL",
                 "placeholdercontactsyncUser": "user@gamil.com",
-                "placeholdercontactsyncPassword": "password"
+                "placeholdercontactsyncPassword": "password",
+                "quickcallDevice": "Quickcall Device",
+                "quickcalldeviceLabel": "Quickcall Device (Default)",
+                "quickcalldeviceTitle": "Quickcall Device"
 	},
         "account": {
                 "fraud": {
@@ -99,7 +102,7 @@
                         "supportProvision": "Automatic Devicesetting on",
                         "provisionEnabled": "Is Enabled",
                         "provisionDisabled": "Is Disabled",
-                        "supportCreatenew": "User devicesetting on"
+                        "supportCreatenew": "Devicesetting in userportal"
                 },
 		"title": "Account",
 

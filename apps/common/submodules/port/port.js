@@ -1391,7 +1391,7 @@ define(function(require){
 
 					if (type === 'faq') {
 						var popup = monster.ui.dialog(monster.template(self, 'port-faqPopup'), {
-								title: 'Porting Manager FAQ',
+								title: self.i18n.active().port.faqdialogTitle,
 								width: '800px'
 							}),
 							toggles = popup.find('.accordion-toggle');

@@ -47,7 +47,10 @@
                 "contactSync": "Contact Sync",
                 "contactsyncUser": "Contactsync User",
                 "contactsyncPassword": "Contactsync Password",
-                "contactsyncURL": "Contactsync URL"
+                "contactsyncURL": "Contactsync URL",
+                "quickcallDevice": "Quickcall Device",
+                "quickcalldeviceLabel": "Quickcall Device (Default)",
+                "quickcalldeviceTitle": "Quickcall Device"
 	},
 
 	"account": {

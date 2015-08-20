@@ -348,7 +348,14 @@
                         'accountSummary': { 'verb': 'GET', 'url': 'accounts/{accountId}/provisioner/summary' },
                         'summary':        { 'verb': 'GET', 'url': 'accounts/{accountId}/provisioner/{gatewayId}/summary' },
                         'upload': { verb: 'POST', url: 'accounts/{accountId}/provisioner', type: 'text/json', dataType: 'text' }
-                }
+                },
+                phonebook: {
+                        'get': { verb: 'GET', url: 'accounts/{accountId}/phonebook/{phonebookId}' },
+                        'create': { verb: 'PUT', url: 'accounts/{accountId}/phonebook' },
+                        'update': { verb: 'POST', url: 'accounts/{accountId}/phonebook/{phonebookId}' },
+                        'delete': { verb: 'DELETE', url: 'accounts/{accountId}/phonebook/{phonebookId}' },
+                        'list': { verb: 'GET', url: 'accounts/{accountId}/phonebook' }
+		}
 	},
 	authTokens = {};
 
