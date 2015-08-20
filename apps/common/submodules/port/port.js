@@ -3,7 +3,6 @@ define(function(require){
 		_ = require('underscore'),
 		fileUpload = require('fileupload'),
 		monster = require('monster'),
-		timepicker = require('timepicker'),
 		toastr = require('toastr');
 
 	var app = {
@@ -22,7 +21,7 @@ define(function(require){
 
 		isLaunchedInAppMode: true,
 
-		defaultDisplayedState: 'submitted',
+		defaultStateToDisplay: 'submitted',
 
 		states: [
 			{ value: 'unconfirmed', next: [1,6] },
@@ -79,7 +78,7 @@ define(function(require){
 			var self = this,
 				template = $(monster.template(self, 'port-pendingOrders', {
 					states: self.states,
-					defaultDisplayedState: self.defaultDisplayedState,
+					defaultStateToDisplay: self.defaultStateToDisplay,
 					isLaunchedInAppMode: self.isLaunchedInAppMode
 				}));
 
@@ -88,7 +87,7 @@ define(function(require){
 				.append(template);
 
 			self.portBindPendingOrderEvents(parent, accountId);
-			self.portRenderPendingOrderListing(parent, accountId, self.defaultDisplayedState);
+			self.portRenderPendingOrderListing(parent, accountId, self.defaultStateToDisplay);
 
 			if (parent.hasClass('ui-dialog-content')) {
 				parent.dialog('open');
@@ -177,10 +176,6 @@ define(function(require){
 			});
 		},
 
-
-
-
-
 		portRenderPendingOrderListing: function (parent, accountId, state) {
 			var self = this,
 				container = parent.find('.accounts-list');
@@ -199,7 +194,7 @@ define(function(require){
 					self.portToggleRequestsDisplay(template, accountId, 'requests', true);
 				}
 
-				self.portRenderDynamicCells(parent, { data: data });
+				self.portRenderDynamicCells(parent, data);
 				self.portBindPendingOrderListingEvents(parent, accountId, data);
 			});
 		},
@@ -238,6 +233,7 @@ define(function(require){
 					box = el.parents('.request-box'),
 					accountId = box.data('account_id'),
 					requestId = box.data('id'),
+					currentRequest = self.portGetRequest(accountId, requestId, data),
 					newState = el.val();
 
 				if (newState === 'rejected') {
@@ -245,11 +241,8 @@ define(function(require){
 						delete newRequest.scheduled_date;
 
 						self.portRequestUpdate(accountId, requestId, newRequest, function(updatedRequest) {
-							self.portRenderDynamicCells(container, {
-								state: newState,
-								request: updatedRequest,
-								portRequestId: requestId
-							});
+							self.portUpdateData(accountId, updatedRequest, data);
+							self.portRenderDynamicCells(container, updatedRequest);
 
 							toastr.success(self.i18n.active().port.toastr.success.request.update);
 						});
@@ -262,11 +255,8 @@ define(function(require){
 								newRequest.scheduled_date = newScheduledDate;
 
 								self.portRequestUpdate(accountId, requestId, newRequest, function (updatedRequest) {
-									self.portRenderDynamicCells(container, {
-										state: updatedRequest.port_state,
-										request: updatedRequest,
-										portRequestId: requestId
-									});
+									self.portUpdateData(accountId, updatedRequest, data);
+									self.portRenderDynamicCells(container, updatedRequest);
 
 									toastr.success(self.i18n.active().port.toastr.success.request.update);
 								});
@@ -275,23 +265,14 @@ define(function(require){
 							});
 						},
 						callbackCancel: function() {
-							self.portRenderDynamicCells(container, {
-								state: currentRequest.port_state,
-								request: currentRequest,
-								portRequestId: requestId
-							});
+							self.portRenderDynamicCells(container, currentRequest);
 						}
 					});
 				}
 				else {
 					self.portRequestChangeState(accountId, requestId, newState, function(newRequest) {
-						currentRequest = newRequest;
-
-						self.portRenderDynamicCells(container, {
-							state: currentRequest.port_state,
-							request: currentRequest,
-							portRequestId: requestId
-						});
+						self.portUpdateData(accountId, newRequest, data);
+						self.portRenderDynamicCells(container, newRequest);
 
 						box.find('.continue-request, .delete-request')
 							.remove();
@@ -300,11 +281,7 @@ define(function(require){
 					}, function() {
 						toastr.error(self.i18n.active().port.toastr.error.request.update);
 					}, function() {
-						self.portRenderDynamicCells(container, {
-							state: currentRequest.port_state,
-							request: currentRequest,
-							portRequestId: requestId
-						});
+						self.portRenderDynamicCells(container, currentRequest);
 					});
 				}
 			});
@@ -313,26 +290,8 @@ define(function(require){
 				var $this = $(this),
 					accountId = $this.parents('.request-box').data('account_id'),
 					requestId = $this.parents('.request-box').data('id'),
-					currentRequest,
-					scheduledDate;
-
-				for (var i = 0, len = data.length; i < len; i++) {
-					if (data[i].account_id === accountId) {
-						for (var j = 0, len2 = data[i].port_requests.length; j < len2; j++) {
-							if (data[i].port_requests[j].id === requestId) {
-								currentRequest = data[i].port_requests[j];
-
-								if (currentRequest.hasOwnProperty('scheduled_date')) {
-									scheduledDate = currentRequest.scheduled_date;
-								}
-
-								break;
-							}
-						}
-
-						break;
-					}
-				}
+					currentRequest = self.portGetRequest(accountId, requestId, data),
+					scheduledDate = currentRequest.scheduled_date;
 
 				self.portRenderScheduledDatePopup(parent, {
 					scheduledDate: scheduledDate,
@@ -342,80 +301,86 @@ define(function(require){
 						});
 
 						self.portRequestUpdate(accountId, requestId, currentRequest, function(updatedRequest) {
-							currentRequest = updatedRequest;
-
-							$this.text(monster.util.toFriendlyDate(monster.util.gregorianToDate(currentRequest.scheduled_date), 'short'));
+							self.portUpdateData(accountId, updatedRequest, data);
+							$this.text(monster.util.toFriendlyDate(monster.util.gregorianToDate(updatedRequest.scheduled_date), 'shortdatetime'));
 						});
 					}
 				});
 			});
 
 			container.find('.request-box .actions li').on('click', function() {
-				var li = $(this),
-					portRequestId = li.parents('.request-box').data('id');
+				var $this = $(this),
+					accountId = $this.parents('.request-box').data('account_id'),
+					requestId = $this.parents('.request-box').data('id'),
+					currentRequest = self.portGetRequest(accountId, requestId, data),
+					template;
 
-				self.portRequestGet(accountId, portRequestId, function(data) {
+				if ($this.hasClass('continue-request')) {
+					var dataList = { orders: [currentRequest] };
 
-					if (li.hasClass('continue-request')) {
-						var template = monster.template(self, 'port-submitDocuments', data),
-							dataList = { orders: [data] };
+					template = monster.template(self, 'port-submitDocuments', currentRequest),
 
-						parent
-							.empty()
-							.append(template);
+					parent
+						.empty()
+						.append(template);
 
-						self.portRenderSubmitDocuments(parent, accountId, dataList);
-					}
-					else if (li.hasClass('info-request')) {
-						var template = monster.template(self, 'port-requestInfo', data),
-							dialogOptions = {
-								width: '560px',
-								position: ['center', 20],
-								title: self.i18n.active().port.infoPopup.title
-							};
+					self.portRenderSubmitDocuments(parent, accountId, dataList);
+				}
+				else if ($this.hasClass('info-request')) {
+					var dialogOptions = {
+							width: '560px',
+							position: ['center', 20],
+							title: self.i18n.active().port.infoPopup.title
+						};
 
-						monster.ui.dialog(template, dialogOptions);
-					}
-					else if (li.hasClass('delete-request')) {
-						self.portRequestDelete(accountId, portRequestId, function() {
-							li.parents('.request-box')
-								.remove();
+					template = monster.template(self, 'port-requestInfo', currentRequest),
 
-							toastr.success(self.i18n.active().port.toastr.success.request.delete);
-						});
-					}
-					else if (li.hasClass('comments-request')) {
-						self.portRenderComments(parent, accountId, portRequestId);
-					}
-				})
+					monster.ui.dialog(template, dialogOptions);
+				}
+				else if ($this.hasClass('delete-request')) {
+					self.portRequestDelete(accountId, requestId, function() {
+						$this.parents('.request-box')
+							.remove();
+
+						toastr.success(self.i18n.active().port.toastr.success.request.delete);
+					});
+				}
+				else if ($this.hasClass('comments-request')) {
+					self.portRenderComments(parent, accountId, requestId);
+				}
 			});
 		},
 
-
-
-
-
 		portRenderScheduledDatePopup: function(parent, args) {
 			var self = this,
-				dataTemplate = args.hasOwnProperty('scheduledDate') ? { scheduledDate: args.scheduledDate } : {}
+				dataTemplate = args.hasOwnProperty('scheduledDate') ? { scheduledDate: args.scheduledDate } : {},
 				template = $(monster.template(self, 'port-editScheduledDate', dataTemplate)),
 				popup = monster.ui.dialog(template, {
-					title: self.i18n.active().port.pendingOrders.scheduledDatePopup.title
+					title: self.i18n.active().port.pendingOrders.scheduledDatePopup.title,
+					beforeClose: function (event, ui) {
+						args.hasOwnProperty('callbackCancel') && args.callbackCancel();
+					}
 				});
 
 			self.portBindScheduledDatePopupEvents(parent, popup, args);
 		},
 
 		portBindScheduledDatePopupEvents: function(parent, popup, args) {
-			var self = this;
+			var self = this,
+				$timepicker = popup.find('#scheduled_time'),
+				$datepicker = popup.find('#scheduled_date'),
+				datepickerOptions = {
+					minDate: new Date(),
+					beforeShowDay: $.datepicker.noWeekends
+				};
 
-			monster.ui.datepicker(popup.find('#scheduled_date'), {
-				minDate: new Date(),
-				beforeShowDay: $.datepicker.noWeekends
-			});
+			monster.ui.timepicker($timepicker);
+			monster.ui.datepicker($datepicker, datepickerOptions);
 
 			popup.find('.save-link').on('click', function() {
-				var newScheduledDate = monster.util.dateToGregorian(popup.find('#scheduled_date').datepicker('getDate'));
+				var scheduledTimeInMiliSeconds = $timepicker.timepicker('getSecondsFromMidnight') * 1000,
+					scheduledDateInMiliSeconds = $datepicker.datepicker('getDate').getTime(),
+					newScheduledDate = monster.util.dateToGregorian(new Date(scheduledDateInMiliSeconds + scheduledTimeInMiliSeconds));
 
 				popup.dialog('close');
 
@@ -424,8 +389,6 @@ define(function(require){
 
 			popup.find('.cancel-link').on('click', function() {
 				popup.dialog('close');
-
-				args.hasOwnProperty('callbackCancel') && args.callbackCancel();
 			});
 		},
 
@@ -1212,105 +1175,102 @@ define(function(require){
 
 		portRenderDynamicCells: function(parent, args) {
 			var self = this,
-				isAdmin = monster.apps.auth.originalAccount.superduper_admin,
-				states = self.states,
-				data = args.data,
-				request = args.request,
-				getStatesToDisplay = function(nextState) {
-					var statesList = [];
+				getStatesToDisplay = function(newState) {
+					var states = self.states,
+						statesList = [];
 
-					for (var i = 0, len = states.length; i < len; i++) {
-						if (nextState === states[i].value) {
-							var indexList = states[i].next;
+					newState = _.find(states, function(stateValue, stateIdx) {
+						return stateValue.value === newState;
+					});
 
-							indexList.forEach(function(v, idx) {
-								statesList.push(states[v]);
-							});
+					_.each(newState.next, function(indexValue, indexIdx) {
+						statesList.push(states[indexValue]);
+					});
 
-							statesList.unshift(states[i]);
-
-							break;
-						}
-					}
+					statesList.unshift(newState);
 
 					return statesList;
 				},
-				populateDynamicCells = function populateDynamicCells(id, state, portRequest) {
-					var box = parent.find('.request-box[data-id="' + id + '"]'),
-						accountId = box.data('account_id'),
-						scheduledDate = box.find('.scheduled-date'),
-						select = box.find('.request-state');
+				populateDynamicCells = function populateDynamicCells(requestData) {
+					var $box = parent.find('.request-box[data-id="' + requestData.id + '"]'),
+						isAdmin = monster.apps.auth.originalAccount.superduper_admin,
+						$scheduledDate = $box.find('.scheduled-date'),
+						$selectState = $box.find('.request-state'),
+						requestState = requestData. port_state;
 
-					box.data('state', state);
-					box.data('scheduled_date', portRequest.hasOwnProperty('scheduled_date') ? portRequest.scheduled_date : '');
-					box.data('updated_date', portRequest.updated);
+					$box
+						.data({
+							state: requestState,
+							scheduled_date: requestData.hasOwnProperty('scheduled_date') ? requestData.scheduled_date : '',
+							updated_date: requestData.updated
+						});
 
 					if (isAdmin) {
-						if (state === 'completed') {
-							select
+						if (requestState === 'completed') {
+							$selectState
 								.empty()
-								.text(self.i18n.active().port.state[state]);
+								.text(self.i18n.active().port.state[requestState]);
 
-							scheduledDate.empty();
+							$scheduledDate.empty();
 						}
 						else {
 							var dataCell;
 
-							select
+							$selectState
 								.empty()
-								.append($(monster.template(self, 'port-selectStates', { states: getStatesToDisplay(state) })));
+								.append($(monster.template(self, 'port-selectStates', { states: getStatesToDisplay(requestState) })));
 
 							/**
 							 * Render the scheduled date cell according to the state of port request
 							 * and the value of scheduled_date (if it is set or not)
 							 */
-							if (state === 'scheduled') {
-								if (portRequest.hasOwnProperty('scheduled_date')) {
-									dataCell = { scheduledDate: portRequest.scheduled_date };
+							if (requestState === 'scheduled') {
+								if (requestData.hasOwnProperty('scheduled_date')) {
+									dataCell = { scheduledDate: requestData.scheduled_date };
 								}
 
-								scheduledDate
+								$scheduledDate
 									.empty()
 									.append($(monster.template(self, 'port-scheduledDateCell', dataCell)));
 							}
 							else {
-								scheduledDate
+								$scheduledDate
 									.empty()
 									.text(self.i18n.active().port.noScheduledDate);
 							}
 						}
 					}
 					else {
-						select
+						$selectState
 							.empty()
-							.text(self.i18n.active().port.state[state]);
+							.text(self.i18n.active().port.state[requestState]);
 
 						/**
 						 * Render the scheduled date cell according to the state of port request
 						 * and the value of scheduled_date (if it is set or not)
 						 */
-						if (state === 'scheduled') {
-							scheduledDate
+						if (requestState === 'scheduled') {
+							$scheduledDate
 								.empty()
-								.text(monster.util.toFriendlyDate(portRequest.scheduled_date, 'short'));
+								.text(monster.util.toFriendlyDate(requestData.scheduled_date, 'shortdatetime'));
 						}
 						else {
-							scheduledDate
+							$scheduledDate
 								.empty()
 								.text(self.i18n.active().port.noScheduledDate);
 						}
 					}
 				};
 
-			if (args.hasOwnProperty('portRequestId')) {
-				populateDynamicCells(args.portRequestId, args.state, request);
+			if (args instanceof Array) {
+				_.each(args, function(accountValue, accountIdx) {
+					_.each(accountValue.port_requests, function(requestValue, requestIdx) {
+						populateDynamicCells(requestValue);
+					});
+				});
 			}
 			else {
-				for (var i = 0, len = data.length; i < len; i++) {
-					_.each(data[i].port_requests, function(port) {
-						populateDynamicCells(port.id, port.port_state, port);
-					});
-				}
+				populateDynamicCells(args);
 			}
 		},
 
@@ -1525,6 +1485,28 @@ define(function(require){
 					});
 				}
 			});
+		},
+
+		portGetRequest: function(accountId, requestId, data) {
+			return data.filter(function(accountValue, accountIdx) {
+				return accountValue.account_id === accountId;
+			})[0].port_requests.filter(function(requestValue, requestIdx) {
+				return requestValue.id === requestId;
+			})[0];
+		},
+
+		portUpdateData: function(accountId, newRequest, data) {
+			for (var accountIdx in data) {
+				if (data[accountIdx].account_id === accountId) {
+					for (var requestIdx in data[accountIdx].port_requests) {
+						if (data[accountIdx].port_requests[requestIdx].id === newRequest.id) {
+							data[accountIdx].port_requests[requestIdx] = newRequest;
+						}
+						break;
+					}
+				}
+				break;
+			}
 		},
 
 		/* Request */
