@@ -10,12 +10,16 @@ define(function(require){
 			//provisioner: 'https://p3.zswitch.net/',
 
 			// If you want to use WebSockets you need to turn blackhole on in the back-end and then put the URL in the 'socket' key below
-			socket: 'https://www.allip.ovh',
+			socket: 'https://kazoo.allip.ovh',
 		},
 
 		// The resellerId key is the accountId of your master account, and is needed for some reseller features
 		// For example it won't prompt for a credit card the subaccounts that have a different resellerId than this resellerId
 		resellerId: '',
+
+		// If you are not using Braintree in your environment, you should add the following flag to disable the UI components that are using it:
+		disableBraintree: true,
+
 
 		// whitelabel: Contains all the flags that are whitelabel-able via the Branding app. 
 		// Setting them in the config file will set the defaults if you don't use any whitelabel
@@ -43,9 +47,12 @@ define(function(require){
 				//logout: 'http://www.google.com',
 			}
 		},
-		developerFlags: {
-			// Setting this flag to true will show the SmartPBX Callflows in the Callflows app
-			showSmartPBXCallflows: true
-		}
+                developerFlags: {
+                        // Setting this flag to true will show the SmartPBX Callflows in the Callflows app
+                        showSmartPBXCallflows: false,
+
+                        // Settings this flag to true will show JS error when they happen, but in general we want to hide those so we comment it
+                        showJSErrors: false
+                }
 	};
 });

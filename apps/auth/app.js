@@ -30,7 +30,8 @@ define(function(require){
 			'auth.logout': '_logout',
 			'auth.clickLogout': '_clickLogout',
 			'auth.initApp' : '_initApp',
-			'auth.afterAuthenticate': '_afterSuccessfulAuth'
+			'auth.afterAuthenticate': '_afterSuccessfulAuth',
+			'auth.showTrialInfo': 'showTrialInfo'
 		},
 
 		load: function(callback) {
@@ -275,10 +276,6 @@ define(function(require){
 							$('body').addClass('colorblind');
 						}
 
-						if(results.account.hasOwnProperty('trial_time_left')) {
-							self.showTrialInfo(results.account.trial_time_left);
-						}
-
 						monster.pub('core.loadApps', {
 							defaultApp: defaultApp
 						});
@@ -341,7 +338,7 @@ define(function(require){
 
 			template.find('#upgrade').on('click', function() {
 				// Add upgrade stuff
-				dialog.dialog('close').remove();
+				self.handleUpgradeClick(dialog);
 			});
 
 			dialog = monster.ui.dialog(template, {
@@ -350,10 +347,62 @@ define(function(require){
 				closeOnEscape: false
 			});
 
-			if(daysLeft < 0) {
-				console.log(dialog,dialog.find('.ui-dialog-titlebar-close'));
-				dialog.find('.ui-dialog-titlebar-close').remove();
+			var upgradeRedirectFunction = function() {
+				self.handleUpgradeClick(dialog);
+			};
+
+			if(daysLeft >= 0) {
+				monster.ui.confirm(
+					'', // Marketing content goes here
+					function() {
+						upgradeRedirectFunction();
+					},
+					null, // No action on cancel
+					{
+						title: monster.template(self, '!' + self.i18n.active().trialPopup.mainMessage, { variable: daysLeft }),
+						cancelButtonText: self.i18n.active().trialPopup.closeButton,
+						confirmButtonText: self.i18n.active().trialPopup.upgradeButton,
+						confirmButtonClass: 'monster-button-primary',
+						type: 'warning'
+					}
+				);
+			} else {
+				monster.ui.alert(
+					'error',
+					'', // Marketing content goes here
+					function() {
+						upgradeRedirectFunction();
+					},
+					{
+						title: self.i18n.trialPopup.trialExpired,
+						closeButtonText: self.i18n.active().trialPopup.upgradeButton,
+						closeButtonClass: 'monster-button-primary'
+					}
+				);
 			}
+		},
+
+		handleUpgradeClick: function(dialog) {
+			var self = this;
+
+			monster.pub('myaccount.hasCreditCards', function(response) {
+				if(response) {
+					// query api stuff to create account and upgrade
+					// remove time trial left
+					// move account to prod
+					// create crm lead
+
+					dialog.dialog('close').remove();
+				}
+				else {
+					monster.pub('myaccount.showCreditCardTab');
+
+					dialog.dialog('close').remove();
+
+					toastr.error(self.i18n.active().trial.noCreditCard);
+				}
+			})
+			
 		},
 
 		renderLoginPage: function(container) {
