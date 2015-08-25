@@ -363,5 +363,13 @@
 		"min": "min",
 		"hr": "h",
 		"hrs": "h"
+	},
+
+	"__comment": "CM-150: Adding i18n for verbose timers",
+	"__version": "3.22",
+	"friendlyTimer": {
+		"minutesAnd": "minutes et",
+		"hours": "heures",
+		"seconds": "secondes"
 	}
 }
