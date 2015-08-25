@@ -119,7 +119,9 @@
 		"timezoneTitle": "Zeitzone & Sprache",
 		"userTimezone": "Zeitzone",
 		"userLanguage": "Sprache",
-		"carrierTitle": "Carrier Einstellungen"
+		"carrierTitle": "Carrier Einstellungen",
+                "is_reseller": "Ist ein Wiederverkäufer",
+                "is_business": "Hat Businessbereichtigung"
 	},
 
 	"billing": {
@@ -291,7 +293,7 @@
 		"sub_account_number_activation": "Aktivierung der Nummern (Unterkonto)",
 		"manual_addition": " Manuell zugefügt",
 		"sub_account_manual_addition": "Manuell zugefügt (Unterkonto)",
-		"admin_discretion": "Diskrete Administration",
+		"admin_discretion": "Administration",
 		"startDate": "Start",
 		"endDate": "Ende",
 		"total": "Total",
@@ -300,21 +302,21 @@
 		"codes": {
 			"1001": "Minutentarif Anruf",
 			"1002": "Unterkonto Minutentarif Anruf",
-			"2001": "Option Aktivierung",
-			"2002": "Unterkonto Option Aktivierung",
-			"2003": "Number Aktivierung",
-			"2004": "Unterkonto Nummer Aktivierung",
-			"3001": "Manuall zugefügt",
-			"3002": "Unterkonto Manuall zugefügt",
+			"2001": "Aktivierung Zusatzdienste",
+			"2002": "Unterkonto Aktivierung Zusatzdienste",
+			"2003": "Nummeraktivierung",
+			"2004": "Unterkonto Nummeraktivierung",
+			"3001": "Manuell zugefügt",
+			"3002": "Unterkonto Manuell zugefügt",
 			"3003": "Automatisch zugefügt",
 			"3004": "Unterkonto Automatisch zugefügt",
 			"3005": "Diskrete Administration",
-			"3006": "Obendrauf",
-			"4000": "Balance Carry-over",
+			"3006": "Aufladung",
+			"4000": "Saldo",
 			"5000": "Wiederkehrend",
 			"5001": "Monatlich",
-			"5002": "Montatlich (Teilbetrag)",
-			"9999": "Unbekannt vorgeschaltet",
+			"5002": "Monatlich (pro Rata)",
+			"9999": "Unbekannt Administration",
 			"0": "Unbekannt"
 		},
 		"errorStatuses": {

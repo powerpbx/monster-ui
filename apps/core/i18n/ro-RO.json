@@ -125,7 +125,7 @@
 	"warning": "avertisment!",
 	"confirmCharges": {
 		"title": "Confirmați costuri",
-		"withChargesPartOne": "Pretul pentru acest lucru este $ {{ variabila }}",
+		"withChargesPartOne": "Pretul pentru acest lucru este {{ variabila }}",
 		"withChargesPartTwo": "unic {{ variabila }}.",
 		"withoutCharges": "nu este o {{ variabilă }}.",
 		"detail": "Aici sunt detaliile uniunii mont depus costurilor pentru contul lor",
@@ -134,7 +134,7 @@
 		"quantity": "număr",
 		"discount": "Rabbat",
 		"monthlyCharges": "taxe lunare",
-		"amount": "$ {{ variabila }}",
+		"amount": "{{ variabila }}",
 		"actions": "apăsați OK pentru a confirma sau anula."
 	},
 	"languages": {

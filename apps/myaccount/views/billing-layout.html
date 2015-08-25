@@ -83,7 +83,7 @@
 
 				<span class="title">{{ i18n.billing.accountAdministrator }}</span>
 				<span class="description">{{#if account.contact.billing.usepostbilling_enabled }} {{ i18n.billing.usepostbillingEnabled }} {{else}} {{ i18n.billing.usepostbillingDisabled }} {{/if}} 
-                                        {{#if account.contact.billing.number}} ({{formatPhoneNumber account.contact.billing.number}} ){{/if}} 
+                                        {{#if account.contact.billing.email}} ({{formatPhoneNumber account.contact.billing.email}} ){{/if}} 
 				</span>
 				<span class="update">
 					<i class="fa fa-cog icon-small"></i>

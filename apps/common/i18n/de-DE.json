@@ -262,7 +262,7 @@
                 "progressBarLeft": "Eingehende Nummern",
                 "progressBarMiddle": "Senden von Dokumenten",
                 "progressBarRight": "Bestellen",
-                "requiredConditions": "Please agree with all the conditions",
+                "requiredConditions": "Wenn Sie einverstanden sind, sollten Sie alle Fragen mit ankeuzen bestätigen.",
                 "comingSoon": "Ist noch nicht vorhanden! Bitte kontaktieren Sie uns über unsere Webseite!",
                 "unknownCarrier": "Unbekannter Anbieter",
                 "state": {
@@ -333,7 +333,7 @@
                         "labelCancelService": "Der Auftrag zur Portierung vom bisherigen Anbieter werde ich nicht abbrechen.",
                         "labelCancelNumbers": "Ich verstehe, dass alle (nicht aufgeführten) Nummern meines bisheriger Anbieters gekündigt werden.",
                         "labelChangeFee": "Ich verstehe, dass bei vorzeitiger Auflösung, mein bisheriger Anbieters dies in Rechnung stellen kann.",
-                        "labelStandardNumbers": "Das dies Standardtelefonnummern sind, und keine Mehrwertnummern-Umleiung beinhaltet."
+                        "labelStandardNumbers": "Das dies Standardtelefonnummern sind, und keine Mehrwertnummern-Umleitung beinhaltet."
                 },
                 "pendingOrders": {
                         "title": "Offene Bestellungen",

@@ -103,7 +103,9 @@
 		"userLanguage": "Язык",
 		"__comment": "UI-966: Added common control to select carrier in myaccount",
 		"__version": "v3.20_s0",
-		"carrierTitle": "Настройки оператора"
+		"carrierTitle": "Настройки оператора",
+                "is_reseller": "Is Reseller",
+                "is_business": "Is Business"
 	},
 
 	"billing": {
@@ -314,5 +316,4 @@
 		"switchBackTo": "Переключиться обратно",
 		"myAccount": "Моя учётная запись",
 		"currentlyViewing": "Сейчас смотрим"
-	}
-}
+	}}

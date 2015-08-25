@@ -84,7 +84,9 @@
 		"timezoneTitle": "il fuso orario e la lingua",
 		"userTimezone": "fuso orario",
 		"userLanguage": "lingua",
-		"carrierTitle": "impostazioni del gestore"
+		"carrierTitle": "impostazioni del gestore",
+                "is_reseller": "Is Reseller",
+                "is_business": "Is Business"
 	},
 
 	"billing": {
@@ -275,5 +277,4 @@
                 "switchBackTo": "tornare a",
                 "myAccount": "il mio conto",
                 "currentlyViewing": "conto Visibile"
-        }
-}
+        }}

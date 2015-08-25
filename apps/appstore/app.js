@@ -201,7 +201,7 @@ define(function(require){
 					appList = monster.ui.change_appList(appList,'carrier', 'delete', 'reseller', 'business');
 				if(monster.apps.auth.currentAccount.is_reseller != true && monster.apps.auth.currentAccount.superduper_admin != true)
 					appList = monster.ui.change_appList(appList,'reseller', 'delete' , 'business');
-				if(monster.apps.auth.currentAccount.is_reseller != true && monster.apps.auth.currentAccount.superduper_admin != true && monster.apps.auth.currentAccount.is_business_customer != true)
+				if(monster.apps.auth.currentAccount.is_reseller != true && monster.apps.auth.currentAccount.superduper_admin != true && monster.apps.auth.currentAccount.is_business != true)
 					appList = monster.ui.change_appList(appList,'business', 'delete');
 
 				template = $(monster.template(self, 'appList', {

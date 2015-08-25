@@ -264,11 +264,11 @@ define(function(require){
 
 				var i18n = app.i18n.active();
 
-                                if(i18n._whitelabel == 'undefined')
+/*                                if(i18n._whitelabel == 'undefined')
                                     i18n._whitelabel = "en-US";
                                 else
                                     i18n._whitelabel = monster.config.whitelabel;
-
+*/
 				var context = _.extend({}, data || {}, { i18n: i18n });
 
 				result = _template(context);

@@ -10,15 +10,15 @@ define(function(require){
 			//provisioner: 'https://p3.zswitch.net/',
 
 			// If you want to use WebSockets you need to turn blackhole on in the back-end and then put the URL in the 'socket' key below
-			socket: 'https://kazoo.allip.ovh',
+			socket: 'https://kazoo.allip.ovh:7777',
 		},
 
 		// The resellerId key is the accountId of your master account, and is needed for some reseller features
 		// For example it won't prompt for a credit card the subaccounts that have a different resellerId than this resellerId
-		resellerId: '',
+		resellerId: '6d5c0f5127e842c119955712a4ae49e0',
 
 		// If you are not using Braintree in your environment, you should add the following flag to disable the UI components that are using it:
-		disableBraintree: true,
+		disableBraintree: false,
 
 
 		// whitelabel: Contains all the flags that are whitelabel-able via the Branding app. 

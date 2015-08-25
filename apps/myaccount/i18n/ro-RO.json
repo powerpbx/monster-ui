@@ -84,7 +84,9 @@
 		"timezoneTitle": "fus orar și limbă",
 		"userTimezone": "fus orar",
 		"userLanguage": "limbă",
-		"carrierTitle": "setările de transport"
+		"carrierTitle": "setările de transport",
+                "is_reseller": "Is Reseller",
+                "is_business": "Is Business"
 	},
 
 	"billing": {
@@ -272,5 +274,9 @@
 	},
 	"SwitchBackto": "a reveni la",
 	"Myaccount": "contul meu",
-	"CurrentlyViewing": "contul Vizibil"
-}
+	"CurrentlyViewing": "contul Vizibil",
+        "isMasquerading": {
+                "switchBackTo": "Switch back to",
+                "myAccount": "My account",
+                "currentlyViewing": "Currently Viewing"
+        }}

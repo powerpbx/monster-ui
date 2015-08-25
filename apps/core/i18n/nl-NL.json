@@ -28,7 +28,7 @@
       "type": "De waarde van het veld \"{{field}}\" moet van het \"{{value}}\" type zijn.",
       "unique": "De waarde van het veld \"{{field}}\" moet uniek zijn.",
       "forbidden": "De waarde van het veld \"{{field}}\" kan niet worden bijgewerkt.",
-      "service_restriction": "Niet genoeg krediet om het nummer te kopen \"{{field}}\" (${{value}})."
+      "service_restriction": "Niet genoeg krediet om het nummer te kopen \"{{field}}\" ({{value}})."
     },
     "errorMessages": {
       "datastore_conflict": "An error was cause by conflicting database documents. Please try again, and contact your administrator if it reoccurs.",
@@ -47,7 +47,7 @@
   "close": "Sluiten",
   "conferencingLogo": "Conferencing",
   "csv": "CSV",
-  "currencyUsed": "$",
+  "currencyUsed": "CHF",
   "delete": "Verwijder",
   "dialog": {
     "showError": "Toon Fout",
@@ -128,7 +128,7 @@
   "warning": "Waarschuwing!",
   "confirmCharges": {
     "title": "Kosten Overzicht",
-    "withChargesPartOne": "U betaald een ${{variable}}",
+    "withChargesPartOne": "U betaald een {{variable}}",
     "withChargesPartTwo": "eenmalige {{variable}}. ",
     "withoutCharges": "Er zijn geen {{variable}}.",
     "detail": "Een overzicht van de maandelijkste kosten voor deze service:",
@@ -137,7 +137,7 @@
     "quantity": "Aantal",
     "discount": "Korting",
     "monthlyCharges": "Maandelijkste bijdrage",
-    "amount": "${{variable}}",
+    "amount": "{{variable}}",
     "actions": "Klik op OK om te bevestigen of op Annuleren om te annuleren."
   },
   "languages": {

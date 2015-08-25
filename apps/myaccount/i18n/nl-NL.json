@@ -77,7 +77,9 @@
 		"userLanguage": "Taal",
 		"__comment": "UI-966: Added common control to select carrier in myaccount",
 		"__version": "v3.20_s0",
-		"carrierTitle": "Carrier (uitgaand) Instellingen"
+		"carrierTitle": "Carrier (uitgaand) Instellingen",
+                "is_reseller": "Is Reseller",
+                "is_business": "Is Business"
 	},
 
 	"billing": {
@@ -240,5 +242,9 @@
 		"startDate": "Start Datum",
 		"endDate": "Eind Datum",
 		"total": "Totaal"
-	}
-}
+	},
+        "isMasquerading": {
+                "switchBackTo": "Switch back to",
+                "myAccount": "My account",
+                "currentlyViewing": "Currently Viewing"
+        }}

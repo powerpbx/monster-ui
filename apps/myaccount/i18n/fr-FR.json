@@ -79,7 +79,9 @@
 
 		"__comment": "UI-966: Added common control to select carrier in myaccount",
 		"__version": "v3.20_s0",
-		"carrierTitle": "Réglages Opérateur téléphonique"
+		"carrierTitle": "Réglages Opérateur téléphonique",
+                "is_reseller": "Is Reseller",
+                "is_business": "Is Business"
 	},
 
 	"billing": {
@@ -230,5 +232,4 @@
 		"switchBackTo": "Revenir à",
 		"myAccount": "Mon compte",
 		"currentlyViewing": "Compte actif"
-	}
-}
+	}}

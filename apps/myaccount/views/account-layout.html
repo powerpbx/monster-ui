@@ -26,6 +26,22 @@
 									<div class="plain-text">{{account.id}}</div>
 								</div>
 							</div>
+                                                        <div class="control-group">
+                                                                <label class="control-label" for="account_is_business">{{ i18n.account.is_business }}</label>
+                                                                <div class="controls checkbox-container">
+                                                                                {{#if account.is_business}} {{ i18n.YES }} {{ else }}  {{ i18n.NO }} {{/if}}
+                                                                </div>
+                                                        </div>
+
+<!--                                                        <div class="control-group">
+                                                                <label class="control-label" for="account_is_reseller">{{ i18n.account.is_reseller }}</label>
+                                                                <div class="controls checkbox-container">
+                                                                        {{#monsterCheckbox}}
+                                                                                <input type="checkbox" id="account_is_reseller" name="is_reseller" {{#if account.is_reseller}}checked{{/if}} readonly />
+                                                                        {{/monsterCheckbox}}
+                                                                </div>
+                                                        </div>
+-->
 							<div class="action-group clearfix">
 								<div class="action-bar">
 									<button type="button" class="monster-button cancel">{{ i18n.cancel }}</button>

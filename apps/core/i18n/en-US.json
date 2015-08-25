@@ -29,7 +29,7 @@
 			"unique": "The value for the field \"{{field}}\" must be unique.",
 			"forbidden": "The value for the field \"{{field}}\" can not be updated.",
 			"__comment": "UI-883 (v3.19_s1): adding i18n for service_restriction error",
-			"service_restriction": "Not enought credit to purchase the number \"{{field}}\" (${{value}})."
+			"service_restriction": "Not enought credit to purchase the number \"{{field}}\" ({{value}})."
 		},
 		"__comment": "UI-951 (v3.20_s0): adding i18n for some 500 & 409 errors",
 		"errorMessages": {
@@ -49,7 +49,7 @@
 	"close" : "Close",
 	"conferencingLogo": "Conferencing",
 	"csv": "CSV",
-	"currencyUsed": "$",
+	"currencyUsed": "CHF",
 	"delete": "Delete",
 	"dialog" : {
 		"showError": "Show Error",
@@ -143,7 +143,7 @@
 		"quantity": "Quantity",
 		"discount": "Discount",
 		"monthlyCharges": "Monthly Charges",
-		"amount": "${{variable}}"
+		"amount": "{{variable}}"
 	},
 	"languages": {
 		"auto": "Default",
@@ -634,5 +634,7 @@
               "femalecsCZ": "Female Tschechish",
               "femaletrTR": "Female Turcish",
               "maletrTR": "Male Turkish"
-    }
+    },
+    "YES": "YES",
+    "NO":  "NO"
 }

@@ -29,10 +29,15 @@
 			"disallow": "Der Wert für dieses Feld \"{{field}}\" ist nicht erlaubt.",
 			"type": "Der Wert für dieses Feldes \"{{field}}\" muss vom Typ \"{{value}}\" sein.",
 			"unique": "Der Wert für dieses Feldes \"{{field}}\" muss eindeutig sein.",
-			"forbidden": "Der Wert für dieses Feld \"{{field}}\" kann nicht geändert werden."
+			"forbidden": "Der Wert für dieses Feld \"{{field}}\" kann nicht geändert werden.",
+                        "service_restriction": "Ihr Konto weisst zuwenig Guthaben auf, um die Nummer \"{{field}}\" ({{value}}) zu übernehmen."
+                },
+                "errorMessages": {
+                        "datastore_conflict": "Ein Fehler bei der speicherung des Dokuments ist aufgetreten. Bitte probieren Sie nochmals, und kontakieren Sie Ihren Administrator, falls es nicht geht.",
+                        "account_has_descendants": "Sie können kein Konto löschen, das Unterkonten enthält."
 		}
 	},
-	"apps": "APPS",
+	"apps": "Apps",
 	"add": "Zufügen",
 	"alertLogout": "Ihre Sitzung ist Aufgrund längerer Inaktivität abgelaufen. Bitte mdelden Sie sich erneut an.",
 	"cancel": "Abbrechen",
@@ -51,8 +56,11 @@
 		"confirmOk": "OK",
 		"confirm": "Betätigen",
 		"confirmCancel" : "Abbrechen",
-		"confirmTitle" : "Bestätigung"
-	},
+		"confirmTitle" : "Bestätigung",
+                "errorTitle": "Entschuldigung ein Fehler ist aufgetreten!",
+                "infoTitle": "Info",
+                "warningTitle": "Warnung!"
+        },
 	"disabled": "Ausgeschaltet",
 	"download": "Download",
 	"enabled": "Eingeschaltet",
@@ -126,17 +134,17 @@
 	"warning": "Warnung!",
 	"confirmCharges": {
 		"title": "Kosten bestätigen",
-		"withChargesPartOne": "Der Preis dafür ist ${{variable}}",
+		"withChargesPartOne": "Der Preis dafür ist {{variable}}",
 		"withChargesPartTwo": " Einmalig {{variable}}. ",
 		"withoutCharges": "Ist kein {{variable}}.",
 		"detail": "Hier sind die Details der montlichen Kosten für Ihr Konto hinterlegt:",
 		"service": "Service",
 		"rate": "Preis",
 		"quantity": "Anzahl",
-		"discount": "Rabbat",
+		"discount": "Rabatt",
 		"monthlyCharges": "Monatliche Kosten",
-		"amount": "${{variable}}",
-		"actions": "Drücken Sie OK zum Bestätigen oder Abbrechen."
+		"amount": "{{variable}}",
+		"actions": "Drücken Sie Abbrechen oder OK zum Bestätigen."
 	},
 	"languages": {
 		"auto": "Automatisch (en-US)",
@@ -147,21 +155,21 @@
                 "russianRussian": "Russian (ru-RU)"
 	},
 	"services": {
-		"cnam": "CNAM",
-		"did_us": "US DID",
-		"did_eu": "Europa DID",
-		"did_af": "Arika DID",
+		"cnam": "Telefonbuchabfrage",
+		"did_us": "USA Nummer",
+		"did_de": "Deutschland Nummer",
+		"did_at": "Österreich Nummer",
 		"e911": "Notrufnummern",
-		"inbound_cnam": "Eingehende CNAM",
-		"inbound_trunk": "Eingehender Trunk",
-		"inbound_trunks": "Eingehende Trunks",
+		"inbound_cnam": "Eingehende Telefonbuchabfrage",
+		"inbound_trunk": "Eingehender Verbindung",
+		"inbound_trunks": "Eingehende Verbindungen",
 		"port": "Portierung",
 		"sip_devices": "SIP Geräte",
 		"sip_device": "SIP Gerät",
 		"tollfree_us": "US Tollfree",
 		"tollfree_ch": "CH Gratisnummern",
-		"twoway_trunk": "Verbindungs-Trunk",
-		"twoway_trunks": "Verbindungs-Trunks",
+		"twoway_trunk": "Gleichzeitige Verbindung",
+		"twoway_trunks": "Gleichzeitige Verbindungen",
 		"user": "Benutzer"
 	},
 	"wysiwyg": {
@@ -631,5 +639,7 @@
             "min": "mins",
             "hr": "hr",
             "hrs": "hrs"
-    }
+    },
+    "YES": "JA",
+    "NO":  "NEIN"
 }

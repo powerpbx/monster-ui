@@ -125,7 +125,7 @@
 	"warning": "ATTENZIONE!",
 	"confirmCharges": {
 		"title": "Conferma costo",
-		"withChargesPartOne": "Il prezzo per questo è di $ {{ variabile }}",
+		"withChargesPartOne": "Il prezzo per questo è di {{ variabile }}",
 		"withChargesPartTwo": "unico {{ variabile }}.",
 		"withoutCharges": "non è un {{ variabile }}.",
 		"detail": "Ecco i dettagli del sindacato mont depositato costo per proprio conto",
@@ -134,7 +134,7 @@
 		"quantity": "numero",
 		"discount": "Rabbat",
 		"monthlyCharges": "spese condominiali",
-		"amount": "$ {{ variabile }}",
+		"amount": "{{ variabile }}",
 		"actions": "premere OK per confermare o annullare."
 	},
 	"languages": {

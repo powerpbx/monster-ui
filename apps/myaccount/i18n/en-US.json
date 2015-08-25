@@ -128,7 +128,9 @@
 		"userLanguage": "Language",
 		"__comment": "UI-966: Added common control to select carrier in myaccount",
 		"__version": "v3.20_s0",
-		"carrierTitle": "Carrier Settings"
+		"carrierTitle": "Carrier Settings",
+                "is_reseller": "Is Reseller",
+                "is_business": "Is Business"
 	},
 
 	"billing": {
