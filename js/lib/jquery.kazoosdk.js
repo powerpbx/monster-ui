@@ -29,6 +29,7 @@
 			'getIcon': { verb: 'GET', 'url': 'accounts/{accountId}/apps_store/{appId}/icon', dataType: 'text' },
 			'update': { verb: 'POST', 'url': 'accounts/{accountId}/apps_store/{appId}' },
 			'add': { verb: 'PUT', 'url': 'accounts/{accountId}/apps_store/{appId}' },
+			'delete': { verb: 'DELETE', 'url': 'accounts/{accountId}/apps_store/{appId}' },
 			'getBlacklist': { verb: 'GET', 'url': 'accounts/{accountId}/apps_store/blacklist' },
 			'updateBlacklist': { verb: 'POST', 'url': 'accounts/{accountId}/apps_store/blacklist' }
 		},
@@ -123,7 +124,8 @@
 			'delete': { verb: 'DELETE', url: 'accounts/{accountId}/users/{userId}' },
 			'list': { verb: 'GET', url: 'accounts/{accountId}/users' },
 			'quickcall': { verb: 'GET', url: 'accounts/{accountId}/users/{userId}/quickcall/{number}'},
-			'hotdesks': { verb: 'GET', url: 'accounts/{accountId}/users/{userId}/hotdesks' }
+			'hotdesks': { verb: 'GET', url: 'accounts/{accountId}/users/{userId}/hotdesks' },
+			'updatePresence': { verb: 'POST', url: 'accounts/{accountId}/users/{userId}/presence' }
 		},
 		group: {
 			'get': { verb: 'GET', url: 'accounts/{accountId}/groups/{groupId}' },
@@ -182,7 +184,8 @@
 			'list': { verb: 'GET', url: 'accounts/{accountId}/devices' },
 			'getStatus': { verb: 'GET', url: 'accounts/{accountId}/devices/status' },
 			'quickcall': { verb: 'GET', url: 'accounts/{accountId}/devices/{deviceId}/quickcall/{number}'},
-			'restart': { verb: 'POST', url: 'accounts/{accountId}/devices/{deviceId}/sync'}
+			'restart': { verb: 'POST', url: 'accounts/{accountId}/devices/{deviceId}/sync'},
+			'updatePresence': { verb: 'POST', url: 'accounts/{accountId}/device/{deviceId}/presence' }
 		},
 		media: {
 			'get': { verb: 'GET', url: 'accounts/{accountId}/media/{mediaId}' },
@@ -229,6 +232,10 @@
 			'update': { verb: 'POST', url: 'accounts/{accountId}/temporal_rules/{ruleId}' },
 			'delete': { verb: 'DELETE', url: 'accounts/{accountId}/temporal_rules/{ruleId}' },
 			'list': { verb: 'GET', url: 'accounts/{accountId}/temporal_rules' }
+		},
+		presence: {
+			'list': { verb: 'GET', url: 'accounts/{accountId}/presence' },
+			'update': { verb: 'POST', url: 'accounts/{accountId}/presence/{presenceId}' }
 		},
 		servicePlan: {
 			'get': { verb: 'GET', url: 'accounts/{accountId}/service_plans/{planId}' },

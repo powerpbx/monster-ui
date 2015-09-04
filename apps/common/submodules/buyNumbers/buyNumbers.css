@@ -8,6 +8,7 @@
 }
 
 #buy_number .top-splitter {
+	position: relative;
 	border-top: 1px solid #ccc;
 }
 
@@ -368,6 +369,17 @@
 	color: #22a5ff;
 	line-height: 32px;
 	vertical-align: bottom;
+}
+
+#buy_number #area_code_map {
+	display: none;
+	height: 570px;
+}
+
+#buy_number #single_select_info {
+	position: absolute;
+	bottom: 0;
+	margin-bottom: 0;
 }
 
 /***************** Temporary fix for country select *******************/

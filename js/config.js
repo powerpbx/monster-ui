@@ -11,6 +11,9 @@ define(function(require){
 
 			// If you want to use WebSockets you need to turn blackhole on in the back-end and then put the URL in the 'socket' key below
 			socket: 'https://kazoo.allip.ovh:7777',
+
+			// Set Project Phonebook URL if you want to use it to search phone numbers
+			// phonebook: 'project_phonebook_url'
 		},
 
 		// The resellerId key is the accountId of your master account, and is needed for some reseller features
@@ -21,12 +24,12 @@ define(function(require){
 		disableBraintree: false,
 
 
-		// whitelabel: Contains all the flags that are whitelabel-able via the Branding app. 
+		// Contains all the flags that are whitelabel-able via the Branding app.
 		// Setting them in the config file will set the defaults if you don't use any whitelabel
 		// If the domain used is defined in the whitelabel database, we'll override the following settings by what is set in the whitelabel document
 		whitelabel: {
 			// Logout Timer (minutes before showing the logged in user that it will auto-disconnect him soon)
-			// Changing this value allows you to disable the auto-logout mechanism by setting itto 0. 
+			// Changing this value allows you to disable the auto-logout mechanism by setting it to 0. 
 			// If you want to change the default duration (15), you can set this value with a number > 0
 					logoutTimer: 7200,
 
@@ -44,6 +47,7 @@ define(function(require){
 				// Link used when user click on the top-right interrogation mark
 				help: 'https://www.allip.ovh',
 				// Link used when clicking on logging out. By default the UI logs out the user after confirmation, but some people wanted to override that behavior
+
 				//logout: 'http://www.google.com',
 			}
 		},

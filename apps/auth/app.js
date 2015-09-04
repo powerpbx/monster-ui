@@ -24,7 +24,13 @@ define(function(require){
 			isAuthentified: false
 		},
 
-		requests: {},
+		requests: {
+			'auth.upgradeTrial': {
+				apiRoot: monster.config.api.screwdriver,
+				url: 'upgrade',
+				verb: 'POST'
+			}
+		},
 
 		subscribe: {
 			'auth.logout': '_logout',
@@ -165,7 +171,7 @@ define(function(require){
 					});
 				},
 				account: function(callback) {
-					self.getAccount(function(data) {
+					self.getAccount(self.accountId, function(data) {
 						callback(null, data.data);
 					},
 					function(data) {
@@ -201,62 +207,15 @@ define(function(require){
 
 					var afterLanguageLoaded = function() {
 						var accountApps = _.indexBy(results.apps, 'id'),
-							fullAppList = {};
-
-						_.each(self.installedApps, function(val) {
-							fullAppList[val.id] = val;
-						});
-
-						if(results.user.appList && results.user.appList.length > 0) {
-							for(var i = 0; i < results.user.appList.length; i++) {
-								var appId = results.user.appList[i];
-								if(appId in fullAppList && appId in accountApps) {
-									var accountAppUsers = $.map(accountApps[appId].users, function(val) {return val.id;});
-									
-									if(accountApps[appId].allowed_users === 'all'
-									|| (accountApps[appId].allowed_users === 'admins' && results.user.priv_level === 'admin')
-									|| accountAppUsers.indexOf(results.user.id) >= 0) {
-										defaultApp = fullAppList[appId].name;
-										break;
-									}
-								}
-							}
-						}
-						else {
-							var userAppList = $.map(fullAppList, function(val) {
-								if(val.id in accountApps) {
-									var accountAppUsers = $.map(accountApps[val.id].users, function(val) {return val.id;});
-									
-									if(accountApps[val.id].allowed_users === 'all'
-									|| (accountApps[val.id].allowed_users === 'admins' && results.user.priv_level === 'admin')
-									|| accountAppUsers.indexOf(results.user.id) >= 0) {
-										return val;
-									}
-								}
+							fullAppList = _.indexBy(self.installedApps, 'id'),
+							defaultAppId = _.find(results.user.appList || [], function(appId) {
+								return fullAppList.hasOwnProperty(appId);
 							});
 
-							if(userAppList && userAppList.length > 0) {
-								userAppList.sort(function(a, b) {
-									return a.label < b.label ? -1 : 1;
-								});
-
-								results.user.appList = $.map(userAppList, function(val) {
-									return val.id;
-								});
-
-								defaultApp = fullAppList[results.user.appList[0]].name;
-
-								self.callApi({
-									resource: 'user.update',
-									data: {
-										accountId: results.account.id,
-										userId: results.user.id,
-										data: results.user
-									},
-									success: function(_data, status) {},
-									error: function(_data, status) {}
-								});
-							}
+						if(defaultAppId) {
+							defaultApp = fullAppList[defaultAppId].name;
+						} else if(self.installedApps.length > 0) {
+							defaultApp = self.installedApps[0].name;
 						}
 
 						self.currentUser = results.user;
@@ -324,38 +283,43 @@ define(function(require){
 
 		showTrialPopup: function(daysLeft) {
 			var self = this,
-				template = $(monster.template(self, 'trial-upgradePopup', { daysLeft: daysLeft })),
-				dialog;
+				dialog,
+				alreadyUpgraded = self.uiFlags.account.get('trial_upgraded');
 
-			if(daysLeft >= 0) {
-				monster.ui.confirm(
-					'', // Marketing content goes here
-					function() {
-						self.handleUpgradeClick();
-					},
-					null,
-					{
-						title: monster.template(self, '!' + self.i18n.active().trialPopup.mainMessage, { variable: daysLeft }),
-						cancelButtonText: self.i18n.active().trialPopup.closeButton,
-						confirmButtonText: self.i18n.active().trialPopup.upgradeButton,
-						confirmButtonClass: 'monster-button-primary',
-						type: 'warning'
-					}
-				);
-			} else {
-				monster.ui.alert(
-					'error',
-					'', // Marketing content goes here
-					function() {
-						self.handleUpgradeClick();
-					},
-					{
-						closeOnEscape: false,
-						title: self.i18n.active().trialPopup.trialExpired,
-						closeButtonText: self.i18n.active().trialPopup.upgradeButton,
-						closeButtonClass: 'monster-button-primary'
-					}
-				);
+			if(alreadyUpgraded) {
+				monster.ui.alert('info', self.i18n.active().trialPopup.alreadyUpgraded);
+			}
+			else {
+				if(daysLeft >= 0) {
+					monster.ui.confirm(
+						'', // Marketing content goes here
+						function() {
+							self.handleUpgradeClick();
+						},
+						null,
+						{
+							title: monster.template(self, '!' + self.i18n.active().trialPopup.mainMessage, { variable: daysLeft }),
+							cancelButtonText: self.i18n.active().trialPopup.closeButton,
+							confirmButtonText: self.i18n.active().trialPopup.upgradeButton,
+							confirmButtonClass: 'monster-button-primary',
+							type: 'warning'
+						}
+					);
+				} else {
+					monster.ui.alert(
+						'error',
+						'', // Marketing content goes here
+						function() {
+							self.handleUpgradeClick();
+						},
+						{
+							closeOnEscape: false,
+							title: self.i18n.active().trialPopup.trialExpired,
+							closeButtonText: self.i18n.active().trialPopup.upgradeButton,
+							closeButtonClass: 'monster-button-primary'
+						}
+					);
+				}
 			}
 		},
 
@@ -364,18 +328,63 @@ define(function(require){
 
 			monster.pub('myaccount.hasCreditCards', function(response) {
 				if(response) {
-					// query api stuff to create account and upgrade
-					// remove time trial left
-					// move account to prod
-					// create crm lead
+					self.upgradeAccount(self.accountId, function() {
+						monster.ui.alert('info', self.i18n.active().trial.successUpgrade.content, null, {
+							title: self.i18n.active().trial.successUpgrade.title
+						});
+					});
 				}
 				else {
 					monster.pub('myaccount.showCreditCardTab');
 
 					toastr.error(self.i18n.active().trial.noCreditCard);
 				}
-			})
-			
+			});
+		},
+
+		upgradeAccount: function(accountId, callback) {
+			var self = this;
+
+			self.sendUpgradeTrialRequest(accountId, function() {
+				self.setUpgradeFlagAccount(accountId, function(data) {
+					callback && callback(data);
+				});
+			});
+		},
+
+		sendUpgradeTrialRequest: function(accountId, callback) {
+			var self = this;
+
+			monster.request({
+				resource: 'auth.upgradeTrial',
+				data: {
+					envelopeKeys: { 
+						id: accountId 
+					}
+				},
+				success: function(data, status) {
+					callback && callback(data);
+				}
+			});
+		},
+
+		setUpgradeFlagAccount: function(accountId, callback) {
+			var self = this;
+
+			self.getAccount(accountId, function(data) {
+				var accountData = self.uiFlags.account.set('trial_upgraded', true, data.data);
+
+				self.callApi({
+					resource: 'account.update',
+					data: {
+						accountId: self.accountId,
+						data: accountData
+					},
+					success: function(data) {
+						callback && callback(data.data);
+					}
+				});
+			});
 		},
 
 		renderLoginPage: function(container) {
@@ -691,13 +700,13 @@ define(function(require){
 			});
 		},
 
-		getAccount: function(success, error) {
+		getAccount: function(accountId, success, error) {
 			var self = this;
 
 			self.callApi({
 				resource: 'account.get',
 				data: {
-					accountId: self.accountId
+					accountId: accountId
 				},
 				success: function(_data) {
 					if(typeof success === 'function') {

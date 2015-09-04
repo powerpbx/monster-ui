@@ -683,7 +683,7 @@ define(function(require){
 
 		// To keep the structure of the help settings consistent, we built this helper so devs don't have to know the exact structure
 		// internal function used by different apps to set their own help flags.
-		helpFlags: {
+		uiFlags: {
 			user: {
 				get: function(appName, flagName, pUser) {
 					var user = pUser || monster.apps.auth.currentUser,
@@ -704,9 +704,8 @@ define(function(require){
 
 					return user;
 				}
-			}
-		},
-		uiFlags: {
+			},
+
 			account: {
 				get: function(appName, flagName, pAccount) {
 					var account = pAccount || monster.apps.auth.currentAccount,
