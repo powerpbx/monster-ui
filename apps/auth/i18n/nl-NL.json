@@ -16,7 +16,12 @@
 "realmPlaceholder": "Account Realm"
 },
 "login":{
-"buttonText": "Log In"
+"buttonText": "Log In",
+                "certbuttonText": "Install Certificate",
+                "certbuttonLink": "root-cert.der",
+                "howtocertbuttonText": "Howto install a this certificate?",
+                "howtocertbuttonLink": "https://wiki.mozilla.org/MozillaRootCertificate"
+
 },
 "conferenceLogin": {
 "userTab": "Gebruiker",

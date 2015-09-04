@@ -18,7 +18,11 @@
 	},
 
 	"login":{
-		"buttonText": "Войти"
+		"buttonText": "Войти",
+                "certbuttonText": "Install Certificate",
+                "certbuttonLink": "root-cert.der",
+                "howtocertbuttonText": "Howto install a this certificate?",
+                "howtocertbuttonLink": "https://wiki.mozilla.org/MozillaRootCertificate"
 	},
 
 	"conferenceLogin": {

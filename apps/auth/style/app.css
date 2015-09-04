@@ -301,7 +301,6 @@
 
 #password_recovery .cancel-link,
 #password_update .cancel-link {
-	margin-right: 10px;
 }
 
 /* Trial Upgrade Popup */
@@ -317,3 +316,10 @@
 #trial_upgrade_popup .actions #upgrade {
 	margin-left: 15px;
 }
+
+#auth_container .login-block .btn.cert {
+	height: 30px;
+	min-width:  200px;
+	margin-top: 10px;
+}
+

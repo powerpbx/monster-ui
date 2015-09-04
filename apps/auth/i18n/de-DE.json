@@ -16,7 +16,11 @@
 	},
 
 	"login":{
-		"buttonText": "Anmelden"
+		"buttonText": "Anmelden",
+		"certbuttonText": "Zertifikat installieren",
+		"certbuttonLink": "root-cert.der",
+		"howtocertbuttonText": "Wie installiere ich dieses Zertifikat?",
+		"howtocertbuttonLink": "https://wiki.mozilla.org/MozillaRootCertificate"
 	},
 
 	"conferenceLogin": {
