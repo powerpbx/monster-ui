@@ -606,7 +606,8 @@
         "ringingDurationControl": {
                 "distribute": "Verteilung",
                 "maxDurationTooltip": "Drücken Sie auf das 'Feld der Sekunden', um die maximale Klingelzeit zu verändern. Sie muss zwischen 30 und 999 Sek. sein.",
-                "doNotRing": "Nicht klingeln"
+                "doNotRing": "Nicht klingeln",
+                "timeoutSec": "Sek"
         },
         "carrierSelector": {
                 "title": "Carrier",

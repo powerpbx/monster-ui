@@ -595,7 +595,8 @@
         "ringingDurationControl": {
                 "distribute": "automatic call distribution",
                 "maxDurationTooltip": "apăsați-l pe teren de secunde pentru a schimba timpul maxim de apel. acestea trebuie 30-999 sec. a fi.",
-                "doNotRing": "nu inel"
+                "doNotRing": "nu inel",
+                "timeoutSec": "Sec"
         },
         "carrierSelector": {
                 "title": "purtător",

@@ -172,7 +172,7 @@ define(function(require){
 								 		? (i==scaleSections 
 								 			? '<input type="text" value="'+scaleMaxSeconds+'" data-current="'+scaleMaxSeconds+'" class="scale-max-input" maxlength="3"><span class="scale-max">'
 								 			:'<span>')
-								 			+ Math.floor(i*scaleMaxSeconds/scaleSections) + ' Sec</span>' 
+								 			+ Math.floor(i*scaleMaxSeconds/scaleSections) + ' ' +  self.i18n.active().ringingDurationControl.timeoutSec + '</span>' 
 							 			: '')
 									 + '</div>';
 						scaleContainer.append(toAppend);

@@ -641,5 +641,17 @@
             "hrs": "hrs"
     },
     "YES": "JA",
-    "NO":  "NEIN"
+    "NO":  "NEIN",
+    "friendlyTimer": {
+            "minutesAnd": "Minuten und",
+            "hours": "Stunden",
+            "seconds": "Sekunden"
+    },
+
+    "accountToggle": {
+            "currentAccountLabel": "Kontenwahl",
+            "toggleTooltip": "Schnellauswahl Konto"
+    },
+    "triggerMasquerading": "Sie sind als \"{{accountName}}\" eingebucht.",
+    "restoreMasquerading": "Ihr Konto ist wieder aktiviert."
 }

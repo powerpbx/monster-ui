@@ -589,7 +589,8 @@
 	"ringingDurationControl": {
 		"distribute": "Distibutie",
 		"maxDurationTooltip": "klik in deze box om de maximale duur van de ringgroep te veranderen, u dient een waarde in te geven tussen de 30 en 999.",
-		"doNotRing": "Niet laten overgaan"
+		"doNotRing": "Niet laten overgaan",
+                "timeoutSec": "Sec"
 	},
 
 	"__comment": "UI-966: We want to be able to customize the carrier choice in different plances, so we build a common control",

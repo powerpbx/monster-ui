@@ -597,7 +597,8 @@
         "ringingDurationControl": {
                 "distribute": "distribuzione automatica delle chiamate",
                 "maxDurationTooltip": "premere sul campo di secondi per modificare il tempo massimo di chiamata. essi devono 30-999 sec. essere.",
-                "doNotRing": "non anello"
+                "doNotRing": "non anello",
+                "timeoutSec": "sek"
         },
         "carrierSelector": {
                 "title": "vettore",

@@ -338,5 +338,16 @@
                 "min": "mins",
                 "hr": "hr",
                 "hrs": "hrs"
-        }
+        },
+        "friendlyTimer": {
+                "minutesAnd": "minutes and",
+                "hours": "hours",
+                "seconds": "seconds"
+        },
+        "accountToggle": {
+                "currentAccountLabel": "Browsing",
+                "toggleTooltip": "Account Jump"
+        },
+        "triggerMasquerading": "You are now masquerading the account \"{{accountName}}\".",
+        "restoreMasquerading": "You are not masquerading anymore."
 }

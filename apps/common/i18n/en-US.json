@@ -668,7 +668,8 @@
 	"ringingDurationControl": {
 		"distribute": "Distribute",
 		"maxDurationTooltip": "Click this box to change the maximum duration for your ring group. You must enter a number between 30 and 999.",
-		"doNotRing": "Do not ring"
+		"doNotRing": "Do not ring",
+                "timeoutSec": "Sec"
 	},
 
 	"__comment": "UI-966: We want to be able to customize the carrier choice in different plances, so we build a common control",
