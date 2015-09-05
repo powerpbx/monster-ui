@@ -14,8 +14,10 @@ define(function(require){
                         'de-DE': { customCss: false },
                         'it-IT': { customCss: false },
                         'fr-FR': { customCss: false },
+                        'nl-NL': { customCss: false },
                         'ro-RO': { customCss: false },
-                        'ru-RU': { customCss: false }
+                        'ru-RU': { customCss: false },
+                        'es-ES': { customCss: false }
 		},
 
 		requests: {},

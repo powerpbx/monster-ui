@@ -509,8 +509,8 @@
                         "friendlyName": "System beschäftigt"
 		},
 		"ORIGINATOR_CANCEL": {
-			"outbound": "Der Anruf wurde beendet bevor die Endstelle antwortete.",
-			"inbound": "Der Anruf wurde beendet bevor die Endstelle antwortete.",
+			"outbound": "Der Anruf wurde beendet, ehe beantwortet wurde.",
+			"inbound": "Der Anruf wurde beendet, ehe beantwortet wurde.",
                         "friendlyName": "Verpasst"
 		},
 		"CRASH": {

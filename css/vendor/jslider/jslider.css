@@ -32,7 +32,7 @@
 .jslider .jslider-value small { position: relative; top: -0.4em; }
 
 .jslider .jslider-scale { position: relative; top: 9px; }
-.jslider .jslider-scale span { position: absolute; height: 5px; border-left: 1px solid #FFF; font-size: 0; }
+.jslider .jslider-scale span { position: absolute; height: 5px; border-left: 1px solid #000; font-size: 0; }
 .jslider .jslider-scale ins { 
     font-size: 9px; 
     text-decoration: none; 

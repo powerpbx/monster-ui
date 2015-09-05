@@ -19,7 +19,8 @@ define(function(require){
 			'nl-NL': { customCss: false },
 			'ro-RO': { customCss: false },
 			'fr-FR': { customCss: false },
-			'ru-RU': { customCss: false }
+			'ru-RU': { customCss: false },
+			'es-ES': { customCss: false }
 		},
 
 		requests: {},
