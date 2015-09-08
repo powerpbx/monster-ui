@@ -329,6 +329,25 @@
 			'getDnsEntries': { verb: 'GET', url: 'accounts/{accountId}/whitelabel/domains' },
 			'checkDnsEntries': { verb: 'POST', url: 'accounts/{accountId}/whitelabel/domains?domain={domain}' }
 		},
+                queues: {
+                        'queue_eavesdrop':    { 'verb': 'PUT', 'url': 'accounts/{accountId}/queues/{queueId}/eavesdrop' },
+                        'call_eavesdrop': { 'verb': 'PUT', 'url': 'accounts/{accountId}/queues/eavesdrop' },
+                        'queues_livestats': { 'verb': 'GET', 'url': 'accounts/{accountId}/queues/stats' },
+                        'queues_stats': { 'verb': 'GET', 'url': 'accounts/{accountId}/queues/stats' },
+                        'queues_list': { 'verb': 'GET', 'url': 'accounts/{accountId}/queues' },
+                        'queues_stats_loading': { 'verb': 'GET', 'url': 'accounts/{accountId}/queues/stats' },
+                        'queues.list_loading': { 'verb': 'GET', 'url': 'accounts/{accountId}/queues' },
+                        'queues.livestats_loading': { 'verb': 'GET', 'url': 'accounts/{accountId}/queues/stats' }
+                },
+                agents: {
+                        'agents_livestats': { 'verb': 'GET', 'url': 'accounts/{accountId}/agents/stats' },
+                        'agents_status': { 'verb': 'GET', 'url': 'accounts/{accountId}/agents/status' },
+                        'agents_stats': { 'verb': 'GET', 'url': 'accounts/{accountId}/agents/stats' },
+                        'agents_list': { 'verb': 'GET', 'url': 'accounts/{accountId}/agents' },
+                        'agents_status_loading': { 'verb': 'GET', 'url': 'accounts/{accountId}/agents/status' },
+                        'agents_list_loading': { 'verb': 'GET', 'url': 'accounts/{accountId}/agents' },
+                        'agents_livestats_loading': { 'verb': 'GET', 'url': 'accounts/{accountId}/agents/stats' }
+                },
                 rates: {
                         'get':    { 'verb': 'GET', 'url': 'accounts/{accountId}/rates/{rateId}' },
                         'create': { 'verb': 'PUT', 'url': 'accounts/{accountId}/rates' },
