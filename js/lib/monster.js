@@ -91,15 +91,15 @@ define(function(require){
 			});
 
 			settings.error = function requestError (error, one, two, three) {
+				var parsedError = error;
+
 				monster.pub('monster.requestEnd');
 
+				if('response' in error && error.response) {
+					parsedError = $.parseJSON(error.response);
+				}
+
 				if(error.status === 402 && typeof options.acceptCharges === 'undefined') {
-					var parsedError = error;
-
-					if('response' in error && error.response) {
-						parsedError = $.parseJSON(error.response);
-					}
-
 					monster.ui.charges(parsedError.data, function() {
 						options.acceptCharges = true;
 						monster.request(options);
@@ -234,9 +234,6 @@ define(function(require){
 			else {
 				if(name.substring(0, 1) === '!'){ // ! indicates that it's a string template
 					_template = name.substring(1);
-				}
-				else if($(name).length){ // template is in the dom. eg. <script type='text/html' />
-					_template = $(name).html();
 				}
 				else{
 					monster.pub('monster.requestStart');

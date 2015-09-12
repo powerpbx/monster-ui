@@ -111,9 +111,9 @@ define(function(require){
 					},
 					phone_numbers: {
 						tollfree_ch: { rate: {},activation_charge: {}, minimum: {} },
-						did_ch: { rate: {},activation_charge: {}, minimum: {} },
+						fixnet_ch: { rate: {},activation_charge: {}, minimum: {} },
 						tollfree_de: { rate: {},activation_charge: {}, minimum: {} },
-						did_de: { rate: {},activation_charge: {}, minimum: {} },
+						fixnet_de: { rate: {},activation_charge: {}, minimum: {} },
 					},
 					connects: {
 						dsl_ch_min: { rate: {},activation_charge: {}, minimum: {} },
