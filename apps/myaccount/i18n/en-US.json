@@ -197,6 +197,7 @@
 		"availableCredits": "Available Credits",
 		"minutesUsed": "Minutes Used",
 		"callCharges": "Call Charges",
+		"callResell": "Reseller Charges",
 		"activeCall": "active",
 
 		"title": "Per Minute",
@@ -227,6 +228,7 @@
 		"dateColumn": "Date",
 		"durationColumn": "Minutes",
 		"amountColumn": "Amount",
+                "InamountColumn": "E-Price",
 		"fromColumn": "From",
 		"toColumn": "To",
 		"directionColumn": " ",

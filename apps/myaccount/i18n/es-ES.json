@@ -196,6 +196,7 @@
 	"balance" : {
 		"availableCredits": "Available Credits",
 		"minutesUsed": "Minutes Used",
+                "callResell": "Reseller Charges",
 		"callCharges": "Call Charges",
 		"activeCall": "active",
 
@@ -227,6 +228,7 @@
 		"dateColumn": "Date",
 		"durationColumn": "Minutes",
 		"amountColumn": "Amount",
+                "InamountColumn": "E-Price",
 		"fromColumn": "From",
 		"toColumn": "To",
 		"directionColumn": " ",

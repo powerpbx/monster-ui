@@ -23,6 +23,12 @@
 			<div class="title">{{ i18n.balance.minutesUsed }}</div>
 		</div>
 		{{/compare}}
+		{{#compare is_adminreseller '==' true }}
+		<div class="title-box pull-right">
+			<div class="value">{{ i18n.currencyUsed }}<span id="call_charges"> {{totalResell}}</span></div>
+			<div class="title">{{ i18n.balance.callResell }}</div>
+		</div>
+		{{/compare}}
 	</div>
 	{{/compare}}
 

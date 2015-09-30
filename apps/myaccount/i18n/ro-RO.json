@@ -140,6 +140,7 @@
 		"availableCredits": "soldul contului",
 		"minutesUsed": "consumă minute",
 		"callCharges": "costul de conectare",
+                "callResell": "Reseller Charges",
 		"activeCall": "activ",
 
 		"title": "costul curent",
@@ -170,6 +171,7 @@
 		"dateColumn": "data",
 		"durationColumn": "minute",
 		"amountColumn": "cont",
+                "InamountColumn": "E-Price",
 		"fromColumn": "variind de la",
 		"toColumn": "pentru",
 		"directionColumn": " ",

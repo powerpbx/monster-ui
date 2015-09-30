@@ -184,6 +184,7 @@
 		"availableCredits": "Kontostand",
 		"minutesUsed": "Minuten verbraucht",
 		"callCharges": "Verbindungskosten",
+		"callResell": "Wiederverkaufskosten",
 		"activeCall": "Aktiv",
 
 		"title": "Aktuelle Kosten",
@@ -214,6 +215,7 @@
 		"dateColumn": "Datum",
 		"durationColumn": "Minuten",
 		"amountColumn": "Preis",
+		"InamountColumn": "E-Preis",
 		"fromColumn": "Herkunft",
 		"toColumn": "Ziel",
 		"directionColumn": " ",

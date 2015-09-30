@@ -108,6 +108,7 @@
 		"availableCredits": "Crédits disponibles",
 		"minutesUsed": "Minutes utilisées",
 		"callCharges": "Frais d'appels",
+                "callResell": "Reseller Charges",
 		"activeCall": "en cours",
 
 		"title": "Par Minute",
@@ -140,6 +141,7 @@
 		"directionColumn": "Direction",
 		"durationColumn": "Minutes",
 		"amountColumn": "Montant",
+                "InamountColumn": "E-Price",
 		"fromColumn": "De",
 		"toColumn": "À",
 		"accountColumn": "Compte",

@@ -140,6 +140,7 @@
 		"availableCredits": "saldo contabile",
 		"minutesUsed": "consuma minuti",
 		"callCharges": "costi di connessione",
+                "callResell": "Reseller Charges",
 		"activeCall": "attivo",
 
 		"title": "costo attuale",
@@ -170,6 +171,7 @@
 		"dateColumn": "data",
 		"durationColumn": "verbale",
 		"amountColumn": "conto",
+                "InamountColumn": "E-Price",
 		"fromColumn": "vanno dal",
 		"toColumn": "a",
 		"directionColumn": " ",

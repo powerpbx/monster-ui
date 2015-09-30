@@ -137,6 +137,7 @@
 		"availableCredits": "Beschikbaar Krediet",
 		"minutesUsed": "Gebruikte minuten",
 		"callCharges": "Gesprekskosten",
+                "callResell": "Reseller Charges",
 		"activeCall": "actief",
 
 		"title": "Per Minuut",
@@ -167,6 +168,7 @@
 		"dateColumn": "Datum",
 		"durationColumn": "Minuten",
 		"amountColumn": "Bedrag",
+                "InamountColumn": "E-Price",
 		"fromColumn": "Van",
 		"toColumn": "Naar",
 		"directionColumn": " ",

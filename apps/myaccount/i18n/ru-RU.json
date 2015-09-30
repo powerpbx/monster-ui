@@ -163,6 +163,7 @@
 		"availableCredits": "Доступные средства",
 		"minutesUsed": "Использовано минут",
 		"callCharges": "Начислено за звонки",
+                "callResell": "Reseller Charges",
 		"activeCall": "активный",
 
 		"title": "Поминутная тарификация",
@@ -193,6 +194,7 @@
 		"dateColumn": "Дата",
 		"durationColumn": "Минуты",
 		"amountColumn": "Сумма",
+                "InamountColumn": "E-Price",
 		"fromColumn": "От",
 		"toColumn": "Кому",
 		"directionColumn": " ",

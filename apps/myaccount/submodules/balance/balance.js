@@ -234,6 +234,7 @@ define(function(require){
 				monster.ui.table.balance.addData(data.tabData);
 
 				parent.find('#call_charges').html(data.totalCharges);
+				parent.find('#call_resell').html(data.totalResell);
 				parent.find('#minutes_used').html(data.totalMinutes);
 			});
 		},
@@ -243,7 +244,8 @@ define(function(require){
 				data = {
 					tabData: [],
 					totalMinutes: 0,
-					totalCharges: 0
+					totalCharges: 0,
+					totalResell: 0
 				};
 
 			if(dataRequest.length > 0) {
@@ -258,7 +260,8 @@ define(function(require){
 					var duration = self.i18n.active().balance.active_call,
 						friendlyDate = monster.util.toFriendlyDate(v.created),
 						accountName = '-',
-						friendlyAmount = self.i18n.active().currencyUsed + " " + parseFloat(v.amount).toFixed(3),
+						friendlyAmount = parseFloat(v.amount).toFixed(3),
+						friendlySubAmount = parseFloat(v.subamount).toFixed(3),
 						fromField = monster.util.formatPhoneNumber(v.metadata.from || '').replace(/@.*/, ''),
 						toField = monster.util.formatPhoneNumber(v.metadata.to || '').replace(/@.*/, '');
 
@@ -275,6 +278,7 @@ define(function(require){
 					}
 
 					data.totalCharges += parseFloat(v.amount);
+					data.totalResell += parseFloat(v.subamount);
 
 					data.tabData.push([
 						v.created || '-',
@@ -285,13 +289,19 @@ define(function(require){
 						toField || '-',
 						accountName || '-',
 						duration || '-',
-						friendlyAmount || '-'
+						friendlyAmount || '-',
+						friendlySubAmount || '-'
 					]);
 				});
 				
 				data.totalCharges = data.totalCharges.toFixed(3);
+				data.totalResell = data.totalResell.toFixed(3);
 			}
-
+//                        if(monster.apps.auth.currentAccount.is_reseller == true && monster.apps.auth.currentUser.priv_level == 'admin' && monster.apps.auth.currentUser.enabled == true && monster.apps.auth.currentAccount.superduper_admin == true)
+//                            data.is_superadminreseller = true;
+                        if(monster.apps.auth.currentAccount.is_reseller == true && monster.apps.auth.currentUser.priv_level == 'admin' && monster.apps.auth.currentUser.enabled == true)
+                            data.is_adminreseller = true;
+console.log(data);
 			return data;
 		},
 
@@ -330,15 +340,15 @@ define(function(require){
 							},
 							{
 								'sTitle': self.i18n.active().balance.fromColumn,
-								'sWidth': '20%'
+								'sWidth': '15%'
 							},
 							{
 								'sTitle': self.i18n.active().balance.toColumn,
-								'sWidth': '20%'
+								'sWidth': '15%'
 							},
 							{
 								'sTitle': self.i18n.active().balance.accountColumn,
-								'sWidth': '25%'
+								'sWidth': '15%'
 							},
 							{
 								'sTitle': self.i18n.active().balance.durationColumn,
@@ -347,8 +357,12 @@ define(function(require){
 						];
 
 					if (showCredit) {
-						columns[7].sWidth = '5%';
-						columns.push({'sTitle': self.i18n.active().balance.amountColumn,'sWidth': '5%'});
+						columns[7].sWidth = '10%';
+						columns.push({'sTitle': self.i18n.active().balance.amountColumn,'sWidth': '10%'});
+					}
+					if(monster.apps.auth.currentAccount.is_reseller == true && monster.apps.auth.currentUser.priv_level == 'admin' && monster.apps.auth.currentUser.enabled == true) {
+						columns[8].sWidth = '10%';
+						columns.push({'sTitle': self.i18n.active().balance.InamountColumn,'sWidth': '10%'});
 					}
 
 					monster.ui.table.create('balance', parent.find('#transactions_grid'), columns, {}, {
