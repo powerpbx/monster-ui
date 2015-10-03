@@ -387,11 +387,8 @@
 				},
 				"mimeTypes": "De volgende bestanden hebben een niet ondersteund bestandsformaat: ",
 				"size": "De volgende bestanden zijn te groot: ",
-                                "number": "One or more numbers you entered are not in the right format or are already listed!",
-				"numbers": {
-					"single": "Het nummer wat u invoerde lijken ongeldig !!!",
-					"multiple": "De nummers die u invoerde lijken ongeldig !!!"
-				},
+                                "number": "the number is not valid!",
+				"numbers": "Het nummer wat u invoerde lijken ongeldig !!!",
 				"submit": {
 					"document": "Upload alstublieft de getekende LoA en de factuur van de latende provider die overeenkomen met de nummers die u wilt porteren"
 				}

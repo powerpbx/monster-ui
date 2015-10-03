@@ -383,11 +383,8 @@
 				"submit": {
 					"document": "Пожалуйста, предоставьте подписанную Доверенность и счёт для номеров, которые вы хотите перенести"
 				},
-                                "number": "One or more numbers you entered are not in the right format or are already listed!",
-                                "numbers": {
-                                        "single": "One or more numbers you entered are not in the right format or are already listed!",
-                                        "multiple": "One or more numbers you entered are not in the right format or are already listed!"
-                                }
+                                "number": "the number is not valid!",
+                                "numbers": "One or more numbers you entered are not in the right format or are already listed!"
 			}
 		},
                 "noScheduledDate": "None",

@@ -416,11 +416,8 @@
                                 "submit": {
                                         "document": "Bitte unterzeichnen Sie das LOA (Formular) inkl. der letzten Rechnung mit den zu portierenden Nummern."
                                 },
-                                "number": "Die von Ihnen eingegebene Nummer ist ungültig!",
-                                "numbers": {
-                                        "single": "Die eingegebene Nummer ist ungültig!",
-                                        "multiple": "Die von Ihnen eingegebenen Nummern sind ungültig!"
-                                }
+                                "numbers": "Die eingegebene Nummer ist ungültig!",
+                                "number": "Die von Ihnen eingegebene Nummer ist ungültig!"
                         }
                 },
 

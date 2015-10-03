@@ -398,11 +398,8 @@
                                 "submit": {
                                         "document": "Please upload the signed LOA and the bill corresponding to the numbers you want to port"
                                 },
-                                "number": "One or more numbers you entered are not in the right format or are already listed!",
-                                "numbers": {
-                                        "single": "numărul introdus este invalid!",
-                                        "multiple": "introducerea acestor numere nu sunt valabile!"
-                                }
+                                "number": "the number is not valid!",
+                                "numbers": "numărul introdus este invalid!"
                         }
                 },
                 "noScheduledDate": "None",
