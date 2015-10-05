@@ -1,15 +1,15 @@
 <div id="action_confirmation">
 	{{#if delete}}
-		<h4>{{i18n.numbers.dialogConfirm.delete.questionPartOne}}<span class="monster-blue">{{numberCount}}</span>{{i18n.numbers.dialogConfirm.delete.questionPartTwo}}</h4>
+		<h4>{{i18n.numbers.dialogConfirm.delete.questionPartOne}} <span class="monster-blue"> {{numberCount}} </span> {{i18n.numbers.dialogConfirm.delete.questionPartTwo}} </h4>
 	{{/if}}
 
 	{{#if move}}
 		<h4>
-			{{i18n.numbers.dialogConfirm.move.questionPartOne}}
-			<span class="monster-blue">{{numberCount}}</span>
-			{{i18n.numbers.dialogConfirm.move.questionPartTwo}}
-			<span class="monster-blue">{{destinationAccountName}}</span>
-			{{i18n.numbers.dialogConfirm.move.questionPartThree}}
+			{{i18n.numbers.dialogConfirm.move.questionPartOne}} 
+			<span class="monster-blue"> {{numberCount}} </span>
+			{{i18n.numbers.dialogConfirm.move.questionPartTwo}} 
+			<span class="monster-blue"> {{destinationAccountName}} </span>
+			{{i18n.numbers.dialogConfirm.move.questionPartThree}} 
 		</h4>
 	{{/if}}
 
@@ -18,14 +18,14 @@
 			{{#each accountList}}
 				<thead>
 					<tr>
-						<th>{{../i18n.numbers.dialogConfirm.from}}<span class="monster-blue">{{accountName}}</span></th>
+						<th> {{../i18n.numbers.dialogConfirm.from}} <span class="monster-blue"> {{accountName}} </span></th>
 					</tr>
 				</thead>
 				<tbody>
 					{{#each this.numbers}}
 						<tr>
 							<td data-number="{{this}}">
-								<div class="pull-left">{{this}}</div>
+								<div class="pull-left"> {{this}} </div>
 								<i class="fa fa-times-circle-o pull-right remove-number"></i>
 							</td>
 						</tr>

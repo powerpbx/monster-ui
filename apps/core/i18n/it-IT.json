@@ -125,6 +125,7 @@
 	"warning": "ATTENZIONE!",
 	"confirmCharges": {
 		"title": "Conferma costo",
+                "oneTimeFee": "OneTime Fee",
 		"withChargesPartOne": "Il prezzo per questo è di {{ variabile }}",
 		"withChargesPartTwo": "unico {{ variabile }}.",
 		"withoutCharges": "non è un {{ variabile }}.",

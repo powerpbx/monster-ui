@@ -128,6 +128,7 @@
   "warning": "Waarschuwing!",
   "confirmCharges": {
     "title": "Kosten Overzicht",
+    "oneTimeFee": "OneTime Fee",
     "withChargesPartOne": "U betaald een {{variable}}",
     "withChargesPartTwo": "eenmalige {{variable}}. ",
     "withoutCharges": "Er zijn geen {{variable}}.",

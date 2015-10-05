@@ -26,7 +26,7 @@
 }
 .service-plan-content-wrapper table.table th {
 	text-align: center;
-	background: #f0f0f9;
+	background: #F0F0F9;
 	color: #303039;
 	text-shadow: none;
 	border-bottom: solid 1px #c0c0c9;
@@ -50,5 +50,4 @@
 .service-plan-content-wrapper table.table tr td:last-child {
 	width: 10px;
 	padding: 0;
-	border: none;
 }

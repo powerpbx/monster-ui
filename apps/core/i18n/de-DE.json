@@ -134,6 +134,7 @@
 	"warning": "Warnung!",
 	"confirmCharges": {
 		"title": "Kosten bestätigen",
+                "oneTimeFee": "Einmaliger Betrag",
 		"withChargesPartOne": "Der Preis dafür ist {{variable}}",
 		"withChargesPartTwo": " Einmalig {{variable}}. ",
 		"withoutCharges": "Ist kein {{variable}}.",

@@ -125,6 +125,7 @@
 	"warning": "avertisment!",
 	"confirmCharges": {
 		"title": "Confirmați costuri",
+                "oneTimeFee": "OneTime Fee",
 		"withChargesPartOne": "Pretul pentru acest lucru este {{ variabila }}",
 		"withChargesPartTwo": "unic {{ variabila }}.",
 		"withoutCharges": "nu este o {{ variabilă }}.",

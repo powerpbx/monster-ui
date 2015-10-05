@@ -501,7 +501,7 @@ define(function(require){
 
 					var popup = monster.ui.dialog(dialogTemplate, {
 						width: '540px',
-						title: "Delete Numbers - Confirmation"
+						title: self.i18n.active().numbers.dialogConfirm.delete.title
 					});
 
 					dialogTemplate.on('click', '.remove-number', function() {
@@ -616,7 +616,7 @@ define(function(require){
 
 				monster.ui.dialog(dialogTemplate, {
 					width: '540px',
-					title: "Move Numbers - Confirmation"
+					title: self.i18n.active().numbers.dialogConfirm.move.title
 				});
 
 				dialogTemplate.on('click', '.remove-number', function() {

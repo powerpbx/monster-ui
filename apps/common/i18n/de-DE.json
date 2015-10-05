@@ -120,7 +120,7 @@
 			"cancel": "Abbrechen",
 			"delete": {
 				"title": "Nummern löschen - Bestätigen",
-				"questionPartOne": "Sind Sie sicher das Sie die?",
+				"questionPartOne": "Sind Sie sicher das Sie ",
 				"questionPartTwo": " Nummer(n) löschen möchten?",
 				"button": "Nummer(n) löschen"
 			},
@@ -569,6 +569,8 @@
                     "rate": "Monatlich:",
                     "CH_Numbers": "CH Nummer",
                     "CH_Tollfree": "CH Gratisnummer",
+                    "DE_Numbers": "DE Nummer",
+                    "DE_Tollfree": "DE Gratisnummer",
                     "Two-Way_Trunk": "Gleichzeitige Verbindungen",
                     "Inbound_Trunk": "Eingehende Verbindungen",
                     "Outbound_Trunk": "Ausgehende Verbindungen",

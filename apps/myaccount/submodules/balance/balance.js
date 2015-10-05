@@ -297,11 +297,11 @@ define(function(require){
 				data.totalCharges = data.totalCharges.toFixed(3);
 				data.totalResell = data.totalResell.toFixed(3);
 			}
-//                        if(monster.apps.auth.currentAccount.is_reseller == true && monster.apps.auth.currentUser.priv_level == 'admin' && monster.apps.auth.currentUser.enabled == true && monster.apps.auth.currentAccount.superduper_admin == true)
-//                            data.is_superadminreseller = true;
-                        if(monster.apps.auth.currentAccount.is_reseller == true && monster.apps.auth.currentUser.priv_level == 'admin' && monster.apps.auth.currentUser.enabled == true)
+                        if(monster.apps.auth.originalAccount.is_reseller == true && monster.apps.auth.currentUser.priv_level == 'admin' && monster.apps.auth.currentUser.enabled == true && monster.apps.auth.originalAccount.superduper_admin == true)
+                            data.is_superadminreseller = true;
+                        if(monster.apps.auth.originalAccount.is_reseller == true && monster.apps.auth.currentUser.priv_level == 'admin' && monster.apps.auth.currentUser.enabled == true)
                             data.is_adminreseller = true;
-console.log(data);
+console.log(monster.apps.auth);
 			return data;
 		},
 
@@ -360,7 +360,7 @@ console.log(data);
 						columns[7].sWidth = '10%';
 						columns.push({'sTitle': self.i18n.active().balance.amountColumn,'sWidth': '10%'});
 					}
-					if(monster.apps.auth.currentAccount.is_reseller == true && monster.apps.auth.currentUser.priv_level == 'admin' && monster.apps.auth.currentUser.enabled == true) {
+					if(monster.apps.auth.originalAccount.is_reseller == true && monster.apps.auth.currentUser.priv_level == 'admin' && monster.apps.auth.currentUser.enabled == true) {
 						columns[8].sWidth = '10%';
 						columns.push({'sTitle': self.i18n.active().balance.InamountColumn,'sWidth': '10%'});
 					}

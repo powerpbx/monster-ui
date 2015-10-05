@@ -123,6 +123,7 @@
 	"warning": "Предупреждение!",
 	"confirmCharges": {
 		"title": "Подтверждение оплаты",
+                "oneTimeFee": "OneTime Fee",
 		"withChargesPartOne": "Вы заплатите {{variable}}",
 		"withChargesPartTwo": " on-time {{variable}}. ",
 		"withoutCharges": "Не существует {{variable}}.",
