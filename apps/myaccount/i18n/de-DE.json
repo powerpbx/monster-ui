@@ -87,6 +87,15 @@
 			"permin_descript": "Maximalkosten pro Minute",
 			"permin_descript_short": "pro Minute"
 		},
+		"callerid": {
+			"title": "Konto-Anruf-ID",
+			"externaldefault": "+41525081922",
+			"emergencydefault": "+41525081922",
+			"external": "Externe Anruf-ID",
+			"emergency": "Notruf-ID",
+			"external_descript": "(Anruf-ID bei externen Anrufen)",
+			"emergency_descript": "(Anruf-ID bei Anrufen zu Notdiensten)"
+		},
 		"provision": {
 			"title": "Automatische Gerätekonfiguration",
 			"urlPass": "URL-Passwort",

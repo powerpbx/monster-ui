@@ -301,7 +301,6 @@ define(function(require){
                             data.is_superadminreseller = true;
                         if(monster.apps.auth.originalAccount.is_reseller == true && monster.apps.auth.currentUser.priv_level == 'admin' && monster.apps.auth.currentUser.enabled == true)
                             data.is_adminreseller = true;
-console.log(monster.apps.auth);
 			return data;
 		},
 

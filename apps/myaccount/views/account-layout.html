@@ -311,5 +311,44 @@
 				</div>
 			</div>
 		</li>
+
+                <li class="settings-item clearfix" data-name="callerid_settings">
+                        <a class="settings-link clearfix">
+                                <span class="title">{{ i18n.account.callerid.title }}</span>
+                                <span class="description">{{ i18n.account.callerid.external }}: {{account.caller_id.external.number}}{{#if account.caller_id.external.number}} {{/if}}</span>
+                                <span class="update">
+                                        <i class="fa fa-cog icon-small"></i>
+                                        <span class="text">{{ i18n.editSettings }}</span>
+                                </span>
+                                <span class="changes-saved">{{ i18n.changesSaved }}</span>
+                        </a>
+                        <div class="settings-item-content">
+                                <div class="row-fluid">
+                                        <div class="span12">
+                                                <form id="form_callerid_settings" class="form-horizontal">
+                                                        <div class="control-group">
+                                                                <label class="control-label" for="callerid_external">{{ i18n.account.callerid.external }}</label>
+                                                                <div class="controls">
+                                                                        <input type="text" id="callerid_external" name="caller_id.external.number" value="{{account.caller_id.external.number}}" placeholder="{{ i18n.account.callerid.externaldefault }}" data-original_value="{{account.caller_id.external.number}}"/>
+                                                                {{ i18n.account.callerid.external_descript }}</div>
+                                                        </div>
+                                                        <div class="control-group">
+                                                                <label class="control-label" for="callerid_emergency">{{ i18n.account.callerid.emergency }}</label>
+                                                                <div class="controls">
+                                                                        <input type="text" id="callerid_emergency" name="caller_id.emergency.number" value="{{account.caller_id.emergency.number}}" placeholder="{{ i18n.account.callerid.emergencydfault }}" data-original_value="{{account.caller_id.emergency.number}}"/>
+                                                                {{ i18n.account.callerid.emergency_descript }}</div>
+                                                        </div>
+                                                        <div class="action-group clearfix">
+                                                                <div class="action-bar">
+                                                                        <button type="button" class="monster-button cancel">{{ i18n.cancel }}</button>
+                                                                        <button type="submit" class="monster-button-success change" data-module="account" data-field="callerid_settings">{{ i18n.saveChanges }}</button>
+                                                                </div>
+                                                        </div>
+                                                </form>
+                                        </div>
+                                </div>
+                        </div>
+                </li>
+
 	</ul>
 </div>
