@@ -1,4 +1,5 @@
 <div class="trunkstore_popup number-regextern regextern clearfix">
+        <form id="number_regextern">
             <div class="clearfix popup-content">
                     <div class="regextern-list">
                         <div class="control-group clearfix regextern-line{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
@@ -14,6 +15,12 @@
                                     </div>
                         </div>
                         <div class="control-group clearfix regextern-line{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
+                                    <label class="control-label" for="didprivancy">{{ i18n.regextern.didprivancy }}</label>
+                                    <div class="didprivancy" data-on="true" data-off="false" data-on-label="{{i18n.on}}" data-off-label="{{i18n.off}}">
+                                        {{#monsterSwitch}}<input type="checkbox" id="didprivancy" name="didprivancy"{{#if didprivancy}} checked="checked"{{/if}}></input>{{/monsterSwitch}}
+                                    </div>
+                        </div>
+                        <div class="control-group clearfix regextern-line{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
                                     <label class="control-label" for="pvt_activestart">{{ i18n.regextern.pvt_activestart }}<i class="help-popover icon-question-sign" data-toggle="tooltip" data-placement="right" data-original-title="{{ i18n.regextern.pvt_activestartHelp }}"></i></label>
                                     <div class="controls">
                                         {{ pvt_activestart }}
@@ -23,12 +30,6 @@
                                     <label class="control-label" for="pvt_activestop">{{ i18n.regextern.pvt_activestop }}<i class="help-popover icon-question-sign" data-toggle="tooltip" data-placement="right" data-original-title="{{ i18n.regextern.pvt_activestopHelp }}"></i></label>
                                     <div class="controls">
                                         {{ pvt_activestop }}
-                                    </div>
-                        </div>
-                        <div class="control-group clearfix regextern-line{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
-                                    <label class="control-label" for="pvt_created">{{ i18n.regextern.pvt_created }}</label>{{debug pvt_created}}
-                                    <div class="controls">
-                                        {{ toFriendlyDate pvt_created "shortDate" }} {{ toFriendlyDate pvt_created "time" }}
                                     </div>
                         </div>
                         <div class="control-group clearfix regextern-line{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
@@ -52,4 +53,11 @@
 
                     </div>
                 </div>
+                <div class="popup-content popup-actions clearfix">
+                        <div class="pull-right">
+                                <a class="cancel-link monster-link blue" href="javascript:void(0);">{{ i18n.cancel }}</a>
+                                <button type="button" class="monster-button monster-button-success save">{{ i18n.saveChanges }}</button>
+                        </div>
+                </div>
+        </form>
 </div>

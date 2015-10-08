@@ -36,7 +36,7 @@ define(function(require){
 				ev.preventDefault();
 				var regexternFormData = monster.ui.getFormData('number_regextern');
 				regexternFormData.enabled = (regexternFormData.name && regexternFormData.name.length > 0) ? true : false;
-				if(regexternFormData.pvt_created === '') regexternFormData.pvt_created = Number(62167219200)+ ParseInt(Date.now())/1000;
+//				if(regexternFormData.pvt_created === '') regexternFormData.pvt_created = Number(62167219200)+ ParseInt(Date.now())/1000;
 				regexternFormData.pvt_modified = Number(62167219200) + parseInt(Date.now())/1000;
 				$.extend(true, dataNumber, { regextern: regexternFormData });
 

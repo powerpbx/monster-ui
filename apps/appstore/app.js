@@ -195,7 +195,7 @@ define(function(require){
 
 		renderApps: function(parent, appstoreData) {
 			var self = this,
-				appList = appstoreData.apps
+				appList = appstoreData.apps;
 				if(monster.apps.auth.currentAccount.superduper_admin != true)
 					appList = monster.ui.change_appList(appList,'carrier', 'delete', 'reseller', 'business');
 				if(monster.apps.auth.currentAccount.is_reseller != true && monster.apps.auth.currentAccount.superduper_admin != true)

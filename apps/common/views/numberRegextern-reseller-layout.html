@@ -15,6 +15,12 @@
                                     </div>
                         </div>
                         <div class="control-group clearfix regextern-line{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
+                                    <label class="control-label" for="didprivancy">{{ i18n.regextern.didprivancy }}</label>
+                                    <div class="didprivancy" data-on="true" data-off="false" data-on-label="{{i18n.on}}" data-off-label="{{i18n.off}}">
+                                        {{#monsterSwitch}}<input type="checkbox" id="didprivancy" name="didprivancy"{{#if didprivancy}} checked="checked"{{/if}}></input>{{/monsterSwitch}}
+                                    </div>
+                        </div>
+                        <div class="control-group clearfix regextern-line{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
                                     <label class="control-label" for="proxy">{{ i18n.regextern.proxy }}</label>
                                     <input id="proxy" type="text" placeholder='{{ i18n.regextern.placeholder_proxy }}' name="proxy" value="{{proxy}}"/>
                         </div>
@@ -57,12 +63,6 @@
                                     <label class="control-label" for="pvt_activestop">{{ i18n.regextern.pvt_activestop }}<i class="help-popover icon-question-sign" data-toggle="tooltip" data-placement="right" data-original-title="{{ i18n.regextern.pvt_activestopHelp }}"></i></label>
                                     <div class="controls">
                                         <input type="text" id="datetimepicker_activestop" name="pvt_activestop" value="{{ pvt_activestop }}">
-                                    </div>
-                        </div>
-                        <div class="control-group clearfix regextern-line{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
-                                    <label class="control-label" for="pvt_created">{{ i18n.regextern.pvt_created }}</label>{{debug pvt_created}}
-                                    <div class="controls">
-                                        {{ toFriendlyDate pvt_created "shortDate" }} {{ toFriendlyDate pvt_created "time" }}
                                     </div>
                         </div>
                         <div class="control-group clearfix regextern-line{{#if this.disabled}} disabled{{/if}}" data-restriction="{{@key}}">
