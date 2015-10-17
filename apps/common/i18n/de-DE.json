@@ -14,11 +14,8 @@
                "didtype": "DID-Typ",
                "didprovider": "Provider-Name",
                "diddebug": "DID-Debug",
-               "didprivancy": "DID-Privat Modus",
-               "didusec2c": "DID-C2C",
-               "didblockanonym": "DID-Blockanonym",
-               "didblacklist": "DID-Blockliste",
-               "didblocknonpublic": "DID-Block ohne Eintrag",
+               "didprivancy": "Sperrlisten",
+               "didnameprivancy": "Namemodus",
                "didinfo": "Information",
                "providerurl": "Provider-URL-Portal",
                "providerurltype": "API-Typ",
@@ -55,7 +52,13 @@
                "placeholder_pvt_activestop": "1431282897",
                "placeholder_pvt_created": "1431282897",
                "placeholder_pvt_modified": "1431282897",
-               "status": "Ameldestatus"
+               "status": "Ameldestatus",
+               "numberstate": "Nummer Status",
+               "force_outbound": "OnNet Nr. benutzen",
+               "pvt_module_name": "Nr-Typ",
+               "wnm_other": "Global",
+               "wnm_local": "Lokal"
+
         },
 	"accountBrowser": {
 		"missingAccount": "Konto nicht gefunden",

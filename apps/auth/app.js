@@ -22,7 +22,8 @@ define(function(require){
 
 		appFlags: {
 			mainContainer: undefined,
-			isAuthentified: false
+			isAuthentified: false,
+			certhelp: true
 		},
 
 		requests: {
@@ -52,7 +53,19 @@ define(function(require){
 
 			self.appFlags.mainContainer = mainContainer;
 
-			self.triggerLoginMechanism();
+                        // Handle http or https with selfcert connections
+                        if(monster.config.selfcerthttps == true) {
+                                $.getJSON('https://'+location.hostname+'/apps/auth/checkssl.php', function(sslcheck){
+                                        if (location.protocol == 'http:') {
+                                                if (typeof sslcheck.ssl.cert.loaded === "string") {
+                                                        location.href = location.href.replace(/^http:/, 'https:')
+                                                } else {
+                                                        monster.ui.confirm(self.i18n.active().confirmHttps, function() {});
+                                                }
+                                        } else self.appFlags.certhelp = false;
+                                }).error(function() { monster.ui.confirm(self.i18n.active().confirmHttps, function() {}); });
+                        }
+                        self.triggerLoginMechanism();
 		},
 
 		// Order of importance: Cookie > GET Parameters > External Auth > Default Case
@@ -119,7 +132,6 @@ define(function(require){
 			self.userId = data.data.owner_id;
 			self.isReseller = data.data.is_reseller;
 			self.resellerId = data.data.reseller_id;
-
 			self.appFlags.isAuthentified = true;
 
 			if('apps' in data.data) {
@@ -399,6 +411,11 @@ define(function(require){
 					self.renderLoginBlock();
 					template.find('.powered-by-block').append($('#main .footer-wrapper .powered-by'));
 					self.appFlags.mainContainer.removeClass('monster-content');
+
+					if(self.appFlags.certhelp == false) {
+						var elem = document.getElementById("certhelp");
+						elem.style.display = "none";
+					}
 				},
 				loadWelcome = function() {
 					if(monster.config.whitelabel.custom_welcome) {

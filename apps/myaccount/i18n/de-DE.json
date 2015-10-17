@@ -330,7 +330,7 @@
 			"5001": "Monatlich",
 			"5002": "Monatlich (pro Rata)",
 			"9999": "Unbekannt Administration",
-			"0": "Unbekannt"
+			"0": "Buchung"
 		},
 		"errorStatuses": {
 			"voided": "Aufgehoben",

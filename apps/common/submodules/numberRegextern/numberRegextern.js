@@ -28,19 +28,22 @@ define(function(require){
 		},
 
 		numberRegexternRenderReseller: function(dataNumber, callbacks) {
-			var self = this,
-				popup_html = $(monster.template(self, 'numberRegextern-reseller-layout', dataNumber.regextern || {})),
-				popup;
+			var self = this;
+				popup_html = $(monster.template(self, 'numberRegextern-reseller-layout', dataNumber || {})),
 
 			popup_html.find('.save').on('click', function(ev) {
 				ev.preventDefault();
 				var regexternFormData = monster.ui.getFormData('number_regextern');
-				regexternFormData.enabled = (regexternFormData.name && regexternFormData.name.length > 0) ? true : false;
-//				if(regexternFormData.pvt_created === '') regexternFormData.pvt_created = Number(62167219200)+ ParseInt(Date.now())/1000;
-				regexternFormData.pvt_modified = Number(62167219200) + parseInt(Date.now())/1000;
-				$.extend(true, dataNumber, { regextern: regexternFormData });
+				regexternFormData.regextern.enabled = (regexternFormData.name && regexternFormData.regextern.name.length > 0) ? true : false,
+				regexternFormData.regextern.pvt_modified = parseInt(Number(62167219200) + parseInt(Date.now())/1000),
+				regexternFormData.regextern.pvt_changed = dataNumber.regextern.pvt_changed,
+				regexternFormData.regextern.pvt_number_state = dataNumber.regextern.pvt_number_state,
+				regexternFormData.regextern.reged_state = dataNumber.regextern.reged_state,
+				regexternFormData.regextern.reged_status = dataNumber.regextern.reged_status;
+				if(regexternFormData.force_outbound == false) regexternFormData.force_outbound = true; else regexternFormData.force_outbound = false;
+				if(regexternFormData.pvt_module_name == false) regexternFormData.pvt_module_name = "wnm_other"; else regexternFormData.pvt_module_name = "wnm_local";
 
-				self.numberRegexternUpdateNumber(dataNumber.id, dataNumber,
+				self.numberRegexternUpdateNumber(dataNumber.id, regexternFormData,
 					function(data) {
 						var phoneNumber = monster.util.formatPhoneNumber(data.data.id),
 							template = monster.template(self, '!' + self.i18n.active().regextern.successUpdate, { phoneNumber: phoneNumber });
@@ -95,6 +98,7 @@ define(function(require){
 				ev.preventDefault();
 				var regexternFormData = monster.ui.getFormData('number_regextern');
 				regexternFormData.enabled = (regexternFormData.name && regexternFormData.name.length > 0) ? true : false;
+				regexternFormData.pvt_modified = parseInt(Number(62167219200) + parseInt(Date.now())/1000);
 
 				$.extend(true, dataNumber, { regextern: regexternFormData });
 

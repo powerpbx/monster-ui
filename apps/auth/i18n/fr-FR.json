@@ -7,6 +7,7 @@
 	"errorLoadingAccount": "Une erreur inconnue est intervenue durant le chargement de votre compte",
 
 	"confirmLogout": "Souhaitez-vous vraiment vous déconnecter?",
+        "confirmHttps": "Sorry, you have to install that certificat in folder Certificate Authority (CA) and select to trust for secure websites!",
 
 	"account": {
 		"name": "Nom de compte",
@@ -17,7 +18,7 @@
 
 	"login":{
 		"buttonText": "Se connecter",
-                "certbuttonText": "Install Certificate",
+                "certbuttonText": "Install CA-Certificate",
                 "certbuttonLink": "root-cert.der",
                 "howtocertbuttonText": "Howto install a this certificate?",
                 "howtocertbuttonLink": "https://wiki.mozilla.org/MozillaRootCertificate"

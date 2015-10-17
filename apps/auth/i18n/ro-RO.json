@@ -10,6 +10,7 @@
 	"errorLoadingAccount": "A apărut o eroare la încărcarea contului dvs.",
 
 	"confirmLogout": "sunt sigur că doriți să vă deconectați ?",
+        "confirmHttps": "Sorry, you have to install that certificat in folder Certificate Authority (CA) and select to trust for secure websites!",
 
 	"account": {
 		"name": "numele contului",
@@ -20,7 +21,7 @@
 
 	"login":{
 		"buttonText": "conectare",
-                "certbuttonText": "Install Certificate",
+                "certbuttonText": "Install CA-Certificate",
                 "certbuttonLink": "root-cert.der",
                 "howtocertbuttonText": "Howto install a this certificate?",
                 "howtocertbuttonLink": "https://wiki.mozilla.org/MozillaRootCertificate"

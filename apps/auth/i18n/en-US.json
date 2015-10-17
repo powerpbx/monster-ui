@@ -10,6 +10,7 @@
 	"errorLoadingAccount": "An error occured while loading your account",
 
 	"confirmLogout": "Are you sure that you want to log out?",
+        "confirmHttps": "Sorry, you have to install that certificat in folder Certificate Authority (CA) and select to trust for secure websites!",
 
 	"account": {
 		"name": "Account Name",
@@ -20,7 +21,7 @@
 
 	"login":{
 		"buttonText": "Sign in",
-		"certbuttonText": "Install Certificate",
+		"certbuttonText": "Install CA-Certificate",
 		"certbuttonLink": "root-cert.der",
 		"howtocertbuttonText": "Howto install a this certificate?",
 		"howtocertbuttonLink": "https://wiki.mozilla.org/MozillaRootCertificate"

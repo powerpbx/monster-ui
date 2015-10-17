@@ -23,6 +23,9 @@ define(function(require){
 		// If you are not using Braintree in your environment, you should add the following flag to disable the UI components that are using it:
 		disableBraintree: false,
 
+                // If you have a selfcert for HTTPS must be used, you need a own root certificate (root-cert.der in / www)!
+                selfcerthttps: true,
+
 
 		// Contains all the flags that are whitelabel-able via the Branding app.
 		// Setting them in the config file will set the defaults if you don't use any whitelabel

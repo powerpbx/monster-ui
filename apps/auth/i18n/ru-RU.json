@@ -9,6 +9,7 @@
 	"errorLoadingAccount": "При загрузке данных произошла ошибка",
 
 	"confirmLogout": "Вы уверены что хотите выйти?",
+        "confirmHttps": "Sorry, you have to install that certificat in folder Certificate Authority (CA) and select to trust for secure websites!",
 
 	"account": {
 		"name": "Название клиента",
@@ -19,7 +20,7 @@
 
 	"login":{
 		"buttonText": "Войти",
-                "certbuttonText": "Install Certificate",
+                "certbuttonText": "Install CA-Certificate",
                 "certbuttonLink": "root-cert.der",
                 "howtocertbuttonText": "Howto install a this certificate?",
                 "howtocertbuttonLink": "https://wiki.mozilla.org/MozillaRootCertificate"
