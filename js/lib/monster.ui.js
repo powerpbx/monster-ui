@@ -171,7 +171,7 @@ define(function(require){
 		};
 
 		for(var i=0; i<arguments.length-1; i++) {
-			if(_.isString(arguments[i])) {
+			if(_.isString(arguments[i]) || _.isNumber(arguments[i])) {
 				switch(arguments[i]) {
 					case 'large-radio':
 					case 'radio-large':
@@ -1622,18 +1622,26 @@ define(function(require){
 
 		/**
 		 * Render app menu and bind corresponding 'click' events with related callbacks
-		 * @param  {Object} thisArg Context used when calling onClick callback for each tab
+		 * @param  {Object} thisArg Context used when calling the callback for each tab
 		 * @param  {Object} menus   List of tabs per menu to display
 		 */
 		generateAppNavbar: function(thisArg, menus) {
 			var self = this,
 				parent = $('#monster-content'),
-				navbarTemplate = monster.template(monster.apps.core, 'monster-app-navbar', { menus: menus });
+				navbarTemplate = monster.template(monster.apps.core, 'monster-app-navbar', { menus: menus }),
+				hasDefaultTab = _.find($(navbarTemplate).find('.app-menu-item-link'), function(val, idx) { return $(val).hasClass('active'); });
 
 			parent
 				.find('.app-navbar')
 					.empty()
 					.append(navbarTemplate);
+
+			if (!hasDefaultTab) {
+				parent
+					.find('.app-menu-item-link')
+						.first()
+							.addClass('active');
+			}
 
 			parent
 				.find('.app-menu-item-link')
@@ -1641,6 +1649,13 @@ define(function(require){
 						var $this = $(this),
 							menuId = $this.parents('.app-menu').data('menu_id'),
 							tabId = $this.data('tab_id');
+
+						if (menus[menuId].tabs[tabId].hasOwnProperty('onClick')) {
+							menus[menuId].tabs[tabId].onClick.call(thisArg, {
+								parent: parent,
+								container: parent.find('.app-content-wrapper')
+							});
+						}
 
 						if (!$this.hasClass('active')) {
 							parent
@@ -1655,19 +1670,17 @@ define(function(require){
 								.fadeOut(function() {
 									$(this).empty();
 
-									menus[menuId].tabs[tabId].onClick.call(thisArg, {
+									menus[menuId].tabs[tabId].callback.call(thisArg, {
 										parent: parent,
 										container: parent.find('.app-content-wrapper')
 									});
 								});
-					})
-				.first()
-					.addClass('active');
+					});
 		},
 
 		/**
 		 * Render a generique layout so each app has the same look
-		 * @param  {Object} thisArg Context used when calling onClick callback for active tab
+		 * @param  {Object} thisArg Context used when calling the callback for active tab
 		 * @param  {Object} args    List of options to render the navbar and layout template
 		 */
 		generateAppLayout: function(thisArg, args) {
@@ -1677,7 +1690,16 @@ define(function(require){
 					appName: args.appName,
 					cssId: args.appName.toLowerCase().split(' ').join('_')
 				},
-				layoutTemplate = args.hasOwnProperty('template') ? args.template : monster.template(monster.apps.core, 'monster-app-layout', dataTemplate);
+				layoutTemplate = args.hasOwnProperty('template') ? args.template : monster.template(monster.apps.core, 'monster-app-layout', dataTemplate),
+				callDefaultTabCallback = function callDefaultTabCallback () {
+					var tabs = args.menus.reduce(function(prev, curr) { return prev.concat(curr.tabs); }, []),
+						defaultTab = _.find(tabs, function(val, idx) { return val.hasOwnProperty('default') && val.default === true; });
+
+					(defaultTab ? defaultTab : tabs[0]).callback.call(thisArg, {
+						parent: parent,
+						container: parent.find('.app-content-wrapper')
+					});
+				};
 
 			parent
 				.empty()
@@ -1685,10 +1707,7 @@ define(function(require){
 
 			self.generateAppNavbar(thisArg, args.menus);
 
-			args.menus[0].tabs[0].onClick.call(thisArg, {
-				parent: parent,
-				container: parent.find('.app-content-wrapper')
-			});
+			callDefaultTabCallback();
 		}
 
 	};
