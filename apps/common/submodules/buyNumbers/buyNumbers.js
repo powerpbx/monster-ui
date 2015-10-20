@@ -77,18 +77,9 @@ define(function(require){
 			// 	}
 			// });
 			callback({
-				"US": {
+				"CH": {
 					"local": true,
 					"toll_free": [
-<<<<<<< HEAD
-=======
-						800,
-						844,
-						855,
-						866,
-						877,
-						888
->>>>>>> upstream/master
 					],
 					"vanity": true,
 					"prefix": 41,

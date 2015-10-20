@@ -638,8 +638,6 @@
         },
         "YES": "YES",
         "NO":  "NO",
-	"__comment": "CM-150: Adding i18n for verbose timers",
-	"__version": "3.22",
 	"friendlyTimer": {
 		"minutesAnd": "minutes and",
 		"hours": "hours",
@@ -654,4 +652,6 @@
 	},
 	"triggerMasquerading": "You are now masquerading the account \"{{accountName}}\".",
 	"restoreMasquerading": "You are not masquerading anymore."
+        "noMasqueradingAllowed": "We are redirecting you to your \"Apps\" page because the app you were using doesn't allow \"Account Jumping\".",
+        "authenticationIssue": "An authentication error occurred during this operation!"
 }

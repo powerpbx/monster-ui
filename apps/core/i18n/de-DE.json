@@ -654,5 +654,7 @@
             "toggleTooltip": "Schnellauswahl Konto"
     },
     "triggerMasquerading": "Sie sind als \"{{accountName}}\" eingebucht.",
-    "restoreMasquerading": "Ihr Konto ist wieder aktiviert."
+    "restoreMasquerading": "Ihr Konto ist wieder aktiviert.",
+    "noMasqueradingAllowed": "Sie wurden zu den \"Apps\" umgeleitet, weil ein Kontosprung nicht erlaubt ist.",
+    "authenticationIssue": "Ein Anmeldefehler ist währen dem Vorgang aufgetreten!"
 }
