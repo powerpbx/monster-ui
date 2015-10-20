@@ -84,6 +84,13 @@
                         "provisionDisabled": "Is Disabled",
                         "supportCreatenew": "Devicesetting in userportal"
                 },
+                "dialplan": {
+                        "title": "Accout-Dialplan",
+                        "account": "Own Account-Dialplan",
+                        "descript": "Own Account-Dialplan",
+                        "enabled": "Own Account-Dialplan",
+                        "disabled": "None"
+                },
 		"title": "conto",
 
 		"accountName": "nome konto",

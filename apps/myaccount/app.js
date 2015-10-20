@@ -2,7 +2,8 @@ define(function(require){
 	var $ = require('jquery'),
 		_ = require('underscore'),
 		monster = require('monster'),
-		toastr = require('toastr');
+		toastr = require('toastr'),
+		regionaldialplan = require('monster-regiodialplan');
 
 	var app = {
 		name: 'myaccount',
@@ -224,7 +225,6 @@ define(function(require){
 						},
 						success: function(_data, status) {
 							_data.data.ui_restrictions = _data.data.ui_restrictions || {};
-
 							_data.data.ui_restrictions.myaccount = self.getDefaultRestrictions();
 
 							self.callApi({
@@ -764,6 +764,7 @@ define(function(require){
 
 						return data;
 					})(moduleToUpdate, monster.ui.getFormData('form_'+fieldName));
+					newData.dial_plan = JSON.parse(regionaldialplan.list[newData.regiodialplan].dial_plan);
 
 				settingsValidate(fieldName, newData,
 					function() {

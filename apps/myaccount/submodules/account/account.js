@@ -3,7 +3,8 @@ define(function(require){
 		_ = require('underscore'),
 		monster = require('monster'),
 		language = require('monster-language'),
-		timezone = require('monster-timezone');
+		timezone = require('monster-timezone'),
+		regionaldialplan = require('monster-regiodialplan');
 
 	var account = {
 
@@ -33,6 +34,9 @@ define(function(require){
 
 			language.populateDropdown(template.find('#account_language'), data.account.language);
 			template.find('#account_language').chosen({ search_contains: true, width: '220px' });
+
+			regionaldialplan.populateDropdown(template.find('#account_regiodialplan'), data.account.regiodialplan);
+			template.find('#account_regiodialplan').chosen({ search_contains: true, width: '220px' });
 
 			//Temporary button design fix until we redesign the Accounts Manager
 			template.find('#accountsmanager_carrier_save')

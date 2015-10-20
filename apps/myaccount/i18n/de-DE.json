@@ -31,7 +31,7 @@
                         "4": "Die Rechnungstellung per eMail erfolgt bei uns automatisch. Sie können aber die Zustellung per Postsendung nach Ihren Gewohnheiten manuell anpassen. Bitte beachten Sie dass, die Kreditkarteninformationen bei der Registrierung hier abgelegt wurden.",
                         "5": "Hier werden die kostenprichtigen Anrufe gelistet. Wenn Sie kostenpflichtige Anrufe tätigen, wird die Verrechnung \"per Minute\" erfolgen. Nicht kostenpflichte Anrufe werden nicht gelistet.",
                         "6": "Hier können Sie Ihre aktuelle Abonnemente einsehen. Details zu den jeweiligen Abonnements werden auf unserer Webseite gelistet, und Details erklärt. Für weitere Fragen kontaktieren Sie uns.",
-                        "7": "Hier werden alle Überweisungen die für Ihr Konto abgewickelt wurden aufgelistet, inklusive einmalige und wiederkehrende Überweisungen."
+                        "7": "Hier werden alle Buchungen die für Ihr Konto abgewickelt wurden aufgelistet, inklusive einmalige und wiederkehrende Buchungen der Abonnemente."
                 },
                 "endDialog": {
                         "roger": "Abschluss der Anleitung",
@@ -107,6 +107,13 @@
 			"provisionDisabled": "Ist Ausgeschaltet",
 			"supportCreatenew": "Gerätekonfiguration im Benutzerportal"
 		},
+                "dialplan": {
+                        "title": "Konto-Rufplan",
+                        "account": "Induvidueller Kontorufplan",
+                        "descript": "Induvidueller Kontorufplan",
+                        "enabled": "Eigener Kontorufplan",
+                        "disabled": "Nein"
+                },
 		"title": "Konto",
 
 		"accountName": "Konto Name",
@@ -280,15 +287,15 @@
 		}
 	},
 	"transactions": {
-		"title": "Überweisungen",
-		"titleHeader": "Ablauf der Überweiungen",
+		"title": "Buchungen",
+		"titleHeader": "Ablauf der Buchung",
 		"billingCycle": "Rechnungeszyklus",
 		"to": "zu",
 		"oneTimeCharge": "Einmal Kosten",
 		"monthlyCharge": "Monatliche Kosten",
 		"serviceCharge": "Abonnementskosten - Aufgeteilt",
 
-		"noData": "Es sind keine Überweisungen zwischen den beiden Daten gefunden worden!",
+		"noData": "Es sind keine Buchungen zwischen den beiden Daten gefunden worden!",
 
 		"serviceTitle": "Dienstleistungen",
 		"discount": "Rabatt",

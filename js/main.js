@@ -32,6 +32,7 @@ require.config({
 		'monster-language': 'js/lib/monster.language',
 		'monster-quickcalldevice': 'js/lib/monster.quickcalldevice',
 		'monster-ttsvoice': 'js/lib/monster.ttsvoice',
+		'monster-regiodialplan': 'js/lib/monster.regiodialplan',
 		'monster-util': 'js/lib/monster.util',
 		'nicescroll': 'js/lib/jquery.nicescroll.min',
 		'monster-apps': 'js/lib/monster.apps',
