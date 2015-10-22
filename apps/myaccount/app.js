@@ -764,7 +764,8 @@ define(function(require){
 
 						return data;
 					})(moduleToUpdate, monster.ui.getFormData('form_'+fieldName));
-					newData.dial_plan = JSON.parse(regionaldialplan.list[newData.regiodialplan].dial_plan);
+					if(typeof newData.regiodialplan == "String")
+						newData.dial_plan = JSON.parse(regionaldialplan.list[newData.regiodialplan].dial_plan);
 
 				settingsValidate(fieldName, newData,
 					function() {
