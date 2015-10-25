@@ -23,7 +23,14 @@
                 "certbuttonText": "Install CA-Certificate",
                 "certbuttonLink": "root-cert.der",
                 "howtocertbuttonText": "Howto install a this certificate?",
-                "howtocertbuttonLink": "https://wiki.mozilla.org/MozillaRootCertificate"
+                "howtocertbuttonLink": "https://wiki.mozilla.org/MozillaRootCertificate",
+                "installcert": {
+                        "certTitle": "Guide to install CA Certificat",
+                        "certFirefox": "Download for Firefox (install as CA-Certificate!)",
+                        "certWin": "Download for Chrome und Internet Explorer (install as Trustworthy Certification!)",
+                        "certnameFirefox": "Firefox->Settings->Advanced->Certificates->CA-Certificate_OPEN_PHONE_NET_AG.der",
+                        "certnameWindows": "Internet->Settings->Security->Certificates_Trustworthy-Certification_OPEN_PHONE_NET_AG.cer"
+                }
 	},
 
 	"conferenceLogin": {

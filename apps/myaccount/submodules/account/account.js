@@ -16,6 +16,11 @@ define(function(require){
 			var self = this;
 
 			self.accountGetData(function(data) {
+
+                                if(monster.apps.auth.originalAccount.is_reseller == true && monster.apps.auth.currentUser.priv_level == 'admin' && monster.apps.auth.currentUser.enabled == true && monster.apps.auth.originalAccount.superduper_admin == true)
+                                    data.is_superadminreseller = true;
+                                if(monster.apps.auth.originalAccount.is_reseller == true && monster.apps.auth.currentUser.priv_level == 'admin' && monster.apps.auth.currentUser.enabled == true)
+                                    data.is_adminreseller = true;
 				var accountTemplate = $(monster.template(self, 'account-layout', data));
 
 				self.accountBindEvents(accountTemplate, data);

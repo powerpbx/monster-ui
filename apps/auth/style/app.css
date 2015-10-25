@@ -322,3 +322,17 @@
 	margin-top: 10px;
 }
 
+.entry .entry-inner {
+    height: 95%;
+    width: 95%;
+    margin: 20px;
+}
+
+.csc-title {
+    padding-top: 10px;
+    font-size: large;
+    font-weight: bold;
+}
+.csc-text {
+    padding-top: 10px;
+}

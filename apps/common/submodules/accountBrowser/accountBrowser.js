@@ -147,9 +147,10 @@ define(function(require){
 				var found = false;
 
 				_.each(data, function(val) {
-					if(val.toLowerCase().indexOf(searchString.toLowerCase()) >= 0) {
-						found = true;
-					}
+					if(typeof val == "String")
+						if(val.toLowerCase().indexOf(searchString.toLowerCase()) >= 0) {
+							found = true;
+						}
 				});
 
 				return found;
@@ -162,10 +163,12 @@ define(function(require){
 				searchLink.find('.account-search-value').text(search);
 				if(search) {
 					$.each(template.find('.account-list-element'), function() {
-						var $elem = $(this),
-							data = $elem.data();
-
-						findElemInData(search, data) ? $elem.show() : $elem.hide();
+						var $elem = $(this);
+						if($elem.find('.account-name').text().toLowerCase().indexOf(search.toLowerCase()) >= 0) {
+							$elem.show();
+						} else {
+							$elem.hide();
+						}
 					});
 					accountList.prepend(searchLink);
 				} else {

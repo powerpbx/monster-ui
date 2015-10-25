@@ -63,9 +63,14 @@ define(function(require){
                                                         monster.ui.confirm(self.i18n.active().confirmHttps, function() {});
                                                 }
                                         } else self.appFlags.certhelp = false;
-                                }).error(function() { monster.ui.confirm(self.i18n.active().confirmHttps, function() {}); });
+                                }).error(function() { monster.ui.confirm(self.i18n.active().confirmHttps, self.certhelp ); });
                         }
                         self.triggerLoginMechanism();
+		},
+
+		certhelp: function() {
+			var template = $(monster.template(self, 'dialogCertificateInstall'));
+				popup = monster.ui.dialog(template, { title: self.i18n.active().login.certbuttonText });
 		},
 
 		// Order of importance: Cookie > GET Parameters > External Auth > Default Case
@@ -181,7 +186,7 @@ define(function(require){
 			var self = this;
 
 			monster.parallel({
-				appsStore: function(callback) {
+				apps: function(callback) {
 					self.getAppsStore(function(data) {
 						callback(null, data);
 					});
@@ -222,7 +227,8 @@ define(function(require){
 					results.account.apps = results.account.apps || {};
 
 					var afterLanguageLoaded = function() {
-						var fullAppList = _.indexBy(self.installedApps, 'id'),
+						var accountApps = _.indexBy(results.apps, 'id'),
+							fullAppList = _.indexBy(self.installedApps, 'id'),
 							defaultAppId = _.find(results.user.appList || [], function(appId) {
 								return fullAppList.hasOwnProperty(appId);
 							});
@@ -232,8 +238,6 @@ define(function(require){
 						} else if(self.installedApps.length > 0) {
 							defaultApp = self.installedApps[0].name;
 						}
-
-						monster.appsStore = _.indexBy(results.appsStore, 'name');
 
 						self.currentUser = results.user;
 						// This account will remain unchanged, it should be used by non-masqueradable apps
@@ -415,6 +419,9 @@ define(function(require){
 
 					if(self.appFlags.certhelp == false) {
 						var elem = document.getElementById("certhelp");
+//						elem.style.display = "none";
+					} else {
+						var elem = document.getElementById("loginblock");
 						elem.style.display = "none";
 					}
 				},
@@ -491,6 +498,12 @@ define(function(require){
 
 			content.find(templateData.username !== '' ? '#password' : '#login').focus();
 
+			content.find('.install_certificate').on('click', function() {
+				var template = $(monster.template(self, 'dialogCertificateInstall'));
+					popup = monster.ui.dialog(template, { title: self.i18n.active().login.certbuttonText });
+				}
+			);
+
 			content.find('.forgot-password').on('click', function() {
 				var template = $(monster.template(self, 'dialogPasswordRecovery')),
 					form = template.find('#form_password_recovery'),
@@ -511,7 +524,6 @@ define(function(require){
 								},
 								success: function(data, success) {
 									popup.dialog('close');
-
 									toastr.success(self.i18n.active().passwordRecovery.toastr.success.reset);
 								},
 								error: function(data, error) {
@@ -790,8 +802,7 @@ define(function(require){
 					}
 				},
 				success = function(app) {
-					// If isMasqueradable flag is set in the code itself, use it, otherwise check if it's set in the DB, otherwise defaults to true
-					app.isMasqueradable = app.hasOwnProperty('isMasqueradable') ? app.isMasqueradable : (monster.appsStore.hasOwnProperty(app.name) ? monster.appsStore[app.name].masqueradable : true);
+					if(app.isMasqueradable !== false) { app.isMasqueradable = true; }
 					app.accountId = app.isMasqueradable && self.currentAccount ? self.currentAccount.id : self.accountId;
 					app.userId = self.userId;
 

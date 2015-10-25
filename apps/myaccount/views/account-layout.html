@@ -17,7 +17,11 @@
 							<div class="control-group">
 								<label class="control-label" for="account_name">{{ i18n.account.accountName }}</label>
 								<div class="controls">
+{{#if is_adminreseller}}
 									<input type="text" id="account_name" name="name" value="{{account.name}}" data-original_value="{{account.name}}"/>
+{{else}}
+									<div class="plain-text">{{account.name}}</div>
+{{/if}}
 								</div>
 							</div>
 							<div class="control-group">
@@ -29,25 +33,35 @@
                                                         <div class="control-group">
                                                                 <label class="control-label" for="account_is_business">{{ i18n.account.is_business }}</label>
                                                                 <div class="controls checkbox-container">
-                                                                                {{#if account.is_business}} {{ i18n.YES }} {{ else }}  {{ i18n.NO }} {{/if}}
+{{#if is_adminreseller}}
+                                                                        {{#monsterCheckbox}}
+                                                                                <input type="checkbox" id="account_is_business" name="is_business" {{#if account.is_business}}checked{{/if}} readonly />
+                                                                        {{/monsterCheckbox}}
+{{else}}
+									<div class="plain-text">{{#if account.is_business}} {{ i18n.YES }} {{ else }}  {{ i18n.NO }} {{/if}}</div>
+{{/if}}
                                                                 </div>
                                                         </div>
-
-<!--                                                        <div class="control-group">
+                                                        <div class="control-group">
                                                                 <label class="control-label" for="account_is_reseller">{{ i18n.account.is_reseller }}</label>
                                                                 <div class="controls checkbox-container">
+{{#if is_adminreseller}}
                                                                         {{#monsterCheckbox}}
                                                                                 <input type="checkbox" id="account_is_reseller" name="is_reseller" {{#if account.is_reseller}}checked{{/if}} readonly />
                                                                         {{/monsterCheckbox}}
+{{else}}
+									<div class="plain-text">{{#if account.is_reseller}} {{ i18n.YES }} {{ else }}  {{ i18n.NO }} {{/if}}</div>
+{{/if}}
                                                                 </div>
                                                         </div>
--->
+{{#if is_adminreseller}}
 							<div class="action-group clearfix">
 								<div class="action-bar">
 									<button type="button" class="monster-button cancel">{{ i18n.cancel }}</button>
 									<button type="submit" class="monster-button-success change" data-module="account" data-field="account_name">{{ i18n.saveChanges }}</button>
 								</div>
 							</div>
+{{/if}}
 						</form>
 					</div>
 				</div>
@@ -70,15 +84,21 @@
 							<div class="control-group">
 								<label class="control-label" for="password">{{ i18n.account.accountRealm }}</label>
 								<div class="controls">
+{{#if is_adminreseller}}
 									<input type="text" id="account_realm" name="realm" value="{{account.realm}}" data-original_value="{{account.realm}}"/>
+{{else}}
+									<div class="plain-text">{{account.realm}}</div>
+{{/if}}
 								</div>
 							</div>
+{{#if is_adminreseller}}
 							<div class="action-group clearfix">
 								<div class="action-bar">
 									<button type="button" class="monster-button cancel">{{ i18n.cancel }}</button>
 									<button type="submit" class="monster-button-success change" data-module="account" data-field="account_realm">{{ i18n.saveChanges }}</button>
 								</div>
 							</div>
+{{/if}}
 						</form>
 					</div>
 				</div>
@@ -145,17 +165,24 @@
 							<div class="control-group">
 								<label class="control-label" for="technical_contact_connect">{{ i18n.account.technicalConnect }}</label>
 								<div class="controls">
+{{#if is_adminreseller}}
 									<input type="text" id="technical_contact_connect" name="contact.technical.connect" value="{{account.contact.technical.connect}}" placeholder="{{ i18n.placeholderconnect }}" data-original_value="{{account.contact.technical.connect}}"/>
+{{else}}
+									<div class="plain-text">{{account.contact.technical.connect}}</div>
+{{/if}}
 								</div>
 							</div>
 
 							<div class="control-group">
 								<label class="control-label" for="technical_contact_line">{{ i18n.account.technicalLine }}</label>
 								<div class="controls">
+{{#if is_adminreseller}}
 									<input type="text" id="technical_contact_line" name="contact.technical.line" value="{{account.contact.technical.line}}" placeholder="{{ i18n.placeholderline }}" data-original_value="{{account.contact.technical.line}}"/>
+{{else}}
+									<div class="plain-text">{{account.contact.technical.line}}</div>
+{{/if}}
 								</div>
 							</div>
-
 							<div class="action-group clearfix">
 								<div class="action-bar">
 									<button type="button" class="monster-button cancel">{{ i18n.cancel }}</button>
@@ -185,8 +212,18 @@
                                                         <div class="control-group">
                                                                 <label class="control-label" for="fraud_limit_perday">{{ i18n.account.fraud.perday }}</label>
                                                                 <div class="controls">
+{{#if is_adminreseller}}
                                                                         <input type="text" id="fraud_limit_perday" name="limit.fraud.perday" value="{{account.limit.fraud.perday}}" placeholder="{{ i18n.account.fraud.perdaydefault }}" data-original_value="{{account.limit.fraud.perday}}"/>
-                                                                {{ i18n.account.fraud.perday_descript }}</div>
+                                                                {{ i18n.account.fraud.perday_descript }}
+{{else}}
+    {{#if account.limit.fraud.perday}}
+									<div class="plain-text">{{account.limit.fraud.perday}} {{ i18n.account.fraud.perday_descript }}</div>
+    {{else}}
+                                                                        <input type="text" id="fraud_limit_perday" name="limit.fraud.perday" value="{{account.limit.fraud.perday}}" placeholder="{{ i18n.account.fraud.perdaydefault }}" data-original_value="{{account.limit.fraud.perday}}"/>
+                                                                {{ i18n.account.fraud.perday_descript }}
+    {{/if}}
+{{/if}}
+								</div>
                                                         </div>
                                                         <div class="action-group clearfix">
                                                                 <div class="action-bar">
@@ -329,21 +366,31 @@
                                                         <div class="control-group">
                                                                 <label class="control-label" for="callerid_external">{{ i18n.account.callerid.external }}</label>
                                                                 <div class="controls">
-                                                                        <input type="text" id="callerid_external" name="caller_id.external.number" value="{{account.caller_id.external.number}}" placeholder="{{ i18n.account.callerid.externaldefault }}" data-original_value="{{account.caller_id.external.number}}"/>
-                                                                {{ i18n.account.callerid.external_descript }}</div>
+{{#if is_adminreseller}}
+                                                                        <input type="text" id="callerid_external" name="caller_id.external.number" value="{{account.caller_id.external.number}}" placeholder="{{ i18n.account.callerid.externaldefault }}" data-original_value="{{account.caller_id.external.number}}"/> {{ i18n.account.callerid.external_descript }}
+{{else}}
+									<div class="plain-text">{{account.caller_id.external.number}} {{ i18n.account.callerid.external_descript }}</div>
+{{/if}}
+								</div>
                                                         </div>
                                                         <div class="control-group">
                                                                 <label class="control-label" for="callerid_emergency">{{ i18n.account.callerid.emergency }}</label>
                                                                 <div class="controls">
-                                                                        <input type="text" id="callerid_emergency" name="caller_id.emergency.number" value="{{account.caller_id.emergency.number}}" placeholder="{{ i18n.account.callerid.emergencydfault }}" data-original_value="{{account.caller_id.emergency.number}}"/>
-                                                                {{ i18n.account.callerid.emergency_descript }}</div>
+{{#if is_adminreseller}}
+                                                                        <input type="text" id="callerid_emergency" name="caller_id.emergency.number" value="{{account.caller_id.emergency.number}}" placeholder="{{ i18n.account.callerid.emergencydfault }}" data-original_value="{{account.caller_id.emergency.number}}"/> {{ i18n.account.callerid.emergency_descript }}
+{{else}}
+									<div class="plain-text">{{account.caller_id.emergency.number}} {{ i18n.account.callerid.emergency_descript }}</div>
+{{/if}}
+								</div>
                                                         </div>
+{{#if is_adminreseller}}
                                                         <div class="action-group clearfix">
                                                                 <div class="action-bar">
                                                                         <button type="button" class="monster-button cancel">{{ i18n.cancel }}</button>
                                                                         <button type="submit" class="monster-button-success change" data-module="account" data-field="callerid_settings">{{ i18n.saveChanges }}</button>
                                                                 </div>
                                                         </div>
+{{/if}}
                                                 </form>
                                         </div>
                                 </div>

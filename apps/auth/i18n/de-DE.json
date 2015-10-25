@@ -1,4 +1,5 @@
 {
+	"defaultLang": "de-DE",
 	"password": "Passwort",
 	"rememberMe": "Anmeldung merken",
 	"forgotPassword": "Passwort vergessen?",
@@ -19,9 +20,17 @@
 	"login":{
 		"buttonText": "Anmelden",
 		"certbuttonText": "CA Zertifikat installieren",
+		"certbuttonLinkwin": "root-cert.cer",
 		"certbuttonLink": "root-cert.der",
 		"howtocertbuttonText": "Wie installiere ich dieses Zertifikat?",
-		"howtocertbuttonLink": "http://blog.knecht-ruprecht.info/2011/01/eigenen-ssl-zertifikaten-vertrauen.html"
+		"howtocertbuttonLink": "http://blog.knecht-ruprecht.info/2011/01/eigenen-ssl-zertifikaten-vertrauen.html",
+		"installcert": {
+			"certTitle": "Anleitung CA Zertifikat-Installation",
+			"certFirefox": "Download für Firefox (als Zertifizierungsstelle importieren!)",
+			"certWin": "Download für Chrome und Internet Explorer (als Vertrauenswürdiges Stammzellenzertifikat installieren!)",
+			"certnameFirefox": "Firefox->Einstellungen->Erweitert->Zertifikate->Anzeigen->Zertifizierungsstelle->Importieren_OPEN_PHONE_NET_AG.der",
+			"certnameWindows": "Internet->Einstellungen->Sicherheit->Zertifikate->Vertrauenswürdiges_Stammzellenzertifikat_OPEN_PHONE_NET_AG.cer"
+		}
 	},
 
 	"conferenceLogin": {
