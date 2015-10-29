@@ -198,7 +198,7 @@
                <li class="settings-item clearfix" data-name="fraud_settings">
                         <a class="settings-link clearfix">
                                 <span class="title">{{ i18n.account.fraud.title }}</span>
-                                <span class="description">{{ i18n.account.fraud.perday_descript_short }}: {{account.limit.fraud.perday}}{{#if account.limit.fraud.perday}} {{/if}}</span>
+                                <span class="description">{{ i18n.account.fraud.perday_descript_short }}: {{account.limits.fraud.perday}}{{#if account.limits.fraud.perday}} {{/if}}</span>
                                 <span class="update">
                                         <i class="fa fa-cog icon-small"></i>
                                         <span class="text">{{ i18n.editSettings }}</span>
@@ -213,13 +213,13 @@
                                                                 <label class="control-label" for="fraud_limit_perday">{{ i18n.account.fraud.perday }}</label>
                                                                 <div class="controls">
 {{#if is_adminreseller}}
-                                                                        <input type="text" id="fraud_limit_perday" name="limit.fraud.perday" value="{{account.limit.fraud.perday}}" placeholder="{{ i18n.account.fraud.perdaydefault }}" data-original_value="{{account.limit.fraud.perday}}"/>
+                                                                        <input type="text" id="fraud_limit_perday" name="limits.fraud.perday" value="{{account.limits.fraud.perday}}" placeholder="{{ i18n.account.fraud.perdaydefault }}" data-original_value="{{account.limits.fraud.perday}}"/>
                                                                 {{ i18n.account.fraud.perday_descript }}
 {{else}}
-    {{#if account.limit.fraud.perday}}
-									<div class="plain-text">{{account.limit.fraud.perday}} {{ i18n.account.fraud.perday_descript }}</div>
+    {{#if account.limits.fraud.perday}}
+									<div class="plain-text">{{account.limits.fraud.perday}} {{ i18n.account.fraud.perday_descript }}</div>
     {{else}}
-                                                                        <input type="text" id="fraud_limit_perday" name="limit.fraud.perday" value="{{account.limit.fraud.perday}}" placeholder="{{ i18n.account.fraud.perdaydefault }}" data-original_value="{{account.limit.fraud.perday}}"/>
+                                                                        <input type="text" id="fraud_limit_perday" name="limits.fraud.perday" value="{{account.limits.fraud.perday}}" placeholder="{{ i18n.account.fraud.perdaydefault }}" data-original_value="{{account.limits.fraud.perday}}"/>
                                                                 {{ i18n.account.fraud.perday_descript }}
     {{/if}}
 {{/if}}

@@ -55,17 +55,37 @@ define(function(require){
 				};
 
 			if(servicePlanData.hasOwnProperty('items') && !servicePlanData.hasOwnProperty('plan')) {
+				// change item names for i18n support
+                                for (var property in servicePlanData.items){
+                                        for (var property_in in servicePlanData.items[property]) {
+                                            if(self.i18n.active().servicePlanDetails.keys[property_in.toLowerCase()])
+                                                servicePlanData.items[property][property_in].name = self.i18n.active().servicePlanDetails.keys[property_in.toLowerCase()];
+                                            if(self.i18n.active().servicePlanDetails.keys[servicePlanData.items[property][property_in].name])
+                                                servicePlanData.items[property][property_in].name = self.i18n.active().servicePlanDetails.keys[servicePlanData.items[property][property_in].name.toLowerCase()];
+                                        };
+                                };
 				servicePlanData.plan = servicePlanData.items;
 			}
 
+			if(servicePlanData.hasOwnProperty('plan') && !servicePlanData.hasOwnProperty('items')) {
+				// change item names for i18n support
+                                for (var property in servicePlanData.plan){
+                                        for (var property_in in servicePlanData.plan[property]) {
+                                            if(self.i18n.active().servicePlanDetails.keys[property_in.toLowerCase()])
+                                                servicePlanData.plan[property][property_in].name = self.i18n.active().servicePlanDetails.keys[property_in.toLowerCase()];
+                                            if(self.i18n.active().servicePlanDetails.keys[servicePlanData.plan[property][property_in].name])
+                                                servicePlanData.plan[property][property_in].name = self.i18n.active().servicePlanDetails.keys[servicePlanData.plan[property][property_in].name.toLowerCase()];
+                                        };
+                                };
+			}
 			formattedData.servicePlan = servicePlanData;
 
 			return formattedData;
 		},
 
 		renderServicePlanDetails: function(container, servicePlanData, callback) {
-			var self = this,
-				formattedData = self.servicePlanDetailsFormatData(servicePlanData),
+			var self = this;
+				formattedData = self.servicePlanDetailsFormatData(servicePlanData);
 				template = $(monster.template(self, 'servicePlanDetails-layout', formattedData));
 
 			monster.ui.tooltips(template);
@@ -360,7 +380,6 @@ define(function(require){
 			});
 
 			formattedData.allowedOverrides = allowedOverridesFull;
-
 			return formattedData;
 		},
 
@@ -368,7 +387,7 @@ define(function(require){
 			var self = this,
 				cssToFocus = pCssToFocus || '',
 				overrides = pOverrides || {},
-				formattedData = self.servicePlanDetailsFormatOverride(overrides),
+				formattedData = self.servicePlanDetailsFormatOverride(overrides);
 				template = $(monster.template(self, 'servicePlanDetails-overrideView', formattedData)),
 				getOverridenValues = function() {
 					var overrides = {};

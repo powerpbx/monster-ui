@@ -452,7 +452,7 @@ define(function(require){
 									monthlyCharges = parseFloat(((item.rate * item.quantity) - discount) || 0).toFixed(2);
 								if(monthlyCharges > 0) {
 									renderData.push({
-										service: i18n.services.hasOwnProperty(itemName) ? i18n.services[itemName] : itemName.replace(/_/, ' '),
+										service: i18n.services.hasOwnProperty(itemName.toLowerCase()) ? i18n.services[itemName.toLowerCase()] : itemName.replace(/_/, ' '),
 										rate: item.rate.toFixed(2) || 0,
 										quantity: item.quantity || 0,
 										discount: discount > 0 ? parseFloat(discount).toFixed(2) : 0,
