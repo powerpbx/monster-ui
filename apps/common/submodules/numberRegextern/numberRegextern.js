@@ -35,14 +35,15 @@ define(function(require){
 				ev.preventDefault();
 				var regexternFormData = monster.ui.getFormData('number_regextern');
 				regexternFormData.regextern.enabled = (regexternFormData.name && regexternFormData.regextern.name.length > 0) ? true : false,
-				regexternFormData.regextern.pvt_modified = parseInt(Number(62167219200) + parseInt(Date.now())/1000),
-				regexternFormData.regextern.pvt_changed = dataNumber.regextern.pvt_changed,
-				regexternFormData.regextern.pvt_number_state = dataNumber.regextern.pvt_number_state,
-				regexternFormData.regextern.reged_state = dataNumber.regextern.reged_state,
-				regexternFormData.regextern.reged_status = dataNumber.regextern.reged_status;
+				regexternFormData.regextern.pvt_modified = parseInt(Number(62167219200) + parseInt(Date.now())/1000);
+                                if(typeof dataNumber.regextern !== "undefined") {
+                                    if(typeof dataNumber.regextern.pvt_changed == "numbers") regexternFormData.regextern.pvt_changed = dataNumber.regextern.pvt_changed;
+                                    if(typeof dataNumber.regextern.pvt_changed == "numbers") regexternFormData.regextern.pvt_number_state = dataNumber.regextern.pvt_number_state;
+                                    if(typeof dataNumber.regextern.reged_state == "string") regexternFormData.regextern.reged_state = dataNumber.regextern.reged_state;
+                                    if(typeof dataNumber.regextern.reged_status == "string") regexternFormData.regextern.reged_status = dataNumber.regextern.reged_status;
+                                }
 				if(regexternFormData.force_outbound == false) regexternFormData.force_outbound = true; else regexternFormData.force_outbound = false;
 				if(regexternFormData.pvt_module_name == false) regexternFormData.pvt_module_name = "wnm_other"; else regexternFormData.pvt_module_name = "wnm_local";
-
 				self.numberRegexternUpdateNumber(dataNumber.id, regexternFormData,
 					function(data) {
 						var phoneNumber = monster.util.formatPhoneNumber(data.data.id),

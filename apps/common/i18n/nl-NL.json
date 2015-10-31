@@ -151,8 +151,8 @@
 	},
 
 	"e911": {
-		"addressLine1": "Adres Lijn 1",
-		"addressLine2": "Adres Lijn 2",
+		"addressLine1": "Adres Lijn",
+		"addressLine2": "Vloer",
 		"city": "Stad",
 		"dialogTitle": "Bewerk 112 locatie",
 		"gmapPinLabel": "Uw+112+Locatie",

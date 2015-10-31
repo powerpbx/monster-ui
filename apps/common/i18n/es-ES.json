@@ -179,8 +179,8 @@
 	},
 
 	"e911": {
-		"addressLine1": "Address Line 1",
-		"addressLine2": "Address Line 2",
+		"addressLine1": "Address Line",
+		"addressLine2": "El Piso",
 		"city": "City",
 		"dialogTitle": "Edit 911 Location",
 		"gmapPinLabel": "Your+E911+Location",

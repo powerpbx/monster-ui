@@ -162,8 +162,8 @@
 		"outboundTitle": "Caller-ID d'Appels Sortants"
 	},
 	"e911":{
-		"addressLine1":"Ligne Adresse 1",
-		"addressLine2":"Ligne Adresse 2",
+		"addressLine1":"Ligne Adresse",
+		"addressLine2":"étage",
 		"city":"Ville",
 		"dialogTitle":"Modifier location d'urgence",
 		"gmapPinLabel":"Votre+Adresse+d'Urgence",

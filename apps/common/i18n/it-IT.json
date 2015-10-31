@@ -157,8 +157,8 @@
                 "outboundTitle": "call- id -name in uscita"
         },
         "e911": {
-                "addressLine1": "indirizzo linea 1",
-                "addressLine2": "indirizzo 2",
+                "addressLine1": "indirizzo linea",
+                "addressLine2": "piano",
                 "city": "città",
                 "dialogTitle": "Modifica dell'indirizzo Notruf",
                 "errorUpdate": "nell'aggiornamento chiamata di emergenza indirizzo è verificato un errore.",

@@ -167,8 +167,8 @@
                 "outboundTitle": "Abfrage des Namens"
         },
         "e911": {
-                "addressLine1": "Adresszeile 1",
-                "addressLine2": "Adresszeile 2",
+                "addressLine1": "Adresszeile",
+                "addressLine2": "Stockwerk",
                 "city": "Ortschaft",
                 "dialogTitle": "Ändern der Notruf-Adresse",
                 "errorUpdate": "Beim Aktualisieren der Notruf-Adresse trat ein Fehler auf.",

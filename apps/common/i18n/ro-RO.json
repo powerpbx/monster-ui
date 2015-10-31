@@ -157,8 +157,8 @@
                 "outboundTitle": "de ieșire call- id -name"
         },
 	"e911": {
-                "addressLine1": "adresa rândul 1",
-                "addressLine2": "Adresa linia 2",
+                "addressLine1": "adresa rândul",
+                "addressLine2": "Podea",
                 "city": "oraș",
                 "dialogTitle": "Schimbarea adresa notruf",
                 "errorUpdate": "în actualizarea apel de urgență adresă a fost o eroare.",
