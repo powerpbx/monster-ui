@@ -291,6 +291,7 @@ define(function(require){
 		showTrialInfo: function(timeLeft) {
 			var self = this,
 				daysLeft = timeLeft > 0 ? Math.ceil(timeLeft / (60*60*24*4)) : -1,
+				hasAlreadyLogIn = self.uiFlags.user.get('hasLoggedIn') ? true : false,
 				template = $(monster.template(self, 'trial-message', { daysLeft: daysLeft }));
 
 			template.find('.links').on('click', function() {
@@ -299,7 +300,52 @@ define(function(require){
 
 			$('#main_topbar_nav').prepend(template);
 
-			self.showTrialPopup(daysLeft);
+			hasAlreadyLogIn ? self.showTrialPopup(daysLeft) : self.showFirstTrialGreetings();
+		},
+
+		showFirstTrialGreetings: function() {
+			var self = this,
+				updateUser = function(callback) {
+					var userToSave = self.uiFlags.user.set('hasLoggedIn', true);
+
+					self.updateUser(userToSave, function(user) {
+						callback && callback(user);
+					});
+
+					monster.pub('auth.continueTrial');
+				};
+
+			var popup = $(monster.template(self, 'trial-greetingsDialog'));
+
+			popup.find('#acknowledge').on('click', function() {
+				dialog.dialog('close').remove();
+
+				updateUser && updateUser();
+			});
+
+			var dialog = monster.ui.dialog(popup, {
+				title: self.i18n.active().trialGreetingsDialog.title
+			});
+
+			// Update the flag of the walkthrough is they don't care about it
+			dialog.siblings().find('.ui-dialog-titlebar-close').on('click', function() {
+				updateUser && updateUser()
+			});
+		},
+
+		updateUser: function(data, callback) {
+			var self = this;
+
+			self.callApi({
+				resource: 'user.update',
+				data: {
+					accountId: self.accountId,
+					data: data
+				},
+				success: function(data) {
+					callback && callback(data.data);
+				}
+			});
 		},
 
 		showTrialPopup: function(daysLeft) {
@@ -317,7 +363,9 @@ define(function(require){
 						function() {
 							self.handleUpgradeClick();
 						},
-						null,
+						function() {
+							monster.pub('auth.continueTrial');
+						},
 						{
 							title: monster.template(self, '!' + self.i18n.active().trialPopup.mainMessage, { variable: daysLeft }),
 							cancelButtonText: self.i18n.active().trialPopup.closeButton,
@@ -425,6 +473,7 @@ define(function(require){
 						elem.style.display = "none";
 					}
 				},
+				template = $(monster.template(self, 'app', templateData)),
 				loadWelcome = function() {
 					if(monster.config.whitelabel.custom_welcome) {
 						self.callApi({
@@ -446,8 +495,13 @@ define(function(require){
 					}
 					if(monster.config.whitelabel.custom_welcome_message) {
 						template.find('.hello-subtitle').empty().html(monster.config.whitelabel.custom_welcome_message.replace(/\r?\n/g, '<br />'));
+//						template.find('.welcome-message').empty().html((monster.config.whitelabel.custom_welcome_message || '').replace(/\r?\n/g, '<br />'));
 					}
-					callback();
+
+					container.append(template);
+					self.bindLoginBlock(templateData);
+					template.find('.powered-by-block').append($('#main .footer-wrapper .powered-by'));
+					self.appFlags.mainContainer.removeClass('monster-content');
 				},
 				domain = window.location.hostname;
 
@@ -469,34 +523,22 @@ define(function(require){
 			});
 		},
 
-		renderLoginBlock: function() {
+		bindLoginBlock: function(templateData) {
 			var self = this,
-				accountName = '',
-				realm = '',
-				cookieLogin = $.parseJSON($.cookie('monster-login')) || {},
-				templateName = monster.config.appleConference ? 'conferenceLogin' : 'login',
-				templateData = {
-					label: {
-						login: 'Login:'
-					},
-					username: cookieLogin.login || '',
-					requestAccountName: (realm || accountName) ? false : true,
-					accountName: cookieLogin.accountName || '',
-					rememberMe: cookieLogin.login || cookieLogin.accountName ? true : false,
-					showRegister: monster.config.hide_registration || false,
-					hidePasswordRecovery: monster.config.whitelabel.hidePasswordRecovery || false
-				},
-				loginHtml = $(monster.template(self, templateName, templateData)),
-				content = $('#auth_container .right-div .login-block');
-
-			loginHtml.find('.login-tabs a').click(function(e) {
-				e.preventDefault();
-				$(this).tab('show');
-			});
-
-			content.empty().append(loginHtml);
+				content = $('#auth_container');
 
 			content.find(templateData.username !== '' ? '#password' : '#login').focus();
+
+			content.find('.btn-submit.login').on('click', function(e){
+				e.preventDefault();
+
+				/*var dataLogin = {
+					realm: realm,
+					accountName: accountName
+				};*/
+
+				self.loginClick();
+			});
 
 			content.find('.install_certificate').on('click', function() {
 				var template = $(monster.template(self, 'dialogCertificateInstall'));
@@ -546,23 +588,73 @@ define(function(require){
 					}
 				});
 
-				template.find('.cancel-link').on('click', function() {
-					popup.dialog('close').remove();
-				});
+			// New Design stuff
+			if (content.find('.input-wrap input[type="text"], input[type="password"], input[type="email"]').val() !== '' ) {
+				content.find('.placeholder-shift').addClass('fixed');
+			}
+
+			content.find('.input-wrap input[type="text"], input[type="password"], input[type="email"]').on('change' , function() {
+				if( this.value !== '') {
+					$(this).next('.placeholder-shift').addClass('fixed'); 
+				}
+				else {
+					$(this).next('.placeholder-shift').removeClass('fixed'); 
+				}
 			});
 
-			content.find('.login').on('click', function(event){
-				event.preventDefault();
+			// ----------------
+			// FORM TYPE TOGGLE
+			// ----------------
 
-				if($(this).data('login_type') === 'conference') {
-					self.conferenceLogin();
-				} else {
-					var dataLogin = {
-						realm: realm,
-						accountName: accountName
-					};
+			content.find('.form-toggle').on('click', function() {
+				var formType = $(this).data('form');
 
-					self.loginClick(dataLogin);
+				content.find('.form-container').toggleClass('hidden');
+				content.find('.form-container[data-form="'+ formType +'"]').addClass('fadeInDown');
+
+				content.find('.form-content').removeClass('hidden');
+				content.find('.reset-notification').addClass('hidden');
+			}); 
+
+			// ------------------------
+			// PASSWORD RECOVERY SUBMIT
+			// ------------------------
+			var form = content.find('#form_password_recovery');
+
+			monster.ui.validate(form);
+
+			content.find('.recover-password').on('click', function() {
+				if ( monster.ui.valid(form) ) {
+					var object = monster.ui.getFormData('form_password_recovery', '.', true);
+
+					if ( object.hasOwnProperty('account_name') || object.hasOwnProperty('phone_number') ) {
+						self.callApi({
+							resource: 'auth.recovery',
+							data: {
+								data:object,
+								generateError: false
+							},
+							success: function(data, success) {
+								content.find('.form-content').addClass('hidden');
+								content.find('.reset-notification').addClass('animated fadeIn').removeClass('hidden');
+							},
+							error: function(data, error) {
+								if ( error.status === 400) {
+									_.keys(data.data).forEach(function(val) {
+										if ( self.i18n.active().recoverPassword.toastr.error.reset.hasOwnProperty(val) ) {
+											toastr.error(self.i18n.active().recoverPassword.toastr.error.reset[val]);
+										} else {
+											if ( data.data[val].hasOwnProperty('not_found') ) {
+												toastr.error(data.data[val].not_found);
+											}
+										}
+									});
+								}
+							}
+						});
+					} else {
+						toastr.error(self.i18n.active().recoverPassword.toastr.error.missing);
+					}
 				}
 			});
 		},
@@ -573,30 +665,17 @@ define(function(require){
 				loginPassword = $('#password').val(),
 				loginAccountName = $('#account_name').val(),
 				hashedCreds = $.md5(loginUsername + ':' + loginPassword),
-				loginData = {};
-
-			if(data.realm) {
-				loginData.realm = data.realm;
-			}
-			else if(data.accountName) {
-				loginData.account_name = data.accountName;
-			}
-			else if(loginAccountName) {
-				loginData.account_name = loginAccountName;
-			}
-			else {
-				loginData.realm = loginUsername + (typeof monster.config.realm_suffix === 'object' ? monster.config.realm_suffix.login : monster.config.realm_suffix);
-			}
-
-			loginData =  _.extend({ credentials: hashedCreds }, loginData);
+				loginData = {
+					credentials: hashedCreds,
+					account_name: loginAccountName
+				};
 
 			self.putAuth(loginData, function (data) {
 				if($('#remember_me').is(':checked')) {
-					var templateLogin = $('.login-block form'),
-						cookieLogin = {
-							login: templateLogin.find('#login').val(),
-							accountName: templateLogin.find('#account_name').val()
-						};
+					var cookieLogin = {
+						login: loginUsername,
+						accountName: loginAccountName
+					};
 
 					$.cookie('monster-login', JSON.stringify(cookieLogin), {expires: 30});
 				}
