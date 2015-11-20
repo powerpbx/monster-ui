@@ -105,5 +105,56 @@
 
 	"toastrMessages": {
 		"appListError": "Während Ihr Konto geladen wurde trat ein Fehler der Applikationsliste auf"
-	}
+	},
+
+        "trialDaysLeft": "{{variable}} Tage des Testabos noch übrig",
+        "trialExpired": "Testabo ist abgelaufen!",
+        "trialPopup": {
+                "title": "Testabostatus",
+                "closeButton": "Ich benötige mehr Testtage",
+                "upgradeButton": "Ich wechsle zum Abonnement",
+                "mainMessage": "Willkommen zurück zu Ihrem Testabo. Sie haben noch {{variable}} Tage übrig, um die Anlage zu testen.",
+                "trialExpired": "Ihr Testabo ist abgelaufen, klicken Sie um auf das Abonnement zu wechseln.",
+                "alreadyUpgraded": "Willkommen zurück zu Ihrem Testabo. Sie haben soeben zum Abonnement gewechselt. Sie werden mittels einer eMaill über den Status informiert!"
+        },
+
+        "trial": {
+                "noCreditCard": "Bitte wählen Sie Ihre Abonnement, mit dem Ausfüllen Ihrer Zahlunginformationen...",
+                "successUpgrade": {
+                        "content": "Sobald Ihre Bestellung eingegangen ist, werden Sie mit einer eMail informiert, um sich auf Ihrem Konto anzumelden. Sollten Sie noch Fragen haben, kontatkieren Sie uns per eMail unter {{wholsale_email}}, oder Rufen Sie uns an unter {{wholesale_phone}}.",
+                        "title": "Vielen Dank für Ihre Bestellung!"
+                }
+        },
+
+        "recoverPassword": {
+                "toastr": {
+                        "success": {
+                                "reset": "Ein eMail wurde an die angegebene Adresse versendet. Bitte prüfen Sie die eMails, um sich auf Ihr temporäres Konto anzumelden. Sobald Sie sich im Konto befinden müssen Sie das Passwort ändern."
+                        },
+                        "error": {
+                                "reset": {
+                                        "account_name": "Das Kontoname konnte nicht gefunden werden",
+                                        "account_realm": "Die Kontorealm konnte nicht gefunden werden",
+                                        "phone_number": "Die Telefonnummer konnte nicht gefunden werden",
+                                        "username": "Der Benutzername konnte nicht gefunden werden"
+                                },
+                                "missing": "Bitte geben Sie ein Kontoname oder eine Telefonnummer von Ihrem Konto an."
+                        }
+                },
+                "successReset": "Ein eMail wurde an die angegebene Adresse versendet. Bitte prüfen Sie die eMails, um sich auf Ihr temporäres Konto anzumelden. Sobald Sie sich im Konto befinden müssen Sie das Passwort ändern.",
+                "headline": "Um das Passwort zu wechseln, geben Sie bitte Ihre eMail/Benutzername ein:",
+                "emailPlaceholder": "eMail/Benutzername",
+                "headline2": "Und ein Kontoname oder eine Telefonnummer z.B. (+41....) Ihres Kontos ein",
+                "accountNamePlaceholder": "Kontoname",
+                "phoneNumberPlaceholder": "Telefonnummer",
+                "resetPassword": "Passwort Zurücksetzen",
+                "rememberPassword": "Passwort vergessen?",
+                "backToSignIn": "Zurück zur Anmeldung"
+        },
+
+        "trialGreetingsDialog": {
+                "title": "Willkommen zum Testabo von {{wholsale_name}}!",
+                "content": "Die Schnellanleitung wird Ihnen helfen, um Ihr Telefonsystem gemäss Ihren Wünschen einzurichten.",
+                "go": "Weiter"
+        }
 }

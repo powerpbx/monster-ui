@@ -47,7 +47,7 @@
 #auth_container .logo {
 	width: 210px;
 	height: 50px;
-	background: url('../img/kazoo-logo.svg');
+	background: url('../img/bg.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -314,7 +314,7 @@
 	height: 100%;
 	margin-right: 330px;
 
-	background: url(static/images/bg.svg) no-repeat center center #303039;
+	background: url(static/images/bg.jpg) no-repeat center center #303039;
 } */
 /* 
 #auth_container .hello {

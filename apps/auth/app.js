@@ -511,7 +511,7 @@ define(function(require){
 					loadWelcome();
 				},
 				error: function(error) {
-					template.find('.logo-block').css('background-image', 'url("apps/auth/style/static/images/bg.jpg")');
+					template.find('.logo-block').css('background-image', 'url("apps/auth/style/static/images/logo.png")');
 					loadWelcome();
 				}
 			});

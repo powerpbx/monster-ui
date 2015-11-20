@@ -93,5 +93,56 @@
 
 	"toastrMessages": {
 		"appListError": "Во время загрузки списка приложений произошла ошибка."
-	}
+	},
+
+        "trialDaysLeft": "{{variable}} days left in trial",
+        "trialExpired": "Trial Expired!",
+        "trialPopup": {
+                "title": "Trial status",
+                "closeButton": "Continue Trial",
+                "upgradeButton": "Upgrade Now",
+                "mainMessage": "Welcome back to your trial. You have {{variable}} days left to try out the platform.",
+                "trialExpired": "Your trial expired, please click on the Upgrade button to continue using the platform.",
+                "alreadyUpgraded": "Welcome back to your trial. You have already requested an upgrade for your account, you will be notified via email when the upgradeis active!"
+        },
+
+        "trial": {
+                "noCreditCard": "Please try to upgrade again once you filled your credit card information...",
+                "successUpgrade": {
+                        "content": "Once your order is processed, you will receive instructions via email on how to sign into your new account. If you have any questions in the meantime, please contact us at {{wholsale_email}}, or call us {{wholesale_phone}} and someone will assist you.",
+                        "title": "Thank you for your order!"
+                }
+        },
+
+        "recoverPassword": {
+                "toastr": {
+                        "success": {
+                                "reset": "Votre mot de passe a été réinitialisé avec succès. Un email a été envoyé à votre adresse de login."
+                        },
+                        "error": {
+                                "reset": {
+                                        "account_name": "Le nom de compte fourni n'a pas pu être trouvé",
+                                        "account_realm": "Le royaume de compte fourni n'a pas pu être trouvé",
+                                        "phone_number": "Le numéro de téléphone fourni n'a pas pu être trouvé",
+                                        "username": "Le nom d'utilisateur founi n'a pas pu être trouvé"
+                                },
+                                "missing": "Veuillez spécifier un nom de compte ou un numéro de téléphone lié à votre compte"
+                        }
+                },
+                "successReset": "Votre mot de passe a été réinitialisé avec succès. Un email a été envoyé à votre adresse de login.",
+                "headline": "Afin de récuperer votre mot de passe, vous devez fournir votre identifiant:",
+                "emailPlaceholder": "Identifiant",
+                "headline2": "Et un de ces deux champs (un seul est nécessaire):",
+                "accountNamePlaceholder": "Nom de Compte",
+                "phoneNumberPlaceholder": "Numéro de téléphone",
+                "resetPassword": "Réinitialiser Mot de Passe",
+                "rememberPassword": "Vous vous souvenez de votre mot de passe?",
+                "backToSignIn": "Retourner à l'identification"
+        },
+
+        "trialGreetingsDialog": {
+                "title": "Welcome to the Platform!",
+                "content": "The step-by-step wizard will help familiarize you with the platform so that you can begin setting up your business phone system.",
+                "go": "Go"
+        }
 }
