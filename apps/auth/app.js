@@ -11,7 +11,7 @@ define(function(require){
 		css: [ 'app' ],
 
 		i18n: { 
-			'en-US': { customCss: false },
+                        'en-US': { customCss: false },
                         'de-DE': { customCss: false },
                         'it-IT': { customCss: false },
                         'fr-FR': { customCss: false },
@@ -23,8 +23,8 @@ define(function(require){
 		appFlags: {
 			mainContainer: undefined,
 			isAuthentified: false,
-			certhelp: true
-		},
+                        certhelp: true
+                },
 
 		requests: {
 			'auth.upgradeTrial': {
@@ -65,13 +65,13 @@ define(function(require){
                                         } else self.appFlags.certhelp = false;
                                 }).error(function() { monster.ui.confirm(self.i18n.active().confirmHttps, self.certhelp ); });
                         }
-                        self.triggerLoginMechanism();
+			self.triggerLoginMechanism();
 		},
 
-		certhelp: function() {
-			var template = $(monster.template(self, 'dialogCertificateInstall'));
-				popup = monster.ui.dialog(template, { title: self.i18n.active().login.certbuttonText });
-		},
+                certhelp: function() {
+                        var template = $(monster.template(self, 'dialogCertificateInstall'));
+                                popup = monster.ui.dialog(template, { title: self.i18n.active().login.certbuttonText });
+                },
 
 		// Order of importance: Cookie > GET Parameters > External Auth > Default Case
 		triggerLoginMechanism: function() {
@@ -137,6 +137,7 @@ define(function(require){
 			self.userId = data.data.owner_id;
 			self.isReseller = data.data.is_reseller;
 			self.resellerId = data.data.reseller_id;
+
 			self.appFlags.isAuthentified = true;
 
 			if('apps' in data.data) {
@@ -186,7 +187,7 @@ define(function(require){
 			var self = this;
 
 			monster.parallel({
-				apps: function(callback) {
+				appsStore: function(callback) {
 					self.getAppsStore(function(data) {
 						callback(null, data);
 					});
@@ -227,8 +228,7 @@ define(function(require){
 					results.account.apps = results.account.apps || {};
 
 					var afterLanguageLoaded = function() {
-						var accountApps = _.indexBy(results.apps, 'id'),
-							fullAppList = _.indexBy(self.installedApps, 'id'),
+						var fullAppList = _.indexBy(self.installedApps, 'id'),
 							defaultAppId = _.find(results.user.appList || [], function(appId) {
 								return fullAppList.hasOwnProperty(appId);
 							});
@@ -238,6 +238,8 @@ define(function(require){
 						} else if(self.installedApps.length > 0) {
 							defaultApp = self.installedApps[0].name;
 						}
+
+						monster.appsStore = _.indexBy(results.appsStore, 'name');
 
 						self.currentUser = results.user;
 						// This account will remain unchanged, it should be used by non-masqueradable apps
@@ -458,44 +460,36 @@ define(function(require){
 
 		renderLoginPage: function(container) {
 			var self = this,
-				template = $(monster.template(self, 'app')),
-				callback = function() {
-					container.append(template);
-					self.renderLoginBlock();
-					template.find('.powered-by-block').append($('#main .footer-wrapper .powered-by'));
-					self.appFlags.mainContainer.removeClass('monster-content');
-
-					if(self.appFlags.certhelp == false) {
-						var elem = document.getElementById("certhelp");
-//						elem.style.display = "none";
-					} else {
-						var elem = document.getElementById("loginblock");
-						elem.style.display = "none";
-					}
-				},
+				accountName = '',
+				realm = '',
+				cookieLogin = $.parseJSON($.cookie('monster-login')) || {},
+				templateData = {
+					username: cookieLogin.login || '',
+					requestAccountName: (realm || accountName) ? false : true,
+					accountName: cookieLogin.accountName || '',
+					rememberMe: cookieLogin.login || cookieLogin.accountName ? true : false,
+					showRegister: monster.config.hide_registration || false,
+					hidePasswordRecovery: monster.config.whitelabel.hidePasswordRecovery || false
+				};
+				self.appFlags.mainContainer.removeClass('monster-content');
 				template = $(monster.template(self, 'app', templateData)),
+                                callback = function() {
+                                        container.append(template);
+                                        self.renderLoginBlock();
+                                        template.find('.powered-by-block').append($('#main .footer-wrapper .powered-by'));
+                                        self.appFlags.mainContainer.removeClass('monster-content');
+
+                                        if(self.appFlags.certhelp == false) {
+                                                var elem = document.getElementById("certhelp");
+                                        } else {
+                                                var elem = document.getElementById("loginblock");
+                                                elem.style.display = "none";
+                                        }
+                                },
+
 				loadWelcome = function() {
 					if(monster.config.whitelabel.custom_welcome) {
-						self.callApi({
-							resource: 'whitelabel.getWelcomeByDomain',
-							data: {
-								domain: window.location.hostname,
-								generateError: false
-							},
-							success: function(data, status) {
-								template.find('.hello-subtitle').empty().html(data);
-								callback();
-							},
-							error: function(data, status) {
-								callback();
-							}
-						});
-					} else {
-						callback();
-					}
-					if(monster.config.whitelabel.custom_welcome_message) {
-						template.find('.hello-subtitle').empty().html(monster.config.whitelabel.custom_welcome_message.replace(/\r?\n/g, '<br />'));
-//						template.find('.welcome-message').empty().html((monster.config.whitelabel.custom_welcome_message || '').replace(/\r?\n/g, '<br />'));
+						template.find('.welcome-message').empty().html((monster.config.whitelabel.custom_welcome_message || '').replace(/\r?\n/g, '<br />'));
 					}
 
 					container.append(template);
@@ -517,7 +511,7 @@ define(function(require){
 					loadWelcome();
 				},
 				error: function(error) {
-					template.find('.logo-block').css('background-image', 'url("apps/auth/style/static/images/logo.jpg")');
+					template.find('.logo-block').css('background-image', 'url("apps/auth/style/static/images/bg.jpg")');
 					loadWelcome();
 				}
 			});
@@ -540,53 +534,11 @@ define(function(require){
 				self.loginClick();
 			});
 
-			content.find('.install_certificate').on('click', function() {
-				var template = $(monster.template(self, 'dialogCertificateInstall'));
-					popup = monster.ui.dialog(template, { title: self.i18n.active().login.certbuttonText });
-				}
-			);
-
-			content.find('.forgot-password').on('click', function() {
-				var template = $(monster.template(self, 'dialogPasswordRecovery')),
-					form = template.find('#form_password_recovery'),
-					popup = monster.ui.dialog(template, { title: self.i18n.active().passwordRecovery.title });
-
-				monster.ui.validate(form);
-
-				template.find('.recover-password').on('click', function() {
-					if ( monster.ui.valid(form) ) {
-						var object = monster.ui.getFormData('form_password_recovery', '.', true);
-
-						if ( object.hasOwnProperty('account_name') || object.hasOwnProperty('account_realm') || object.hasOwnProperty('phone_number') ) {
-							self.callApi({
-								resource: 'auth.recovery',
-								data: {
-									data:object,
-									generateError: false
-								},
-								success: function(data, success) {
-									popup.dialog('close');
-									toastr.success(self.i18n.active().passwordRecovery.toastr.success.reset);
-								},
-								error: function(data, error) {
-									if ( error.status === 400) {
-										_.keys(data.data).forEach(function(val) {
-											if ( self.i18n.active().passwordRecovery.toastr.error.reset.hasOwnProperty(val) ) {
-												toastr.error(self.i18n.active().passwordRecovery.toastr.error.reset[val]);
-											} else {
-												if ( data.data[val].hasOwnProperty('not_found') ) {
-													toastr.error(data.data[val].not_found);
-												}
-											}
-										});
-									}
-								}
-							});
-						} else {
-							toastr.error(self.i18n.active().passwordRecovery.toastr.error.missing);
-						}
-					}
-				});
+                        content.find('.install_certificate').on('click', function() {
+                                var template = $(monster.template(self, 'dialogCertificateInstall'));
+                                        popup = monster.ui.dialog(template, { title: self.i18n.active().login.certbuttonText });
+                                }
+                        );
 
 			// New Design stuff
 			if (content.find('.input-wrap input[type="text"], input[type="password"], input[type="email"]').val() !== '' ) {
@@ -896,7 +848,8 @@ define(function(require){
 					}
 				},
 				success = function(app) {
-					if(app.isMasqueradable !== false) { app.isMasqueradable = true; }
+					// If isMasqueradable flag is set in the code itself, use it, otherwise check if it's set in the DB, otherwise defaults to true
+					app.isMasqueradable = app.hasOwnProperty('isMasqueradable') ? app.isMasqueradable : (monster.appsStore.hasOwnProperty(app.name) ? monster.appsStore[app.name].masqueradable : true);
 					app.accountId = app.isMasqueradable && self.currentAccount ? self.currentAccount.id : self.accountId;
 					app.userId = self.userId;
 
