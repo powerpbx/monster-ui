@@ -174,6 +174,7 @@ define(function(require){
 			var self = this,
 				args = pArgs,
 				mode = pArgs.mode || 'edit',
+				useOwnPlans = pArgs.useOwnPlans || false,
 				accountId = args.accountId || self.accountId;
 
 			monster.parallel({
@@ -193,7 +194,7 @@ define(function(require){
 
 									_.each(data.plans, function(v,k) {
 										listSP[k] = function(callback) {
-											self.servicePlanDetailsGetSP(k, accountId, function(detailSP) {
+											self.servicePlanDetailsGetSP(k, accountId, false, function(detailSP) {
 												callback && callback(null, detailSP);
 											});
 										}
@@ -212,7 +213,7 @@ define(function(require){
 						}
 					},
 					listAvailable: function(callback) {
-						self.servicePlanDetailsListSP(accountId, function(data) {
+						self.servicePlanDetailsListSP(accountId, useOwnPlans, function(data) {
 							callback(null, data)
 						});
 					}
@@ -243,7 +244,7 @@ define(function(require){
 
 						if(servicePlanId !== 'none') {
 							$this.parents('.category-wrapper').addClass('has-selected');
-							self.servicePlanDetailsGetSP(servicePlanId, accountId, function(data) {
+							self.servicePlanDetailsGetSP(servicePlanId, accountId, useOwnPlans, function(data) {
 								self.servicePlanDetailsRender({ accountId: accountId, servicePlan: data, container: divContainer });
 							});
 						} else {
@@ -472,11 +473,11 @@ define(function(require){
 			});
 		},
 
-		servicePlanDetailsListSP: function(accountId, callback) {
+		servicePlanDetailsListSP: function(accountId, useOwnPlans, callback) {
 			var self = this;
 
 			self.callApi({
-				resource: 'servicePlan.listAvailable',
+				resource: useOwnPlans ? 'servicePlan.list' : 'servicePlan.listAvailable',
 				data: {
 					accountId: accountId
 				},
@@ -486,11 +487,11 @@ define(function(require){
 			});
 		},
 
-		servicePlanDetailsGetSP: function(planId, accountId, callback) {
+		servicePlanDetailsGetSP: function(planId, accountId, useOwnPlans, callback) {
 			var self = this;
 
 			self.callApi({
-				resource: 'servicePlan.getAvailable',
+				resource: useOwnPlans ? 'servicePlan.get' : 'servicePlan.getAvailable',
 				data: {
 					planId: planId,
 					accountId: accountId
