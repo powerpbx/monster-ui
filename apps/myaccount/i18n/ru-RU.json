@@ -108,7 +108,8 @@
                         "supportProvision": "Automatic Devicesetting on",
                         "provisionEnabled": "Is Enabled",
                         "provisionDisabled": "Is Disabled",
-                        "supportCreatenew": "Devicesetting in userportal"
+                        "supportCreatenew": "Devicesetting in userportal",
+                        "firmwareupdate": "Firmwareupdate enabled"
                 },
                 "dialplan": {
                         "title": "Accout-Dialplan",

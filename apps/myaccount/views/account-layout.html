@@ -294,6 +294,14 @@
                                                                         {{/monsterCheckbox}}
                                                                 </div>
                                                         </div>
+                                                       <div class="control-group">
+                                                                <label class="control-label" for="account_firmware_enabled">{{ i18n.account.provision.firmwareupdate }}</label>
+                                                                <div class="controls checkbox-container">
+                                                                        {{#monsterCheckbox}}
+                                                                                <input type="checkbox" id="account_firmware_enabled" name="provision.firmware_enabled" {{#if account.provision.firmware_enabled}}checked{{/if}} />
+                                                                        {{/monsterCheckbox}}
+                                                                </div>
+                                                        </div>
                                                         <div class="action-group clearfix">
                                                                 <div class="action-bar">
                                                                         <button type="button" class="monster-button cancel">{{ i18n.cancel }}</button>

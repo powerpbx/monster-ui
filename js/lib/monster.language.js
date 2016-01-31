@@ -7,6 +7,7 @@ define(function(require) {
 	var language = {
 		list: {
 			"de-DE": {iso: "de-DE", long: "Deutsch (Deutschland)", shortformat: 'DD.MM.year', longformat: 'DD.MM.year - hh:mm:ss', longtimeformat: 'hh:mm:ss', timeformat: '24h' },
+			"dk-DK": {iso: "dk-DK", long: "Danske (Danmark)", shortformat: 'DD.MM.year', longformat: 'DD.MM.year - hh:mm:ss', longtimeformat: 'hh:mm:ss', timeformat: '24h' },
 			"en-US": {iso: "en-US", long: "English (American)", shortformat: 'MM/DD/year', longformat: 'MM/DD/year - hh:mm:ss12h', longtimeformat: 'hh:mm:ss12h', timeformat: '12h' },
 			"es-ES": {iso: "es-ES", long: "Espania (Espaniol)", shortformat: 'DD/MM/year', longformat: 'DD/MM/year - hh:mm:ss12h', longtimeformat: 'hh:mm:ss', timeformat: '24h' },
 			"nl-NL": {iso: "nl-NL", long: "Nederland (Nederland)", shortformat: 'DD/MM/year', longformat: 'DD/MM/year - hh:mm', longtimeformat: 'hh:mm:ss', timeformat: '24h' },

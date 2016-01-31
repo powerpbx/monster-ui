@@ -1611,13 +1611,13 @@ define(function(require){
 		 * appPush delete
 		 */
 		change_appList: function(appList, tagType, appPush, tagOka, tagOkb) {
-		    for(var i = appList.length - 1; i >= 0; i--) {
-		        if(appList[i].tags.indexOf(tagType)>-1 && appList[i].tags.indexOf('all')==-1 && appList[i].tags.indexOf(tagOka)==-1 && appList[i].tags.indexOf(tagOkb)==-1) {
-			    if(appPush == 'delete')
-		               appList.splice(i,1);
-		        }
-		    }
-		    appList.sort();
+//		    for(var i = appList.length - 1; i >= 0; i--) {
+//		        if(appList[i].tags.indexOf(tagType)>-1 && appList[i].tags.indexOf('all')==-1 && appList[i].tags.indexOf(tagOka)==-1 && appList[i].tags.indexOf(tagOkb)==-1) {
+//			    if(appPush == 'delete')
+//		               appList.splice(i,1);
+//		        }
+//		    }
+//		    appList.sort();
                     return appList;
 		},
 

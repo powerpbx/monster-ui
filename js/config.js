@@ -3,17 +3,25 @@ define(function(require){
 	return {
 		api: {
 			// The default API URL defines what API is used to log in to your back-end
-			default: 'https://kazoo.allip.ovh:8443/v2/',
+			default: 'https://kazoo.allip.ovh:8443/v2/'
 
 			// If you have provisioner turned on in your install and can use the one provided by 2600hz, add the URL in the 'provisioner' key below
-			provisioner: 'https://prov.allip.ovh/prov/',
+			,provisioner: 'https://prov.allip.ovh/'
+			,provisioner_http: 'http://prov.allip.ovh/'
 			//provisioner: 'https://p3.zswitch.net/',
 
 			// If you want to use WebSockets you need to turn blackhole on in the back-end and then put the URL in the 'socket' key below
-			socket: 'https://kazoo.allip.ovh:7777',
+			,socket: 'https://kazoo.allip.ovh:7777'
 
 			// Set Project Phonebook URL if you want to use it to search phone numbers
-			// phonebook: 'project_phonebook_url'
+			,phonebook: 'project_phonebook_url'
+
+			// Set Mobile_app nvmo api url
+			,mobile_nvmo: 'project_phonebook_url'
+
+			// for trial api 
+			,screwdriver: 'https://kazoo.allip.ovh:8443/v2/'
+
 		},
 
 		// The resellerId key is the accountId of your master account, and is needed for some reseller features
@@ -26,6 +34,8 @@ define(function(require){
                 // If you have a selfcert for HTTPS must be used, you need a own root certificate (root-cert.der in / www)!
                 selfcerthttps: true,
 
+		// kazoo clusterId
+		kazooClusterId: 'f0d33c08759dd18d2d894785fd684a4c',
 
 		// Contains all the flags that are whitelabel-able via the Branding app.
 		// Setting them in the config file will set the defaults if you don't use any whitelabel
@@ -54,9 +64,11 @@ define(function(require){
 				//logout: 'http://www.google.com',
 			}
 		},
+		advancedView: true,
+
                 developerFlags: {
                         // Setting this flag to true will show the SmartPBX Callflows in the Callflows app
-                        showSmartPBXCallflows: false,
+                        showSmartPBXCallflows: true,
 
                         // Settings this flag to true will show JS error when they happen, but in general we want to hide those so we comment it
                         showJSErrors: false

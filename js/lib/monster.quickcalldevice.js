@@ -1,30 +1,17 @@
-define(function(require) {
+define(function(require){
+        var $ = require("jquery"),
+                _ = require("underscore"),
+                monster = require("monster");
 
-	var $ = require("jquery"),
-		_ = require("underscore"),
-		monster = require("monster");
 	var quickcalldevice = {
 
-
 		populateDropdown: function(dropdown, _selected) {
-return quickcalldevice;
-			var quickcalldevice = this, selected = _selected;
+			var self = this, selected = _selected;
 
-                        quickcalldevice.usersGetDevicesData(function(devicesData) {
-console.log(deviceData);
-                            var devices = {};
-                                _.each(devicesData, function(device) {
-                                    if( (!('owner_id' in device) || device.owner_id === '' || device.owner_id === apps.auth.currentUser.id) ) {
-                                            devices[device.id] = device;
-                                    }
-                            });
-
-                        list: {devices};
-
-                        }),
-
-
-			$.each(quickcalldevice.list, function(i, data) {
+			if(typeof monster.apps.auth.currentUser.devices == 'undefined')
+				quickcalldevice.getlist();
+			if(typeof monster.apps.auth.currentUser.devices == 'object')
+			$.each(monster.apps.auth.currentUser.devices , function(i, data) {
 				if(selected == data.id) {
 					dropdown.append('<option value="' + data.id + '" SELECTED>' + data.name + '</option>');
 				}
@@ -34,9 +21,22 @@ console.log(deviceData);
 			});
 		},
 
+		getlist: function() {
+			var self = this;
+			self.usersGetDevicesData(function(devicesData) {
+				var devices = {};
+				_.each(devicesData, function(device) {
+					if( (!('owner_id' in device) || device.owner_id === '' || device.enabled === 'false' || device.owner_id === monster.apps.auth.currentUser.id) ) {
+						devices[device.id] = device;
+					}
+				});
+				monster.apps.auth.currentUser.devices = devices;
+			});
+		},
+
                 usersGetDevicesData: function(callback) {
-                        var data = this;
-                        monster.request({
+                        var self = this;
+                        monster.apps.auth.callApi({
                                 resource: 'device.list',
                                 data: {
                                         accountId: monster.apps.auth.currentAccount.id,
@@ -44,17 +44,14 @@ console.log(deviceData);
                                                 paginate: 'false'
                                         }
                                 },
-                                success: function(data) {
-                                        callback && callback(data.data);
+                                success: function(_data) {
+                                        callback && callback(_data.data)
                                 }
                         });
-console.log(data);
-                },
-
-                getSelectedFormatArray: function(id) {
-                        if(this.list[id] !== 'undefined') return this.list[id];
-                        else return this.list[''];
                 }
-        };
+
+	};
+	if(typeof monster.apps.auth.currentUser.devices == 'undefined')
+		quickcalldevice.getlist();
 	return quickcalldevice;
 });

@@ -13,6 +13,7 @@ define(function(require){
 		i18n: { 
 			'en-US': { customCss: false },
                         'de-DE': { customCss: false },
+                        'dk-DK': { customCss: false },
                         'it-IT': { customCss: false },
                         'fr-FR': { customCss: false },
                         'ro-RO': { customCss: false },

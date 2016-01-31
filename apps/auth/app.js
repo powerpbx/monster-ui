@@ -13,6 +13,7 @@ define(function(require){
 		i18n: { 
                         'en-US': { customCss: false },
                         'de-DE': { customCss: false },
+                        'dk-DK': { customCss: false },
                         'it-IT': { customCss: false },
                         'fr-FR': { customCss: false },
                         'ro-RO': { customCss: false },
@@ -54,6 +55,7 @@ define(function(require){
 			self.appFlags.mainContainer = mainContainer;
 
                         // Handle http or https with selfcert connections
+                        if(typeof monster.config.selfcerthttps !== 'undefined')
                         if(monster.config.selfcerthttps == true) {
                                 $.getJSON('https://'+location.hostname+'/apps/auth/checkssl.php', function(sslcheck){
                                         if (location.protocol == 'http:') {
@@ -579,8 +581,6 @@ define(function(require){
 				if ( monster.ui.valid(form) ) {
 					var object = monster.ui.getFormData('form_password_recovery', '.', true);
 
-					object.ui_url = window.location.href;
-
 					if ( object.hasOwnProperty('account_name') || object.hasOwnProperty('phone_number') ) {
 						self.callApi({
 							resource: 'auth.recovery',
@@ -808,6 +808,20 @@ define(function(require){
 
 			self.callApi({
 				resource: 'appsStore.list',
+				data: {
+					accountId: self.accountId
+				},
+				success: function(_data) {
+					callback && callback(_data.data)
+				}
+			});
+		},
+
+		getBranding: function(callback) {
+			var self = this;
+
+			self.callApi({
+				resource: 'whitelabel.get',
 				data: {
 					accountId: self.accountId
 				},

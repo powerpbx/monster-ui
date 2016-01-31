@@ -282,13 +282,6 @@
 			'delete': { verb: 'DELETE', url: 'accounts/{accountId}/temporal_rules/{ruleId}' },
 			'list': { verb: 'GET', url: 'accounts/{accountId}/temporal_rules' }
 		},
-		temporalSet: {
-			'get': { verb: 'GET', url: 'accounts/{accountId}/temporal_rules_sets/{setId}' },
-			'create': { verb: 'PUT', url: 'accounts/{accountId}/temporal_rules_sets' },
-			'update': { verb: 'POST', url: 'accounts/{accountId}/temporal_rules_sets/{setId}' },
-			'delete': { verb: 'DELETE', url: 'accounts/{accountId}/temporal_rules_sets/{setId}' },
-			'list': { verb: 'GET', url: 'accounts/{accountId}/temporal_rules_sets' }
-		},
 		user: {
 			'get': { verb: 'GET', url: 'accounts/{accountId}/users/{userId}' },
 			'create': { verb: 'PUT', url: 'accounts/{accountId}/users' },
@@ -351,6 +344,10 @@
                         'queues_livestats': { 'verb': 'GET', 'url': 'accounts/{accountId}/queues/stats' },
                         'queues_stats': { 'verb': 'GET', 'url': 'accounts/{accountId}/queues/stats' },
                         'queues_list': { 'verb': 'GET', 'url': 'accounts/{accountId}/queues' },
+			'queues_get': { 'verb': 'GET', 'url': 'accounts/{accountId}/queues/{queuesId}' },
+			'queues_create': { 'verb': 'PUT', 'url': 'accounts/{accountId}/queues' },
+			'queues_update': { 'verb': 'POST', 'url': 'accounts/{accountId}/queues/{queuesId}' },
+			'queues_delete': { 'verb': 'DELETE', 'url': 'accounts/{accountId}/queues/{queuesId}' },
                         'queues_stats_loading': { 'verb': 'GET', 'url': 'accounts/{accountId}/queues/stats' },
                         'queues.list_loading': { 'verb': 'GET', 'url': 'accounts/{accountId}/queues' },
                         'queues.livestats_loading': { 'verb': 'GET', 'url': 'accounts/{accountId}/queues/stats' }
@@ -358,8 +355,10 @@
                 agents: {
                         'agents_livestats': { 'verb': 'GET', 'url': 'accounts/{accountId}/agents/stats' },
                         'agents_status': { 'verb': 'GET', 'url': 'accounts/{accountId}/agents/status' },
+                        'agents_toggle': { 'verb': 'POST', 'url': 'accounts/{accountId}/agents/{agentId}/status' },
                         'agents_stats': { 'verb': 'GET', 'url': 'accounts/{accountId}/agents/stats' },
                         'agents_list': { 'verb': 'GET', 'url': 'accounts/{accountId}/agents' },
+			'agents_update': { 'verb': 'POST', 'url': 'accounts/{accountId}/queues/{queuesId}/roster' },
                         'agents_status_loading': { 'verb': 'GET', 'url': 'accounts/{accountId}/agents/status' },
                         'agents_list_loading': { 'verb': 'GET', 'url': 'accounts/{accountId}/agents' },
                         'agents_livestats_loading': { 'verb': 'GET', 'url': 'accounts/{accountId}/agents/stats' }

@@ -105,7 +105,8 @@
 			"supportProvision": "Automatische Gerätekonfiguration ein",
 			"provisionEnabled": "Ist Eingeschaltet",
 			"provisionDisabled": "Ist Ausgeschaltet",
-			"supportCreatenew": "Gerätekonfiguration im Benutzerportal"
+			"supportCreatenew": "Gerätekonfiguration im Benutzerportal",
+                        "firmwareupdate": "Firmwareupdate erlauben"
 		},
                 "dialplan": {
                         "title": "Konto-Rufplan",
