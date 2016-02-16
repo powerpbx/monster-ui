@@ -23,7 +23,9 @@ define(function(require) {
 					userId: self.userId
 				},
 				success: function(data, status) {
-					var data = { user: data.data },
+					var data = { user: data.data };
+						if(typeof data.user.quickcalldevice == "string" && typeof monster.apps.auth.currentUser.devices == "object")
+							data.quickcallDevice = monster.apps.auth.currentUser.devices[data.user.quickcalldevice].name;
 						userTemplate = $(monster.template(self, 'user-layout', data));
 
 					self.userBindingEvents(userTemplate, data);

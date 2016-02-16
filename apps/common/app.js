@@ -21,6 +21,8 @@ define(function(require){
 			'ro-RO': { customCss: false },
 			'fr-FR': { customCss: false },
 			'ru-RU': { customCss: false },
+			'pt-PT': { customCss: false },
+			'zh-CN': { customCss: false },
 			'es-ES': { customCss: false }
 		},
 

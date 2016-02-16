@@ -12,6 +12,7 @@
 		"401": "Anmeldungsfehler, bitte überprüfen Sie den Benutzernamen und das Konto, ob es korrekt ist.",
 		"403": "Zugriff verweigert.",
 		"500": "Interner Serverfehler, bitte kontaktieren Sie Ihren Administrator.",
+		"api": "Interner Serverfehler, bitte führen Sie ein Update ihrer API-Engine durch. Benötigt:",
 		"invalidData": {
 			"errorLabel": "Fehlereingabe:",
 			"required": "Das Feld \"{{field}}\" muss ausgefüllt werden.",

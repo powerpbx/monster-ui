@@ -10,6 +10,7 @@
     "500": "Interne server fout, neem alsublieft contact met ons op",
     "generic": "Er ging iets fout (details onbekend), probeer het over een paar secode nog eens!",
     "genericLabel": "API Response",
+    "api": "Internal server error, please update you API-Engine to ",
     "invalidData": {
       "errorLabel": "Invalid Data:",
       "required": "Het veld \"{{field}}\" is verplicht.",

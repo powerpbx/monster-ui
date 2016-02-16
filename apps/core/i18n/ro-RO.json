@@ -12,6 +12,7 @@
 		"401": "eroare de înregistrare, vă rugăm să verificați numele de utilizator și contul în cazul în care este corect.",
 		"403": "accesul interzis.",
 		"500": "Eroare internă de server, vă rugăm să contactați administratorul.",
+		"api": "Internal server error, please update you API-Engine to ",
 		"invalidData": {
 			"errorLabel": "intrare eroare",
 			"required": "câmpul {{ }} câmp trebuie completat.",

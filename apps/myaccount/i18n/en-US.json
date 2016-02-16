@@ -121,6 +121,8 @@
                         "enabled": "Own Account-Dialplan",
                         "disabled": "None"
                 },
+                "account_pendingout": "Pending logout agent",
+                "placeholder_pendingout": "6",
 		"title": "Account",
 
 		"accountName": "Account Name",

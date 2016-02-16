@@ -425,6 +425,14 @@
                                                                                     <select id="account_regiodialplan" name="regiodialplan" data-original_value="{{ account.regiodialplan }}"></select>
                                                                             </div>
                                                                         </div>
+
+							<div class="control-group">
+								<label class="control-label" for="account_pendingout">{{ i18n.account.account_pendingout }}</label>
+								<div class="controls">
+									<input type="text" id="account_pendingout" name="max_connect_failures" value="{{account.max_connect_failures}}" placeholder="{{ i18n.plceholder_account_pendingout }}" data-original_value="{{max_connect_failures}}"/>
+								</div>
+							</div>
+
                                                                         <div class="action-group clearfix">
                                                                                 <div class="action-bar">
                                                                                         <button type="button" class="monster-button cancel">{{ i18n.cancel }}</button>

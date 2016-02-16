@@ -12,6 +12,7 @@
 		"401": "errore di registrazione, controllare il nome utente e la considerazione se è corretto.",
 		"403": "accesso negato.",
 		"500": "Errore interno del server, si prega di contattare l'amministratore.",
+		"api": "Internal server error, please update you API-Engine to ",
 		"invalidData": {
 			"errorLabel": "ingresso errore",
 			"required": "il campo {{ }} campo deve essere completato.",

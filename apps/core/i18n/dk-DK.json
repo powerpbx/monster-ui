@@ -1,5 +1,5 @@
 {
-        "defaultttsvoice": "female/en-US",
+        "defaultttsvoice": "female/dk-DK",
 	"none": "None",
 	"poweredBy": "Powered by ",
 	"error": "Error",
@@ -10,6 +10,7 @@
 		"401": "Invalid credentials, please check that your username and account name are correct.",
 		"403": "Access forbidden.",
 		"500": "Internal server error, please contact your administrator",
+		"api": "Internal server error, please update you API-Engine to ",
 		"invalidData": {
 			"errorLabel": "Invalid Data:",
 			"required": "The field \"{{field}}\" is required.",

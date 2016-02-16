@@ -6,9 +6,8 @@ define(function(require){
 			default: 'https://kazoo.allip.ovh:8443/v2/'
 
 			// If you have provisioner turned on in your install and can use the one provided by 2600hz, add the URL in the 'provisioner' key below
-			,provisioner: 'https://prov.allip.ovh/'
-			,provisioner_http: 'http://prov.allip.ovh/'
-			//provisioner: 'https://p3.zswitch.net/',
+			,provisioner: 'https://kazoo.freepbx.ch/provisioner/'
+			,provisioner_http: 'http://kazoo.freepbx.ch/provisioner/'
 
 			// If you want to use WebSockets you need to turn blackhole on in the back-end and then put the URL in the 'socket' key below
 			,socket: 'https://kazoo.allip.ovh:7777'
