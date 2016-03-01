@@ -4,6 +4,7 @@ define(function(require){
 		monster = require('monster'),
 		language = require('monster-language'),
 		timezone = require('monster-timezone'),
+		quickcalldevice = require('monster-quickcalldevice'),
 		regionaldialplan = require('monster-regiodialplan');
 
 	var account = {
@@ -21,15 +22,37 @@ define(function(require){
                                     data.is_superadminreseller = true;
                                 if(monster.apps.auth.originalAccount.is_reseller == true && monster.apps.auth.currentUser.priv_level == 'admin' && monster.apps.auth.currentUser.enabled == true)
                                     data.is_adminreseller = true;
+
+                                if(typeof data.account.provision == "object" && typeof data.devices == "object") {
+                                    if(typeof data.account.provision.keytemplate == "string") {
+                                    $.each(data.devices, function(i, dev) {
+                                        if(dev.device_type == 'sip_device')
+                                        if(data.account.provision.keytemplate == dev.id) {
+                                                data.keytemplate = dev.name;
+                                        }
+                                    });
+                                    }
+				}
+
 				var accountTemplate = $(monster.template(self, 'account-layout', data));
-
 				self.accountBindEvents(accountTemplate, data);
-
 				monster.pub('myaccount.renderSubmodule', accountTemplate);
-
 				args.callback && args.callback(accountTemplate);
 			});
 		},
+
+                devicesDropdown: function(data, dropdown, _selected) {
+                        self = this;
+                        selected = _selected;
+                                $.each(data.devices, function(i, dev) {
+                                        if(dev.device_type == 'sip_device')
+                                        if(selected == dev.id) {
+                                                dropdown.append('<option value="' + dev.id + '" SELECTED>' + dev.name + '</option>');
+                                        } else {
+                                                dropdown.append('<option value="' + dev.id + '">' + dev.name + '</option>');
+                                        }
+                                });
+                },
 
 		accountBindEvents: function(template, data) {
 			var self = this;
@@ -42,6 +65,9 @@ define(function(require){
 
 			regionaldialplan.populateDropdown(template.find('#account_regiodialplan'), data.account.regiodialplan);
 			template.find('#account_regiodialplan').chosen({ search_contains: true, width: '220px' });
+			if(typeof data.account.provision == "object")
+				self.devicesDropdown(data, template.find('#account_keytemplate'), data.account.provision.keytemplate||'inherit', {inherit: ''});
+			template.find('#account_keytemplate').chosen({ search_contains: true, width: '220px' });
 
 			//Temporary button design fix until we redesign the Accounts Manager
 			template.find('#accountsmanager_carrier_save')
@@ -88,7 +114,8 @@ define(function(require){
 		accountGetData: function(globalCallback) {
 			var self = this;
 
-			monster.parallel({
+			monster.parallel(
+				{
 					account: function(callback) {
 						self.callApi({
 							resource: 'account.get',
@@ -104,8 +131,22 @@ define(function(require){
 						self.accountGetNoMatch(function(data) {
 							callback && callback(null, data);
 						})
-					}
-				},
+					},
+                                        devices: function(callback) {
+                                            self.callApi({
+                                                resource: 'device.list',
+                                                data: {
+                                                        accountId: self.accountId,
+                                                        filters: {
+                                                                paginate: 'false'
+                                                        }
+                                                },
+                                                success: function(dataDevices) {
+                                                        callback(null, dataDevices.data);
+                                                }
+                                            });
+                                        }
+                                },
 				function(err, results) {
 					self.accountFormatData(results, globalCallback);
 				}

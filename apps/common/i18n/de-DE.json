@@ -532,7 +532,7 @@
                     "dsl_modem": "DSL-Modem",
                     "qos_router": "QoS-Router (ohne WLAN)",
                     "qos_router_wlan": "QoS-Router (mit WLAN)",
-		    "ui_apps": "UI Apps",
+		    "ui_apps": "Oberflächen Programme",
 		    "port": "Portierung (Analog ISDN bis 5 Nummern)",
 		    "port_did": "Portierung 6+ Nummern (DID Blöcke)",
 		    "cnam": "Name Abfragen",
@@ -607,7 +607,8 @@
                     "reporting": "Verkaufszahlen für Wiederverkauf",
                     "webhooks": "Webvorgänge integrieren",
                     "alarms": "Pikett-Alarm",
-                    "developer": "API-Dokummentation"
+                    "developer": "API-Dokummentation",
+                    "as": "Als"
             }
         },
         "ringingDurationControl": {

@@ -20,15 +20,18 @@ define(function(require){
 
 		chooseModelRender: function(args) {
 			var self = this;
+				if(typeof args.deviceData == "object" && typeof args.callback == "function") {
+					callback = args.callback
+				} else
+					args.deviceData = {};
 
 			monster.request({
 				resource: 'common.chooseModel.getProvisionerData',
 				data: {},
 				success: function(dataProvisioner) {
-					var dataTemplate = self.chooseModelFormatProvisionerData(dataProvisioner.data);
-
+				var provData = {}; provData.prov = dataProvisioner.data; provData.device = args.deviceData;
+					var dataTemplate = self.chooseModelFormatProvisionerData(provData);
 					dataTemplate.show_not_listed_links = args.callbackMissingBrand ? true : false;
-
 					self.chooseModelRenderProvisioner(dataTemplate, args.callback, args.callbackMissingBrand);
 				}
 			});
@@ -41,7 +44,7 @@ define(function(require){
 				families,
 				models;
 
-			_.each(data, function(brand, brandKey) {
+			_.each(data.prov, function(brand, brandKey) {
 				families = [];
 
 				_.each(brand.families, function(family, familyKey) {
@@ -66,8 +69,8 @@ define(function(require){
 					name: brand.name,
 					families: families
 				});
+				formattedData.device = data.device;
 			});
-
 			return formattedData;
 		},
 
@@ -139,7 +142,6 @@ define(function(require){
 
 			templateDevice.find('.missing-brand').on('click', function() {
 				popup.dialog('close').remove();
-
 				callbackMissingBrand && callbackMissingBrand();
 			});
 
@@ -166,7 +168,7 @@ define(function(require){
 						callbackAfterSave = function() {
 							popup.dialog('close').remove();
 						};
-
+						popup.dialog('close').remove();
 					callback && callback(dataDevice, callbackAfterSave);
 				}
 			});

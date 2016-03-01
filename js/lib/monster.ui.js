@@ -1618,6 +1618,7 @@ define(function(require){
 //		        }
 //		    }
 //		    appList.sort();
+//console.log(appList);
                     return appList;
 		},
 

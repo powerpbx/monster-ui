@@ -58,10 +58,10 @@ define(function(require){
 				// change item names for i18n support
                                 for (var property in servicePlanData.items){
                                         for (var property_in in servicePlanData.items[property]) {
-                                            if(self.i18n.active().servicePlanDetails.keys[property_in.toLowerCase()])
-                                                servicePlanData.items[property][property_in].name = self.i18n.active().servicePlanDetails.keys[property_in.toLowerCase()];
-                                            if(self.i18n.active().servicePlanDetails.keys[servicePlanData.items[property][property_in].name])
-                                                servicePlanData.items[property][property_in].name = self.i18n.active().servicePlanDetails.keys[servicePlanData.items[property][property_in].name.toLowerCase()];
+                                                if(self.i18n.active().servicePlanDetails.keys[property_in])
+                                                    servicePlanData.items[property][property_in].name = self.i18n.active().servicePlanDetails.keys[property_in.toLowerCase()];
+                                                if(self.i18n.active().servicePlanDetails.keys[servicePlanData.items[property][property_in].name])
+                                                    servicePlanData.items[property][property_in].name = self.i18n.active().servicePlanDetails.keys[servicePlanData.items[property][property_in].name.toLowerCase()];
                                         };
                                 };
 				servicePlanData.plan = servicePlanData.items;
@@ -73,8 +73,8 @@ define(function(require){
                                         for (var property_in in servicePlanData.plan[property]) {
                                             if(self.i18n.active().servicePlanDetails.keys[property_in.toLowerCase()])
                                                 servicePlanData.plan[property][property_in].name = self.i18n.active().servicePlanDetails.keys[property_in.toLowerCase()];
-                                            if(self.i18n.active().servicePlanDetails.keys[servicePlanData.plan[property][property_in].name])
-                                                servicePlanData.plan[property][property_in].name = self.i18n.active().servicePlanDetails.keys[servicePlanData.plan[property][property_in].name.toLowerCase()];
+                                            if(self.i18n.active().servicePlanDetails.keys[servicePlanData.plan[property][property_in.toLowerCase()].name])
+                                                servicePlanData.plan[property][property_in].name = self.i18n.active().servicePlanDetails.keys[servicePlanData.plan[property][property_in.toLowerCase()].name.toLowerCase()];
                                         };
                                 };
 			}

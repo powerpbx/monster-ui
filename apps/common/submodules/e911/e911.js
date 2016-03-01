@@ -51,7 +51,6 @@ define(function(require){
 
 				self.e911UpdateNumber(dataNumber.id, dataNumber, {
 					success: function(data) {
-
 						callbackSuccess(data);
 					},
 					multipleChoices: function(addresses) {
@@ -190,6 +189,7 @@ define(function(require){
 				},
 				error: function(_data, status) {
 					if (_data.error === '400') {
+console.log(data);
 						if (data.message === 'multiple_choice') {
 							callbacks.multipleChoices && callbacks.multipleChoices(_data.data.multiple_choice.dash_e911);
 						}

@@ -680,7 +680,10 @@
                         "ports": "Port Requests",
                         "reporting": "Sales Reporting",
                         "webhooks": "Webhooks",
-                        "alarms": "Pikett-Alarms"
+                        "alarms": "Pikett-Alarms",
+			"as": "As",
+			"user": "Standard User",
+			"admin": "Account Admin"
 		}
 	},
 

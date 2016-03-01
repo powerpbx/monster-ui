@@ -106,7 +106,8 @@
 			"provisionEnabled": "Ist Eingeschaltet",
 			"provisionDisabled": "Ist Ausgeschaltet",
 			"supportCreatenew": "Gerätekonfiguration im Benutzerportal",
-                        "firmwareupdate": "Firmwareupdate erlauben"
+                        "firmwareupdate": "Firmwareupdate erlauben",
+			"keytemplateLabel": "Tasten (Vorlage)"
 		},
                 "dialplan": {
                         "title": "Konto-Rufplan",

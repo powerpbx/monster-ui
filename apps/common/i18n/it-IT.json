@@ -586,7 +586,11 @@
                         "ports": "Port Requests",
                         "reporting": "Sales Reporting",
                         "webhooks": "Webhooks",
-                        "alarms": "Pikett-Alarms"
+                        "alarms": "Pikett-Alarms",
+                        "_all": "All",
+                        "as": "As",
+                        "user": "Standard User",
+                        "admin": "Account Admin"
                 }
         },
         "ringingDurationControl": {
