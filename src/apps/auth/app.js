@@ -2,6 +2,9 @@ define(function(require){
 	var $ = require("jquery"),
 		_ = require("underscore"),
 		monster = require("monster"),
+        angular = require('angular'),
+		satellizer = require("satellizer"),
+        jwt_decode = require('jwt_decode'),
 		toastr = require("toastr");
 
 	var app = {
@@ -579,6 +582,8 @@ define(function(require){
 				self.loginClick();
 			});
 
+            this._initAngular($('#oauth'));
+            
 			// New Design stuff
 			if (content.find('.input-wrap input[type="text"], input[type="password"], input[type="email"]').val() !== '' ) {
 				content.find('.placeholder-shift').addClass('fixed');
@@ -927,7 +932,102 @@ define(function(require){
 			}
 
 			success(args.app);
-		}
+		},
+
+            _initAngular: function(container) {
+            	var self = this;
+
+angular.module("oauth", ['satellizer'])
+                       .config(function($authProvider) {
+
+                          var skipIfLoggedIn = function($q, $auth) {
+                               var deferred = $q.defer();
+                               if ($auth.isAuthenticated()) {
+                                   deferred.reject();
+                               } else {
+                                   deferred.resolve();
+                               }
+                               return deferred.promise;
+                         };
+
+                        var loginRequired = function($q, $location, $auth) {
+                             var deferred = $q.defer();
+                             if ($auth.isAuthenticated()) {
+                                  deferred.resolve();
+                             } else {
+                                  $location.path('/login');
+                             }
+                             return deferred.promise;
+                       };
+
+
+                       $authProvider.google({
+                          clientId: '998652435029-1ckgoclppjgvnhe1kds54obdb9958qmm.apps.googleusercontent.com',
+                          //prompt: 'none',
+                          url: '/auth/callback',
+                       });
+
+                       $authProvider.linkedin({
+                          clientId: '78xd6e4jp3r3gi',
+                          url: '/auth/callback',
+                       });
+
+                       $authProvider.slack({
+                          clientId: '2658977682.83731733239',
+                          url: '/auth/callback',
+                       });
+
+                       $authProvider.github({
+                         clientId: 'YOUR_GITHUB_CLIENT_ID'
+                       });
+
+                       $authProvider.baseUrl = monster.config.api.default
+                  });
+
+angular.module('oauth')
+  .controller('LoginCtrl', function($scope, $location, $auth) {
+    console.log($scope);
+    $scope.login = function() {
+      $auth.login($scope.user)
+        .then(function() {
+          $location.path('/');
+        })
+        .catch(function(error) {
+          console.log(error.data.message, error.status);
+        });
+    };
+    $scope.authenticate = function(provider) {
+      $auth.authenticate(provider)
+        .then(function(resp) {
+          console.log(resp);
+          var decoded = jwt_decode(resp.data.auth_token);
+          console.log(decoded);
+          console.log('You have successfully signed in with ' + provider + '!');
+          if('account_id' in resp.data.data) {
+        	  self._afterSuccessfulAuth(resp.data);
+        	  
+          } else {
+              $location.path('/');
+          }
+        })
+        .catch(function(error) {
+          if (error.message) {
+            // Satellizer promise reject error.
+            console.log(error.message);
+          } else if (error.data) {
+            // HTTP response error from server
+            console.log(error.data.message, error.status);
+          } else {
+            console.log(error);
+          }
+        });
+    };
+  });
+
+angular.bootstrap(container, ['oauth']);
+
+
+               }
 	}
 
 	return app;

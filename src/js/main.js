@@ -2,6 +2,9 @@
 require.config({
 	waitSeconds: 200,
 	paths: {
+        'angular': 'js/lib/angular/angular',
+        'jwt_decode': 'js/lib/jwt/jwt-decode',
+        'satellizer': 'js/lib/angular/satellizer',
 		'async': 'js/lib/async',
 		'bootstrap': 'js/lib/bootstrap-2.3.1.min',
 		'bootstrap-clickover': 'js/lib/bootstrapx-clickover-1.0',
@@ -73,17 +76,28 @@ require.config({
 		'plugins': ['jquery'],
 		'kazoosdk': ['jquery'],
 		'touch-punch': ['jqueryui'],
+		'jwt_decode': {
+			'exports': 'jwt_decode'
+		},
 		'underscore': {
 			'exports': '_'
 		},
 		'kazoo': {
 			'exports': 'kazoo'
-		}
+		},
+        'angular' : {
+			'exports': 'angular'
+		},
+        'satellizer' : {
+			'exports': 'satellizer'
+		},
+		'satellizer': ['angular']
+		
 	},
 	urlArgs: 'bust=' + (new Date()).getTime()
 });
 
-require(['jquery', 'monster', 'modernizr', 'plugins', 'bootstrap', 'bootstrap-clickover', 'touch-punch'], function($, monster){
+require(['jquery', 'monster', 'modernizr', 'plugins', 'bootstrap', 'bootstrap-clickover', 'touch-punch', 'jwt_decode', 'angular'], function($, monster){
 	$.support.cors = true;
 
 	monster.initSDK();
